@@ -85,12 +85,12 @@ void InputCaret::SetVisibleState()
 {
 	SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
 	_this_state = VISIBLE;
-	_set_state = SetInvisibleState;
+	_set_state = &InputCaret::SetInvisibleState;
 }
 
  void InputCaret::SetInvisibleState()
 {
 	SDL_SetRenderDrawColor(_renderer, _inv_r, _inv_g, _inv_b, _inv_a);
 	_this_state = INVISIBLE;
-	_set_state = SetVisibleState;
+	_set_state = &InputCaret::SetVisibleState;
 }

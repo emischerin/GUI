@@ -46,7 +46,7 @@ private:
 	 void SetVisibleState();
 	 void SetInvisibleState();
 
-	 void(InputCaret::*_set_state)(void) = SetVisibleState;
+	 void(InputCaret::*_set_state)(void) = &InputCaret::SetVisibleState;
 	
 };
 
