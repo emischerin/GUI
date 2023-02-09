@@ -4,7 +4,7 @@
 #include "XCross.h"
 #include "FatRect.h"
 #include "InputCaret.h"
-
+#include "MainWindow.h"
 void DrawAliasedLine(SDL_Renderer* r)
 {
 	
@@ -155,34 +155,36 @@ void MainAppLoop(SDL_Window* main_window,SDL_Surface* mw_surface)
 
 int main(int argc, char** argv)
 {
-	SDL_Window* w = NULL;
+	MainWindow mw(800, 600, "HELLO NORMAL WINDOW!");
+	mw.StartLoop();
+	//SDL_Window* w = NULL;
 
-	SDL_Surface* screen = NULL;
+	//SDL_Surface* screen = NULL;
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		std::cout << "INIT ERROR!" << std::endl;
-		return -1;
-	}
+	//if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+	//	std::cout << "INIT ERROR!" << std::endl;
+	//	return -1;
+	//}
 
 
-	
-	w = SDL_CreateWindow("My custom window", 400,200 ,
-		 800, 600, SDL_WINDOW_SHOWN |SDL_WINDOW_BORDERLESS);
+	//
+	//w = SDL_CreateWindow("My custom window", 400,200 ,
+	//	 800, 600, SDL_WINDOW_SHOWN |SDL_WINDOW_BORDERLESS);
 
-	if (!w) {
-		std::cout << "ERROR CREATING WINDOW!" << std::endl;
-		return -2;
-	}
+	//if (!w) {
+	//	std::cout << "ERROR CREATING WINDOW!" << std::endl;
+	//	return -2;
+	//}
 
-	/*screen = SDL_GetWindowSurface(w);
+	///*screen = SDL_GetWindowSurface(w);
 
-	SDL_FillRect(screen, NULL, 0x2d2A57);*/
-	
-	SDL_UpdateWindowSurface(w);
+	//SDL_FillRect(screen, NULL, 0x2d2A57);*/
+	//
+	//SDL_UpdateWindowSurface(w);
 
-	MainAppLoop(w,screen);
+	//MainAppLoop(w,screen);
 
-	SDL_DestroyWindow(w);
+	//SDL_DestroyWindow(w);
 
 	SDL_Quit();
 
