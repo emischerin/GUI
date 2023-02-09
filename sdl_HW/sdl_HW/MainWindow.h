@@ -1,6 +1,6 @@
 #pragma once
 #include <sdl.h>
-
+#include <vector>
 class MainWindow
 {
 public:

@@ -32,8 +32,8 @@ int MainWindow::InitGraphics()
 
 	if (display_mode != 0) return display_mode;
 
-	this->_x = dm.w / 2;
-	this->_y = dm.h / 2;
+	this->_x = dm.w / 4;
+	this->_y = dm.h / 4;
 
 	
 	_main_window = SDL_CreateWindow(_title, _x, _y,
