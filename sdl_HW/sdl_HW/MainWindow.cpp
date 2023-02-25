@@ -11,6 +11,7 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control>, int>(_width, _height, 6);
 
 	this->SetBackgroundColor();
+
 	
 }
 
@@ -44,6 +45,8 @@ int MainWindow::InitGraphics()
 		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
 
 	if (!_main_window) return -1;
+
+	SDL_SetWindowResizable(_main_window, SDL_TRUE);
 
 	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
 	/*If creating hardware render fails we give a chance to create at least software render*/
