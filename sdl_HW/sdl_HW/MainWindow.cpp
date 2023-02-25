@@ -62,7 +62,7 @@ int MainWindow::MainLoop()
 		while (SDL_PollEvent(&e)) {
 			uint32_t event_t = e.type;
 			if (event_t == SDL_QUIT) return 1;
-
+			
 		}
 	}
 }
