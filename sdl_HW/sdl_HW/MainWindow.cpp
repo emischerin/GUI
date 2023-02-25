@@ -53,9 +53,22 @@ int MainWindow::InitGraphics()
 	this->_test_border = new BorderLine(_main_window, 0, 50);
 	_test_border->SetColor(134, 8, 196, 1);
 
+	this->_test_button = new Button(_main_window);
+
+
+	/*
+	*	Leads to incorrect bounding box Behaviour. Bounding Rect coordinates are different from the
+	* actual button coordinates. THEY MUST BE THE SAME!
+	* 	_test_button->SetPosition(100, 100);
+	* 
+	* 
+	*/
+	
+
 	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
 
 	this->_test_border->SetRenderer(_render);
+	this->_test_button->SetRenderer(_render);
 	/*If creating hardware render fails we give a chance to create at least software render*/
 	if (!_render) {
 		_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_SOFTWARE);
@@ -97,6 +110,7 @@ void MainWindow::Update()
 
 	SDL_RenderClear(_render);
 	_test_border->ImplBehaviour();
+	_test_button->ImplBehaviour();
 	SDL_RenderPresent(_render);
 
 	
