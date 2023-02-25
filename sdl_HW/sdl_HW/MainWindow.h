@@ -3,6 +3,7 @@
 #include <vector>
 #include "bsp_tree.h"
 #include "control.h"
+#include "BorderLine.h"
 
 class MainWindow
 {
@@ -20,6 +21,8 @@ private:
 	SDL_Color _background_color;
 
 	generic_tools::ds::bsp_tree<std::vector<Control>, int>* _mouse_collision = nullptr;
+
+	BorderLine* _test_border = nullptr;
 
 	int _width = 0;
 	int _height = 0;

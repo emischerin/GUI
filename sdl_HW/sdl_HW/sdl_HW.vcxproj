@@ -193,6 +193,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BorderLine.cpp" />
     <ClCompile Include="FatRect.cpp" />
     <ClCompile Include="InputCaret.cpp" />
     <ClCompile Include="MainWindow.cpp" />
@@ -200,6 +201,7 @@
     <ClCompile Include="XCross.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BorderLine.h" />
     <ClInclude Include="bsp_tree.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />

@@ -13,6 +13,8 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->SetBackgroundColor();
 
 	
+
+	
 }
 
 int MainWindow::StartLoop()
@@ -48,7 +50,12 @@ int MainWindow::InitGraphics()
 
 	SDL_SetWindowResizable(_main_window, SDL_TRUE);
 
+	this->_test_border = new BorderLine(_main_window, 0, 50);
+	_test_border->SetColor(134, 8, 196, 1);
+
 	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
+
+	this->_test_border->SetRenderer(_render);
 	/*If creating hardware render fails we give a chance to create at least software render*/
 	if (!_render) {
 		_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_SOFTWARE);
@@ -89,6 +96,10 @@ void MainWindow::Update()
 	SDL_SetRenderDrawColor(_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(_render);
-
+	_test_border->ImplBehaviour();
 	SDL_RenderPresent(_render);
+
+	
+
+
 }
