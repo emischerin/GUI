@@ -200,6 +200,7 @@
     <ClCompile Include="XCross.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bsp_tree.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />
     <ClInclude Include="InputCaret.h" />

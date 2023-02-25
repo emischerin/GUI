@@ -7,6 +7,10 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_width = width;
 	this->_height = height;
 	this->_title = w_title;
+
+	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control>, int>(_width, _height, 6);
+
+	this->SetBackgroundColor();
 	
 }
 
@@ -53,6 +57,14 @@ int MainWindow::InitGraphics()
 	
 }
 
+void MainWindow::SetBackgroundColor()
+{
+	_background_color.r = 255;
+	_background_color.g = 255;
+	_background_color.b = 255;
+	_background_color.a = 1;
+}
+
 int MainWindow::MainLoop()
 {
 	SDL_Event e;
@@ -64,5 +76,16 @@ int MainWindow::MainLoop()
 			if (event_t == SDL_QUIT) return 1;
 			
 		}
+
+		this->Update();
 	}
+}
+
+void MainWindow::Update()
+{
+	SDL_SetRenderDrawColor(_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
+
+	SDL_RenderClear(_render);
+
+	SDL_RenderPresent(_render);
 }
