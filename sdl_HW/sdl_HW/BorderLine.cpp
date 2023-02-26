@@ -1,5 +1,8 @@
 #include "BorderLine.h"
 
+
+
+
 BorderLine::BorderLine(SDL_Window* w,int rel_x,int rel_y)
 {
 	this->_window = w;
@@ -7,6 +10,13 @@ BorderLine::BorderLine(SDL_Window* w,int rel_x,int rel_y)
 	_rel_y = rel_y;
 	
 }
+
+void BorderLine::SetRelativeCoordinates(int rel_x, int rel_y)
+{
+	_rel_x = rel_x;
+	_rel_y = rel_y;
+}
+
 
 void BorderLine::ImplBehaviour()
 {

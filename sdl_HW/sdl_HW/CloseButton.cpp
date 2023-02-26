@@ -1,5 +1,23 @@
 #include "CloseButton.h"
 
+
+CloseButton::CloseButton()
+{
+	_r = 146;
+	_g = 7;
+	_b = 173;
+	_a = 1;
+	
+
+	_x = 70;
+	_y = 70;
+
+	_bounding_rect.x = _x;
+	_bounding_rect.y = _y;
+	_bounding_rect.w = _width;
+	_bounding_rect.h = _height;
+}
+
 CloseButton::CloseButton(SDL_Window* parent)
 {
 	_r = 146;

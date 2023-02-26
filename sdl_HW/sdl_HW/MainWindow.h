@@ -14,8 +14,8 @@ public:
 	
 	int StartLoop();
 	
-	static SDL_Window* GetWinPtr();
-	static SDL_Renderer* GetWinRender();
+	 SDL_Window* GetWinPtr();
+	 SDL_Renderer* GetWinRender();
 
 private:
 	SDL_Window* _main_window = nullptr;

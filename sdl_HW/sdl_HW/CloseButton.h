@@ -5,6 +5,7 @@
 class CloseButton : public Control
 {
 public:
+	CloseButton();
 	CloseButton(SDL_Window* parent);
 	
 
