@@ -117,3 +117,13 @@ void MainWindow::Update()
 
 
 }
+
+SDL_Window* MainWindow::GetWinPtr()
+{
+	return _main_window;
+}
+
+SDL_Renderer* MainWindow::GetWinRender()
+{
+	return _render;
+}

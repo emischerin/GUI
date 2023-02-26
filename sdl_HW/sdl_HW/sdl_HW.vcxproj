@@ -196,6 +196,7 @@
     <ClCompile Include="BorderLine.cpp" />
     <ClCompile Include="CloseButton.cpp" />
     <ClCompile Include="FatRect.cpp" />
+    <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputCaret.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="my_graphic.cpp" />
@@ -207,6 +208,7 @@
     <ClInclude Include="CloseButton.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="InputCaret.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Primitives.h" />

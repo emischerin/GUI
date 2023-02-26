@@ -27,7 +27,7 @@ void BorderLine::ImplBehaviour()
 		if(result_set_color == 0)
 			SDL_RenderDrawLine(_renderer, p1_x, p1_y, p2_x, p2_y);
 			/*Drawing second line, so the resulting line is fat*/
-			SDL_RenderDrawLine(_renderer, p1_x, p1_y + 1, p2_x, p2_y + 1);
+			//SDL_RenderDrawLine(_renderer, p1_x, p1_y + 1, p2_x, p2_y + 1);
 	}
 
 
