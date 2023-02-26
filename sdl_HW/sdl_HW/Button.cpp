@@ -26,13 +26,25 @@ void Button::ImplBehaviour()
 
 	if (MouseInButton(mouse_x, mouse_y)) {
 		SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
+		SDL_RenderFillRect(_renderer, &_bounding_rect);
+		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
 	}
 	else {
 		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
+		SDL_RenderDrawRect(_renderer, &_bounding_rect);
+		SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 1);
+		
 	}
 
-	SDL_RenderFillRect(_renderer, &_bounding_rect);
+	
 
+	
+	
+	SDL_RenderDrawLine(_renderer, (_x + 1), (_y + 1), (_x + _width) - 1, (_y + _height) - 1);
+	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
+	SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height) - 1, (_x + _width) - 1, (_y + 1));
+	
+	
 }
 
 bool Button::MouseInButton(int x,int y)

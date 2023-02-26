@@ -1,5 +1,6 @@
 #pragma once
 #include "Control.h"
+#include "XCross.h"
 
 class Button : public Control
 {
@@ -13,7 +14,7 @@ public:
 private:
 	int _mouse_over_r = 58, _mouse_over_g = 6;
 	int _mouse_over_b = 69, _mouse_over_a = 1;
-	int _width = 150;
+	int _width = 75;
 	int _height = 75;
 	SDL_Window* _parent = nullptr;
 	SDL_Rect _bounding_rect;
