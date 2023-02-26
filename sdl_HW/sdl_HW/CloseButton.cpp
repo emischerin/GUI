@@ -35,6 +35,10 @@ CloseButton::CloseButton(SDL_Window* parent)
 	_bounding_rect.h = _height;
 }
 
+
+
+
+
 void CloseButton::ImplBehaviour()
 {
 	int mouse_x, mouse_y;
@@ -65,6 +69,12 @@ void CloseButton::ImplBehaviour()
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
 	
 	
+}
+
+void CloseButton::SetWidthAndHeight(int w, int h)
+{
+	_width = w;
+	_height = h;
 }
 
 bool CloseButton::MouseInButton(int x,int y)

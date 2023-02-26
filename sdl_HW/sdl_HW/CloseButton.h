@@ -11,6 +11,8 @@ public:
 
 	void ImplBehaviour() override;
 	
+	void SetWidthAndHeight(int w, int h);
+
 
 private:
 	int _mouse_over_r = 233, _mouse_over_g = 211;
