@@ -53,7 +53,7 @@ int MainWindow::InitGraphics()
 	this->_test_border = new BorderLine(_main_window, 0, 50);
 	_test_border->SetColor(134, 8, 196, 1);
 
-	this->_test_button = new Button(_main_window);
+	this->_test_button = new CloseButton(_main_window);
 
 
 	/*

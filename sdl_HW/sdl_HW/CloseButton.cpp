@@ -1,6 +1,6 @@
-#include "Button.h"
+#include "CloseButton.h"
 
-Button::Button(SDL_Window* parent)
+CloseButton::CloseButton(SDL_Window* parent)
 {
 	_r = 146;
 	_g = 7;
@@ -17,7 +17,7 @@ Button::Button(SDL_Window* parent)
 	_bounding_rect.h = _height;
 }
 
-void Button::ImplBehaviour()
+void CloseButton::ImplBehaviour()
 {
 	int mouse_x, mouse_y;
 	
@@ -31,7 +31,7 @@ void Button::ImplBehaviour()
 	}
 	else {
 		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
-		SDL_RenderDrawRect(_renderer, &_bounding_rect);
+		//SDL_RenderDrawRect(_renderer, &_bounding_rect);
 		SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 1);
 		
 	}
@@ -40,14 +40,16 @@ void Button::ImplBehaviour()
 
 	
 	
-	SDL_RenderDrawLine(_renderer, (_x + 1), (_y + 1), (_x + _width) - 1, (_y + _height) - 1);
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
 	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
-	SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height) - 1, (_x + _width) - 1, (_y + 1));
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
 	
 	
 }
 
-bool Button::MouseInButton(int x,int y)
+bool CloseButton::MouseInButton(int x,int y)
 {
 	
 
@@ -56,7 +58,7 @@ bool Button::MouseInButton(int x,int y)
 	
 }
 
-bool Button::MouseYInButtonRange(int y)
+bool CloseButton::MouseYInButtonRange(int y)
 {
 	if ((y >= _y) && (y<= _y + _height))
 		return true;
@@ -64,7 +66,7 @@ bool Button::MouseYInButtonRange(int y)
 	return false;
 }
 
-bool Button::MouseXInButtonRange(int x)
+bool CloseButton::MouseXInButtonRange(int x)
 {
 	if ((x >= _x ) && (x <= _x + _width))
 		return true;
