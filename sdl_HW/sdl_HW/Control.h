@@ -25,7 +25,7 @@ public:
 	virtual void ImplBehaviour() = 0;
 	virtual ~Control() = default;
 protected:
-	SDL_Renderer* _renderer;
+	SDL_Renderer* _renderer = nullptr;
 
 	int _r = 0;
 	int _g = 0;

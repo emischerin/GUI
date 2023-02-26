@@ -15,7 +15,7 @@ public:
 
 	void ImplBehaviour() override;
 
-	void SetRelativeCoordinates(int rel_x,int rel_y);
+	void SetRelativeHeight(int rel_y);
 	
 
 protected:
