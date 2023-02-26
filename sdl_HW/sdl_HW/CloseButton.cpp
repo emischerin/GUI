@@ -8,10 +8,6 @@ CloseButton::CloseButton()
 	_b = 173;
 	_a = 1;
 	
-
-	_x = 70;
-	_y = 70;
-
 	_bounding_rect.x = _x;
 	_bounding_rect.y = _y;
 	_bounding_rect.w = _width;
@@ -60,13 +56,16 @@ void CloseButton::ImplBehaviour()
 
 	
 
-	
+	/*SDL_RenderDrawLine(_renderer, (_x), (_y), (_x + _width), (_y + _height));
+	SDL_RenderDrawLine(_renderer, (_x), (_y + _height), (_x + _width), (_y));*/
 	
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 12), (_x + _width) - 12, (_y + _height) - 10);
 	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
+	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 12, (_x + _width) - 12, (_y + 10));
 	
 	
 }
@@ -75,7 +74,23 @@ void CloseButton::SetWidthAndHeight(int w, int h)
 {
 	_width = w;
 	_height = h;
+	_bounding_rect.w = w;
+	_bounding_rect.h = h;
 }
+
+int CloseButton::GetWidth()
+{
+	return _width;
+}
+
+void CloseButton::SetPosition(int x, int y)
+{
+	_x = x;
+	_y = y;
+	_bounding_rect.x = x;
+	_bounding_rect.y = y;
+}
+
 
 bool CloseButton::MouseInButton(int x,int y)
 {

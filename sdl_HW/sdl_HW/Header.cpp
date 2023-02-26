@@ -7,7 +7,7 @@ Header::Header(SDL_Window* w,int rel_y)
 	_rel_y = rel_y;
 	
 	_border_line.SetRelativeHeight(rel_y);
-	_close_button.SetWidthAndHeight(rel_y - 1,17);
+	_close_button.SetWidthAndHeight(rel_y - 1,34);
 	_parent_window = w;
 	
 
@@ -16,7 +16,8 @@ Header::Header(SDL_Window* w,int rel_y)
 void Header::ImplBehaviour()
 {
 	this->DrawHeaderRect();
-	
+	_border_line.ImplBehaviour();
+	DrawCloseButton();
 
 }
 
@@ -36,5 +37,14 @@ void Header::DrawHeaderRect()
 
 void Header::DrawCloseButton()
 {
+	int x, y,close_button_offset_r;
 
+	SDL_GetWindowSize(_parent_window, &x, &y);
+	if (_renderer) {
+		close_button_offset_r = x - _close_button.GetWidth();
+		_close_button.SetPosition(close_button_offset_r, 0);
+		_close_button.SetRenderer(_renderer);
+		_close_button.ImplBehaviour();
+
+	}
 }

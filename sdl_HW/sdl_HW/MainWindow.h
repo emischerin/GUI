@@ -3,8 +3,7 @@
 #include <vector>
 #include "bsp_tree.h"
 #include "control.h"
-#include "BorderLine.h"
-#include "CloseButton.h"
+#include "Header.h"
 
 class MainWindow
 {
@@ -26,8 +25,7 @@ private:
 
 	generic_tools::ds::bsp_tree<std::vector<Control>, int>* _mouse_collision = nullptr;
 
-	BorderLine* _test_border = nullptr;
-	CloseButton* _test_button = nullptr;
+	Header* _header = nullptr;
 	int _width = 0;
 	int _height = 0;
 	int _x = 0;

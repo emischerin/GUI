@@ -50,25 +50,13 @@ int MainWindow::InitGraphics()
 
 	SDL_SetWindowResizable(_main_window, SDL_TRUE);
 
-	this->_test_border = new BorderLine(_main_window, 0, 50);
-	_test_border->SetColor(134, 8, 196, 1);
-
-	this->_test_button = new CloseButton(_main_window);
-
-
-	/*
-	*	Leads to incorrect bounding box Behaviour. Bounding Rect coordinates are different from the
-	* actual button coordinates. THEY MUST BE THE SAME!
-	* 	_test_button->SetPosition(100, 100);
-	* 
-	* 
-	*/
 	
+	_header = new Header(_main_window, 35);
+	_header->SetColor(213, 229, 245, 1);
 
 	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
 
-	this->_test_border->SetRenderer(_render);
-	this->_test_button->SetRenderer(_render);
+	this->_header->SetRenderer(_render);
 	/*If creating hardware render fails we give a chance to create at least software render*/
 	if (!_render) {
 		_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_SOFTWARE);
@@ -109,8 +97,7 @@ void MainWindow::Update()
 	SDL_SetRenderDrawColor(_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(_render);
-	_test_border->ImplBehaviour();
-	_test_button->ImplBehaviour();
+	_header->ImplBehaviour();
 	SDL_RenderPresent(_render);
 
 	
