@@ -28,7 +28,7 @@ bool CollisionDetector::MouseInWindow(SDL_Window* window)
 	SDL_Rect rect = { win_x,win_y,win_w,win_h };
 	
 	return PointInRect(&rect, mouse_x, mouse_y);
-	
+
 
 }
 
@@ -37,11 +37,23 @@ bool CollisionDetector::PointInRect(SDL_Rect* rect, int x, int y)
 	if (!rect) return false;
 
 	int upper_x = rect->x + rect->w;
-	int upper_y = rect->y + rect->y;
+	int upper_y = rect->y + rect->h;
 
-	return ((x >= rect->x && x <= upper_x) 
-			&& 
+	return ((x >= rect->x && x <= upper_x) && 
 			(y >= rect->y && y <= upper_y));
+
+
+}
+
+bool CollisionDetector::MouseInControl(Control* control)
+{
+	if (!control) return false;
+
+	int mouse_x, mouse_y;
+	SDL_GetMouseState(&mouse_x, &mouse_y);
+
+	return PointInControl(control, mouse_x, mouse_y);
+
 
 
 }

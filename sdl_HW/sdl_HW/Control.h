@@ -36,12 +36,17 @@ public:
 		return &_bounding_rect;
 	}
 
+	virtual void SetParentWindow(SDL_Window* w)
+	{
+		_parent_window = w;
+	}
+
 	virtual void ImplBehaviour() = 0;
 	virtual ~Control() = default;
 protected:
 	SDL_Renderer* _renderer = nullptr;
 	SDL_Rect _bounding_rect = {};
-
+	SDL_Window* _parent_window = nullptr;
 	int _r = 0;
 	int _g = 0;
 	int _b = 0;

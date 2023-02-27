@@ -53,7 +53,7 @@ int MainWindow::InitGraphics()
 	
 	_header = new Header(_main_window, 35);
 	_header->SetColor(213, 229, 245, 1);
-
+	_header->SetParentWindow(_main_window);
 	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
 
 	this->_header->SetRenderer(_render);

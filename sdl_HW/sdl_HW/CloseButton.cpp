@@ -40,15 +40,15 @@ void CloseButton::ImplBehaviour()
 	int mouse_x, mouse_y;
 	int global_mouse_x, global_mouse_y;
 	
-	SDL_GetMouseState(&mouse_x, &mouse_y);
-	SDL_GetGlobalMouseState(&global_mouse_x, &global_mouse_y);
+	CollisionDetector cd;
 
-	if (MouseInButton(global_mouse_x, global_mouse_y)) {
-		if (MouseInButton(mouse_x, mouse_y)) {
-			SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
-			SDL_RenderFillRect(_renderer, &_bounding_rect);
-			SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
-		}
+	
+	if (cd.MouseInWindow(_parent_window) && cd.MouseInControl(this)) {
+		//if (cd.MouseInWindow(_parent_window)) {
+		SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
+		SDL_RenderFillRect(_renderer, &_bounding_rect);
+		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
+		//}
 	}
 	else {
 		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
@@ -64,11 +64,11 @@ void CloseButton::ImplBehaviour()
 	
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 12), (_x + _width) - 12, (_y + _height) - 10);
+	
 	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
 	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 12, (_x + _width) - 12, (_y + 10));
+	
 	
 	
 }
@@ -95,27 +95,3 @@ void CloseButton::SetPosition(int x, int y)
 }
 
 
-bool CloseButton::MouseInButton(int x,int y)
-{
-	
-
-	return (MouseXInButtonRange(x)) && (MouseYInButtonRange(y));
-
-	
-}
-
-bool CloseButton::MouseYInButtonRange(int y)
-{
-	if ((y >= _y) && (y<= _y + _height))
-		return true;
-
-	return false;
-}
-
-bool CloseButton::MouseXInButtonRange(int x)
-{
-	if ((x >= _x ) && (x <= _x + _width))
-		return true;
-
-	return false;
-}

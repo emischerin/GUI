@@ -10,6 +10,7 @@ public:
 
 	void ImplBehaviour() override;
 
+	void SetParentWindow(SDL_Window* w) override;
 private:
 	CloseButton _close_button;
 	BorderLine _border_line;

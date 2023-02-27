@@ -48,3 +48,10 @@ void Header::DrawCloseButton()
 
 	}
 }
+
+void Header::SetParentWindow(SDL_Window* w)
+{
+	this->_parent_window = w;
+	_close_button.SetParentWindow(w);
+	_border_line.SetParentWindow(w);
+}

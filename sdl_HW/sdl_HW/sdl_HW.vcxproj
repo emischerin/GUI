@@ -195,6 +195,7 @@
   <ItemGroup>
     <ClCompile Include="BorderLine.cpp" />
     <ClCompile Include="CloseButton.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="FatRect.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputCaret.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="BorderLine.h" />
     <ClInclude Include="bsp_tree.h" />
     <ClInclude Include="CloseButton.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />
     <ClInclude Include="Header.h" />

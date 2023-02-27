@@ -1,7 +1,7 @@
 #pragma once
 #include "Control.h"
 #include "XCross.h"
-
+#include "CollisionDetector.h"
 class CloseButton : public Control
 {
 public:
@@ -22,11 +22,9 @@ private:
 	int _width = 20;
 	int _height = 20;
 	SDL_Window* _parent = nullptr;
-	SDL_Rect _bounding_rect;
+	
 	
 
-	bool MouseInButton(int x, int y);
-	bool MouseYInButtonRange(int y);
-	bool MouseXInButtonRange(int x);
+	
 };
 
