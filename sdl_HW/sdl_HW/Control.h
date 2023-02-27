@@ -31,6 +31,11 @@ public:
 		_bounding_rect.h = h;
 	}
 
+	virtual SDL_Rect* GetBoundingRect()
+	{
+		return &_bounding_rect;
+	}
+
 	virtual void ImplBehaviour() = 0;
 	virtual ~Control() = default;
 protected:

@@ -38,14 +38,17 @@ CloseButton::CloseButton(SDL_Window* parent)
 void CloseButton::ImplBehaviour()
 {
 	int mouse_x, mouse_y;
-	
+	int global_mouse_x, global_mouse_y;
 	
 	SDL_GetMouseState(&mouse_x, &mouse_y);
+	SDL_GetGlobalMouseState(&global_mouse_x, &global_mouse_y);
 
-	if (MouseInButton(mouse_x, mouse_y)) {
-		SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
-		SDL_RenderFillRect(_renderer, &_bounding_rect);
-		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
+	if (MouseInButton(global_mouse_x, global_mouse_y)) {
+		if (MouseInButton(mouse_x, mouse_y)) {
+			SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
+			SDL_RenderFillRect(_renderer, &_bounding_rect);
+			SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
+		}
 	}
 	else {
 		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
