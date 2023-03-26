@@ -15,7 +15,7 @@ public:
     void SetColor(int r, int g, int b, int a) override;
 	void SetInvisibilityColor(int r, int g, int b, int a);
 	void SetTimeout(int timeout);
-	void ImplBehaviour() override;
+	void Draw() override;
 
 	
 

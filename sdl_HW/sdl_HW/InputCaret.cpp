@@ -66,7 +66,7 @@ void InputCaret::SetDrawingColor()
 	}
 }
 
-void InputCaret::ImplBehaviour()
+void InputCaret::Draw()
 {
 	uint32_t current_ticks = SDL_GetTicks();
 

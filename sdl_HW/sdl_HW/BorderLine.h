@@ -13,7 +13,7 @@ public:
 	*/
 	BorderLine(SDL_Window* w,int rel_x,int rel_y);
 
-	void ImplBehaviour() override;
+	void Draw() override;
 
 	void SetRelativeHeight(int rel_y);
 	

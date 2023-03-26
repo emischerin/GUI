@@ -41,7 +41,7 @@ public:
 		_parent_window = w;
 	}
 
-	virtual void ImplBehaviour() = 0;
+	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:
 	SDL_Renderer* _renderer = nullptr;

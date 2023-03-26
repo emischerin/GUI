@@ -35,7 +35,7 @@ CloseButton::CloseButton(SDL_Window* parent)
 
 
 
-void CloseButton::ImplBehaviour()
+void CloseButton::Draw()
 {
 	int mouse_x, mouse_y;
 	int global_mouse_x, global_mouse_y;

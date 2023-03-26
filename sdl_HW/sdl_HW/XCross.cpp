@@ -74,7 +74,7 @@ void XCross::DrawLinesAntiAliased()
 
 }
 
-void XCross::ImplBehaviour() 
+void XCross::Draw() 
 {
 	
 

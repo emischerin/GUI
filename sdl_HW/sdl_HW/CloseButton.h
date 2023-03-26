@@ -9,7 +9,7 @@ public:
 	CloseButton(SDL_Window* parent);
 	
 
-	void ImplBehaviour() override;
+	void Draw() override;
 	
 	void SetWidthAndHeight(int w, int h);
 	int GetWidth();

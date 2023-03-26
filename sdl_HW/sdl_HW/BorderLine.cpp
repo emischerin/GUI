@@ -18,7 +18,7 @@ void BorderLine::SetRelativeHeight(int rel_y)
 }
 
 
-void BorderLine::ImplBehaviour()
+void BorderLine::Draw()
 {
 	int w_pos_x, w_pos_y;
 

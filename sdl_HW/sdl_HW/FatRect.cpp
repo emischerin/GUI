@@ -14,7 +14,7 @@ FatRect::FatRect(int x, int y, int w, int h)
 
 }
 
-void FatRect::ImplBehaviour()
+void FatRect::Draw()
 {
 	int rects_num = 3;
 	DrawRects(rects_num);

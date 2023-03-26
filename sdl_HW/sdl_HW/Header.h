@@ -8,7 +8,7 @@ class Header : public Control
 public:
 	Header(SDL_Window* w,int rel_y);
 
-	void ImplBehaviour() override;
+	void Draw() override;
 
 	void SetParentWindow(SDL_Window* w) override;
 private:

@@ -97,7 +97,7 @@ void MainWindow::Update()
 	SDL_SetRenderDrawColor(_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(_render);
-	_header->ImplBehaviour();
+	_header->Draw();
 	SDL_RenderPresent(_render);
 
 	

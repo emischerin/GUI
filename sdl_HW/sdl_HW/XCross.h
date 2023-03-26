@@ -14,7 +14,7 @@ public:
 	XCross(int& x, int& y,int& w,int& h,XCrossMode mode);
 	XCross(SDL_Rect& r, int mode);
 	
-	void ImplBehaviour() override;
+	void Draw() override;
 	
 	void SetColor(int r, int g, int b, int a) override;
 

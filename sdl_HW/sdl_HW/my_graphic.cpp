@@ -119,7 +119,7 @@ void MainAppLoop(SDL_Window* main_window,SDL_Surface* mw_surface)
 		
 		/*SDL_RenderFillRect(rend, &window_rect);
 		x_test.ImplBehaviour();
-		fat_t.ImplBehaviour();*/
+		fat_t.Draw();*/
 		/*SDL_SetRenderDrawColor(rend, 0xAF, 0xC9, 0xFA, 255);
 		SDL_RenderDrawLine(rend, 15, 15, 100, 15);
 		SDL_RenderDrawLine(rend, 15, 16, 100, 16);
@@ -133,7 +133,7 @@ void MainAppLoop(SDL_Window* main_window,SDL_Surface* mw_surface)
 		//SDL_RenderDrawPoint(rend, 450, 500);
 		//SDL_RenderDrawPoint(rend, 400, 550);
 		
-		inp_caret.ImplBehaviour();
+		inp_caret.Draw();
 		
 		//SDL_RenderGeometry
 		
