@@ -46,6 +46,11 @@ int MainWindow::InitGraphics()
 	_win_ptr = SDL_CreateWindow(_title, _x, _y,
 		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_VULKAN);
 
+	if (!_win_ptr) {
+		_win_ptr = SDL_CreateWindow(_title, _x, _y,
+			_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_OPENGL);
+	}
+	
 	if (!_win_ptr) return -1;
 
 	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
