@@ -6,6 +6,6 @@ class AppGlobals
 {
 public:
 	static SDL_Renderer* main_render;
-	
+	static SDL_Window* main_window;
 };
 

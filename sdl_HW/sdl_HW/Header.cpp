@@ -1,15 +1,13 @@
 #include "Header.h"
 
-Header::Header(SDL_Window* w,int height,int buttons_width)
+Header::Header(int height,int buttons_width)
 {
-	if (!w) return;
+	
 
 	_height = height;
-
-	
 	
 	_close_button.SetWidthAndHeight(height,buttons_width);
-	_parent_window = w;
+	_border_line.SetRelativeHeight(height + 1);
 	
 	
 
@@ -21,7 +19,7 @@ void Header::Draw()
 {
 	this->DrawHeaderRect();
 	
-	//_border_line.Draw();
+	_border_line.Draw();
 	DrawCloseButton();
 
 }
@@ -30,7 +28,7 @@ void Header::DrawHeaderRect()
 {
 	int x, y;
 
-	SDL_GetWindowSize(_parent_window, &x, &y);
+	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
 	if (AppGlobals::main_render) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 		
@@ -44,7 +42,7 @@ void Header::DrawCloseButton()
 {
 	int x, y,close_button_offset_r;
 
-	SDL_GetWindowSize(_parent_window, &x, &y);
+	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
 	if (AppGlobals::main_render) {
 		close_button_offset_r = x - _close_button.GetWidth();
 		_close_button.SetPosition(close_button_offset_r, 0);

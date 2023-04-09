@@ -43,7 +43,7 @@ void CloseButton::Draw()
 	CollisionDetector cd;
 
 	
-	if (cd.MouseInWindow(_parent_window) && cd.MouseInControl(this)) {
+	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
 		//if (cd.MouseInWindow(_parent_window)) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);

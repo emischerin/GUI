@@ -3,7 +3,7 @@
 #include <vector>
 #include "AppGlobals.h"
 
-
+#include "Header.h"
 #include "Window.h"
 
 class MainWindow : public Window
@@ -22,7 +22,7 @@ public:
 private:
 	
 	
-	
+	Header* _header = nullptr;
 
 	
 	

@@ -8,14 +8,14 @@
 class Header : public Control
 {
 public:
-	Header(SDL_Window* w,int height,int buttons_width);
+	Header(int height,int buttons_width);
 
 	void Draw() override;
 
 	
 private:
-	//CloseButton _close_button;
-	//BorderLine _border_line;
+	CloseButton _close_button;
+	BorderLine _border_line;
 	int _height= 0;
 	
 	

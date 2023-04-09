@@ -8,6 +8,10 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_height = height;
 	this->_title = w_title;
 
+	_header = new Header(35, 35);
+	_header->SetColor(213, 229, 245, 1);
+	
+
 	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control>, int>(_width, _height, 6);
 
 	this->SetBackgroundColor();
@@ -56,9 +60,7 @@ int MainWindow::InitGraphics()
 	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
 
 	
-	/*_header = new Header(_win_ptr, 35,35);
-	_header->SetColor(213, 229, 245, 1);
-	_header->SetParentWindow(_win_ptr);*/
+	
 	_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
 
 	
@@ -69,7 +71,8 @@ int MainWindow::InitGraphics()
 	}
 
 	AppGlobals::main_render = _win_render;
-	
+	AppGlobals::main_window = _win_ptr;
+
 	return 0;
 		
 	
@@ -104,7 +107,7 @@ void MainWindow::Update()
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(AppGlobals::main_render);
-	//_header->Draw();
+	_header->Draw();
 	SDL_RenderPresent(AppGlobals::main_render);
 
 	

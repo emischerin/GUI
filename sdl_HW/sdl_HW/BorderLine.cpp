@@ -24,8 +24,8 @@ void BorderLine::Draw()
 
 	int w_size_w, w_size_h;
 
-	SDL_GetWindowSize(_parent_window, &w_size_w, &w_size_h);
-	SDL_GetWindowPosition(_parent_window, &w_pos_x, &w_pos_y);
+	SDL_GetWindowSize(AppGlobals::main_window, &w_size_w, &w_size_h);
+	SDL_GetWindowPosition(AppGlobals::main_window, &w_pos_x, &w_pos_y);
 
 	
 		int p1_x = 0;
