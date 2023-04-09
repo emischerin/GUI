@@ -32,13 +32,13 @@ void FatRect::DrawRects(int rects_count)
 {
 	if (rects_count < 1) return;
 	
-	SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 	SDL_Rect tmp = _rect;
-	SDL_RenderDrawRect(_renderer, &tmp);
+	SDL_RenderDrawRect(AppGlobals::main_render, &tmp);
 
 	for (int i = 1; i < rects_count; ++i) {
 		GetNextRect(tmp);
-		SDL_RenderDrawRect(_renderer, &tmp);
+		SDL_RenderDrawRect(AppGlobals::main_render, &tmp);
 
 	}
 	

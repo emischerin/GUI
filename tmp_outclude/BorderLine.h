@@ -1,5 +1,6 @@
 #pragma once
 #include "Control.h"
+#include "AppGlobals.h"
 class BorderLine : public Control
 {
 public:

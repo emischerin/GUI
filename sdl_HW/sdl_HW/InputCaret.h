@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "Control.h"
-
+#include "AppGlobals.h"
 
 class InputCaret :public Control
 {

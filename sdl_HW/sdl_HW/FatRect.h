@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "Control.h"
+#include "AppGlobals.h"
 
 class FatRect : public Control
 {

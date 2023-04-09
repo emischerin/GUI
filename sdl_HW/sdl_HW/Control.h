@@ -4,10 +4,7 @@ class Control {
 public:
 	
 
-	virtual void SetRenderer(SDL_Renderer* r)
-	{
-		_renderer = r;
-	}
+	
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
@@ -44,9 +41,10 @@ public:
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:
-	SDL_Renderer* _renderer = nullptr;
+	
 	SDL_Rect _bounding_rect = {};
 	SDL_Window* _parent_window = nullptr;
+
 	int _r = 0;
 	int _g = 0;
 	int _b = 0;

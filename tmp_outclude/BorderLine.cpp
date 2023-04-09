@@ -32,10 +32,10 @@ void BorderLine::Draw()
 		int p1_y = _rel_y;
 		int p2_x = w_size_w;
 		int p2_y = _rel_y;
-		int result_set_color = SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
+		int result_set_color = SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 
 		if(result_set_color == 0)
-			SDL_RenderDrawLine(_renderer, p1_x, p1_y, p2_x, p2_y);
+			SDL_RenderDrawLine(AppGlobals::main_render, p1_x, p1_y, p2_x, p2_y);
 			/*Drawing second line, so the resulting line is fat*/
 			//SDL_RenderDrawLine(_renderer, p1_x, p1_y + 1, p2_x, p2_y + 1);
 	

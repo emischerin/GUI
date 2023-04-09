@@ -20,7 +20,7 @@ CloseButton::CloseButton(SDL_Window* parent)
 	_g = 7;
 	_b = 173;
 	_a = 1;
-	_parent = parent;
+	_parent_window = parent;
 	
 	_x = 70;
 	_y = 70;
@@ -45,15 +45,15 @@ void CloseButton::Draw()
 	
 	if (cd.MouseInWindow(_parent_window) && cd.MouseInControl(this)) {
 		//if (cd.MouseInWindow(_parent_window)) {
-		SDL_SetRenderDrawColor(_renderer, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
-		SDL_RenderFillRect(_renderer, &_bounding_rect);
-		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 1);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
+		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 		//}
 	}
 	else {
-		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 		//SDL_RenderDrawRect(_renderer, &_bounding_rect);
-		SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 1);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, 0, 0, 0, 1);
 		
 	}
 
@@ -62,12 +62,12 @@ void CloseButton::Draw()
 	/*SDL_RenderDrawLine(_renderer, (_x), (_y), (_x + _width), (_y + _height));
 	SDL_RenderDrawLine(_renderer, (_x), (_y + _height), (_x + _width), (_y));*/
 	
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
+	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
+	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
 	
 	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
-	SDL_RenderDrawLine(_renderer, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
+	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
+	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
 	
 	
 	

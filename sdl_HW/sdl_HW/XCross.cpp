@@ -41,9 +41,9 @@ void XCross::SetLines()
 void XCross::DrawLinesAliased()
 {
 	SetLines();
-	SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
-	SDL_RenderDrawLine(_renderer, line1._x1, line1._y1, line1._x2, line1._y2);
-	SDL_RenderDrawLine(_renderer, line2._x1, line2._y1, line2._x2, line2._y2);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1, line1._y1, line1._x2, line1._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1, line2._y1, line2._x2, line2._y2);
 
 }
 
@@ -61,16 +61,16 @@ void XCross::DrawLinesAntiAliased()
 {
 	
 	SetLines();
-	SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
-	SDL_RenderDrawLine(_renderer, line1._x1, line1._y1, line1._x2, line1._y2);
-	SDL_RenderDrawLine(_renderer, line2._x1, line2._y1, line2._x2, line2._y2);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1, line1._y1, line1._x2, line1._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1, line2._y1, line2._x2, line2._y2);
 	
 	
-	SDL_RenderDrawLine(_renderer, line1._x1 + 1 , line1._y1, line1._x2 + 1, line1._y2);
-	SDL_RenderDrawLine(_renderer, line2._x1 + 1, line2._y1, line2._x2 + 1, line2._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1 + 1 , line1._y1, line1._x2 + 1, line1._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1 + 1, line2._y1, line2._x2 + 1, line2._y2);
 
-	SDL_RenderDrawLine(_renderer, line1._x1 + 2, line1._y1, line1._x2 + 2, line1._y2);
-	SDL_RenderDrawLine(_renderer, line2._x1 + 2, line2._y1, line2._x2 + 2, line2._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1 + 2, line1._y1, line1._x2 + 2, line1._y2);
+	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1 + 2, line2._y1, line2._x2 + 2, line2._y2);
 
 }
 
@@ -87,7 +87,7 @@ void XCross::Draw()
 	
 	if ((_mode & RECT_VISIBLE) == RECT_VISIBLE) {
 		FitRectToCross();
-		SDL_RenderDrawRect(_renderer, &this->_bounding_rect);
+		SDL_RenderDrawRect(AppGlobals::main_render, &this->_bounding_rect);
 	}
 
 	

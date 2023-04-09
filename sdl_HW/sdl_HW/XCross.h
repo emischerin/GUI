@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include "Primitives.h"
 #include "Control.h"
-
+#include "AppGlobals.h"
 
 
 class XCross: public Control

@@ -2,7 +2,7 @@
 
 SDL_Renderer* Window::GetWinRender()
 {
-	return _render;
+	return _win_render;
 }
 
 SDL_Window* Window::GetWinPtr()

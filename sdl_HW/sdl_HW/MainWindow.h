@@ -1,8 +1,8 @@
 #pragma once
 #include <sdl.h>
 #include <vector>
+#include "AppGlobals.h"
 
-#include "control.h"
 #include "Header.h"
 #include "Window.h"
 
@@ -14,20 +14,20 @@ public:
 	
 	int StartLoop();
 	
-	 SDL_Window* GetWinPtr();
+	 
 	 
 
 	 
 
 private:
 	
-	SDL_Surface* _screen_surface = nullptr;
+	
 	
 
-	SDL_Color _background_color;
+	
 	
 
-	Header* _header = nullptr;
+	
 	
 	int InitGraphics();
 	int MainLoop();

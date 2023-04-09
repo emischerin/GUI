@@ -1,7 +1,9 @@
 #pragma once
-#include "Control.h"
 #include "BorderLine.h"
+#include "Control.h"
+
 #include "CloseButton.h"
+#include "AppGlobals.h"
 
 class Header : public Control
 {
@@ -10,15 +12,15 @@ public:
 
 	void Draw() override;
 
-	void SetParentWindow(SDL_Window* w) override;
+	
 private:
-	CloseButton _close_button;
-	BorderLine _border_line;
+	//CloseButton _close_button;
+	//BorderLine _border_line;
 	int _height= 0;
 	
-	SDL_Window* _parent_window = nullptr;
+	
 
-	SDL_Rect _bounding_rect; /* for window movement with mouse*/
+	
 	
 	
 	void DrawHeaderRect();

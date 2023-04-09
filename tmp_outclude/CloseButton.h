@@ -2,6 +2,8 @@
 #include "Control.h"
 #include "XCross.h"
 #include "CollisionDetector.h"
+#include "AppGlobals.h"
+
 class CloseButton : public Control
 {
 public:
@@ -21,7 +23,7 @@ private:
 	int _mouse_over_b = 237, _mouse_over_a = 1;
 	int _width = 20;
 	int _height = 20;
-	SDL_Window* _parent = nullptr;
+	
 	
 	
 

@@ -2,11 +2,11 @@
 #include <SDL.h>
 #include "Window.h"
 #include "MainWindow.h"
-#include <map>
+
 
 class AppGlobals
 {
-protected:
+
 	
 
 public:
@@ -14,9 +14,10 @@ public:
 	
 	static MainWindow* main_window;
 
-	static SDL_Renderer* GetWindowRenderer(const Window* w) 
-	{
-		return w->GetWinRender();
-	}
+	static SDL_Renderer* main_render;
+
+	
 	
 };
+
+

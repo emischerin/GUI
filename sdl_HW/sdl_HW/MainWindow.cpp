@@ -13,7 +13,7 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->SetBackgroundColor();
 
 	
-
+	
 	
 }
 
@@ -51,16 +51,16 @@ int MainWindow::InitGraphics()
 	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
 
 	
-	_header = new Header(_win_ptr, 35,35);
+	/*_header = new Header(_win_ptr, 35,35);
 	_header->SetColor(213, 229, 245, 1);
-	_header->SetParentWindow(_win_ptr);
-	_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
+	_header->SetParentWindow(_win_ptr);*/
+	_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
 
-	this->_header->SetRenderer(_render);
+	
 	/*If creating hardware render fails we give a chance to create at least software render*/
-	if (!_render) {
-		_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
-		if (!_render) return -1;
+	if (!_win_render) {
+		_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
+		if (!_win_render) return -1;
 	}
 
 	
@@ -96,11 +96,11 @@ int MainWindow::MainLoop()
 
 void MainWindow::Update()
 {
-	SDL_SetRenderDrawColor(_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
-	SDL_RenderClear(_render);
-	_header->Draw();
-	SDL_RenderPresent(_render);
+	SDL_RenderClear(AppGlobals::main_render);
+	//_header->Draw();
+	SDL_RenderPresent(AppGlobals::main_render);
 
 	
 
