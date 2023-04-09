@@ -10,7 +10,7 @@ Header::Header(SDL_Window* w,int height,int buttons_width)
 	_border_line.SetParentWindow(w);
 	_border_line.SetRelativeHeight(height);
 	_border_line.SetColor(0, 0, 0, 0);
-	_close_button.SetWidthAndHeight(height - 1,buttons_width);
+	_close_button.SetWidthAndHeight(height,buttons_width);
 	_parent_window = w;
 	
 	

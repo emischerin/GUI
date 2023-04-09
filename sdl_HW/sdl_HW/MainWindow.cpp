@@ -43,23 +43,23 @@ int MainWindow::InitGraphics()
 	this->_y = dm.h / 4;
 
 	
-	_main_window = SDL_CreateWindow(_title, _x, _y,
-		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+	_win_ptr = SDL_CreateWindow(_title, _x, _y,
+		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_VULKAN);
 
-	if (!_main_window) return -1;
+	if (!_win_ptr) return -1;
 
-	SDL_SetWindowResizable(_main_window, SDL_TRUE);
+	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
 
 	
-	_header = new Header(_main_window, 35,35);
+	_header = new Header(_win_ptr, 35,35);
 	_header->SetColor(213, 229, 245, 1);
-	_header->SetParentWindow(_main_window);
-	_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_ACCELERATED);
+	_header->SetParentWindow(_win_ptr);
+	_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
 
 	this->_header->SetRenderer(_render);
 	/*If creating hardware render fails we give a chance to create at least software render*/
 	if (!_render) {
-		_render = SDL_CreateRenderer(_main_window, -1, SDL_RENDERER_SOFTWARE);
+		_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
 		if (!_render) return -1;
 	}
 
@@ -107,12 +107,3 @@ void MainWindow::Update()
 
 }
 
-SDL_Window* MainWindow::GetWinPtr()
-{
-	return _main_window;
-}
-
-SDL_Renderer* MainWindow::GetWinRender()
-{
-	return _render;
-}

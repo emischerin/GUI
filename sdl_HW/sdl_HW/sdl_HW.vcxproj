@@ -202,6 +202,7 @@
     <ClCompile Include="InputCaret.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="my_graphic.cpp" />
+    <ClCompile Include="Window.cpp" />
     <ClCompile Include="XCross.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +218,7 @@
     <ClInclude Include="InputCaret.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Primitives.h" />
+    <ClInclude Include="Window.h" />
     <ClInclude Include="XCross.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
