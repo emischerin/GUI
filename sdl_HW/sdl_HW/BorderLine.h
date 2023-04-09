@@ -19,7 +19,7 @@ public:
 	
 
 protected:
-	SDL_Window* _window = nullptr;
+	
 	int _rel_x = 0, _rel_y = 17;
 
 };

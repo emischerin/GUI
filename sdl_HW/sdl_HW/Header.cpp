@@ -1,14 +1,20 @@
 #include "Header.h"
 
-Header::Header(SDL_Window* w,int rel_y)
+Header::Header(SDL_Window* w,int height,int buttons_width)
 {
 	if (!w) return;
 
-	_rel_y = rel_y;
+	_height = height;
+
 	
-	_border_line.SetRelativeHeight(rel_y);
-	_close_button.SetWidthAndHeight(rel_y - 1,34);
+	_border_line.SetParentWindow(w);
+	_border_line.SetRelativeHeight(height);
+	_border_line.SetColor(0, 0, 0, 0);
+	_close_button.SetWidthAndHeight(height - 1,buttons_width);
 	_parent_window = w;
+	
+	
+
 	
 
 }
@@ -16,6 +22,7 @@ Header::Header(SDL_Window* w,int rel_y)
 void Header::Draw()
 {
 	this->DrawHeaderRect();
+	_border_line.SetRenderer(_renderer);
 	_border_line.Draw();
 	DrawCloseButton();
 
@@ -29,7 +36,7 @@ void Header::DrawHeaderRect()
 	if (_renderer) {
 		SDL_SetRenderDrawColor(_renderer, _r, _g, _b, _a);
 		
-		this->SetBoundingRect(0, 0, x, _rel_y);
+		this->SetBoundingRect(0, 0, x, _height);
 		SDL_RenderFillRect(_renderer, &_bounding_rect);
 		
 	}
