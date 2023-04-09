@@ -51,9 +51,9 @@ void CloseButton::Draw()
 		//}
 	}
 	else {
-		SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+		//SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 		//SDL_RenderDrawRect(_renderer, &_bounding_rect);
-		SDL_SetRenderDrawColor(AppGlobals::main_render, 0, 0, 0, 1);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 		
 	}
 

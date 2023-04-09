@@ -9,7 +9,7 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_title = w_title;
 
 	_header = new Header(35, 35);
-	_header->SetColor(213, 229, 245, 1);
+	_header->SetColor(62, 19, 66, 1);
 	
 
 	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control>, int>(_width, _height, 6);
