@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "bsp_tree.h"
 #include "Control.h"
-#include "Header.h"
+
 
 class Window
 {
