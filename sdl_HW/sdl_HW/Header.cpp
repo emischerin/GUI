@@ -7,7 +7,7 @@ Header::Header(int height,int buttons_width)
 	_height = height;
 	
 	_close_button.SetWidthAndHeight(height,buttons_width);
-	_border_line.SetRelativeHeight(height + 1);
+	_border_line.SetRelativeHeight(height);
 	
 	
 
