@@ -68,8 +68,8 @@ int MainWindow::InitGraphics()
 		if (!_win_render) return -1;
 	}
 
+	AppGlobals::main_render = _win_render;
 	
-
 	return 0;
 		
 	
