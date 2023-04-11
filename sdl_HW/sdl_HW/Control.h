@@ -38,6 +38,15 @@ public:
 		_parent_window = w;
 	}
 
+	int GetX() const
+	{
+		return _x;
+	}
+	int GetY() const
+	{
+		return _y;
+	}
+
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:

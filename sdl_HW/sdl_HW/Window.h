@@ -11,10 +11,11 @@ public:
 
 	SDL_Renderer* GetWinRender();
 	SDL_Window* GetWinPtr();
+	void AddControl(Control* control);
 protected:
 	SDL_Renderer* _win_render = nullptr;
 	SDL_Window* _win_ptr = nullptr;
-	generic_tools::ds::bsp_tree<std::vector<Control>, int>* _mouse_collision = nullptr;
+	generic_tools::ds::bsp_tree<std::vector<Control*>, int>* _mouse_collision = nullptr;
 	SDL_Color _background_color;
 	
 	int _width = 0;

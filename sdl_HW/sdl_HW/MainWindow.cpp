@@ -12,7 +12,7 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	_header->SetColor(62, 19, 66, 1);
 	
 
-	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control>, int>(_width, _height, 6);
+	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control*>, int>(_width, _height, 6);
 
 	this->SetBackgroundColor();
 
