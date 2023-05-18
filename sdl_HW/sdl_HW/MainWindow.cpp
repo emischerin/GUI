@@ -94,14 +94,17 @@ int MainWindow::MainLoop()
 	for (;;) {
 		while (SDL_PollEvent(&e)) {
 			uint32_t event_t = e.type;
+
 			if (event_t == SDL_QUIT) return 1;
-			
-			
-			
-			
-			
+			if (event_t == SDL_WINDOWEVENT) AppGlobals::window_event = &e.window;
+			if (event_t == SDL_MOUSEMOTION) AppGlobals::mouse_motion = &e.motion;
+			if (event_t == SDL_MOUSEBUTTONDOWN) AppGlobals::mouse_button = &e.button;
+			if (event_t == SDL_KEYDOWN) AppGlobals::keyboard_event = &e.key;
+
 			
 		}
+
+		this->ReactToEvents();
 
 		this->Draw();
 	}

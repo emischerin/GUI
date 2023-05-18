@@ -1,5 +1,7 @@
 #pragma once
 #include <sdl.h>
+#include <SDL_events.h>
+
 #include <vector>
 #include "AppGlobals.h"
 

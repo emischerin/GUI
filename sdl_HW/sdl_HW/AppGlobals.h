@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <SDL_events.h>
 #include "Control.h"
 
 class AppGlobals

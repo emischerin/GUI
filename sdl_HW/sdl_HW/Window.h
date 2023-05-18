@@ -13,9 +13,14 @@ public:
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
 	
+	virtual void ReactToEvents();
+
 	void Draw();
 
 protected:
+
+	virtual void InternalReactToEvents();
+
 	SDL_Renderer* _win_render = nullptr;
 	SDL_Window* _win_ptr = nullptr;
 	

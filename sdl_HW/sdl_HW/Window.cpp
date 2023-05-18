@@ -10,6 +10,21 @@ void Window::AddControl(Control* control)
 
 }
 
+void Window::ReactToEvents()
+{
+	this->InternalReactToEvents();
+
+	for (int i = 0; i < _controls.size(); ++i) {
+		Control* ctrl = _controls[i];
+		ctrl->ReactToEvents();
+	}
+}
+
+void Window::InternalReactToEvents()
+{
+
+}
+
 void Window::Draw()
 {
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
