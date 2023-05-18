@@ -8,11 +8,11 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_height = height;
 	this->_title = w_title;
 
-	_header = new Header(35, 35);
-	_header->SetColor(62, 19, 66, 1);
+	Header* h = new Header(35, 35);
+	h->SetColor(62, 19, 66, 1);
 	
-
-	this->_mouse_collision = new generic_tools::ds::bsp_tree<std::vector<Control*>, int>(_width, _height, 6);
+	this->AddControl(h);
+	
 
 	this->SetBackgroundColor();
 
@@ -98,20 +98,9 @@ int MainWindow::MainLoop()
 			
 		}
 
-		this->Update();
+		this->Draw();
 	}
 }
 
-void MainWindow::Update()
-{
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
-	SDL_RenderClear(AppGlobals::main_render);
-	_header->Draw();
-	SDL_RenderPresent(AppGlobals::main_render);
-
-	
-
-
-}
 

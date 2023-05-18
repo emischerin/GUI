@@ -22,19 +22,12 @@ public:
 private:
 	
 	
-	Header* _header = nullptr;
-
-	
-	
-
-	
-	
 	int InitGraphics();
 	int MainLoop();
 
 	void SetBackgroundColor();
 
-	void Update();
+	
 
 };
 
