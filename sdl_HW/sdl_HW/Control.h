@@ -47,6 +47,7 @@ public:
 		return _y;
 	}
 
+	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:

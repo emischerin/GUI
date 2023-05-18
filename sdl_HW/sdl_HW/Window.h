@@ -12,7 +12,7 @@ public:
 	SDL_Renderer* GetWinRender();
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
-
+	
 	void Draw();
 
 protected:

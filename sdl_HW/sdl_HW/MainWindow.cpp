@@ -96,6 +96,11 @@ int MainWindow::MainLoop()
 			uint32_t event_t = e.type;
 			if (event_t == SDL_QUIT) return 1;
 			
+			
+			
+			
+			
+			
 		}
 
 		this->Draw();
