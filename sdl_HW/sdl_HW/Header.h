@@ -4,6 +4,7 @@
 #include "Control.h"
 
 #include "CloseButton.h"
+#include "ResizeButton.h"
 #include "AppGlobals.h"
 
 class Header : public Control
@@ -18,7 +19,7 @@ public:
 	
 private:
 	CloseButton _close_button;
-	BorderLine _border_line;
+	ResizeButton _resize_button;
 	int _height= 0;
 	
 	
@@ -27,6 +28,7 @@ private:
 	
 	
 	void DrawHeaderRect();
+	void DrawResizeButton();
 	void DrawCloseButton();
 };
 

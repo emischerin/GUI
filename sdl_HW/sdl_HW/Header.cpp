@@ -62,3 +62,13 @@ void Header::DrawCloseButton()
 	}
 }
 
+void Header::DrawResizeButton()
+{
+	int x, y, resize_button_offset;
+	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
+	if (AppGlobals::main_render) {
+		//resize_button_offset = x - _close_button.GetWidth() TODO
+	}
+
+}
+

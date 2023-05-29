@@ -15,6 +15,8 @@ public:
 	static SDL_KeyboardEvent* keyboard_event;
 	static Uint8 mouse_button_code;
 	static Control* selected_control;
+
+	static bool app_is_inFullscreen;
 	
 
 };
