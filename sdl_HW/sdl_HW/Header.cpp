@@ -29,7 +29,7 @@ void Header::Draw()
 {
 	this->DrawHeaderRect();
 	
-	_border_line.Draw();
+	//_border_line.Draw();
 	DrawCloseButton();
 
 }
