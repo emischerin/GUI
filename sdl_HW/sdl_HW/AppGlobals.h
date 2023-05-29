@@ -11,8 +11,9 @@ public:
 	static SDL_WindowEvent* window_event;
 	static SDL_MouseMotionEvent* mouse_motion;
 	static SDL_MouseButtonEvent* mouse_button;
+	static SDL_ControllerTouchpadEvent* touchpad_event;
 	static SDL_KeyboardEvent* keyboard_event;
-
+	static Uint8 mouse_button_code;
 	static Control* selected_control;
 	
 

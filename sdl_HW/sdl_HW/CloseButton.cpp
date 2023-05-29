@@ -32,7 +32,28 @@ CloseButton::CloseButton(SDL_Window* parent)
 }
 
 
+void CloseButton::ReactToEvents()
+{
+	CollisionDetector cd;
 
+	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
+		
+		
+
+	
+			Uint8 mouse_click = AppGlobals::mouse_button_code;
+			if (mouse_click == 1) { /*Left mouse button*/
+				SDL_Quit();
+				
+			}
+	
+
+	
+
+		
+	}
+	
+}
 
 
 void CloseButton::Draw()

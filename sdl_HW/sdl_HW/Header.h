@@ -11,6 +11,8 @@ class Header : public Control
 public:
 	Header(int height,int buttons_width);
 
+	void ReactToEvents() override;
+
 	void Draw() override;
 
 	

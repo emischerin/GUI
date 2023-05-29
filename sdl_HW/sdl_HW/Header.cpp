@@ -19,6 +19,12 @@ Header::Header(int height,int buttons_width)
 
 }
 
+
+void Header::ReactToEvents()
+{
+	_close_button.ReactToEvents();
+}
+
 void Header::Draw()
 {
 	this->DrawHeaderRect();
