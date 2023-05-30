@@ -8,6 +8,9 @@ CloseButton::CloseButton()
 	_b = 173;
 	_a = 1;
 	
+	_width = 20;
+	_height = 20;
+
 	_bounding_rect.x = _x;
 	_bounding_rect.y = _y;
 	_bounding_rect.w = _width;
@@ -102,10 +105,7 @@ void CloseButton::SetWidthAndHeight(int w, int h)
 	_bounding_rect.h = h;
 }
 
-int CloseButton::GetWidth()
-{
-	return _width;
-}
+
 
 void CloseButton::SetPosition(int x, int y)
 {

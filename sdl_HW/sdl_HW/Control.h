@@ -47,6 +47,16 @@ public:
 		return _y;
 	}
 
+	virtual int GetWidth() const
+	{
+		return _bounding_rect.w;
+	}
+
+	virtual int GetHeight() const
+	{
+		return _bounding_rect.h;
+	}
+
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
@@ -62,4 +72,6 @@ protected:
 
 	int _x = 0;
 	int _y = 0;
+	int _width = 0;
+	int _height = 0;
 };
