@@ -47,13 +47,14 @@ void ResizeButton::Draw()
 	}
 
 	SDL_Rect r;
-	r.x = GetX() + 5;
-	r.y = GetY() + 5;
-	r.w = 10;
-	r.h = 10;
+	r.x = GetX() + 10;
+	r.y = GetY() + 10;
+	r.w = 15;
+	r.h = 15;
 
 	SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 	SDL_RenderDrawRect(AppGlobals::main_render, &r);
+	SDL_RenderDrawLine(AppGlobals::main_render, r.x, r.y + 1, r.x + r.w - 1, r.y + 1);
 
 	/*if (AppGlobals::app_is_inFullscreen) {
 
