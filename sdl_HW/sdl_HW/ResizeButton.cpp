@@ -37,7 +37,16 @@ void ResizeButton::Draw()
 
 	}
 
-	if (AppGlobals::app_is_inFullscreen) {
+	SDL_Rect r;
+	r.x = _x + 5;
+	r.y = _y + 5;
+	r.w = 5;
+	r.h = 5;
+
+
+	SDL_RenderDrawRect(AppGlobals::main_render, &r);
+
+	/*if (AppGlobals::app_is_inFullscreen) {
 
 		SDL_Rect r;
 		r.x = _x + 5;
@@ -62,5 +71,5 @@ void ResizeButton::Draw()
 
 
 		SDL_RenderDrawRect(AppGlobals::main_render, &r);
-	}
+	}*/
 }

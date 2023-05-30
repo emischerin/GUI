@@ -18,6 +18,17 @@ public:
 	{
 		_x = x;
 		_y = y;
+
+		_bounding_rect.x = x;
+		_bounding_rect.y = y;
+	}
+
+	virtual void SetWidthAndHeight(int w, int h)
+	{
+		_width = w;
+		_height = h;
+		_bounding_rect.w = w;
+		_bounding_rect.h = h;
 	}
 
 	virtual void SetBoundingRect(int x, int y, int w, int h)

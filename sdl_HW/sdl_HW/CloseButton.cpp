@@ -97,22 +97,9 @@ void CloseButton::Draw()
 	
 }
 
-void CloseButton::SetWidthAndHeight(int w, int h)
-{
-	_width = w;
-	_height = h;
-	_bounding_rect.w = w;
-	_bounding_rect.h = h;
-}
 
 
 
-void CloseButton::SetPosition(int x, int y)
-{
-	_x = x;
-	_y = y;
-	_bounding_rect.x = x;
-	_bounding_rect.y = y;
-}
+
 
 

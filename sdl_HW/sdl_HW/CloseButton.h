@@ -13,10 +13,10 @@ public:
 
 	void Draw() override;
 	
-	void SetWidthAndHeight(int w, int h);
-	int GetWidth();
+	
+	
 
-	void SetPosition(int x, int y) override;
+	
 	void ReactToEvents() override;
 private:
 	int _mouse_over_r = 139, _mouse_over_g = 56;
