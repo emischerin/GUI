@@ -65,13 +65,26 @@ public:
 		return _bounding_rect.h;
 	}
 
+	virtual void SetParentControl(Control* parent)
+	{
+		_parent_control = parent;
+	}
+
+	virtual Control* GetParentControl() const
+	{
+		return _parent_control;
+	}
+
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:
 	
 	SDL_Rect _bounding_rect = {};
+	
 	SDL_Window* _parent_window = nullptr;
+
+	Control* _parent_control = nullptr;
 
 	int _r = 0;
 	int _g = 0;

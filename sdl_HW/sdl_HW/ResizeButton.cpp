@@ -8,8 +8,7 @@ ResizeButton::ResizeButton()
 	_a = 1;
 
 	
-	_bounding_rect.w = 20;
-	_bounding_rect.h = 20;
+	this->SetWidthAndHeight(20, 20);
 }
 
 void ResizeButton::ReactToEvents()
@@ -29,6 +28,7 @@ void ResizeButton::Draw()
 		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 	}
 	else {
+		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 
 	}
@@ -36,8 +36,8 @@ void ResizeButton::Draw()
 	SDL_Rect r;
 	r.x = GetX() + 5;
 	r.y = GetY() + 5;
-	r.w = 5;
-	r.h = 5;
+	r.w = 10;
+	r.h = 10;
 
 
 	SDL_RenderDrawRect(AppGlobals::main_render, &r);
