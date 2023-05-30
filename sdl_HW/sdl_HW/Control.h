@@ -4,7 +4,8 @@ class Control {
 public:
 	
 
-	
+	Control();
+	Control(Control* parent) : _parent_control(parent){}
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
