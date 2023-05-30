@@ -36,11 +36,13 @@ void ResizeButton::Draw()
 	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
-		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
+		
 	}
 	else {
+		SDL_Color* parent_color = _parent_control->GetColor();
+
+		SDL_SetRenderDrawColor(AppGlobals::main_render, parent_color->r, parent_color->g, parent_color->b, parent_color->a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
-		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 
 	}
 
@@ -50,7 +52,7 @@ void ResizeButton::Draw()
 	r.w = 10;
 	r.h = 10;
 
-
+	SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 	SDL_RenderDrawRect(AppGlobals::main_render, &r);
 
 	/*if (AppGlobals::app_is_inFullscreen) {

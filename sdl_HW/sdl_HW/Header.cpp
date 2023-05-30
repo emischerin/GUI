@@ -7,7 +7,7 @@ Header::Header(int height,int buttons_width)
 	_height = height;
 	
 	_close_button.SetWidthAndHeight(height,buttons_width);
-	//_border_line.SetRelativeHeight(height);
+	_resize_button.SetWidthAndHeight(height, buttons_width);
 	
 	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
 	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
