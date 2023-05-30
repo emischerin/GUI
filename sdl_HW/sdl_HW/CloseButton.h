@@ -9,7 +9,7 @@ class CloseButton : public Control
 public:
 	CloseButton();
 	CloseButton(SDL_Window* parent);
-	
+	CloseButton(Control* parent);
 
 	void Draw() override;
 	

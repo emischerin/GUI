@@ -8,6 +8,7 @@ class ResizeButton : public Control
 {
 public:
 	ResizeButton();
+	ResizeButton(Control* parent);
 	void ReactToEvents() override;
 	void Draw() override;
 private:

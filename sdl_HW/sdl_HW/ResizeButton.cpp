@@ -11,6 +11,17 @@ ResizeButton::ResizeButton()
 	this->SetWidthAndHeight(20, 20);
 }
 
+ResizeButton::ResizeButton(Control* parent) : Control(parent)
+{
+	_r = 146;
+	_g = 7;
+	_b = 173;
+	_a = 1;
+
+
+	this->SetWidthAndHeight(20, 20);
+}
+
 void ResizeButton::ReactToEvents()
 {
 

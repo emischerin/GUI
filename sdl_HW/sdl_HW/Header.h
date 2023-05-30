@@ -18,8 +18,8 @@ public:
 
 	
 private:
-	CloseButton _close_button;
-	ResizeButton _resize_button;
+	CloseButton _close_button{ this };
+	ResizeButton _resize_button{ this };
 	int _height= 0;
 	
 	
