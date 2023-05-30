@@ -7,13 +7,9 @@ ResizeButton::ResizeButton()
 	_b = 173;
 	_a = 1;
 
-	_width = 20;
-	_height = 20;
-
-	_bounding_rect.x = _x;
-	_bounding_rect.y = _y;
-	_bounding_rect.w = _width;
-	_bounding_rect.h = _height;
+	
+	_bounding_rect.w = 20;
+	_bounding_rect.h = 20;
 }
 
 void ResizeButton::ReactToEvents()
@@ -38,8 +34,8 @@ void ResizeButton::Draw()
 	}
 
 	SDL_Rect r;
-	r.x = _x + 5;
-	r.y = _y + 5;
+	r.x = GetX() + 5;
+	r.y = GetY() + 5;
 	r.w = 5;
 	r.h = 5;
 

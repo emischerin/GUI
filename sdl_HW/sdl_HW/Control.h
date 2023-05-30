@@ -16,17 +16,14 @@ public:
 
 	virtual void SetPosition(int x, int y)
 	{
-		_x = x;
-		_y = y;
+	
 
 		_bounding_rect.x = x;
 		_bounding_rect.y = y;
 	}
 
 	virtual void SetWidthAndHeight(int w, int h)
-	{
-		_width = w;
-		_height = h;
+	{		
 		_bounding_rect.w = w;
 		_bounding_rect.h = h;
 	}
@@ -51,11 +48,11 @@ public:
 
 	int GetX() const
 	{
-		return _x;
+		return _bounding_rect.x;
 	}
 	int GetY() const
 	{
-		return _y;
+		return _bounding_rect.y;
 	}
 
 	virtual int GetWidth() const
@@ -81,8 +78,4 @@ protected:
 	int _b = 0;
 	int _a = 1;
 
-	int _x = 0;
-	int _y = 0;
-	int _width = 0;
-	int _height = 0;
 };

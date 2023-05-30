@@ -8,13 +8,9 @@ CloseButton::CloseButton()
 	_b = 173;
 	_a = 1;
 	
-	_width = 20;
-	_height = 20;
-
-	_bounding_rect.x = _x;
-	_bounding_rect.y = _y;
-	_bounding_rect.w = _width;
-	_bounding_rect.h = _height;
+	this->SetWidthAndHeight(20, 20);
+	
+	
 }
 
 CloseButton::CloseButton(SDL_Window* parent)
@@ -25,13 +21,8 @@ CloseButton::CloseButton(SDL_Window* parent)
 	_a = 1;
 	_parent_window = parent;
 	
-	_x = 70;
-	_y = 70;
 
-	_bounding_rect.x = _x;
-	_bounding_rect.y = _y;
-	_bounding_rect.w = _width;
-	_bounding_rect.h = _height;
+
 }
 
 
@@ -86,12 +77,12 @@ void CloseButton::Draw()
 	/*SDL_RenderDrawLine(_renderer, (_x), (_y), (_x + _width), (_y + _height));
 	SDL_RenderDrawLine(_renderer, (_x), (_y + _height), (_x + _width), (_y));*/
 	
-	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + 10), (_x + _width) - 10, (_y + _height) - 10);
-	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + 11), (_x + _width) - 11, (_y + _height) - 10);
+	SDL_RenderDrawLine(AppGlobals::main_render, (GetX() + 10), (GetY() + 10), (GetX() + GetWidth() - 10), (GetY() + GetHeight() - 10));
+	SDL_RenderDrawLine(AppGlobals::main_render, (GetX() + 10), (GetY() + 11), (GetX() + GetWidth() - 11), (GetY() + GetHeight() - 10));
 	
 	//SDL_RenderDrawLine(_renderer, (_x + 1), (_y + _height), (_x + _width) - 1, (_y + _height) - 1);
-	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + _height) - 10, (_x + _width) - 10, (_y + 10));
-	SDL_RenderDrawLine(AppGlobals::main_render, (_x + 10), (_y + _height) - 11, (_x + _width) - 11, (_y + 10));
+	SDL_RenderDrawLine(AppGlobals::main_render, (GetX() + 10), (GetY() + GetHeight() - 10), (GetX() + GetWidth() - 10), (GetY() + 10));
+	SDL_RenderDrawLine(AppGlobals::main_render, (GetX()+ 10), (GetY()+ GetHeight() - 11), (GetX() + GetWidth() - 11), (GetY() + 10));
 	
 	
 	
