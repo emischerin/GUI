@@ -3,10 +3,10 @@
 
 CloseButton::CloseButton()
 {
-	_r = 146;
-	_g = 7;
-	_b = 173;
-	_a = 1;
+	_color.r = 146;
+	_color.g = 7;
+	_color.b = 173;
+	_color.a = 1;
 	
 	this->SetWidthAndHeight(20, 20);
 	
@@ -15,20 +15,20 @@ CloseButton::CloseButton()
 
 CloseButton::CloseButton(Control* parent) : Control(parent)
 {
-	_r = 146;
-	_g = 7;
-	_b = 173;
-	_a = 1;
+	_color.r = 146;
+	_color.g = 7;
+	_color.b = 173;
+	_color.a = 1;
 
 	this->SetWidthAndHeight(20, 20);
 }
 
 CloseButton::CloseButton(SDL_Window* parent)
 {
-	_r = 146;
-	_g = 7;
-	_b = 173;
-	_a = 1;
+	_color.r = 146;
+	_color.g = 7;
+	_color.b = 173;
+	_color.a = 1;
 	_parent_window = parent;
 	
 
@@ -76,6 +76,7 @@ void CloseButton::Draw()
 		//}
 	}
 	else {
+		//SDL_SetRenderDrawColor(AppGlobals::main_render,_parent_control->)
 		//SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
 		//SDL_RenderDrawRect(_renderer, &_bounding_rect);
 		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);

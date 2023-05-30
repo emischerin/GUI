@@ -16,7 +16,7 @@ public:
 	
 	void Draw() override;
 	
-	void SetColor(int r, int g, int b, int a) override;
+	
 
 	~XCross();
 

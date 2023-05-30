@@ -28,10 +28,10 @@ void InputCaret::SetHeight(int h)
 
 void InputCaret::SetColor(int r, int g, int b, int a)
 {
-	this->_r = r;
-	this->_g = g;
-	this->_b = b;
-	this->_a = a;
+	_color.r = r;
+	_color.g = g;
+	_color.b = b;
+	_color.a = a;
 }
 
 void InputCaret::SetRect()
@@ -83,7 +83,7 @@ void InputCaret::Draw()
 
 void InputCaret::SetVisibleState()
 {
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 	_this_state = VISIBLE;
 	_set_state = &InputCaret::SetInvisibleState;
 }

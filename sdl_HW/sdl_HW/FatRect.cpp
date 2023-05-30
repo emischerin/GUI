@@ -22,17 +22,17 @@ void FatRect::Draw()
 
 void FatRect::SetColor(int r, int g, int b, int a)
 {
-	this->_r = r;
-	this->_g = g;
-	this->_b = b;
-	this->_a = a;
+	_color.r = r;
+	_color.g = g;
+	_color.b = b;
+	_color.a = a;
 }
 
 void FatRect::DrawRects(int rects_count)
 {
 	if (rects_count < 1) return;
 	
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 	SDL_Rect tmp = _rect;
 	SDL_RenderDrawRect(AppGlobals::main_render, &tmp);
 

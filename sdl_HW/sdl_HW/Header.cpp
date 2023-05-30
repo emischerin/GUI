@@ -41,7 +41,7 @@ void Header::DrawHeaderRect()
 
 	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
 	if (AppGlobals::main_render) {
-		SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 		
 		this->SetBoundingRect(0, 0, x, _height);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);

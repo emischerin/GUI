@@ -9,10 +9,15 @@ public:
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
-		_r = r;
-		_g = g;
-		_b = b;
-		_a = a;
+		_color.r = r;
+		_color.g = g;
+		_color.b = b;
+		_color.a = a;
+	}
+
+	virtual SDL_Color* GetColor()
+	{
+		return &_color;
 	}
 
 	virtual void SetPosition(int x, int y)
@@ -83,13 +88,12 @@ protected:
 	
 	SDL_Rect _bounding_rect = {};
 	
+	SDL_Color _color = { 0,0,0,1 };
+
 	SDL_Window* _parent_window = nullptr;
 
 	Control* _parent_control = nullptr;
 
-	int _r = 0;
-	int _g = 0;
-	int _b = 0;
-	int _a = 1;
+	
 
 };

@@ -2,10 +2,10 @@
 
 ResizeButton::ResizeButton()
 {
-	_r = 146;
-	_g = 7;
-	_b = 173;
-	_a = 1;
+	_color.r = 146;
+	_color.g = 7;
+	_color.b = 173;
+	_color.a = 1;
 
 	
 	this->SetWidthAndHeight(20, 20);
@@ -13,10 +13,10 @@ ResizeButton::ResizeButton()
 
 ResizeButton::ResizeButton(Control* parent) : Control(parent)
 {
-	_r = 146;
-	_g = 7;
-	_b = 173;
-	_a = 1;
+	_color.r = 146;
+	_color.g = 7;
+	_color.b = 173;
+	_color.a = 1;
 
 
 	this->SetWidthAndHeight(20, 20);

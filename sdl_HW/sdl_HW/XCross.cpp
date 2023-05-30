@@ -41,7 +41,7 @@ void XCross::SetLines()
 void XCross::DrawLinesAliased()
 {
 	SetLines();
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1, line1._y1, line1._x2, line1._y2);
 	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1, line2._y1, line2._x2, line2._y2);
 
@@ -49,19 +49,12 @@ void XCross::DrawLinesAliased()
 
 
 
-void XCross::SetColor(int r, int g, int b, int a)
-{
-	this->_r = r;
-	this->_g = g;
-	this->_b = b;
-	this->_a = a;
-}
 
 void XCross::DrawLinesAntiAliased()
 {
 	
 	SetLines();
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 	SDL_RenderDrawLine(AppGlobals::main_render, line1._x1, line1._y1, line1._x2, line1._y2);
 	SDL_RenderDrawLine(AppGlobals::main_render, line2._x1, line2._y1, line2._x2, line2._y2);
 	
