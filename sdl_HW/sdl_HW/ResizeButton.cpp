@@ -19,7 +19,7 @@ ResizeButton::ResizeButton(Control* parent) : Control(parent)
 	_color.a = 1;
 
 
-	this->SetWidthAndHeight(20, 20);
+	
 }
 
 void ResizeButton::ReactToEvents()

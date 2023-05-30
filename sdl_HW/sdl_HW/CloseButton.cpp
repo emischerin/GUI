@@ -20,7 +20,7 @@ CloseButton::CloseButton(Control* parent) : Control(parent)
 	_color.b = 173;
 	_color.a = 1;
 
-	this->SetWidthAndHeight(20, 20);
+	
 }
 
 CloseButton::CloseButton(SDL_Window* parent)
