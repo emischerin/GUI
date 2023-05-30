@@ -72,19 +72,20 @@ void CloseButton::Draw()
 		//if (cd.MouseInWindow(_parent_window)) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _mouse_over_r, _mouse_over_g, _mouse_over_b, _mouse_over_a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
-		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
+		
 		//}
 	}
 	else {
-		//SDL_SetRenderDrawColor(AppGlobals::main_render,_parent_control->)
-		//SDL_SetRenderDrawColor(AppGlobals::main_render, _r, _g, _b, _a);
-		//SDL_RenderDrawRect(_renderer, &_bounding_rect);
-		SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
+		SDL_Color* parent_color = _parent_control->GetColor();
+
+		SDL_SetRenderDrawColor(AppGlobals::main_render, parent_color->r, parent_color->g, parent_color->b, parent_color->a);
+		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
+		
 		
 	}
 
 	
-
+	SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
 	/*SDL_RenderDrawLine(_renderer, (_x), (_y), (_x + _width), (_y + _height));
 	SDL_RenderDrawLine(_renderer, (_x), (_y + _height), (_x + _width), (_y));*/
 	
