@@ -91,6 +91,8 @@ int MainWindow::MainLoop()
 	SDL_Event e;
 	bool q = false;
 
+	unsigned int start = SDL_GetTicks();
+
 	for (;;) {
 		while (SDL_PollEvent(&e)) {
 			uint32_t event_t = e.type;
@@ -106,9 +108,19 @@ int MainWindow::MainLoop()
 			
 		}
 
+		
 		this->ReactToEvents();
 
-		this->Draw();
+		unsigned int loop_end = SDL_GetTicks();
+
+		if (loop_end - start >= 16) {
+			
+			this->Draw();
+			start = loop_end;
+		}
+
+		
+		
 	}
 }
 
