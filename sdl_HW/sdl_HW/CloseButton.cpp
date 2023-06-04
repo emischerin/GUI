@@ -42,14 +42,23 @@ void CloseButton::ReactToEvents()
 
 	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
 		
+		if (!AppGlobals::event) return;
+
+		uint32_t event_t = AppGlobals::event->type;
+
 		
 
-	
-			Uint8 mouse_click = AppGlobals::mouse_button_code;
-			if (mouse_click == 1) { /*Left mouse button*/
+		if (event_t == SDL_MOUSEBUTTONDOWN) {
+			Uint8 mouse_btn_code = AppGlobals::event->button.button;
+			if (mouse_btn_code == 1) { /*Left mouse button*/
 				SDL_Quit();
-				
+
 			}
+		}
+
+	
+			
+			
 	
 
 	

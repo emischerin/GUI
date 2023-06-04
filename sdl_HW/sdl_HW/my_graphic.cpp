@@ -5,6 +5,7 @@
 #include "FatRect.h"
 #include "InputCaret.h"
 #include "MainWindow.h"
+
 void DrawAliasedLine(SDL_Renderer* r)
 {
 	

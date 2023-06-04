@@ -11,4 +11,5 @@ SDL_ControllerTouchpadEvent* AppGlobals::touchpad_event = nullptr;
 SDL_KeyboardEvent* AppGlobals::keyboard_event = nullptr;
 Uint8 AppGlobals::mouse_button_code = 0;
 Control* selected_control = nullptr;
+SDL_Event* AppGlobals::event = nullptr;
 bool AppGlobals::app_is_inFullscreen = false;
