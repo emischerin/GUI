@@ -12,10 +12,18 @@ class MainWindow : public Window
 {
 public:
 
+	enum LoopType
+	{
+		HARD_REAL_TIME,
+		SIMPLE_APP
+	};
+
 	MainWindow(int width, int height,const char* w_title);
 	
-	int StartLoop();
+	int StartLoop(MainWindow::LoopType loop_type);
 	
+
+
 	 
 	 
 
@@ -25,7 +33,8 @@ private:
 	
 	
 	int InitGraphics();
-	int MainLoop();
+	int HardRealTimeMainLoop();
+	int SimpleAppMainLoop();
 
 	void SetBackgroundColor();
 

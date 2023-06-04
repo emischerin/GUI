@@ -21,13 +21,16 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	
 }
 
-int MainWindow::StartLoop()
+int MainWindow::StartLoop(MainWindow::LoopType loop_type)
 {
 	int init = this->InitGraphics();
 
 	if (init < 0) return init;
 
-	return MainLoop();
+	if (loop_type == HARD_REAL_TIME)
+		return HardRealTimeMainLoop();
+	else return SimpleAppMainLoop();
+	
 
 }
 
@@ -86,12 +89,12 @@ void MainWindow::SetBackgroundColor()
 	_background_color.a = 1;
 }
 
-int MainWindow::MainLoop()
+int MainWindow::HardRealTimeMainLoop()
 {
 	SDL_Event e;
 	bool q = false;
 
-	unsigned int start = SDL_GetTicks();
+	
 
 	for (;;) {
 		while (SDL_PollEvent(&e)) {
@@ -110,19 +113,49 @@ int MainWindow::MainLoop()
 
 		
 		this->ReactToEvents();
-
-		unsigned int loop_end = SDL_GetTicks();
-
-		if (loop_end - start >= 16) {
-			
-			this->Draw();
-			start = loop_end;
-		}
+		this->Draw();
+		
+		
 
 		
 		
 	}
 }
 
+int MainWindow::SimpleAppMainLoop()
+{
+	SDL_Event e;
+	bool q = false;
+
+	
+
+	for (;;) {
+		while (SDL_WaitEvent(&e)) {
+			uint32_t event_t = e.type;
+
+			if (event_t == SDL_QUIT) return 1;
+			if (event_t == SDL_WINDOWEVENT) AppGlobals::window_event = &e.window;
+			if (event_t == SDL_MOUSEMOTION) AppGlobals::mouse_motion = &e.motion;
+
+			if (event_t == SDL_MOUSEBUTTONDOWN) AppGlobals::mouse_button_code = e.button.button;
+
+			if (event_t == SDL_KEYDOWN) AppGlobals::keyboard_event = &e.key;
+
+
+			this->ReactToEvents();
+			this->Draw();
+
+		}
+
+
+		
+		
+		
+		
+
+
+
+	}
+}
 
 

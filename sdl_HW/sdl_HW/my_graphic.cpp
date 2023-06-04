@@ -156,7 +156,7 @@ void ProcessMouse(SDL_Renderer* r)
 int main(int argc, char** argv)
 {
 	MainWindow mw(800, 600, "HELLO NORMAL WINDOW!");
-	mw.StartLoop();
+	mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 	//SDL_Window* w = NULL;
 
 	//SDL_Surface* screen = NULL;
