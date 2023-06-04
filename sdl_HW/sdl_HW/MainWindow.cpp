@@ -130,7 +130,7 @@ int MainWindow::SimpleAppMainLoop()
 	
 
 	for (;;) {
-		while (SDL_WaitEvent(&e)) {
+		int wait_result = SDL_WaitEvent(&e);
 			uint32_t event_t = e.type;
 
 			if (event_t == SDL_QUIT) return 1;
@@ -145,7 +145,7 @@ int MainWindow::SimpleAppMainLoop()
 			this->ReactToEvents();
 			this->Draw();
 
-		}
+		
 
 
 		
