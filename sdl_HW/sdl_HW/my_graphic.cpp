@@ -5,7 +5,7 @@
 #include "FatRect.h"
 #include "InputCaret.h"
 #include "MainWindow.h"
-
+#include "Header.h"
 void DrawAliasedLine(SDL_Renderer* r)
 {
 	
@@ -157,6 +157,12 @@ void ProcessMouse(SDL_Renderer* r)
 int main(int argc, char** argv)
 {
 	MainWindow mw(800, 600, "HELLO NORMAL WINDOW!");
+
+	Header* h = new Header(35, 35);
+	h->SetColor(62, 19, 66, 1);
+
+	mw.AddControl(h);
+
 	mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 	//SDL_Window* w = NULL;
 

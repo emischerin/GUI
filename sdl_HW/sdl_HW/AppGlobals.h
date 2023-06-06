@@ -3,7 +3,7 @@
 #include <SDL_events.h>
 #include "Control.h"
 
-class Window;
+class MainWindow;
 
 class AppGlobals
 {
@@ -17,7 +17,7 @@ public:
 	static SDL_KeyboardEvent* keyboard_event;
 	static Uint8 mouse_button_code;
 	static Control* selected_control;
-	static Window* my_main_window;
+	static MainWindow* my_main_window;
 	static SDL_Event* event;
 
 	

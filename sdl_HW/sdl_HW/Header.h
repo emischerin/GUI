@@ -1,11 +1,13 @@
 #pragma once
 #include <SDL.h>
-#include "BorderLine.h"
+
 #include "Control.h"
 
 #include "CloseButton.h"
 #include "ResizeButton.h"
 #include "AppGlobals.h"
+
+
 
 class Header : public Control
 {

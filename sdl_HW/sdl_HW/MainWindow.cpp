@@ -8,17 +8,14 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	this->_height = height;
 	this->_title = w_title;
 
-	Header* h = new Header(35, 35);
-	h->SetColor(62, 19, 66, 1);
 	
-	this->AddControl(h);
 	
 
 	this->SetBackgroundColor();
 
 	
 
-	
+	AppGlobals::my_main_window = this;
 	
 	
 	

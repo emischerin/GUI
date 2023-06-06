@@ -3,6 +3,8 @@
 
 #include "CollisionDetector.h"
 #include "AppGlobals.h"
+#include "MainWindow.h"
+
 
 class ResizeButton : public Control
 {
