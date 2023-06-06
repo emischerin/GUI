@@ -32,16 +32,16 @@ void ResizeButton::ReactToEvents()
 	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
 		
 
-		if (ev->type == SDL_MOUSEBUTTONDOWN)
-			if (ev->button.button == 1) { /*left mouse button*/
-				MainWindow* w = MainWindow::GetMainWindowPtr();
-				
-				if (w->GetSizeState() == MainWindow::MAXIMIZED)
-					w->SetSizeState(MainWindow::MY_SIZE);
-				else if (w->GetSizeState() == MainWindow::MY_SIZE)
-					w->SetSizeState(MainWindow::MAXIMIZED);
-				
-			}
+		//if (ev->type == SDL_MOUSEBUTTONDOWN)
+		//	if (ev->button.button == 1) { /*left mouse button*/
+		//		MainWindow* w = MainWindow::GetMainWindowPtr();
+		//		
+		//		if (w->GetSizeState() == MainWindow::MAXIMIZED)
+		//			w->SetSizeState(MainWindow::MY_SIZE);
+		//		else if (w->GetSizeState() == MainWindow::MY_SIZE)
+		//			w->SetSizeState(MainWindow::MAXIMIZED);
+		//		
+		//	}
 
 		
 
@@ -69,12 +69,12 @@ void ResizeButton::Draw()
 
 	}
 
-	MainWindow* w = MainWindow::GetMainWindowPtr();
+	//MainWindow* w = MainWindow::GetMainWindowPtr();
 
-	if (w->GetSizeState() == MainWindow::WindowSizeState::MY_SIZE)
-		this->DrawMaximizeButton();
-	else if (w->GetSizeState() == MainWindow::WindowSizeState::MAXIMIZED)
-		this->DrawSetMySizeButton();
+	//if (w->GetSizeState() == MainWindow::WindowSizeState::MY_SIZE)
+	//	this->DrawMaximizeButton();
+	//else if (w->GetSizeState() == MainWindow::WindowSizeState::MAXIMIZED)
+	//	this->DrawSetMySizeButton();
 
 	/*if (AppGlobals::app_is_inFullscreen) {
 

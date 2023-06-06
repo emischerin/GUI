@@ -16,7 +16,7 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 
 	this->SetBackgroundColor();
 
-	MainWindow::_this_ptr = this;
+	
 
 	
 	
@@ -192,10 +192,7 @@ void MainWindow::SetSizeState(MainWindow::WindowSizeState size_state)
 
 }
 
-MainWindow* MainWindow::GetMainWindowPtr()
-{
-	return MainWindow::_this_ptr;
-}
+
 
 void MainWindow::Maximize()
 {

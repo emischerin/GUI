@@ -1,9 +1,9 @@
 #pragma once
 #include "Control.h"
-#include "XCross.h"
+
 #include "CollisionDetector.h"
 #include "AppGlobals.h"
-#include "MainWindow.h"
+
 class ResizeButton : public Control
 {
 public:
