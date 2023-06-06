@@ -50,3 +50,11 @@ SDL_Window* Window::GetWinPtr()
 {
 	return _win_ptr;
 }
+
+void Window::Resize(int width, int height)
+{
+	this->_width = width;
+	this->_height = height;
+
+	SDL_SetWindowSize(_win_ptr, _width, _height);
+}

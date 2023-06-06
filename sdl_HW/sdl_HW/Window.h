@@ -15,6 +15,8 @@ public:
 	
 	virtual void ReactToEvents();
 
+	virtual void Resize(int width,int height);
+
 	void Draw();
 
 protected:
