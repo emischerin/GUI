@@ -119,5 +119,26 @@ void ResizeButton::DrawMaximizeButton()
 
 void ResizeButton::DrawSetMySizeButton()
 {
+	SDL_Rect r;
+	r.x = GetX() + 12;
+	r.y = GetY() + 12;
+	r.w = 10;
+	r.h = 10;
 
+	SDL_SetRenderDrawColor(AppGlobals::main_render, 255, 255, 255, 1);
+	SDL_RenderDrawRect(AppGlobals::main_render, &r);
+
+	r.x -= 2;
+	r.y += 2;
+
+	SDL_RenderDrawRect(AppGlobals::main_render, &r);
+
+	SDL_Color* _parent_color = _parent_control->GetColor();
+
+	r.x += 1;
+	r.y += 1;
+	r.w -= 2;
+	r.h -= 2;
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _parent_color->r, _parent_color->g, _parent_color->b, _parent_color->a);
+	SDL_RenderFillRect(AppGlobals::main_render, &r);
 }
