@@ -30,7 +30,8 @@ public:
 	int StartLoop(MainWindow::LoopType loop_type);
 	
 
-
+	WindowSizeState GetSizeState() const;
+	WindowSizeState SetSizeState(MainWindow::WindowSizeState size_state);
 	 
 	 
 
@@ -38,6 +39,8 @@ public:
 
 private:
 	
+
+	WindowSizeState _size_state;
 	
 	int InitGraphics();
 	int HardRealTimeMainLoop();
@@ -45,6 +48,9 @@ private:
 
 	void SetBackgroundColor();
 
+	void Maximize();
+	void Minimize();
+	void SetMySize();
 	
 
 };

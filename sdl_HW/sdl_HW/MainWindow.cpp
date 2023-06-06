@@ -159,6 +159,49 @@ int MainWindow::SimpleAppMainLoop()
 
 
 	}
+
+	
+
 }
 
+MainWindow::WindowSizeState MainWindow::GetSizeState() const
+{
+	return _size_state;
+}
 
+MainWindow::WindowSizeState MainWindow::SetSizeState(MainWindow::WindowSizeState size_state)
+{
+	this->_size_state = size_state;
+
+	switch (_size_state) {
+	case MAXIMIZED:
+		this->Maximize();
+		break;
+	case MINIMIZED:
+		this->Minimize();
+		break;
+	case MY_SIZE:
+		this->SetMySize();
+		break;
+	default:
+		this->SetMySize();
+		break;
+	}
+
+
+}
+
+void MainWindow::Maximize()
+{
+
+}
+
+void MainWindow::Minimize()
+{
+
+}
+
+void MainWindow::SetMySize()
+{
+
+}
