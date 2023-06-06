@@ -76,32 +76,7 @@ void ResizeButton::Draw()
 	else if (w->GetSizeState() == MainWindow::WindowSizeState::MAXIMIZED)
 		this->DrawSetMySizeButton();
 
-	/*if (AppGlobals::app_is_inFullscreen) {
-
-		SDL_Rect r;
-		r.x = _x + 5;
-		r.y = _y + 5;
-		r.w = 5;
-		r.h = 5;
-
-		SDL_RenderDrawRect(AppGlobals::main_render, &r);
-
-		SDL_RenderDrawLine(AppGlobals::main_render, r.x + 2, r.y, r.x + 2, r.y - 2);
-		SDL_RenderDrawLine(AppGlobals::main_render, r.x + 2, r.y - 2, r.x + 5 + 2, r.y - 2);
-		SDL_RenderDrawLine(AppGlobals::main_render, r.x + 2 + 5, r.y - 2, r.x + 5 + 2, r.y + 5);
-
-
-	}
-	else {
-		SDL_Rect r;
-		r.x = _x + 5;
-		r.y = _y + 5;
-		r.w = 5;
-		r.h = 5;
-
-
-		SDL_RenderDrawRect(AppGlobals::main_render, &r);
-	}*/
+	
 }
 
 void ResizeButton::DrawMaximizeButton()

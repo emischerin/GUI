@@ -88,15 +88,31 @@ void Window::Resize(int width, int height)
 
 void Window::Maximize()
 {
-	SDL_MaximizeWindow(_win_ptr);
+	
+	int win_x, win_y;
+
+	SDL_GetWindowPosition(_win_ptr, &win_x, &win_y);
+
+	SDL_Rect display;
+	SDL_Point win_location = { win_x,win_y };
+	int display_index = SDL_GetPointDisplayIndex(&win_location);
+	
+	SDL_GetDisplayBounds(display_index, &display);
+	SDL_SetWindowPosition(_win_ptr,display.x,display.y);
+	SDL_SetWindowSize(_win_ptr, display.w, display.h);
+	//SDL_GetDisplayBounds()
+	//SDL_MaximizeWindow(_win_ptr);
+	this->_size_state = MAXIMIZED;
 }
 
 void Window::Minimize()
 {
 	SDL_MinimizeWindow(_win_ptr);
+	this->_size_state = MINIMIZED;
 }
 
 void Window::SetMySize()
 {
 	SDL_SetWindowSize(_win_ptr, _width, _height);
+	this->_size_state = MY_SIZE;
 }
