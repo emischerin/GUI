@@ -18,12 +18,7 @@ public:
 		SIMPLE_APP
 	};
 
-	enum WindowSizeState
-	{
-		MY_SIZE,
-		MAXIMIZED,
-		MINIMIZED
-	};
+	
 
 	MainWindow(int width, int height,const char* w_title);
 	
@@ -32,8 +27,7 @@ public:
 	int StartLoop(MainWindow::LoopType loop_type);
 	
 
-	MainWindow::WindowSizeState GetSizeState() const;
-	void SetSizeState(MainWindow::WindowSizeState size_state);
+	
 	 
 	 
 
@@ -42,7 +36,7 @@ public:
 private:
 	
 
-	MainWindow::WindowSizeState _size_state = MY_SIZE;
+	
 	
 	int InitGraphics();
 	int HardRealTimeMainLoop();

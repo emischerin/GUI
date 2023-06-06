@@ -41,6 +41,33 @@ void Window::Draw()
 	
 }
 
+Window::WindowSizeState Window::GetSizeState() const
+{
+	return _size_state;
+}
+
+void Window::SetSizeState(WindowSizeState size_state)
+{
+	this->_size_state = size_state;
+
+	switch (_size_state) {
+	case MAXIMIZED:
+		this->Maximize();
+		break;
+	case MINIMIZED:
+		this->Minimize();
+		break;
+	case MY_SIZE:
+		this->SetMySize();
+		break;
+	default:
+		this->SetMySize();
+		break;
+	}
+
+
+}
+
 SDL_Renderer* Window::GetWinRender()
 {
 	return _win_render;
