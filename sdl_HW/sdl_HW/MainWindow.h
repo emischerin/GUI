@@ -18,6 +18,13 @@ public:
 		SIMPLE_APP
 	};
 
+	enum WindowSizeState
+	{
+		MY_SIZE,
+		MAXIMIZED,
+		MINIMIZED
+	};
+
 	MainWindow(int width, int height,const char* w_title);
 	
 	int StartLoop(MainWindow::LoopType loop_type);

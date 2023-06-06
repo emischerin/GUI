@@ -16,6 +16,8 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 
 	this->SetBackgroundColor();
 
+
+	AppGlobals::my_main_window = this;
 	
 	
 	

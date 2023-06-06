@@ -24,6 +24,24 @@ ResizeButton::ResizeButton(Control* parent) : Control(parent)
 
 void ResizeButton::ReactToEvents()
 {
+	SDL_Event* ev = AppGlobals::event;
+	if (!ev) return;
+
+	CollisionDetector cd;
+
+	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
+		
+
+		if (ev->type == SDL_MOUSEBUTTONDOWN)
+			if (ev->button.button == 1) { /*left mouse button*/
+				SDL_Window* w = AppGlobals::main_window;
+				SDL_MaximizeWindow(w);
+			}
+
+		
+
+		
+	}
 
 }
 
