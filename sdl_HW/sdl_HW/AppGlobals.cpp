@@ -13,6 +13,7 @@ Uint8 AppGlobals::mouse_button_code = 0;
 Control* selected_control = nullptr;
 SDL_Event* AppGlobals::event = nullptr;
 
+Window* AppGlobals::my_main_window = nullptr;
 
 
 bool AppGlobals::app_is_inFullscreen = false;
