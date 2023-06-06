@@ -19,6 +19,10 @@ public:
 
 	void Draw();
 
+	void Maximize();
+	void Minimize();
+	void SetMySize();
+
 protected:
 
 	virtual void InternalReactToEvents();

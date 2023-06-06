@@ -194,17 +194,3 @@ void MainWindow::SetSizeState(MainWindow::WindowSizeState size_state)
 
 
 
-void MainWindow::Maximize()
-{
-	SDL_MaximizeWindow(_win_ptr);
-}
-
-void MainWindow::Minimize()
-{
-	SDL_MinimizeWindow(_win_ptr);
-}
-
-void MainWindow::SetMySize()
-{
-	SDL_SetWindowSize(_win_ptr,_width, _height);
-}

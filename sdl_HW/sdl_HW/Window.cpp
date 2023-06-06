@@ -58,3 +58,18 @@ void Window::Resize(int width, int height)
 
 	SDL_SetWindowSize(_win_ptr, _width, _height);
 }
+
+void Window::Maximize()
+{
+	SDL_MaximizeWindow(_win_ptr);
+}
+
+void Window::Minimize()
+{
+	SDL_MinimizeWindow(_win_ptr);
+}
+
+void Window::SetMySize()
+{
+	SDL_SetWindowSize(_win_ptr, _width, _height);
+}

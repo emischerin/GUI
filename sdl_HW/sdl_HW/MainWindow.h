@@ -50,9 +50,7 @@ private:
 
 	void SetBackgroundColor();
 
-	void Maximize();
-	void Minimize();
-	void SetMySize();
+	
 	
 
 };
