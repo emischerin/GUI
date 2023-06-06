@@ -16,8 +16,9 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 
 	this->SetBackgroundColor();
 
+	MainWindow::_this_ptr = this;
 
-	AppGlobals::my_main_window = this;
+	
 	
 	
 	
@@ -169,7 +170,7 @@ MainWindow::WindowSizeState MainWindow::GetSizeState() const
 	return _size_state;
 }
 
-MainWindow::WindowSizeState MainWindow::SetSizeState(MainWindow::WindowSizeState size_state)
+void MainWindow::SetSizeState(MainWindow::WindowSizeState size_state)
 {
 	this->_size_state = size_state;
 
@@ -189,6 +190,11 @@ MainWindow::WindowSizeState MainWindow::SetSizeState(MainWindow::WindowSizeState
 	}
 
 
+}
+
+MainWindow* MainWindow::GetMainWindowPtr()
+{
+	return MainWindow::_this_ptr;
 }
 
 void MainWindow::Maximize()

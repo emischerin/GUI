@@ -34,7 +34,7 @@ void ResizeButton::ReactToEvents()
 
 		if (ev->type == SDL_MOUSEBUTTONDOWN)
 			if (ev->button.button == 1) { /*left mouse button*/
-				MainWindow* w = AppGlobals::my_main_window;
+				MainWindow* w = MainWindow::GetMainWindowPtr();
 				
 				if (w->GetSizeState() == MainWindow::MAXIMIZED)
 					w->SetSizeState(MainWindow::MY_SIZE);
@@ -69,11 +69,11 @@ void ResizeButton::Draw()
 
 	}
 
-	MainWindow* w = AppGlobals::my_main_window;
+	MainWindow* w = MainWindow::GetMainWindowPtr();
 
-	if (w->GetSizeState() == MainWindow::MY_SIZE)
+	if (w->GetSizeState() == MainWindow::WindowSizeState::MY_SIZE)
 		this->DrawMaximizeButton();
-	else if (w->GetSizeState() == MainWindow::MAXIMIZED)
+	else if (w->GetSizeState() == MainWindow::WindowSizeState::MAXIMIZED)
 		this->DrawSetMySizeButton();
 
 	/*if (AppGlobals::app_is_inFullscreen) {

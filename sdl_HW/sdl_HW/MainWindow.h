@@ -27,11 +27,13 @@ public:
 
 	MainWindow(int width, int height,const char* w_title);
 	
+	static MainWindow* GetMainWindowPtr();
+
 	int StartLoop(MainWindow::LoopType loop_type);
 	
 
-	WindowSizeState GetSizeState() const;
-	WindowSizeState SetSizeState(MainWindow::WindowSizeState size_state);
+	MainWindow::WindowSizeState GetSizeState() const;
+	void SetSizeState(MainWindow::WindowSizeState size_state);
 	 
 	 
 
@@ -40,8 +42,8 @@ public:
 private:
 	
 
-	WindowSizeState _size_state;
-	
+	MainWindow::WindowSizeState _size_state = MY_SIZE;
+	static MainWindow* _this_ptr;
 	int InitGraphics();
 	int HardRealTimeMainLoop();
 	int SimpleAppMainLoop();
