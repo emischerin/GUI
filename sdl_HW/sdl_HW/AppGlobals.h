@@ -15,8 +15,8 @@ public:
 	static Control* selected_control;
 	static MainWindow* my_main_window;
 	static SDL_Event* event;
-	static int mouse_x_prev;
-	static int mouse_y_prev;
+	
+	
 	
 
 

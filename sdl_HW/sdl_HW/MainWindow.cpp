@@ -102,13 +102,15 @@ int MainWindow::HardRealTimeMainLoop()
 
 			if (event_t == SDL_QUIT) return 1;
 			
+			AppGlobals::event = &e;
 
+			this->ReactToEvents();
+			this->Draw();
 			
 		}
 
 		
-		this->ReactToEvents();
-		this->Draw();
+		
 		
 		
 
@@ -127,7 +129,7 @@ int MainWindow::SimpleAppMainLoop()
 	for (;;) {
 		int wait_result = SDL_WaitEvent(&e);
 			uint32_t event_t = e.type;
-			SDL_GetGlobalMouseState(&AppGlobals::mouse_x_prev, &AppGlobals::mouse_y_prev);
+			if (event_t == SDL_QUIT) return 1;
 
 			if (wait_result) AppGlobals::event = &e;
 			
@@ -135,13 +137,7 @@ int MainWindow::SimpleAppMainLoop()
 
 			this->ReactToEvents();
 			this->Draw();
-
-		
-
-
-		
-		
-		
+				
 		
 
 

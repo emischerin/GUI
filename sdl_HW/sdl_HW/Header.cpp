@@ -46,6 +46,7 @@ void Header::MoveWindow()
 	if (ev->type == (SDL_MOUSEBUTTONDOWN & SDL_MOUSEMOTION)) {
 		if (ev->button.button == 1) {
 			int win_x, win_y;
+			int win_w, win_h;
 			int mouse_x, mouse_y;
 			
 			SDL_GetWindowPosition(AppGlobals::main_window, &win_x, &win_y);
@@ -54,10 +55,14 @@ void Header::MoveWindow()
 			
 			
 			
-			win_x += mouse_x - AppGlobals::mouse_x_prev;
-			win_y += mouse_y - AppGlobals::mouse_y_prev;
-
+			
+			win_x = mouse_x - win_x; //mouse_x;//(mouse_x - win_x);
+			win_y = mouse_y - win_y;//win_y = mouse_y - (mouse_y - win_y);
+			
 			SDL_SetWindowPosition(AppGlobals::main_window, win_x, win_y);
+			
+			
+			
 		}
 		
 	}
