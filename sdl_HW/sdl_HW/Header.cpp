@@ -54,8 +54,8 @@ void Header::MoveWindow()
 			
 			
 			
-			win_x = mouse_x - ev->motion.x;
-			//win_y += ev->motion.y;
+			win_x += mouse_x - AppGlobals::mouse_x_prev;
+			win_y += mouse_y - AppGlobals::mouse_y_prev;
 
 			SDL_SetWindowPosition(AppGlobals::main_window, win_x, win_y);
 		}
