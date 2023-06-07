@@ -32,6 +32,8 @@ private:
 	void DrawHeaderRect();
 	void DrawResizeButton();
 	void DrawCloseButton();
+
+	SDL_HitTestResult MoveWindowCallback(SDL_Window* w,const SDL_Point* area,void* data);
 };
 
 
