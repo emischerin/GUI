@@ -25,7 +25,7 @@ private:
 	int _height= 0;
 	
 	
-
+	void MoveWindow();
 	
 	
 	

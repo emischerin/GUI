@@ -22,8 +22,45 @@ Header::Header(int height,int buttons_width)
 
 void Header::ReactToEvents()
 {
+	CollisionDetector cd;
+
+	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
+		MoveWindow();
+	}
+		
+		
+	
+		
+	
+
 	_close_button.ReactToEvents();
 	_resize_button.ReactToEvents();
+}
+
+void Header::MoveWindow()
+{
+	SDL_Event* ev = AppGlobals::event;
+
+	if (!ev) return;
+
+	if (ev->type == (SDL_MOUSEBUTTONDOWN & SDL_MOUSEMOTION)) {
+		if (ev->button.button == 1) {
+			int win_x, win_y;
+			int mouse_x, mouse_y;
+			
+			SDL_GetWindowPosition(AppGlobals::main_window, &win_x, &win_y);
+			SDL_GetGlobalMouseState(&mouse_x, &mouse_y);
+			
+			
+			
+			
+			win_x = mouse_x - ev->motion.x;
+			//win_y += ev->motion.y;
+
+			SDL_SetWindowPosition(AppGlobals::main_window, win_x, win_y);
+		}
+		
+	}
 }
 
 void Header::Draw()
