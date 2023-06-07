@@ -35,6 +35,9 @@ protected:
 
 	virtual void InternalReactToEvents();
 
+
+	virtual void CaptureWindowState();
+
 	SDL_Renderer* _win_render = nullptr;
 	SDL_Window* _win_ptr = nullptr;
 	WindowSizeState _size_state = MY_SIZE;
@@ -44,6 +47,10 @@ protected:
 	int _height = 0;
 	int _x = 0;
 	int _y = 0;
+
+	int _saved_x = 0;
+	int _saved_y = 0;
+
 	uint32_t _flags = 0;
 	const char* _title = nullptr;
 };
