@@ -4,6 +4,7 @@
 
 #include <SDL.h>
 #include "AppGlobals.h"
+#include <vector>
 class Control {
 public:
 	
@@ -85,11 +86,19 @@ public:
 		return _parent_control;
 	}
 
+	virtual void AddChildren(Control* child)
+	{
+		_child_controls.push_back(child);
+		_total_chuldren_width += child->GetWidth();
+	}
+
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual ~Control() = default;
 protected:
 	
+	int _total_chuldren_width = 0;
+
 	SDL_Rect _bounding_rect = {};
 	
 	SDL_Color _color = { 0,0,0,1 };
@@ -98,6 +107,7 @@ protected:
 
 	Control* _parent_control = nullptr;
 
+	std::vector<Control*> _child_controls;
 	
 
 };
