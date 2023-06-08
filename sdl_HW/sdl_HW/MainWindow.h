@@ -36,7 +36,7 @@ public:
 private:
 	
 
-	
+	int _init = 0; /*Result of initalizing video subsystem*/
 	
 	int InitGraphics();
 	int HardRealTimeMainLoop();

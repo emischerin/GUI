@@ -16,6 +16,8 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 	
 
 	AppGlobals::my_main_window = this;
+
+	_init = this->InitGraphics();
 	
 	
 	
@@ -23,9 +25,9 @@ MainWindow::MainWindow(int width, int height,const char* w_title)
 
 int MainWindow::StartLoop(MainWindow::LoopType loop_type)
 {
-	int init = this->InitGraphics();
+	
 
-	if (init < 0) return init;
+	if (_init < 0) return _init;
 
 	if (loop_type == HARD_REAL_TIME)
 		return HardRealTimeMainLoop();

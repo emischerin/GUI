@@ -13,10 +13,14 @@ Header::Header(int height,int buttons_width)
 	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
 
 
-	SDL_SetWindowHitTest(AppGlobals::main_window,SDL_HitTest);
-	
+	int set_result = SDL_SetWindowHitTest(AppGlobals::main_window,0,0);
 
 	
+	
+
+	const char* err = SDL_GetError();
+
+	int debug = 10;
 
 }
 
