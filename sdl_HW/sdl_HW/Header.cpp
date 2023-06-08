@@ -12,6 +12,8 @@ Header::Header(int height,int buttons_width)
 	_close_button.SetParentControl(this);
 	_resize_button.SetParentControl(this);
 	
+	_sys_btns_width = buttons_width;
+
 	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
 	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
 
@@ -56,7 +58,7 @@ void Header::DrawHeaderRect()
 	if (AppGlobals::main_render) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 		
-		this->SetBoundingRect(0, 0, x, _height);
+		this->SetBoundingRect(0, 0, x - _sys_btns_width * 2,_height);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 		
 	}

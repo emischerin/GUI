@@ -17,6 +17,7 @@ public:
 	ResizeButton(Control* parent);
 	void ReactToEvents() override;
 	void Draw() override;
+	void SetParentControl(Control* parent) override;
 private:
 
 	bool _fullscreen = false;

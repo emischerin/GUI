@@ -21,7 +21,7 @@ private:
 	CloseButton _close_button;
 	ResizeButton _resize_button;
 	int _height= 0;
-	
+	int _sys_btns_width = 0;
 	
 	void MoveWindow();
 	

@@ -51,6 +51,16 @@ void ResizeButton::ReactToEvents()
 
 }
 
+void ResizeButton::SetParentControl(Control* parent)
+{
+	this->_parent_control = parent;
+
+	
+
+	SDL_Rect* p_rect = _parent_control->GetBoundingRect();
+	p_rect->w -= _bounding_rect.w;
+}
+
 void ResizeButton::Draw()
 {
 	CollisionDetector cd;

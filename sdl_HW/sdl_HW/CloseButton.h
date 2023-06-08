@@ -15,6 +15,7 @@ public:
 
 	void Draw() override;
 	
+	void SetParentControl(Control* parent) override;
 	
 	
 
