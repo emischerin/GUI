@@ -80,6 +80,8 @@ int MainWindow::InitGraphics()
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
 
+	AppGlobals::win_tracker->TrackWindow(_win_ptr, this);
+
 	return 0;
 		
 	

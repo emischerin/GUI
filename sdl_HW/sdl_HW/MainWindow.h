@@ -3,12 +3,9 @@
 #define MAINWINDOW_H
 
 #include "Window.h"
-
 #include <SDL_events.h>
-
-
 #include "AppGlobals.h"
-
+#include "WindowTracker.h"
 
 
 

@@ -209,6 +209,7 @@
     <ClCompile Include="my_graphic.cpp" />
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WindowTracker.cpp" />
     <ClCompile Include="XCross.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,7 @@
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="ResizeButton.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="WindowTracker.h" />
     <ClInclude Include="XCross.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

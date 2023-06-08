@@ -3,14 +3,8 @@
 #define HEADER_H
 
 #include "AppGlobals.h"
-
-
 #include "CloseButton.h"
 #include "ResizeButton.h"
-
-
-
-
 
 
 class Header : public Control
@@ -37,7 +31,7 @@ private:
 	void DrawResizeButton();
 	void DrawCloseButton();
 
-	SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win,const SDL_Point* area,void* data);
+	
 };
 
 #endif

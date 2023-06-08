@@ -4,17 +4,15 @@
 
 #include <vector>
 #include <SDL.h>
+
 #include "AppGlobals.h"
-#include "Control.h"
 #include "Header.h"
-
-
-
-
+#include "WindowTracker.h"
 
 class Window
 {
 public:
+	
 	enum WindowSizeState
 	{
 		MY_SIZE,
@@ -66,5 +64,7 @@ protected:
 
 	uint32_t _flags = 0;
 	const char* _title = nullptr;
+
+	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
 };
 #endif // !WINDOW_H

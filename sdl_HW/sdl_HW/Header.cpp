@@ -15,16 +15,6 @@ Header::Header(int height,int buttons_width)
 	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
 	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
 
-
-	//int set_result = SDL_SetWindowHitTest(AppGlobals::main_window, Header::MoveWindowCallback, 0);
-
-	
-	
-
-	const char* err = SDL_GetError();
-
-	int debug = 10;
-
 }
 
 
@@ -32,10 +22,7 @@ void Header::ReactToEvents()
 {
 	
 		
-		
-	
-		
-	
+			
 
 	_close_button.ReactToEvents();
 	_resize_button.ReactToEvents();
@@ -101,14 +88,3 @@ void Header::DrawResizeButton()
 
 }
 
-SDL_HitTestResult Header::MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data)
-{
-	CollisionDetector cd;
-
-	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this))
-		return SDL_HITTEST_DRAGGABLE;
-
-	return SDL_HITTEST_NORMAL;
-		
-	
-}

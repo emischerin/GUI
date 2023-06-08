@@ -1,6 +1,7 @@
 #include "Window.h"
 
 
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;
@@ -89,6 +90,8 @@ void Window::SetHeader(Header* head)
 
 	_header = head;
 	this->AddControl(head);
+
+	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
 
 void Window::Resize(int width, int height)
@@ -136,4 +139,28 @@ void Window::CaptureWindowState()
 {
 	SDL_GetWindowPosition(_win_ptr, &_saved_x, &_saved_y);
 	SDL_GetWindowSize(_win_ptr, &_x, &_y);
+}
+
+SDL_HitTestResult SDLCALL Window::MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data)
+{
+	CollisionDetector cd;
+
+	Window* w = AppGlobals::win_tracker->GetMyWindow(win);
+	if (!w) return SDL_HITTEST_NORMAL;
+	Header* h = w->GetHeader();
+	if (!h) return SDL_HITTEST_NORMAL;
+
+
+	
+	
+	if (cd.MouseInWindow(win) && cd.MouseInControl(h)) {
+		if(cd.PointInRect(h->GetBoundingRect(),area->x,area->y))
+			return SDL_HITTEST_DRAGGABLE;
+	}
+
+		
+
+	return SDL_HITTEST_NORMAL;
+
+
 }
