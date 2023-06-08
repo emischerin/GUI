@@ -8,12 +8,15 @@ Header::Header(int height,int buttons_width)
 	
 	_close_button.SetWidthAndHeight(height,buttons_width);
 	_resize_button.SetWidthAndHeight(height, buttons_width);
+
+	_close_button.SetParentControl(this);
+	_resize_button.SetParentControl(this);
 	
 	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
 	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
 
 
-	int set_result = SDL_SetWindowHitTest(AppGlobals::main_window,0,0);
+	//int set_result = SDL_SetWindowHitTest(AppGlobals::main_window, Header::MoveWindowCallback, 0);
 
 	
 	
@@ -98,7 +101,7 @@ void Header::DrawResizeButton()
 
 }
 
-SDL_HitTestResult Header::MoveWindowCallback(SDL_Window* w, const SDL_Point* area, void* data)
+SDL_HitTestResult Header::MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data)
 {
 	CollisionDetector cd;
 

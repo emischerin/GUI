@@ -1,4 +1,5 @@
 #include "ResizeButton.h"
+#include "MainWindow.h"
 
 ResizeButton::ResizeButton()
 {

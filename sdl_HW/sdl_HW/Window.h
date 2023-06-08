@@ -1,8 +1,15 @@
-#pragma once
+
+#ifndef WINDOW_H
+#define WINDOW_H
+
 #include <vector>
 #include <SDL.h>
 #include "AppGlobals.h"
 #include "Control.h"
+#include "Header.h"
+
+
+
 
 
 class Window
@@ -31,6 +38,11 @@ public:
 	void Minimize();
 	void SetMySize();
 
+	
+	void SetHeader(Header* head);
+
+	Header* GetHeader(void);
+
 protected:
 
 	virtual void InternalReactToEvents();
@@ -43,6 +55,7 @@ protected:
 	WindowSizeState _size_state = MY_SIZE;
 	SDL_Color _background_color;
 	std::vector<Control*> _controls;
+	Header *_header = nullptr;
 	int _width = 0;
 	int _height = 0;
 	int _x = 0;
@@ -54,3 +67,4 @@ protected:
 	uint32_t _flags = 0;
 	const char* _title = nullptr;
 };
+#endif // !WINDOW_H

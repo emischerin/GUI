@@ -161,7 +161,7 @@ int main(int argc, char** argv)
 	Header* h = new Header(35, 35);
 	h->SetColor(62, 19, 66, 1);
 
-	mw.AddControl(h);
+	mw.SetHeader(h);
 
 	mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 	//SDL_Window* w = NULL;

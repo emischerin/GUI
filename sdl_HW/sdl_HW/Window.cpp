@@ -78,6 +78,19 @@ SDL_Window* Window::GetWinPtr()
 	return _win_ptr;
 }
 
+Header* Window::GetHeader()
+{
+	return _header;
+}
+
+void Window::SetHeader(Header* head)
+{
+	if (!head) return;
+
+	_header = head;
+	this->AddControl(head);
+}
+
 void Window::Resize(int width, int height)
 {
 	this->_width = width;

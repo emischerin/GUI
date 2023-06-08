@@ -1,9 +1,12 @@
 #pragma once
+#ifndef APPGLOBALS_H
+#define APPGLOBALS_H
 #include <SDL.h>
 #include <SDL_events.h>
-#include "Control.h"
+
 
 class MainWindow;
+class Control;
 
 class AppGlobals
 {
@@ -25,3 +28,4 @@ public:
 
 };
 
+#endif

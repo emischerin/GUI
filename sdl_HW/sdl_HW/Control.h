@@ -1,5 +1,9 @@
 #pragma once
+#ifndef CONTROL_H
+#define CONTROL_H
+
 #include <SDL.h>
+#include "AppGlobals.h"
 class Control {
 public:
 	
@@ -97,3 +101,5 @@ protected:
 	
 
 };
+
+#endif

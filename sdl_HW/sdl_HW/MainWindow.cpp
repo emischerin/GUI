@@ -1,4 +1,6 @@
+
 #include "MainWindow.h"
+
 MainWindow::MainWindow(int width, int height,const char* w_title)
 {
 	if (width <= 0) return;

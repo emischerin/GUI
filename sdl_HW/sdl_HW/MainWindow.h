@@ -1,12 +1,16 @@
 #pragma once
-#include <sdl.h>
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include "Window.h"
+
 #include <SDL_events.h>
 
-#include <vector>
+
 #include "AppGlobals.h"
 
 
-#include "Window.h"
+
 
 class MainWindow : public Window
 {
@@ -49,3 +53,4 @@ private:
 
 };
 
+#endif

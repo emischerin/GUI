@@ -1,11 +1,15 @@
 #pragma once
-#include <SDL.h>
+#ifndef HEADER_H
+#define HEADER_H
 
-#include "Control.h"
+#include "AppGlobals.h"
+
 
 #include "CloseButton.h"
 #include "ResizeButton.h"
-#include "AppGlobals.h"
+
+
+
 
 
 
@@ -20,8 +24,8 @@ public:
 
 	
 private:
-	CloseButton _close_button { this };
-	ResizeButton _resize_button { this };
+	CloseButton _close_button;
+	ResizeButton _resize_button;
 	int _height= 0;
 	
 	
@@ -33,7 +37,7 @@ private:
 	void DrawResizeButton();
 	void DrawCloseButton();
 
-	SDL_HitTestResult MoveWindowCallback(SDL_Window* w,const SDL_Point* area,void* data);
+	SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win,const SDL_Point* area,void* data);
 };
 
-
+#endif

@@ -1,9 +1,13 @@
+
+#ifndef RESIZEBUTTON_H
+#define RESIZEBUTTON_H
+
 #pragma once
 #include "Control.h"
 
 #include "CollisionDetector.h"
-#include "AppGlobals.h"
-#include "MainWindow.h"
+
+
 
 
 class ResizeButton : public Control
@@ -28,3 +32,4 @@ private:
 
 };
 
+#endif

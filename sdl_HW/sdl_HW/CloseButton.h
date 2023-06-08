@@ -1,8 +1,10 @@
 #pragma once
+#ifndef CLOSEBUTTON_H
+#define CLOSEBUTTON_H
 #include "Control.h"
 
 #include "CollisionDetector.h"
-#include "AppGlobals.h"
+
 
 class CloseButton : public Control
 {
@@ -29,3 +31,4 @@ private:
 	
 };
 
+#endif
