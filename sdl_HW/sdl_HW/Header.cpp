@@ -40,6 +40,7 @@ void Header::MoveWindow()
 	
 }
 
+
 void Header::Draw()
 {
 	this->DrawHeaderRect();
@@ -58,7 +59,7 @@ void Header::DrawHeaderRect()
 	if (AppGlobals::main_render) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 		
-		this->SetBoundingRect(0, 0, x - _sys_btns_width * 2,_height);
+		this->SetBoundingRect(_total_children_width, 0, x - _sys_btns_width * 2,_height);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 		
 	}

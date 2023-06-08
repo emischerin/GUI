@@ -88,8 +88,9 @@ public:
 
 	virtual void AddChildren(Control* child)
 	{
+		if (!child) return;
 		_child_controls.push_back(child);
-		_total_chuldren_width += child->GetWidth();
+		_total_children_width += child->GetWidth();
 	}
 
 	virtual void ReactToEvents() {}
@@ -97,7 +98,7 @@ public:
 	virtual ~Control() = default;
 protected:
 	
-	int _total_chuldren_width = 0;
+	int _total_children_width = 0;
 
 	SDL_Rect _bounding_rect = {};
 	
