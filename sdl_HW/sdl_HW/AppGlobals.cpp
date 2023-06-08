@@ -12,3 +12,5 @@ MainWindow* AppGlobals::my_main_window = nullptr;
 WindowTracker* AppGlobals::win_tracker = new WindowTracker();
 
 bool AppGlobals::app_is_inFullscreen = false;
+
+bool AppGlobals::quit_requested = false;

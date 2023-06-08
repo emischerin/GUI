@@ -28,7 +28,7 @@ public:
 	int StartLoop(MainWindow::LoopType loop_type);
 	
 
-	
+	void RequestQuit();
 	 
 	 
 
@@ -45,6 +45,7 @@ private:
 
 	void SetBackgroundColor();
 
+	bool _quit = false;
 	
 	
 

@@ -128,14 +128,17 @@ int MainWindow::HardRealTimeMainLoop()
 int MainWindow::SimpleAppMainLoop()
 {
 	SDL_Event e;
-	bool q = false;
+	
 
 	
 
 	for (;;) {
 		int wait_result = SDL_WaitEvent(&e);
 			uint32_t event_t = e.type;
-			if (event_t == SDL_QUIT) return 1;
+			if (event_t == SDL_QUIT) 
+				return 1;
+
+			if (AppGlobals::quit_requested) return 1;
 
 			if (wait_result) AppGlobals::event = &e;
 			
@@ -154,6 +157,10 @@ int MainWindow::SimpleAppMainLoop()
 
 }
 
+void MainWindow::RequestQuit()
+{
+	_quit = true;
+}
 
 
 

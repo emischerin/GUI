@@ -27,6 +27,7 @@ public:
 
 	static bool app_is_inFullscreen;
 	
+	static bool quit_requested;
 
 };
 

@@ -16,7 +16,7 @@ public:
 
 	void Draw() override;
 
-	void AddChildren(Control* child) override;
+	
 	
 private:
 	CloseButton _close_button;
