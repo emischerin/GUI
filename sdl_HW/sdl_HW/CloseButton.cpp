@@ -57,14 +57,6 @@ void CloseButton::ReactToEvents()
 
 			}
 		}
-
-	
-			
-			
-	
-
-	
-
 		
 	}
 	

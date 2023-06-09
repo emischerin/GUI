@@ -28,7 +28,26 @@ HideButton::HideButton(SDL_Window* parent)
 
 void HideButton::ReactToEvents()
 {
+	CollisionDetector cd;
 
+	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
+
+		if (!AppGlobals::event) return;
+
+		uint32_t event_t = AppGlobals::event->type;
+
+
+
+		if (event_t == SDL_MOUSEBUTTONDOWN) {
+			Uint8 mouse_btn_code = AppGlobals::event->button.button;
+			if (mouse_btn_code == 1) { /*Left mouse button*/
+				SDL_MinimizeWindow(AppGlobals::main_window);
+
+
+			}
+		}
+
+	}
 }
 
 void HideButton::Draw()

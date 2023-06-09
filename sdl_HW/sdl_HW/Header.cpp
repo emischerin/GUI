@@ -27,6 +27,12 @@ void Header::ReactToEvents()
 {
 	_close_button.ReactToEvents();
 	_resize_button.ReactToEvents();
+	_hide_button.ReactToEvents();
+
+	for (Control* c : _child_controls) {
+		if (c) c->ReactToEvents();
+	}
+		
 }
 
 void Header::Draw()
