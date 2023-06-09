@@ -5,7 +5,7 @@
 #include "AppGlobals.h"
 #include "CloseButton.h"
 #include "ResizeButton.h"
-
+#include "HideButton.h"
 
 class Header : public Control
 {
@@ -21,17 +21,19 @@ public:
 private:
 	CloseButton _close_button;
 	ResizeButton _resize_button;
+	HideButton _hide_button;
+
 	int _height= 0;
 	int _sys_btns_width = 0;
 	
-	void MoveWindow();
+	
 	
 	
 	
 	void DrawHeaderRect();
 	void DrawResizeButton();
 	void DrawCloseButton();
-
+	void DrawHideButton();
 	
 };
 

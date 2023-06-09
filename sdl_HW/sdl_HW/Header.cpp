@@ -8,10 +8,13 @@ Header::Header(int height,int buttons_width)
 	
 	_close_button.SetWidthAndHeight(height,buttons_width);
 	_resize_button.SetWidthAndHeight(height, buttons_width);
+	_hide_button.SetWidthAndHeight(height, buttons_width);
 
 	_close_button.SetParentControl(this);
 	_resize_button.SetParentControl(this);
-	
+	_hide_button.SetParentControl(this);
+
+
 	_sys_btns_width = buttons_width;
 
 	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
@@ -22,32 +25,18 @@ Header::Header(int height,int buttons_width)
 
 void Header::ReactToEvents()
 {
-	
-		
-			
-
 	_close_button.ReactToEvents();
 	_resize_button.ReactToEvents();
 }
-
-void Header::MoveWindow()
-{
-	
-			
-			
-			
-			
-	
-}
-
 
 void Header::Draw()
 {
 	this->DrawHeaderRect();
 	
-	//_border_line.Draw();
+	
 	DrawCloseButton();
 	DrawResizeButton();
+	DrawHideButton();
 
 }
 
@@ -59,7 +48,7 @@ void Header::DrawHeaderRect()
 	if (AppGlobals::main_render) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 		
-		this->SetBoundingRect(_total_children_width, 0, x - _sys_btns_width * 2,_height);
+		this->SetBoundingRect(_total_children_width, 0, x - _sys_btns_width * 3,_height);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 		
 	}
@@ -71,7 +60,7 @@ void Header::DrawCloseButton()
 
 	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
 	if (AppGlobals::main_render) {
-		close_button_offset_r = x - _close_button.GetWidth();
+		close_button_offset_r = x - _sys_btns_width;
 		_close_button.SetPosition(close_button_offset_r, 0);
 		
 		_close_button.Draw();
@@ -84,10 +73,20 @@ void Header::DrawResizeButton()
 	int x, y, resize_button_offset;
 	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
 	if (AppGlobals::main_render) {
-		resize_button_offset = x - _close_button.GetWidth() - _resize_button.GetWidth();
+		resize_button_offset = x - _sys_btns_width*2;
 		_resize_button.SetPosition(resize_button_offset, 0);
 		_resize_button.Draw();
 	}
 
 }
 
+void Header::DrawHideButton()
+{
+	int x, y, hide_button_offset;
+	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
+	if (AppGlobals::main_render) {
+		hide_button_offset = x - _sys_btns_width*3;
+		_hide_button.SetPosition(hide_button_offset, 0);
+		_hide_button.Draw();
+	}
+}
