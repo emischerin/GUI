@@ -20,6 +20,14 @@ public:
 		_color.a = a;
 	}
 
+	virtual void SetColor(SDL_Color* color)
+	{
+		_color.r = color->r;
+		_color.g = color->g;
+		_color.b = color->b;
+		_color.a = color->a;
+	}
+
 	virtual SDL_Color* GetColor()
 	{
 		return &_color;
