@@ -8,7 +8,7 @@ CloseButton::CloseButton()
 	_color.b = 173;
 	_color.a = 1;
 	
-	this->SetWidthAndHeight(20, 20);
+	
 	
 	
 }

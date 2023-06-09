@@ -204,6 +204,7 @@
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="FatRect.cpp" />
     <ClCompile Include="Header.cpp" />
+    <ClCompile Include="HideButton.cpp" />
     <ClCompile Include="InputCaret.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="my_graphic.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="HideButton.h" />
     <ClInclude Include="InputCaret.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Primitives.h" />

@@ -9,7 +9,7 @@ ResizeButton::ResizeButton()
 	_color.a = 1;
 
 	
-	this->SetWidthAndHeight(20, 20);
+	
 }
 
 ResizeButton::ResizeButton(Control* parent) : Control(parent)
