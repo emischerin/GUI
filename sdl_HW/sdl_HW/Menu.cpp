@@ -21,19 +21,19 @@ void Menu::SelectDrawImpl()
 	switch (_pos_type) 
 	{
 	case LEFT:
-		_draw_impl = DrawLeftMenu;
+		_draw_impl = &Menu::DrawLeftMenu;
 		break;
 	case RIGHT:
-		_draw_impl = DrawRightMenu;
+		_draw_impl = &Menu::DrawRightMenu;
 		break;
 	case TOP:
-		_draw_impl = DrawTopMenu;
+		_draw_impl = &Menu::DrawTopMenu;
 		break;
 	case BOTTOM:
-		_draw_impl = DrawBottomMenu;
+		_draw_impl = &Menu::DrawBottomMenu;
 		break;
 	default:
-		_draw_impl = DrawLeftMenu;
+		_draw_impl = &Menu::DrawLeftMenu;
 		break;
 	}
 }

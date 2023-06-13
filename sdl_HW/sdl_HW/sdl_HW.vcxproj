@@ -207,6 +207,7 @@
     <ClCompile Include="HideButton.cpp" />
     <ClCompile Include="InputCaret.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="my_graphic.cpp" />
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="HideButton.h" />
     <ClInclude Include="InputCaret.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="ResizeButton.h" />
     <ClInclude Include="Window.h" />
