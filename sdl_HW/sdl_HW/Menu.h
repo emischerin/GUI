@@ -16,7 +16,15 @@ public:
 		BOTTOM
 	};
 
-	Menu(Control* parent);
+	Menu(Control* parent,MenuPosType pos_type = LEFT);
+
+	void ReactToEvents() override;
+
+	void Draw() override;
+
+private:
+
+	MenuPosType _pos_type;
 };
 
 #endif
