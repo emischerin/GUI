@@ -3,14 +3,19 @@
 #define CONTROL_H
 
 #include <SDL.h>
-#include "AppGlobals.h"
 #include <vector>
+#include "AppGlobals.h"
+#include "WindowTracker.h"
+
+class Window;
+
 class Control {
 public:
 	
 
 	Control() {};
 	Control(Control* parent) : _parent_control(parent){}
+	Control(Window* parent_window) : _my_parent_window(parent_window){}
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
@@ -63,6 +68,11 @@ public:
 	virtual void SetParentWindow(SDL_Window* w)
 	{
 		_parent_window = w;
+	}
+
+	virtual void SetParentWindow(Window* w)
+	{
+		_my_parent_window = w;
 	}
 
 	virtual SDL_Window* GetParentWindow() const
@@ -121,6 +131,8 @@ protected:
 	SDL_Color _color = { 0,0,0,1 };
 
 	SDL_Window* _parent_window = nullptr;
+
+	Window* _my_parent_window = nullptr;
 
 	Control* _parent_control = nullptr;
 
