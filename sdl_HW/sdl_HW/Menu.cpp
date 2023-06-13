@@ -15,3 +15,27 @@ void Menu::Draw()
 
 }
 
+void Menu::SelectDrawImpl()
+{
+
+}
+
+void Menu::DrawLeftMenu()
+{
+
+}
+
+void Menu::DrawRightMenu()
+{
+
+}
+
+void Menu::DrawTopMenu()
+{
+
+}
+
+void Menu::DrawBottomMenu()
+{
+
+}

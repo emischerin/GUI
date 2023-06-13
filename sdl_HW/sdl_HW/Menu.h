@@ -28,7 +28,12 @@ private:
 
 	void (*_draw_impl)(void);
 
+	void SelectDrawImpl();
 
+	void DrawLeftMenu();
+	void DrawRightMenu();
+	void DrawTopMenu();
+	void DrawBottomMenu();
 };
 
 #endif
