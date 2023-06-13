@@ -119,6 +119,7 @@ public:
 
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
+	virtual void AdjustToParent() = 0;
 	virtual ~Control() = default;
 protected:
 	

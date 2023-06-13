@@ -6,6 +6,15 @@ Menu::Menu(Control* parent,MenuPosType pos_type) : Control(parent)
 	this->SelectDrawImpl();
 }
 
+Menu::Menu(Window* parent_window, MenuPosType pos_type) : Control(parent_window)
+{
+	_pos_type = pos_type;
+	this->SelectDrawImpl();
+	this->AdjustToParent();
+
+
+}
+
 void Menu::ReactToEvents() 
 {
 	
@@ -19,6 +28,16 @@ void Menu::ReactToEvents()
 void Menu::Draw()
 {
 
+}
+
+void Menu::AdjustToParent()
+{
+	bool parent_has_header = _my_parent_window->HasHeader();
+
+	if (parent_has_header) {
+		int header_height = _my_parent_window->GetHeader()->GetHeight();
+		this->_bounding_rect.y += header_height;
+	}
 }
 
 void Menu::SelectDrawImpl()

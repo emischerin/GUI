@@ -2,6 +2,7 @@
 #ifndef MENU_H
 #define MENU_H
 #include "Control.h"
+#include "Window.h"
 
 class Menu : public Control
 {
@@ -18,9 +19,13 @@ public:
 
 	Menu(Control* parent,MenuPosType pos_type = LEFT);
 
+	Menu(Window* parent_window, MenuPosType pos_type = LEFT);
+
 	void ReactToEvents() override;
 
 	void Draw() override;
+
+	void AdjustToParent() override;
 
 private:
 
