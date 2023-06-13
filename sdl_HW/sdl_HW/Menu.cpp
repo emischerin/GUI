@@ -8,6 +8,11 @@ Menu::Menu(Control* parent,MenuPosType pos_type) : Control(parent)
 
 void Menu::ReactToEvents() 
 {
+	
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* child = _child_controls[i];
+		if (child) child->ReactToEvents();
+	}
 
 }
 
