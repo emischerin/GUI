@@ -94,6 +94,12 @@ void Window::SetHeader(Header* head)
 	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
 
+void Window::AddMenu(Menu* menu)
+{
+	_menues.push_back(menu);
+	_controls.push_back(menu);
+}
+
 void Window::Resize(int width, int height)
 {
 	this->_width = width;
@@ -170,7 +176,7 @@ bool Window::HasHeader() const
 	return _header != nullptr;
 }
 
-bool Window::HasMenue() const
+bool Window::HasMenu() const
 {
 	return _menues.size() > 0;
 }

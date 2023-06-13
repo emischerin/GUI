@@ -40,11 +40,15 @@ public:
 	
 	void SetHeader(Header* head);
 
+
+
 	Header* GetHeader(void);
+
+	void AddMenu(Menu* menu);
 
 	bool HasHeader() const;
 
-	bool HasMenue() const;
+	bool HasMenu() const;
 
 protected:
 
