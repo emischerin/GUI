@@ -65,6 +65,11 @@ public:
 		_parent_window = w;
 	}
 
+	virtual SDL_Window* GetParentWindow() const
+	{
+		return _parent_window;
+	}
+
 	int GetX() const
 	{
 		return _bounding_rect.x;

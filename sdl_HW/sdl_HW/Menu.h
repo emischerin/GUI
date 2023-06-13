@@ -25,6 +25,10 @@ public:
 private:
 
 	MenuPosType _pos_type;
+
+	void (*_draw_impl)(void);
+
+
 };
 
 #endif
