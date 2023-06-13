@@ -164,3 +164,8 @@ SDL_HitTestResult SDLCALL Window::MoveWindowCallback(SDL_Window* win, const SDL_
 
 
 }
+
+bool Window::HasHeader() const
+{
+	return _header != nullptr;
+}

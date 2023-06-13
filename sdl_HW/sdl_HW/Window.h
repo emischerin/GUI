@@ -41,6 +41,9 @@ public:
 
 	Header* GetHeader(void);
 
+	bool HasHeader();
+
+
 protected:
 
 	virtual void InternalReactToEvents();
