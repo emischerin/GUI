@@ -169,3 +169,8 @@ bool Window::HasHeader() const
 {
 	return _header != nullptr;
 }
+
+bool Window::HasMenue() const
+{
+	return _menues.size() > 0;
+}

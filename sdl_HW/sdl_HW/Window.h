@@ -7,6 +7,7 @@
 
 #include "AppGlobals.h"
 #include "Header.h"
+#include "Menu.h"
 #include "WindowTracker.h"
 
 class Window
@@ -41,8 +42,9 @@ public:
 
 	Header* GetHeader(void);
 
-	bool HasHeader();
+	bool HasHeader() const;
 
+	bool HasMenue() const;
 
 protected:
 
@@ -57,6 +59,7 @@ protected:
 	SDL_Color _background_color;
 	std::vector<Control*> _controls;
 	Header *_header = nullptr;
+	std::vector<Menu*> _menues;
 	int _width = 0;
 	int _height = 0;
 	int _x = 0;
