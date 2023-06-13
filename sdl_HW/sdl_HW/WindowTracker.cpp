@@ -15,3 +15,13 @@ SDL_Window* WindowTracker::GetSDLWindow(Window* w)
 {
 	return _my_to_sdl[w];
 }
+
+bool WindowTracker::WindowIsTracked(SDL_Window* w)
+{
+	return _sdl_to_my.find(w) != _sdl_to_my.end();
+}
+
+bool WindowTracker::WindowIsTracked(Window* w)
+{
+	return _my_to_sdl.find(w) != _my_to_sdl.end();
+}
