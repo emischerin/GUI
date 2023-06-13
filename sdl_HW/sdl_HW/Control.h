@@ -99,6 +99,7 @@ public:
 		if (!child) return;
 		_child_controls.push_back(child);
 		_total_children_width += child->GetWidth();
+		_total_children_height += child->GetHeight();
 	}
 
 	virtual void ReactToEvents() {}
@@ -107,6 +108,8 @@ public:
 protected:
 	
 	int _total_children_width = 0;
+
+	int _total_children_height = 0;
 
 	SDL_Rect _bounding_rect = {};
 	
