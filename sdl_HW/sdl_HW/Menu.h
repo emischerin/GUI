@@ -31,7 +31,7 @@ private:
 
 	MenuPosType _pos_type;
 
-	void (Menu::*_draw_impl)();
+	void (Menu::*_draw_impl)(void);
 
 	void SelectDrawImpl();
 

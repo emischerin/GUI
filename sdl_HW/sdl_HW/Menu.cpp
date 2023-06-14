@@ -31,7 +31,7 @@ void Menu::ReactToEvents()
 
 void Menu::Draw()
 {
-	if (_draw_impl != nullptr) _draw_impl();
+	if (_draw_impl) (*this.*_draw_impl)();
 }
 
 void Menu::AdjustToParent()
@@ -43,10 +43,10 @@ void Menu::AdjustToParent()
 		int header_height = _my_parent_window->GetHeader()->GetHeight();
 		_my_parent_window->GetWindowSizeAsRect(&parent_rect);
 		
-		_bounding_rect.x = parent_rect.x;
+		_bounding_rect.x = 0;
 		_bounding_rect.y = header_height;
 		_bounding_rect.w = 50; /*TODO WRITE IMPL instead of this test*/
-		_bounding_rect.h = parent_rect.h - header_height;
+		_bounding_rect.h = parent_rect.h;
 		
 	}
 }
@@ -79,7 +79,7 @@ void Menu::DrawLeftMenu()
 
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 
-	SDL_RenderDrawRect(AppGlobals::main_render, &_bounding_rect);
+	SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 }
 
 void Menu::DrawRightMenu()

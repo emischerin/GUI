@@ -75,6 +75,9 @@ protected:
 	int _saved_x = 0;
 	int _saved_y = 0;
 
+	int _saved_width = 0;
+	int _saved_height = 0;
+
 	uint32_t _flags = 0;
 	const char* _title = nullptr;
 

@@ -131,6 +131,8 @@ void Window::Maximize()
 	SDL_GetDisplayBounds(display_index, &display);
 	SDL_SetWindowPosition(_win_ptr,display.x,display.y);
 	SDL_SetWindowSize(_win_ptr, display.w, display.h);
+	_width = display.w;
+	_height = display.h;
 	//SDL_GetDisplayBounds()
 	//SDL_MaximizeWindow(_win_ptr);
 	this->_size_state = MAXIMIZED;
@@ -145,7 +147,7 @@ void Window::Minimize()
 
 void Window::SetMySize()
 {
-	SDL_SetWindowSize(_win_ptr, _width, _height);
+	SDL_SetWindowSize(_win_ptr, _saved_width, _saved_height);
 	SDL_SetWindowPosition(_win_ptr, _saved_x, _saved_y);
 	this->_size_state = MY_SIZE;
 }
@@ -153,7 +155,7 @@ void Window::SetMySize()
 void Window::CaptureWindowState()
 {
 	SDL_GetWindowPosition(_win_ptr, &_saved_x, &_saved_y);
-	SDL_GetWindowSize(_win_ptr, &_x, &_y);
+	SDL_GetWindowSize(_win_ptr, &_saved_width, &_saved_height);
 }
 
 SDL_HitTestResult SDLCALL Window::MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data)
