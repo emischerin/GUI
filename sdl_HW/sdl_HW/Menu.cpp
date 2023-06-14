@@ -14,6 +14,8 @@ Menu::Menu(Window* parent_window, MenuPosType pos_type) : Control(parent_window)
 	this->SelectDrawImpl();
 	this->AdjustToParent();
 
+	parent_window->AddMenu(this);
+
 
 }
 
@@ -29,7 +31,7 @@ void Menu::ReactToEvents()
 
 void Menu::Draw()
 {
-	if (_draw_impl) _draw_impl;
+	if (_draw_impl != nullptr) _draw_impl();
 }
 
 void Menu::AdjustToParent()
