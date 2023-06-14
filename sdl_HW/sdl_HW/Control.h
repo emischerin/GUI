@@ -41,9 +41,14 @@ public:
 		_mouse_over_color.a = color->a;
 	}
 
-	virtual SDL_Color* GetColor()
+	virtual SDL_Color* GetColor() const
 	{
 		return &_color;
+	}
+
+	virtual SDL_Color* GetMouseOverColor() const
+	{
+		return &_mouse_over_color;
 	}
 
 	virtual void SetPosition(int x, int y)
