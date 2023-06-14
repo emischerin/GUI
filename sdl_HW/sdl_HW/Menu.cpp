@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Header.h"
+#include "AppGlobals.h"
 
 Menu::Menu(Control* parent,MenuPosType pos_type) : Control(parent)
 {
@@ -28,7 +29,7 @@ void Menu::ReactToEvents()
 
 void Menu::Draw()
 {
-	
+	if (_draw_impl) _draw_impl;
 }
 
 void Menu::AdjustToParent()
@@ -72,7 +73,11 @@ void Menu::SelectDrawImpl()
 
 void Menu::DrawLeftMenu()
 {
+	this->AdjustToParent();
 
+	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
+
+	SDL_RenderDrawRect(AppGlobals::main_render, &_bounding_rect);
 }
 
 void Menu::DrawRightMenu()
