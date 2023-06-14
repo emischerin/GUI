@@ -41,7 +41,7 @@ public:
 	
 	void SetHeader(Header* head);
 
-
+	void GetWindowSizeAsRect(SDL_Rect* rect) const;
 
 	Header* GetHeader();
 

@@ -133,6 +133,7 @@ public:
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
+	virtual void AdjustChildren() {}
 	virtual ~Control() = default;
 protected:
 	

@@ -95,6 +95,14 @@ void Window::SetHeader(Header* head)
 	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
 
+void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
+{
+	rect->x = this->_x;
+	rect->y = this->_y;
+	rect->w = this->_width;
+	rect->h = this->_height;
+}
+
 void Window::AddMenu(Menu* menu)
 {
 	_menues.push_back(menu);

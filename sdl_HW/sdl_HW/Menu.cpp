@@ -28,7 +28,7 @@ void Menu::ReactToEvents()
 
 void Menu::Draw()
 {
-
+	
 }
 
 void Menu::AdjustToParent()
@@ -36,8 +36,15 @@ void Menu::AdjustToParent()
 	bool parent_has_header = _my_parent_window->HasHeader();
 
 	if (parent_has_header) {
+		SDL_Rect parent_rect;
 		int header_height = _my_parent_window->GetHeader()->GetHeight();
-		this->_bounding_rect.y += header_height;
+		_my_parent_window->GetWindowSizeAsRect(&parent_rect);
+		
+		_bounding_rect.x = parent_rect.x;
+		_bounding_rect.y = header_height;
+		_bounding_rect.w = 50; /*TODO WRITE IMPL instead of this test*/
+		_bounding_rect.h = parent_rect.h - header_height;
+		
 	}
 }
 
