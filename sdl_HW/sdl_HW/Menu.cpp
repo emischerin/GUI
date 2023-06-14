@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Header.h"
 
 Menu::Menu(Control* parent,MenuPosType pos_type) : Control(parent)
 {

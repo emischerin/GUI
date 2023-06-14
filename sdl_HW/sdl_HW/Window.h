@@ -6,9 +6,10 @@
 #include <SDL.h>
 
 #include "AppGlobals.h"
-#include "Header.h"
-#include "Menu.h"
 #include "WindowTracker.h"
+
+class Menu;
+class Header;
 
 class Window
 {
@@ -42,7 +43,7 @@ public:
 
 
 
-	Header* GetHeader(void);
+	Header* GetHeader();
 
 	void AddMenu(Menu* menu);
 

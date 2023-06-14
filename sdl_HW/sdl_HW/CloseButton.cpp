@@ -23,6 +23,7 @@ CloseButton::CloseButton(Control* parent) : Control(parent)
 	
 }
 
+
 CloseButton::CloseButton(SDL_Window* parent)
 {
 	_color.r = 146;

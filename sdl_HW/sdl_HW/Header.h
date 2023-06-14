@@ -3,6 +3,7 @@
 #define HEADER_H
 
 #include "AppGlobals.h"
+#include "Control.h"
 #include "CloseButton.h"
 #include "ResizeButton.h"
 #include "HideButton.h"

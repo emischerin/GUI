@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <vector>
 #include "AppGlobals.h"
-#include "WindowTracker.h"
+
 
 class Window;
 
@@ -41,12 +41,12 @@ public:
 		_mouse_over_color.a = color->a;
 	}
 
-	virtual SDL_Color* GetColor() const
+	virtual SDL_Color* GetColor()
 	{
 		return &_color;
 	}
 
-	virtual SDL_Color* GetMouseOverColor() const
+	virtual SDL_Color* GetMouseOverColor() 
 	{
 		return &_mouse_over_color;
 	}
@@ -132,7 +132,7 @@ public:
 
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
-	virtual void AdjustToParent() = 0;
+	virtual void AdjustToParent(){}
 	virtual ~Control() = default;
 protected:
 	

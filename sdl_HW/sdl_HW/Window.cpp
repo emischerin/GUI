@@ -1,5 +1,6 @@
 #include "Window.h"
-
+#include "Header.h"
+#include "Menu.h"
 
 
 void Window::AddControl(Control* control)
