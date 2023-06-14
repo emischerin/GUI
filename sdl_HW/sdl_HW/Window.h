@@ -50,6 +50,8 @@ public:
 
 	bool HasMenu() const;
 
+	
+
 protected:
 
 	virtual void InternalReactToEvents();

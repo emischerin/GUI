@@ -33,6 +33,14 @@ public:
 		_color.a = color->a;
 	}
 
+	virtual void SetMouseOverColor(SDL_Color* color)
+	{
+		_mouse_over_color.r = color->r;
+		_mouse_over_color.g = color->g;
+		_mouse_over_color.b = color->b;
+		_mouse_over_color.a = color->a;
+	}
+
 	virtual SDL_Color* GetColor()
 	{
 		return &_color;
@@ -130,6 +138,8 @@ protected:
 	SDL_Rect _bounding_rect = {};
 	
 	SDL_Color _color = { 0,0,0,1 };
+
+	SDL_Color _mouse_over_color = { 0,0,0,1 };
 
 	SDL_Window* _parent_window = nullptr;
 
