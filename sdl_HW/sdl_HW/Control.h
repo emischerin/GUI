@@ -5,9 +5,9 @@
 #include <SDL.h>
 #include <vector>
 #include "AppGlobals.h"
+#include "Window.h"
 
 
-class Window;
 
 class Control {
 public:
@@ -15,7 +15,16 @@ public:
 
 	Control() {};
 	Control(Control* parent) : _parent_control(parent){}
-	Control(Window* parent_window) : _my_parent_window(parent_window){}
+	Control(Window* parent_window)
+	{
+		if (!parent_window) return;
+
+		_my_parent_window = parent_window;
+		_parent_window = parent_window->GetWinPtr();
+
+		_my_parent_window->AddControl(this);
+
+	}
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
