@@ -35,7 +35,7 @@ void Window::Draw()
 
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
-		ctrl->Draw();
+		if(ctrl) ctrl->Draw();
 	}
 
 	SDL_RenderPresent(AppGlobals::main_render);
