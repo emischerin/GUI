@@ -7,8 +7,8 @@
 #include "MainWindow.h"
 #include "Header.h"
 #include "Menu.h"
-
-
+#include "Scene.h"
+#include "Triangle.h"
 
 int main(int argc, char** argv)
 {
@@ -22,6 +22,17 @@ int main(int argc, char** argv)
 	Menu* m = new Menu(&mw);
 
 	m->SetColor(17, 135, 127,1);
+
+	Scene* s = new Scene();
+
+	SDL_FPoint p = { 100,100 };
+	Triangle* t = new Triangle(&p, 40, 50);
+
+	s->AddChildren(t);
+
+
+	mw.AddControl(s);
+
 
 	
 

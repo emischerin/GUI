@@ -24,6 +24,6 @@ Triangle::Triangle(SDL_FPoint* basic_vertice, float height, float base_width)
 void Triangle::Draw() 
 {
 	
-
+	SDL_RenderGeometry(AppGlobals::main_render, 0, *_points.data(), _points.size(), 0, 0);
 	
 }
