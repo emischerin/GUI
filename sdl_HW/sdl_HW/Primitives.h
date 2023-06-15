@@ -48,11 +48,11 @@ private:
 
 };
 
-class Triangle : public Primitive
+class Triangle : public Control
 {
-public:
 
-	void Draw() override;
+
+	
 };
 
 #endif
