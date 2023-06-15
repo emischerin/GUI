@@ -1,7 +1,7 @@
 #include <SDL.h>
 
 #include <iostream>
-#include "XCross.h"
+
 #include "FatRect.h"
 #include "InputCaret.h"
 #include "MainWindow.h"

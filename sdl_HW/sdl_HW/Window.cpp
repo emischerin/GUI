@@ -38,6 +38,7 @@ void Window::Draw()
 		if(ctrl) ctrl->Draw();
 	}
 
+
 	SDL_RenderPresent(AppGlobals::main_render);
 
 	
