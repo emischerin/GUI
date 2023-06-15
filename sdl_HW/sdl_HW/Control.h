@@ -14,7 +14,14 @@ public:
 	
 
 	Control() {};
-	Control(Control* parent) : _parent_control(parent){}
+	Control(Control* parent)
+	{
+		if (!parent) return;
+
+		_parent_control = parent;
+
+		parent->AddChildren(this);
+	}
 	Control(Window* parent_window)
 	{
 		if (!parent_window) return;
