@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 
 	Menu* m = new Menu(&mw);
 
-	m->SetColor(17, 135, 127,1);
+	m->SetColor(62, 19, 66,20);
 
 	Scene* s = new Scene();
 
