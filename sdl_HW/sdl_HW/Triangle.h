@@ -19,11 +19,12 @@ public:
 	
 
 protected:
-	SDL_FPoint _a;
-	SDL_FPoint _b;
-	SDL_FPoint _c;
+	SDL_Vertex _a;
+	SDL_Vertex _b;
+	SDL_Vertex _c;
 	float _height = 0;
-	std::vector<SDL_FPoint*> _points;
+	std::vector<SDL_Vertex*> _points = {&_a,&_b,&_c};
+
 
 
 

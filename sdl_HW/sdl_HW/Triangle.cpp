@@ -2,19 +2,28 @@
 
 Triangle::Triangle(SDL_FPoint* basic_vertice, float height, float base_width)
 {
-	_a.x = basic_vertice->x;
-	_a.y = basic_vertice->y;
+	_a.position.x = basic_vertice->x;
+	_a.position.y = basic_vertice->y;
 
-	_b.x = _a.x - (base_width / 2);
-	_b.y = _a.y + height;
+	_a.color = _color;
 
-	_c.x = _b.x + base_width;
-	_c.y = _b.y;
+	_b.position.x = _a.position.x - (base_width / 2);
+	_b.position.y = _a.position.y + height;
+	_b.color = _color;
+
+	_c.position.x = _b.position.x + base_width;
+	_c.position.y = _b.position.y;
+	_c.color = _color;
+
+	
+
 
 
 }
 
 void Triangle::Draw() 
 {
-	SDL_SetRenderDrawColor(AppGlobals::main_render, 0, 0, 0, 0);
+	
+
+	
 }
