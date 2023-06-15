@@ -1,8 +1,31 @@
-#pragma once
+#ifndef PRIMITIVES_H
+#define PRIMITIVES_H
+#include "Control.h"
 
-typedef struct MLine {
-	int _x1;
-	int _y1;
-	int _x2;
-	int _y2;
-}MLine;
+class Primitive
+{
+public:
+	virtual void ReactToEvents() {};
+	virtual void Draw() = 0;
+
+};
+
+class IControlAdapter :public Control
+{
+public:
+	IControlAdapter(Primitive* p) : _data(p){}
+
+private:
+	Primitive* _data;
+
+
+};
+
+
+
+
+
+
+
+
+#endif
