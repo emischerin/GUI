@@ -8,12 +8,39 @@ public:
 	virtual void ReactToEvents() {};
 	virtual void Draw() = 0;
 
+	IControlAdapter* GetControlAdapter()
+	{
+		IControlAdapter* adapter = new IControlAdapter(this);
+		return adapter;
+	}
+	
+
 };
 
 class IControlAdapter :public Control
 {
 public:
-	IControlAdapter(Primitive* p) : _data(p){}
+	IControlAdapter(Primitive* p)
+	{
+		if (!p) return;
+
+		_data = p;
+	}
+
+	void ReactToEvents() override
+	{
+		_data->ReactToEvents();
+	}
+
+	void Draw() override
+	{
+		_data->Draw();
+	}
+
+	~IControlAdapter()
+	{
+		delete _data;
+	}
 
 private:
 	Primitive* _data;
@@ -21,11 +48,11 @@ private:
 
 };
 
+class Triangle : public Primitive
+{
+public:
 
-
-
-
-
-
+	void Draw() override;
+};
 
 #endif
