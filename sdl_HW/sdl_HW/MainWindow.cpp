@@ -77,6 +77,9 @@ int MainWindow::InitGraphics()
 		if (!_win_render) return -1;
 	}
 
+	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "1");
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
+
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
 
