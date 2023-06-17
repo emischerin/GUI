@@ -77,6 +77,7 @@ int MainWindow::InitGraphics()
 		if (!_win_render) return -1;
 	}
 
+	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
 	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "1");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 
