@@ -154,6 +154,7 @@ void Window::Maximize()
 	//SDL_GetDisplayBounds()
 	//SDL_MaximizeWindow(_win_ptr);
 	this->_size_state = MAXIMIZED;
+	this->TryReallocateTexture();
 }
 
 void Window::Minimize()
@@ -165,9 +166,14 @@ void Window::Minimize()
 
 void Window::SetMySize()
 {
+	
 	SDL_SetWindowSize(_win_ptr, _saved_width, _saved_height);
 	SDL_SetWindowPosition(_win_ptr, _saved_x, _saved_y);
 	this->_size_state = MY_SIZE;
+	_width = _saved_width;
+	_height = _saved_height;
+	this->TryReallocateTexture();
+	
 }
 
 void Window::CaptureWindowState()
@@ -208,4 +214,40 @@ bool Window::HasHeader() const
 bool Window::HasMenu() const
 {
 	return _menues.size() > 0;
+}
+
+void Window::TryReallocateTexture()
+{
+	if (this->TextureReallocationNeeded()) {
+		SDL_DestroyTexture(_texture);
+
+		_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,
+			_width, _height);
+
+
+	}
+	
+}
+
+bool Window::TextureReallocationNeeded()
+{
+	if (!_texture) return false;
+
+	int t_width, t_height;
+
+	int texture_query_result = SDL_QueryTexture(_texture, 0, 0, &t_width, &t_height);
+
+	if (texture_query_result > 0) return false;
+
+	if ((t_width != this->_width) && (t_height != this->_height)) {
+		return true;
+	}
+
+	return false;
+}
+
+Window::~Window()
+{
+	if (_texture)
+		SDL_DestroyTexture(_texture);
 }

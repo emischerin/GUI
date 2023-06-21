@@ -79,14 +79,14 @@ int MainWindow::InitGraphics()
 	}
 
 	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
-	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "1");
+	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "3");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 
 	
 	
 
 	_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888,
-		SDL_TEXTUREACCESS_TARGET, _width, _height);
+		SDL_TEXTUREACCESS_TARGET, _width,_height);
 
 	if (_texture) {
 		_texture_created = true;
@@ -146,6 +146,7 @@ int MainWindow::HardRealTimeMainLoop()
 		
 	}
 }
+
 
 int MainWindow::SimpleAppMainLoop()
 {

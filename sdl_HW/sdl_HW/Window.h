@@ -58,12 +58,20 @@ public:
 
 	
 
+	
+
+	~Window();
+
 protected:
 
 	virtual void InternalReactToEvents();
 
 
 	virtual void CaptureWindowState();
+
+	bool TextureReallocationNeeded();
+
+	void TryReallocateTexture();
 
 	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
 
