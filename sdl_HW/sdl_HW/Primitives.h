@@ -11,7 +11,7 @@ public:
 
 protected:
 	
-	
+	SDL_Rect _bounding_rect;
 	/*
 	* This is for solid one color figures
 	*/

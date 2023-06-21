@@ -97,13 +97,7 @@ int MainWindow::InitGraphics()
 		}
 
 	}
-
 	
-	
-		
-	
-
-
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
 

@@ -40,7 +40,9 @@ void Window::Draw()
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(AppGlobals::main_render);
-	
+
+
+
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
 		if(ctrl) ctrl->Draw();
@@ -106,6 +108,8 @@ void Window::SetHeader(Header* head)
 
 void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 {
+	if (!rect) return;
+
 	rect->x = this->_x;
 	rect->y = this->_y;
 	rect->w = this->_width;
