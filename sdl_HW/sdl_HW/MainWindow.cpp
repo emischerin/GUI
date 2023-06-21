@@ -91,6 +91,11 @@ int MainWindow::InitGraphics()
 	if (_texture) {
 		_texture_created = true;
 		int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);
+
+		if (set_rndr_target == 0) { /*No errors, we can render to texture safely*/
+			_render_to_texture = true;
+		}
+
 	}
 
 	

@@ -71,6 +71,8 @@ protected:
 
 	bool _texture_created = false;
 
+	bool _render_to_texture = false;
+
 	SDL_Renderer* _win_render = nullptr;
 
 	SDL_Window* _win_ptr = nullptr;
