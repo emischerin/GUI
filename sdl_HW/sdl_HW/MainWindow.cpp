@@ -1,7 +1,7 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(int width, int height,const char* w_title)
+MainWindow::MainWindow(int width, int height,const char* w_title) : Window(width,height,w_title)
 {
 	if (width <= 0) return;
 	if (height <= 0) return;

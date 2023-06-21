@@ -3,6 +3,13 @@
 #include "Menu.h"
 
 
+Window::Window(int width, int height,const char* title)
+{
+	_width = width;
+	_height = height;
+	_title = title;
+}
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;

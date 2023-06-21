@@ -12,7 +12,7 @@ class Triangle : public Primitive
 
 public:
 
-	Triangle(SDL_FPoint* basic_vertice, float height, float base_width);
+	Triangle(SDL_FPoint* basic_vertice, int height, int base_width);
 	
 
 	void Draw() override;

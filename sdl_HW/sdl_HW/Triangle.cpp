@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(SDL_FPoint* basic_vertice, float height, float base_width)
+Triangle::Triangle(SDL_FPoint* basic_vertice, int height, int base_width)
 {
 	_a.position.x = basic_vertice->x;
 	_a.position.y = basic_vertice->y;
@@ -15,6 +15,7 @@ Triangle::Triangle(SDL_FPoint* basic_vertice, float height, float base_width)
 	_c.position.y = _b.position.y;
 	_c.color = _color;
 
+	
 	
 
 

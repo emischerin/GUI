@@ -21,6 +21,11 @@ public:
 		MAXIMIZED,
 		MINIMIZED
 	};
+
+	Window(int width, int height,const char* title);
+	
+
+
 	SDL_Renderer* GetWinRender();
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
@@ -60,6 +65,12 @@ protected:
 
 	virtual void CaptureWindowState();
 
+	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
+
+	SDL_Texture* _texture = nullptr;
+
+	bool _texture_created = false;
+
 	SDL_Renderer* _win_render = nullptr;
 	SDL_Window* _win_ptr = nullptr;
 	WindowSizeState _size_state = MY_SIZE;
@@ -81,6 +92,6 @@ protected:
 	uint32_t _flags = 0;
 	const char* _title = nullptr;
 
-	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
+	
 };
 #endif // !WINDOW_H
