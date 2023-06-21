@@ -37,7 +37,8 @@ void Window::InternalReactToEvents()
 
 void Window::Draw()
 {
-	
+	SDL_SetRenderTarget(_win_render, _texture);
+
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(AppGlobals::main_render);
@@ -49,6 +50,10 @@ void Window::Draw()
 		if(ctrl) ctrl->Draw();
 	}
 	
+	SDL_SetRenderTarget(AppGlobals::main_render, 0);
+
+	SDL_RenderCopy(AppGlobals::main_render, _texture, 0, 0);
+
 	SDL_RenderPresent(AppGlobals::main_render);
 
 	
