@@ -8,6 +8,7 @@ Window::Window(int width, int height,const char* title)
 	_width = width;
 	_height = height;
 	_title = title;
+	
 }
 
 void Window::AddControl(Control* control)
@@ -39,7 +40,7 @@ void Window::Draw()
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(AppGlobals::main_render);
-
+	
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
 		if(ctrl) ctrl->Draw();

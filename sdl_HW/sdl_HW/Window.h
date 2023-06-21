@@ -72,12 +72,19 @@ protected:
 	bool _texture_created = false;
 
 	SDL_Renderer* _win_render = nullptr;
+
 	SDL_Window* _win_ptr = nullptr;
+
 	WindowSizeState _size_state = MY_SIZE;
+
 	SDL_Color _background_color;
+
 	std::vector<Control*> _controls;
+
 	Header *_header = nullptr;
+
 	std::vector<Menu*> _menues;
+
 	int _width = 0;
 	int _height = 0;
 	int _x = 0;
@@ -90,7 +97,13 @@ protected:
 	int _saved_height = 0;
 
 	uint32_t _flags = 0;
+
 	const char* _title = nullptr;
+
+	/*
+	* Used for drawing on texture
+	*/
+	SDL_Rect _bounding_rect;
 
 	
 };
