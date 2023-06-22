@@ -77,28 +77,13 @@ int MainWindow::InitGraphics()
 		_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
 		if (!_win_render) return -1;
 	}
-
-	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
-	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "3");
+	//SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
+	//SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "3");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
-
-	
-	
 
 	_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888,
 		SDL_TEXTUREACCESS_TARGET, _width,_height);
-
-	if (_texture) {
-		_texture_created = true;
-		//int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);
-
-		//if (set_rndr_target == 0) { /*No errors, we can render to texture safely*/
-		//	_render_to_texture = true;
-		//}
-		
-
-	}
-	
+			
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
 
