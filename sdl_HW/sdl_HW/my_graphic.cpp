@@ -28,6 +28,8 @@ int main(int argc, char** argv)
 	SDL_FPoint p = { 100,100 };
 	Triangle* t = new Triangle(&p, 40, 50);
 
+	
+
 	s->AddChildren(t);
 
 
