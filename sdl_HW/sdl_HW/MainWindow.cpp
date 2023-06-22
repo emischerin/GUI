@@ -52,12 +52,7 @@ int MainWindow::InitGraphics()
 
 	this->_x = dm.w / 4;
 	this->_y = dm.h / 4;
-
-
-	this->_bounding_rect.x = _x;
-	this->_bounding_rect.y = _y;
-	this->_bounding_rect.w = _width;
-	this->_bounding_rect.h = _height;
+	
 	
 	_win_ptr = SDL_CreateWindow(_title, _x, _y,
 		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
@@ -77,8 +72,8 @@ int MainWindow::InitGraphics()
 		_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
 		if (!_win_render) return -1;
 	}
-	//SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
-	//SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "3");
+	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
+	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "2");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 
 	_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888,

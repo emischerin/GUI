@@ -109,12 +109,6 @@ protected:
 	uint32_t _flags = 0;
 
 	const char* _title = nullptr;
-
-	/*
-	* Used for drawing on texture
-	*/
-	SDL_Rect _bounding_rect;
-
 	
 };
 #endif // !WINDOW_H
