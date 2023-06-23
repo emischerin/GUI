@@ -31,7 +31,7 @@ public:
 
 	Triangle(SDL_Rect bounding_rect, TriangleDirection dir);
 	
-	Triangle(SDL_FPoint a, SDL_FPoint b, SDL_FPoint c);
+	
 	
 	
 
@@ -40,14 +40,14 @@ public:
 
 protected:
 
-	void InitVertices();
+	
 
 	SDL_Vertex _a;
 	SDL_Vertex _b;
 	SDL_Vertex _c;
 	float _height = 0;
 	std::vector<SDL_Vertex*> _points = {&_a,&_b,&_c};
-	TriangleDirection _my_direction = UP;
+	TriangleDirection _my_direction;
 
 
 

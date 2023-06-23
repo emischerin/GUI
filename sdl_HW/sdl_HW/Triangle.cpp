@@ -24,25 +24,21 @@
 
 Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitive(x,y,w,h)
 {
-
+	this->_my_direction = dir;
 }
 
 
 Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bounding_rect)
 {
-
+	this->_my_direction = dir;
 }
 
 
 Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
 {
-
+	this->_my_direction = dir;
 }
 
-Triangle::Triangle(SDL_FPoint a, SDL_FPoint b, SDL_FPoint c)
-{
-
-}
 
 void Triangle::Draw() 
 {
