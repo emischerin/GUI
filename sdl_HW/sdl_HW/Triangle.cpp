@@ -25,18 +25,21 @@
 Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitive(x,y,w,h)
 {
 	this->_my_direction = dir;
+	this->InitVertices();
 }
 
 
 Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertices();
 }
 
 
 Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertices();
 }
 
 
@@ -49,7 +52,73 @@ void Triangle::Draw()
 
 void Triangle::InitVertices()
 {
-	
+	if (_my_direction == UP) {
+		_a.position.x = (_bounding_rect.x + _bounding_rect.w) / 2;
+		_a.position.y = (_bounding_rect.y);
+
+		_b.position.x = _bounding_rect.x;
+		_b.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		_c.position.x = _bounding_rect.x + _bounding_rect.w;
+		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		return;
+
+	}
+
+	if (_my_direction == DOWN) {
+		_a.position.x = (_bounding_rect.x + _bounding_rect.w) / 2;
+		_a.position.y = (_bounding_rect.y + _bounding_rect.h);
+
+		_b.position.x = _bounding_rect.x;
+		_b.position.y = _bounding_rect.y;
+
+		_c.position.x = _bounding_rect.x + _bounding_rect.w;
+		_c.position.y = _bounding_rect.y;
+
+		return;
+	}
+
+	if (_my_direction == LEFT) {
+		_a.position.x = (_bounding_rect.x);
+		_a.position.y = (_bounding_rect.y + _bounding_rect.h) /2;
+
+		_b.position.x = _bounding_rect.x + _bounding_rect.w;
+		_b.position.y = _bounding_rect.y;
+
+		_c.position.x = _bounding_rect.x + _bounding_rect.w;
+		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		return;
+	}
+
+	if (_my_direction == RIGHT) {
+		_a.position.x = (_bounding_rect.x + _bounding_rect.w);
+		_a.position.y = (_bounding_rect.y + _bounding_rect.h) / 2;
+
+		_b.position.x = _bounding_rect.x;
+		_b.position.y = _bounding_rect.y;
+
+		_c.position.x = _bounding_rect.x;
+		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		return;
+	}
+	else /*If somebody passed some value that out of enum scope*/
+	{
+		_a.position.x = (_bounding_rect.x + _bounding_rect.w) / 2;
+		_a.position.y = (_bounding_rect.y);
+
+		_b.position.x = _bounding_rect.x;
+		_b.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		_c.position.x = _bounding_rect.x + _bounding_rect.w;
+		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		return;
+	}
+
+
 }
 
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
