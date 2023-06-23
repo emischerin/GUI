@@ -11,6 +11,9 @@ class Scene : public Control
 public:
 	void AddChildren(Primitive* p);
 	void Draw() override;
+
+	~Scene();
+
 private:
 	std::vector<Primitive*> _primitives;
 

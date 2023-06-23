@@ -10,3 +10,10 @@ void Scene::AddChildren(Primitive* p)
 {
 	_primitives.push_back(p);
 }
+
+Scene::~Scene()
+{
+	if (_primitives.size() > 0)
+		for (auto p : _primitives)
+			if (p) delete p;
+}
