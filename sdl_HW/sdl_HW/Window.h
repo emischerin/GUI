@@ -8,6 +8,12 @@
 #include "AppGlobals.h"
 #include "WindowTracker.h"
 
+/*TODO: For each window in program we have corresponding renderer. 
+* to be able to have multiple windows we need to change AppGlobals and Window 
+* classes a little bit 
+* 
+*/
+
 class Menu;
 class Header;
 
