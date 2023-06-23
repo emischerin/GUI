@@ -22,7 +22,7 @@ public:
 		_bounding_rect.h = bounding_rect->h;
 	}
 
-	Primitive(SDL_Rect&& bounding_rect)
+	Primitive(SDL_Rect bounding_rect)
 	{
 		_bounding_rect.x = bounding_rect.x;
 		_bounding_rect.y = bounding_rect.y;

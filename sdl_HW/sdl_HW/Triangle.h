@@ -29,8 +29,9 @@ public:
 	Triangle(SDL_Rect* bounding_rect, TriangleDirection dir);
 
 
-	Triangle(SDL_Rect&& bounding_rect, TriangleDirection dir);
+	Triangle(SDL_Rect bounding_rect, TriangleDirection dir);
 	
+	Triangle(SDL_FPoint a, SDL_FPoint b, SDL_FPoint c);
 	
 	
 

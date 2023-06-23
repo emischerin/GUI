@@ -34,7 +34,12 @@ Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bo
 }
 
 
-Triangle::Triangle(SDL_Rect&& bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
+Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
+{
+
+}
+
+Triangle::Triangle(SDL_FPoint a, SDL_FPoint b, SDL_FPoint c)
 {
 
 }

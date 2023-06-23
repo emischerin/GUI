@@ -26,7 +26,9 @@ int main(int argc, char** argv)
 	Scene* s = new Scene();
 
 	SDL_FPoint p = { 100,100 };
-	Triangle* t = new Triangle(&p, 40, 50);
+	//Triangle* t = new Triangle(&p, 40, 50);
+
+	Triangle* t = new Triangle(40,50,40,50,Triangle::TriangleDirection::UP);
 
 	
 
