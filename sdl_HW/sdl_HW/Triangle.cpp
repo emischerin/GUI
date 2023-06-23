@@ -46,3 +46,14 @@ void Triangle::Draw()
 	SDL_RenderGeometry(AppGlobals::main_render, 0, *_points.data(), _points.size(), 0, 0);
 	
 }
+
+void Triangle::InitVertices()
+{
+	
+}
+
+void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
+{
+	v->position.x = x;
+	v->position.y = y;
+}

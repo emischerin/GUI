@@ -23,13 +23,13 @@ public:
 
 	
 
-	Triangle(int x, int y, int w, int h,TriangleDirection dir);
+	Triangle(int x, int y, int w, int h,TriangleDirection dir = UP);
 
 
-	Triangle(SDL_Rect* bounding_rect, TriangleDirection dir);
+	Triangle(SDL_Rect* bounding_rect, TriangleDirection dir = UP);
 
 
-	Triangle(SDL_Rect bounding_rect, TriangleDirection dir);
+	Triangle(SDL_Rect bounding_rect, TriangleDirection dir = UP);
 	
 	
 	
@@ -39,8 +39,11 @@ public:
 	
 
 protected:
-
 	
+	void InitVertices();
+
+	void SetVertexPosition(SDL_Vertex* v, float x, float y);
+
 
 	SDL_Vertex _a;
 	SDL_Vertex _b;
