@@ -2,6 +2,7 @@
 #ifndef PRIMITIVES_H
 #define PRIMITIVES_H
 #include <SDL.h>
+/* TODO: implement vertice color setter*/
 class Primitive
 {
 public:
@@ -32,6 +33,8 @@ public:
 
 	virtual void ReactToEvents() {};
 	virtual void Draw() = 0;
+
+
 
 protected:
 	
