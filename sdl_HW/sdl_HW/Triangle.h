@@ -7,6 +7,8 @@
 #include "Primitives.h"
 #include "AppGlobals.h"
 
+/* TODO: move vertices logic to primitive (base class) as, in fact, every primitive has vertices */
+
 class Triangle : public Primitive
 {
 
@@ -37,6 +39,8 @@ public:
 
 	void Draw() override;
 	
+
+
 
 protected:
 	

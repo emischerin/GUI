@@ -53,7 +53,7 @@ void Triangle::Draw()
 void Triangle::InitVertices()
 {
 	if (_my_direction == UP) {
-		_a.position.x = (_bounding_rect.x + _bounding_rect.w) / 2;
+		_a.position.x = _bounding_rect.x + ( _bounding_rect.w / 2);
 		_a.position.y = (_bounding_rect.y);
 
 		_b.position.x = _bounding_rect.x;

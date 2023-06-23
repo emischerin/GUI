@@ -43,7 +43,7 @@ protected:
 	* This is for solid one color figures
 	*/
 	SDL_Color _color = { 0,0,0,1 };
-	SDL_Rect _bounding_rect;
+	
 
 
 	
