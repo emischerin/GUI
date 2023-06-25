@@ -2,7 +2,9 @@
 #ifndef PRIMITIVES_H
 #define PRIMITIVES_H
 #include <SDL.h>
-/* TODO: implement vertice color setter*/
+/* TODO: 1) implement vertice color setter
+*	     2) Move vertices from Triangle here		
+*/
 class Primitive
 {
 public:
