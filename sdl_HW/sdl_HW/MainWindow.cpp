@@ -80,6 +80,8 @@ int MainWindow::InitGraphics()
 	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
 	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "1");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
+	
+	
 
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
