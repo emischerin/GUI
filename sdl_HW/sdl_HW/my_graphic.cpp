@@ -25,10 +25,20 @@ int main(int argc, char** argv)
 
 	Scene* s = new Scene();
 
-	SDL_FPoint p = { 100,100 };
-	Triangle* t = new Triangle(&p, 40, 50);
+	
+	//Triangle* t = new Triangle(&p, 40, 50);
+
+	Triangle* t = new Triangle(40,50,50,50,Triangle::TriangleDirection::UP);
+	Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
+	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
+	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
+	
+		
 
 	s->AddChildren(t);
+	s->AddChildren(t1);
+	s->AddChildren(t2);
+	s->AddChildren(t3);
 
 
 	mw.AddControl(s);

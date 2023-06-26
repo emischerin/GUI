@@ -3,6 +3,14 @@
 #include "Menu.h"
 
 
+Window::Window(int width, int height,const char* title)
+{
+	_width = width;
+	_height = height;
+	_title = title;
+	
+}
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;
@@ -29,15 +37,28 @@ void Window::InternalReactToEvents()
 
 void Window::Draw()
 {
+	int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);
+
+	if (set_rndr_target == 0) { /*No errors, we can render to texture safely*/
+		_render_to_texture = true;
+	}
+	else { _render_to_texture = false; }
+	
+
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
 	SDL_RenderClear(AppGlobals::main_render);
+
+
 
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
 		if(ctrl) ctrl->Draw();
 	}
+	
+	SDL_SetRenderTarget(AppGlobals::main_render, 0);
 
+	SDL_RenderCopy(AppGlobals::main_render, _texture, 0, 0);
 
 	SDL_RenderPresent(AppGlobals::main_render);
 
@@ -98,6 +119,8 @@ void Window::SetHeader(Header* head)
 
 void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 {
+	if (!rect) return;
+
 	rect->x = this->_x;
 	rect->y = this->_y;
 	rect->w = this->_width;
@@ -137,6 +160,7 @@ void Window::Maximize()
 	//SDL_GetDisplayBounds()
 	//SDL_MaximizeWindow(_win_ptr);
 	this->_size_state = MAXIMIZED;
+	this->TryReallocateTexture();
 }
 
 void Window::Minimize()
@@ -148,9 +172,14 @@ void Window::Minimize()
 
 void Window::SetMySize()
 {
+	
 	SDL_SetWindowSize(_win_ptr, _saved_width, _saved_height);
 	SDL_SetWindowPosition(_win_ptr, _saved_x, _saved_y);
 	this->_size_state = MY_SIZE;
+	_width = _saved_width;
+	_height = _saved_height;
+	this->TryReallocateTexture();
+	
 }
 
 void Window::CaptureWindowState()
@@ -191,4 +220,40 @@ bool Window::HasHeader() const
 bool Window::HasMenu() const
 {
 	return _menues.size() > 0;
+}
+
+void Window::TryReallocateTexture()
+{
+	if (this->TextureReallocationNeeded()) {
+		SDL_DestroyTexture(_texture);
+
+		_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,
+			_width, _height);
+
+
+	}
+	
+}
+
+bool Window::TextureReallocationNeeded()
+{
+	if (!_texture) return false;
+
+	int t_width, t_height;
+
+	int texture_query_result = SDL_QueryTexture(_texture, 0, 0, &t_width, &t_height);
+
+	if (texture_query_result > 0) return false;
+
+	if ((t_width != this->_width) && (t_height != this->_height)) {
+		return true;
+	}
+
+	return false;
+}
+
+Window::~Window()
+{
+	if (_texture)
+		SDL_DestroyTexture(_texture);
 }

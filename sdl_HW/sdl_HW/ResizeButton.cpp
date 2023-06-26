@@ -41,6 +41,8 @@ void ResizeButton::ReactToEvents()
 					w->SetSizeState(MainWindow::MY_SIZE);
 				else if (w->GetSizeState() == MainWindow::MY_SIZE)
 					w->SetSizeState(MainWindow::MAXIMIZED);
+
+				
 				
 			}
 

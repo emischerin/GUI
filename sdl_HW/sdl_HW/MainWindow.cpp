@@ -1,7 +1,7 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(int width, int height,const char* w_title)
+MainWindow::MainWindow(int width, int height,const char* w_title) : Window(width,height,w_title)
 {
 	if (width <= 0) return;
 	if (height <= 0) return;
@@ -52,15 +52,11 @@ int MainWindow::InitGraphics()
 
 	this->_x = dm.w / 4;
 	this->_y = dm.h / 4;
-
+	
 	
 	_win_ptr = SDL_CreateWindow(_title, _x, _y,
-		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_VULKAN);
-
-	if (!_win_ptr) {
-		_win_ptr = SDL_CreateWindow(_title, _x, _y,
-			_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_OPENGL);
-	}
+		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+		
 	
 	if (!_win_ptr) return -1;
 
@@ -76,13 +72,15 @@ int MainWindow::InitGraphics()
 		_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
 		if (!_win_render) return -1;
 	}
-
 	SDL_SetHint(SDL_HINT_WINDOWS_DPI_SCALING, "1");
-	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "1");
+	SDL_SetHint(SDL_HINT_RENDER_LINE_METHOD, "2");
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
 	
 	
 
+	_texture = SDL_CreateTexture(_win_render, SDL_PIXELFORMAT_RGBA8888,
+		SDL_TEXTUREACCESS_TARGET, _width,_height);
+			
 	AppGlobals::main_render = _win_render;
 	AppGlobals::main_window = _win_ptr;
 
@@ -130,6 +128,7 @@ int MainWindow::HardRealTimeMainLoop()
 		
 	}
 }
+
 
 int MainWindow::SimpleAppMainLoop()
 {

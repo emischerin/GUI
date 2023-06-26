@@ -7,23 +7,54 @@
 #include "Primitives.h"
 #include "AppGlobals.h"
 
+/* TODO: move vertices logic to primitive (base class) as, in fact, every primitive has vertices */
+
 class Triangle : public Primitive
 {
 
 public:
 
-	Triangle(SDL_FPoint* basic_vertice, float height, float base_width);
+	enum TriangleDirection
+	{
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
+
+	};
+
+	
+
+	Triangle(int x, int y, int w, int h,TriangleDirection dir = UP);
+
+
+	Triangle(SDL_Rect* bounding_rect, TriangleDirection dir = UP);
+
+
+	Triangle(SDL_Rect bounding_rect, TriangleDirection dir = UP);
+	
+	
+	
 	
 
 	void Draw() override;
 	
 
+
+
 protected:
+	
+	void InitVertices();
+
+	void SetVertexPosition(SDL_Vertex* v, float x, float y);
+
+
 	SDL_Vertex _a;
 	SDL_Vertex _b;
 	SDL_Vertex _c;
 	float _height = 0;
 	std::vector<SDL_Vertex*> _points = {&_a,&_b,&_c};
+	TriangleDirection _my_direction;
 
 
 

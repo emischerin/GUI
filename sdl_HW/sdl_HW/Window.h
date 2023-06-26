@@ -8,6 +8,12 @@
 #include "AppGlobals.h"
 #include "WindowTracker.h"
 
+/*TODO: For each window in program we have corresponding renderer. 
+* to be able to have multiple windows we need to change AppGlobals and Window 
+* classes a little bit 
+* 
+*/
+
 class Menu;
 class Header;
 
@@ -21,6 +27,11 @@ public:
 		MAXIMIZED,
 		MINIMIZED
 	};
+
+	Window(int width, int height,const char* title);
+	
+
+
 	SDL_Renderer* GetWinRender();
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
@@ -53,6 +64,10 @@ public:
 
 	
 
+	
+
+	~Window();
+
 protected:
 
 	virtual void InternalReactToEvents();
@@ -60,13 +75,32 @@ protected:
 
 	virtual void CaptureWindowState();
 
+	bool TextureReallocationNeeded();
+
+	void TryReallocateTexture();
+
+	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
+
+	SDL_Texture* _texture = nullptr;
+
+	bool _texture_created = false;
+
+	bool _render_to_texture = false;
+
 	SDL_Renderer* _win_render = nullptr;
+
 	SDL_Window* _win_ptr = nullptr;
+
 	WindowSizeState _size_state = MY_SIZE;
+
 	SDL_Color _background_color;
+
 	std::vector<Control*> _controls;
+
 	Header *_header = nullptr;
+
 	std::vector<Menu*> _menues;
+
 	int _width = 0;
 	int _height = 0;
 	int _x = 0;
@@ -79,8 +113,8 @@ protected:
 	int _saved_height = 0;
 
 	uint32_t _flags = 0;
-	const char* _title = nullptr;
 
-	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
+	const char* _title = nullptr;
+	
 };
 #endif // !WINDOW_H
