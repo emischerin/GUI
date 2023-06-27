@@ -19,6 +19,17 @@ SDL_Window* WindowTracker::GetSDLWindow(Window* w)
 	return _my_to_sdl[w];
 }
 
+SDL_Renderer* WindowTracker::GetWindowRender(SDL_Window* w)
+{
+	return _sdl_win_rndr[w];
+}
+
+SDL_Renderer* WindowTracker::GetWindowRender(Window* w)
+{
+	return _my_win_rndr[w];
+}
+
+
 bool WindowTracker::WindowIsTracked(SDL_Window* w)
 {
 	return _sdl_to_my.find(w) != _sdl_to_my.end();

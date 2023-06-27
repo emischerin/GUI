@@ -14,6 +14,9 @@ public:
 	Window* GetMyWindow(SDL_Window* w);
 	SDL_Window* GetSDLWindow(Window* w);
 
+	SDL_Renderer* GetWindowRender(SDL_Window* w);
+	SDL_Renderer* GetWindowRender(Window* w);
+
 	bool WindowIsTracked(SDL_Window* w);
 	bool WindowIsTracked(Window* w);
 
