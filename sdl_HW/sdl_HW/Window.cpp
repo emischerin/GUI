@@ -17,6 +17,8 @@ void Window::AddControl(Control* control)
 	
 	_controls.push_back(control);
 
+	control->SetParentWindow(this);
+
 
 }
 
@@ -130,7 +132,7 @@ void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 void Window::AddMenu(Menu* menu)
 {
 	_menues.push_back(menu);
-	_controls.push_back(menu);
+	this->AddControl(menu);
 }
 
 void Window::Resize(int width, int height)
