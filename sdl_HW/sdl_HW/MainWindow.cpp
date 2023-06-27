@@ -131,13 +131,12 @@ int MainWindow::HardRealTimeMainLoop()
 int MainWindow::SimpleAppMainLoop()
 {
 	SDL_Event e;
-	
-
-	
+	WindowTracker win_tracker;
 
 	for (;;) {
 		int wait_result = SDL_WaitEvent(&e);
 			uint32_t event_t = e.type;
+
 			if (event_t == SDL_QUIT) 
 				return 1;
 
@@ -145,19 +144,10 @@ int MainWindow::SimpleAppMainLoop()
 
 			if (wait_result) AppGlobals::event = &e;
 			
-
-
 			this->ReactToEvents();
 			this->Draw();
-				
-		
-
-
-
 	}
-
 	
-
 }
 
 void MainWindow::RequestQuit()

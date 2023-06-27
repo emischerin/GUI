@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WINDOWTRACKER_H
+#define WINDOWTRACKER_H
 #include <map>
 
 #include <SDL.h>
@@ -26,5 +27,7 @@ private:
 
 	std::map<SDL_Window*, SDL_Renderer*> _sdl_win_rndr;
 	std::map<Window*, SDL_Renderer*> _my_win_rndr;
+
 };
+#endif
 

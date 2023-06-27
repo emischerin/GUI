@@ -61,17 +61,12 @@ public:
 	bool HasHeader() const;
 
 	bool HasMenu() const;
-
 	
-
-	
-
 	~Window();
 
 protected:
 
 	virtual void InternalReactToEvents();
-
 
 	virtual void CaptureWindowState();
 
