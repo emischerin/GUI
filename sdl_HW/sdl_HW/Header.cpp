@@ -49,13 +49,15 @@ void Header::Draw()
 void Header::DrawHeaderRect()
 {
 	int x, y;
+	SDL_Renderer* r = AppGlobals::win_tracker->GetWindowRender(_my_parent_window);
+	SDL_Window* w = AppGlobals::win_tracker->GetSDLWindow(_my_parent_window);
 
-	SDL_GetWindowSize(AppGlobals::main_window, &x, &y);
-	if (AppGlobals::main_render) {
-		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
+	SDL_GetWindowSize(w, &x, &y);
+	if (r) {
+		SDL_SetRenderDrawColor(r, _color.r, _color.g, _color.b, _color.a);
 		
 		this->SetBoundingRect(_total_children_width, 0, x - _sys_btns_width * 3,_height);
-		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
+		SDL_RenderFillRect(r, &_bounding_rect);
 		
 	}
 }
