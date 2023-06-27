@@ -43,6 +43,15 @@ int main(int argc, char** argv)
 
 	mw.AddControl(s);
 
+	Window* w = new Window(800, 600,"TEST_W");
+
+	w->CreateWindow(2, 2, 800, 600, "TEST_W");
+
+	Header* h1 = new Header(35, 35);
+	h1->SetColor(62, 19, 66, 1);
+
+	w->SetHeader(h);
+
 
 	
 

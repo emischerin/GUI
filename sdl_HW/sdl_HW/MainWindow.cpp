@@ -89,6 +89,7 @@ int MainWindow::InitGraphics()
 	
 }
 
+
 void MainWindow::SetBackgroundColor()
 {
 	_background_color.r = 255;

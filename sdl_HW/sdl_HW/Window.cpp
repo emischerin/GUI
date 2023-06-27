@@ -8,6 +8,10 @@ Window::Window(int width, int height,const char* title)
 	_width = width;
 	_height = height;
 	_title = title;
+
+	
+
+
 	
 }
 
@@ -65,6 +69,21 @@ void Window::Draw()
 	SDL_RenderPresent(AppGlobals::main_render);
 
 	
+}
+
+Window* Window::CreateWindow(int x, int y, int width, int height, const char* title)
+{
+	_win_ptr = SDL_CreateWindow(_title, x, y,
+		width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+
+	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
+
+	_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
+
+	AppGlobals::win_tracker->TrackWindow(_win_ptr, this, _win_render);
+
+	return this;
+
 }
 
 Window::WindowSizeState Window::GetSizeState() const
@@ -134,6 +153,8 @@ void Window::AddMenu(Menu* menu)
 	_menues.push_back(menu);
 	this->AddControl(menu);
 }
+
+
 
 void Window::Resize(int width, int height)
 {

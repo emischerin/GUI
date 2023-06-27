@@ -62,9 +62,17 @@ public:
 
 	bool HasMenu() const;
 	
+	/*
+	*
+	* Experimental mechanism of creating window. TODO: Integrate this into architecture
+	*/
+	Window* CreateWindow(int x, int y, int width, int height, const char* title);
+
 	~Window();
 
 protected:
+
+	
 
 	virtual void InternalReactToEvents();
 
