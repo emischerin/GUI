@@ -104,6 +104,12 @@ public:
 		_my_parent_window = w;
 	}
 
+	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w)
+	{
+		_my_parent_window = my_w;
+		_parent_window = sdl_w;
+	}
+
 	virtual SDL_Window* GetParentWindow() const
 	{
 		return _parent_window;
