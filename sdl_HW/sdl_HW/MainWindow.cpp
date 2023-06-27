@@ -131,7 +131,7 @@ int MainWindow::HardRealTimeMainLoop()
 int MainWindow::SimpleAppMainLoop()
 {
 	SDL_Event e;
-	WindowTracker win_tracker;
+	
 
 	for (;;) {
 		int wait_result = SDL_WaitEvent(&e);
@@ -144,8 +144,14 @@ int MainWindow::SimpleAppMainLoop()
 
 			if (wait_result) AppGlobals::event = &e;
 			
-			this->ReactToEvents();
-			this->Draw();
+			std::vector<Window*>* windows = AppGlobals::win_tracker->GetAllWindows();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->ReactToEvents();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->Draw();
+			
 	}
 	
 }

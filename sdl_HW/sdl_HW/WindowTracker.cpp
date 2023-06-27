@@ -41,7 +41,7 @@ SDL_Renderer* WindowTracker::GetWindowRender(Window* w)
 	return _my_win_rndr[w];
 }
 
-std::vector<Window*>* WindowTracker::GetAllWindows() const
+std::vector<Window*>* WindowTracker::GetAllWindows()
 {
 	return &_all_windows;
 }
