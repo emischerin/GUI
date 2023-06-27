@@ -1,9 +1,12 @@
 #include "WindowTracker.h"
 
-void WindowTracker::TrackWindow(SDL_Window* sdl_w, Window* my_w)
+void WindowTracker::TrackWindow(SDL_Window* sdl_w, Window* my_w,SDL_Renderer* render)
 {
 	_sdl_to_my[sdl_w] = my_w;
 	_my_to_sdl[my_w] = sdl_w;
+
+	_sdl_win_rndr[sdl_w] = render;
+	_my_win_rndr[my_w] = render;
 }
 
 Window* WindowTracker::GetMyWindow(SDL_Window* w)
