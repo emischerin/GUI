@@ -14,7 +14,7 @@
 
 int main(int argc, char** argv)
 {
-	MainWindow mw(800, 600, "HELLO NORMAL WINDOW!");
+	MainWindow mw(0,0,800, 600, "HELLO NORMAL WINDOW!");
 
 	Header* h = new Header(35, 35);
 	h->SetColor(62, 19, 66, 1);

@@ -21,10 +21,6 @@ MainWindow::MainWindow(int x,int y,int width, int height, const char* w_title) :
 	if (width <= 0) return;
 	if (height <= 0) return;
 
-	this->_width = width;
-	this->_height = height;
-	this->_title = w_title;
-
 	this->SetBackgroundColor();
 	
 	AppGlobals::my_main_window = this;
@@ -49,29 +45,30 @@ int MainWindow::InitGraphics()
 
 	if (sdl_init < 0) return sdl_init;
 
-	SDL_DisplayMode dm;
-
-	int display_mode = SDL_GetCurrentDisplayMode(0, &dm);
-
-	if (display_mode != 0) return display_mode;
-
-	this->_x = dm.w / 4;
-	this->_y = dm.h / 4;
 	
+
 	
+
+
+	if (_x == 0 || _y == 0) {
+		SDL_DisplayMode dm;
+		int display_mode = SDL_GetCurrentDisplayMode(0, &dm);
+		if (display_mode != 0) return display_mode;
+		this->_x = dm.w / 4;
+		this->_y = dm.h / 4;
+	}
+
+	
+		
 	_win_ptr = SDL_CreateWindow(_title, _x, _y,
 		_width, _height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
-		
-	
+			
 	if (!_win_ptr) return -1;
 
 	SDL_SetWindowResizable(_win_ptr, SDL_TRUE);
-
-	
-	
+		
 	_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_ACCELERATED);
-
-	
+		
 	/*If creating hardware render fails we give a chance to create at least software render*/
 	if (!_win_render) {
 		_win_render = SDL_CreateRenderer(_win_ptr, -1, SDL_RENDERER_SOFTWARE);
@@ -90,8 +87,7 @@ int MainWindow::InitGraphics()
 	AppGlobals::win_tracker->TrackWindow(_win_ptr, this,_win_render);
 
 	return 0;
-		
-	
+			
 }
 
 void MainWindow::SetBackgroundColor()
@@ -121,14 +117,7 @@ int MainWindow::HardRealTimeMainLoop()
 			this->Draw();
 			
 		}
-
-		
-		
-		
-		
-
-		
-		
+				
 	}
 }
 
