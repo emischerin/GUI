@@ -67,8 +67,8 @@ public:
 
 	bool HasMenu() const;
 	
-	int GetHeaderHeight() const;
-	int GetMenuWidth() const;
+	int GetHeaderHeight();
+	int GetMenuWidth();
 	
 
 	~Window();

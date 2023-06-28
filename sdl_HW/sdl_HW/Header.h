@@ -27,6 +27,7 @@ private:
 	int _height= 0;
 	int _sys_btns_width = 0;
 	
+	SDL_Rect _parent_window_geometry = { 0,0,0,0 };
 	
 	
 	

@@ -33,20 +33,11 @@ int main(int argc, char** argv)
 	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
 	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
 	
-		
-
 	s->AddChildren(t);
 	s->AddChildren(t1);
 	s->AddChildren(t2);
 	s->AddChildren(t3);
-
-
-	mw.AddControl(s);
-
-
-	
-
-	
+		
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
 

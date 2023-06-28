@@ -144,14 +144,13 @@ void Window::AddMenu(Menu* menu)
 		_controls.erase(_controls.begin() + _menu_index);
 	}
 
-
 	_menu = menu;
 	this->AddControl(menu);
 	_menu_index = _controls.size() - 1;
 	
 }
 
-int Window::GetHeaderHeight() const
+int Window::GetHeaderHeight() 
 {
 	if (this->HasHeader())
 		return _header->GetHeight();
@@ -159,7 +158,7 @@ int Window::GetHeaderHeight() const
 	return 0;
 }
 
-int Window::GetMenuWidth() const
+int Window::GetMenuWidth() 
 {
 	if (this->HasMenu())
 		return _menu->GetWidth();

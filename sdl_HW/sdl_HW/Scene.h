@@ -16,6 +16,11 @@ public:
 
 	~Scene();
 
+
+protected:
+	void RelocatePrimitiveVerticesX(Primitive* p);
+	void RelocatePrimitiveVerticesY(Primitive* p);
+
 private:
 	std::vector<Primitive*> _primitives;
 
@@ -23,8 +28,8 @@ private:
 
 	void DefineOffsets();
 
-	bool NeedXOffsetApplication(Primitive* p);
-	bool NeedYOffsetApplication(Primitive* p);
+	bool NeedXRelocation(Primitive* p);
+	bool NeedYRelocation(Primitive* p);
 
 	/*offsets from window coordinates systems*/
 	int _offset_x = 0;

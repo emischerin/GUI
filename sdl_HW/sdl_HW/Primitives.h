@@ -36,6 +36,15 @@ public:
 	virtual void ReactToEvents() {};
 	virtual void Draw() = 0;
 
+	virtual std::vector<SDL_Vertex*> GetVertexArray() const
+	{
+		return _vertices;
+	}
+
+	std::vector<SDL_Vertex*>* GetVertexArrayPtr()
+	{
+		return &_vertices;
+	}
 
 
 protected:

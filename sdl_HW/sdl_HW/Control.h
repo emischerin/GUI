@@ -14,6 +14,7 @@ public:
 	
 
 	Control() {};
+
 	Control(Control* parent)
 	{
 		if (!parent) return;
@@ -22,6 +23,7 @@ public:
 
 		parent->AddChildren(this);
 	}
+
 	Control(Window* parent_window)
 	{
 		if (!parent_window) return;
