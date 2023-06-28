@@ -56,12 +56,21 @@ public:
 
 	Header* GetHeader();
 
+
+	/*
+	*DO NOT add menu twice, as you will have nullptr in controls
+	* most likely, app will not fail, but it defenetely can
+	**/
 	void AddMenu(Menu* menu);
 
 	bool HasHeader() const;
 
 	bool HasMenu() const;
 	
+	int GetHeaderHeight() const;
+	int GetMenuWidth() const;
+	
+
 	~Window();
 
 protected:
@@ -94,7 +103,7 @@ protected:
 
 	Header *_header = nullptr;
 
-	std::vector<Menu*> _menues;
+	Menu* _menue = nullptr;
 
 	int _width = 0;
 	int _height = 0;
@@ -110,6 +119,9 @@ protected:
 	uint32_t _flags = 0;
 
 	const char* _title = nullptr;
+
+	int _header_index = 0;
+	int _menu_index = 0;
 	
 };
 #endif // !WINDOW_H

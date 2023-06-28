@@ -113,6 +113,11 @@ void Window::SetHeader(Header* head)
 {
 	if (!head) return;
 
+
+	if (_header)
+		delete _header;
+
+
 	_header = head;
 	this->AddControl(head);
 
@@ -131,8 +136,27 @@ void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 
 void Window::AddMenu(Menu* menu)
 {
-	_menues.push_back(menu);
+	if (_menu) 
+		delete _menu;
+
+	_menu = menu;
 	this->AddControl(menu);
+}
+
+int Window::GetHeaderHeight() const
+{
+	if (this->HasHeader())
+		return _header->GetHeight();
+
+	return 0;
+}
+
+int Window::GetMenuWidth() const
+{
+	if (this->HasMenu())
+		return _menu->GetWidth();
+
+	return 0;
 }
 
 void Window::Resize(int width, int height)
@@ -221,7 +245,7 @@ bool Window::HasHeader() const
 
 bool Window::HasMenu() const
 {
-	return _menues.size() > 0;
+	return _menu != nullptr;
 }
 
 void Window::TryReallocateTexture()

@@ -4,8 +4,8 @@
 #include <vector>
 #include "Control.h"
 #include "Primitives.h"
+#include "Window.h"
 
-class Window;
 
 class Scene : public Control
 {
@@ -19,6 +19,9 @@ public:
 private:
 	std::vector<Primitive*> _primitives;
 
+	/*offsets from window coordinates systems*/
+	int _offset_x = 0;
+	int _offset_y = 0;
 
 };
 

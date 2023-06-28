@@ -2,7 +2,12 @@
 
 Scene::Scene(Window* parent_w) : Control(parent_w)
 {
+	if (parent_w->HasMenu())
 
+		if (parent_w->HasHeader())
+			_offset_y += 
+
+	
 }
 
 void Scene::Draw()
