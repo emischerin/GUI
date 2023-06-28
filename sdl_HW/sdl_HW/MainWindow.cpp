@@ -5,18 +5,9 @@ MainWindow::MainWindow(int width, int height,const char* w_title) : Window(width
 {
 	if (width <= 0) return;
 	if (height <= 0) return;
-
-	this->_width = width;
-	this->_height = height;
-	this->_title = w_title;
-
-	
-	
-
+		
 	this->SetBackgroundColor();
-
 	
-
 	AppGlobals::my_main_window = this;
 
 	_init = this->InitGraphics();
@@ -43,16 +34,13 @@ MainWindow::MainWindow(int x,int y,int width, int height, const char* w_title) :
 }
 
 int MainWindow::StartLoop(MainWindow::LoopType loop_type)
-{
-	
-
+{	
 	if (_init < 0) return _init;
 
 	if (loop_type == HARD_REAL_TIME)
 		return HardRealTimeMainLoop();
 	else return SimpleAppMainLoop();
 	
-
 }
 
 int MainWindow::InitGraphics()
