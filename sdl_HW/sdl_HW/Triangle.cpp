@@ -3,6 +3,7 @@
 Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitive(x,y,w,h)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -10,6 +11,7 @@ Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitiv
 Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -17,6 +19,7 @@ Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bo
 Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -24,7 +27,7 @@ Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bo
 void Triangle::Draw() 
 {
 	
-	SDL_RenderGeometry(AppGlobals::main_render, 0, *_points.data(), _points.size(), 0, 0);
+	SDL_RenderGeometry(AppGlobals::main_render, 0, *_vertices.data(), _vertices.size(), 0, 0);
 	
 }
 
@@ -103,4 +106,9 @@ void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
 {
 	v->position.x = x;
 	v->position.y = y;
+}
+
+void Triangle::InitVertexArray()
+{
+	_vertices = { &_a,&_b,&_c };
 }

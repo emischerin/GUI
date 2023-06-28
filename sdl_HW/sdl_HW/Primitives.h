@@ -45,6 +45,8 @@ protected:
 	* This is for solid one color figures
 	*/
 	SDL_Color _color = { 0,0,0,1 };
+
+	std::vector<SDL_Vertex*> _vertices;
 	
 
 
