@@ -29,7 +29,7 @@ public:
 	};
 
 	Window(int width, int height,const char* title);
-	
+	Window(int x, int y, int width, int height, const char* title);
 
 
 	SDL_Renderer* GetWinRender();

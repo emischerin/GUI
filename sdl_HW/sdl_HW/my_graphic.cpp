@@ -10,6 +10,8 @@
 #include "Scene.h"
 #include "Triangle.h"
 
+
+
 int main(int argc, char** argv)
 {
 	MainWindow mw(800, 600, "HELLO NORMAL WINDOW!");

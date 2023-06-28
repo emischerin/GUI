@@ -11,6 +11,15 @@ Window::Window(int width, int height,const char* title)
 	
 }
 
+Window::Window(int x, int y, int width, int height, const char* title)
+{
+	_x = x;
+	_y = y;
+	_width = width;
+	_height = height;
+	_title = title;
+}
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;
