@@ -22,7 +22,7 @@ public:
 	
 
 	MainWindow(int width, int height,const char* w_title);
-	
+	MainWindow(int x, int y, int width, int height, const char* w_title);
 	
 
 	int StartLoop(MainWindow::LoopType loop_type);

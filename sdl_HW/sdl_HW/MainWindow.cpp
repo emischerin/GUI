@@ -25,6 +25,23 @@ MainWindow::MainWindow(int width, int height,const char* w_title) : Window(width
 	
 }
 
+MainWindow::MainWindow(int x,int y,int width, int height, const char* w_title) : Window(x,y,width, height, w_title)
+{
+	if (width <= 0) return;
+	if (height <= 0) return;
+
+	this->_width = width;
+	this->_height = height;
+	this->_title = w_title;
+
+	this->SetBackgroundColor();
+	
+	AppGlobals::my_main_window = this;
+
+	_init = this->InitGraphics();
+
+}
+
 int MainWindow::StartLoop(MainWindow::LoopType loop_type)
 {
 	

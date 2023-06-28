@@ -159,6 +159,7 @@ public:
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
 	virtual ~Control() = default;
+
 protected:
 	
 	int _total_children_width = 0;

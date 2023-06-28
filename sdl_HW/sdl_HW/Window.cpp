@@ -28,7 +28,6 @@ void Window::AddControl(Control* control)
 
 	control->SetParentWindow(this);
 
-
 }
 
 void Window::ReactToEvents()
