@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 
 	m->SetColor(62, 19, 66,20);
 
-	Scene* s = new Scene();
+	Scene* s = new Scene(&mw);
 
 	
 	//Triangle* t = new Triangle(&p, 40, 50);

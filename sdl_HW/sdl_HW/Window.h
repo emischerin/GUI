@@ -103,7 +103,7 @@ protected:
 
 	Header *_header = nullptr;
 
-	Menu* _menue = nullptr;
+	Menu* _menu = nullptr;
 
 	int _width = 0;
 	int _height = 0;

@@ -19,6 +19,13 @@ public:
 private:
 	std::vector<Primitive*> _primitives;
 
+
+
+	void DefineOffsets();
+
+	bool NeedXOffsetApplication(Primitive* p);
+	bool NeedYOffsetApplication(Primitive* p);
+
 	/*offsets from window coordinates systems*/
 	int _offset_x = 0;
 	int _offset_y = 0;

@@ -144,9 +144,11 @@ void Window::AddMenu(Menu* menu)
 		_controls.erase(_controls.begin() + _menu_index);
 	}
 
+
 	_menu = menu;
 	this->AddControl(menu);
 	_menu_index = _controls.size() - 1;
+	
 }
 
 int Window::GetHeaderHeight() const
