@@ -30,18 +30,13 @@ public:
 
 	void RequestQuit();
 	 
-
-
-
-
-	 
-
 private:
 	
-
 	int _init = 0; /*Result of initalizing video subsystem*/
 	
 	int InitGraphics();
+
+	/*TODO: it's not tested currently and have different bugs. */
 	int HardRealTimeMainLoop();
 	int SimpleAppMainLoop();
 
