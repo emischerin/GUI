@@ -114,12 +114,15 @@ void Window::SetHeader(Header* head)
 	if (!head) return;
 
 
-	if (_header)
+	if (_header) {
 		delete _header;
-
-
+		_controls.erase(_controls.begin() + _header_index);
+				
+	}
+		
 	_header = head;
 	this->AddControl(head);
+	_header_index = _controls.size() - 1;
 
 	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
@@ -136,11 +139,14 @@ void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 
 void Window::AddMenu(Menu* menu)
 {
-	if (_menu) 
+	if (_menu) {
 		delete _menu;
+		_controls.erase(_controls.begin() + _menu_index);
+	}
 
 	_menu = menu;
 	this->AddControl(menu);
+	_menu_index = _controls.size() - 1;
 }
 
 int Window::GetHeaderHeight() const
