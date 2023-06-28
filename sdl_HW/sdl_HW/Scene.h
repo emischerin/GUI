@@ -6,7 +6,20 @@
 #include "Primitives.h"
 #include "Window.h"
 
-
+/*
+* cs = coordinate system
+* 
+* TODO: Add Vertices relocation modes:
+* 
+* RAW_SCENE: Actually relocate all vertices from Window coordinate system to scene cs
+* 
+* NO_RELLOCATION: You supposed to know what you are doing. 
+*                 Scene vertices can overlap window elements.
+* 
+* RELLOCATION_ON_MISTAKE - vertices are in window coordinate system,
+*  but mistaken vertices,that overlap window elements will be relocated to scene cs
+* 
+*/
 class Scene : public Control
 {
 public:
