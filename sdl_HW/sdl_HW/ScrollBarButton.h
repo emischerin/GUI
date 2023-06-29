@@ -3,7 +3,7 @@
 #define SCROLLBARBUTTON_H
 #include "Button.h"
 
-class ScrollBarButton
+class ScrollBarButton: public Button
 {
 };
 #endif
