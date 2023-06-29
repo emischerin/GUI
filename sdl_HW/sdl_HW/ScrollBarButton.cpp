@@ -1,6 +1,7 @@
 #include "ScrollBarButton.h"
+#include "ScrollBar.h"
 
-ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir)
+ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, ScrollBar* parent): Control(parent)
 {
 	_triangle.SetDirection(dir);
 }
