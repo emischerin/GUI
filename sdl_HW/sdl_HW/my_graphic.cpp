@@ -48,10 +48,9 @@ int main(int argc, char** argv)
 {
 	MainWindow mw(0,0,800, 600, "HELLO NORMAL WINDOW!");
 
-	Header* h = new Header(35, 35);
+	Header* h = new Header(35, 35,&mw);
 	h->SetColor(62, 19, 66, 1);
-
-	mw.SetHeader(h);
+	
 
 	Menu* m = new Menu(&mw);
 

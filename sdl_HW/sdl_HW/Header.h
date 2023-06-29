@@ -7,11 +7,15 @@
 #include "CloseButton.h"
 #include "ResizeButton.h"
 #include "HideButton.h"
+#include "Window.h"
+
 
 class Header : public Control
 {
 public:
 	Header(int height,int buttons_width);
+
+	Header(int height, int buttons_width, Window* parent_window);
 
 	void ReactToEvents() override;
 
