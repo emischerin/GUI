@@ -165,7 +165,16 @@ public:
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
-	virtual ~Control() = default;
+	virtual ~Control() 
+	{
+		for (Primitive* p : _primitives)
+			if (p) delete p;
+
+		for (Control* c : _child_controls)
+			if (c) delete c;
+
+	}
+
 
 protected:
 	

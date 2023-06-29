@@ -200,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="AppGlobals.cpp" />
     <ClCompile Include="BorderLine.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CloseButton.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="FatRect.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="AppGlobals.h" />
     <ClInclude Include="BorderLine.h" />
     <ClInclude Include="bsp_tree.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CloseButton.h" />
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Control.h" />
