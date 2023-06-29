@@ -27,10 +27,10 @@ class Scene : public Control
 {
 public:
 	Scene(Window* parent_w);
-	void AddChildren(Primitive* p);
+	void AddPrimitive(Primitive* p) override;
 	void Draw() override;
 
-	~Scene();
+	
 
 
 protected:

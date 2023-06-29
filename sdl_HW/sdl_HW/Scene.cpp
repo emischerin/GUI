@@ -11,7 +11,7 @@ void Scene::Draw()
 		_primitives.at(i)->Draw();
 }
 
-void Scene::AddChildren(Primitive* p)
+void Scene::AddPrimitive(Primitive* p)
 {
 	this->DefineOffsets();
 
@@ -75,11 +75,4 @@ void Scene::RelocatePrimitiveVerticesY(Primitive* p)
 
 	for (SDL_Vertex* vert : *v)
 		vert->position.y += _offset_y;
-}
-
-Scene::~Scene()
-{
-	if (_primitives.size() > 0)
-		for (auto p : _primitives)
-			if (p) delete p;
 }

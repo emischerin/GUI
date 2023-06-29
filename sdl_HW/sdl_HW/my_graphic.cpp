@@ -34,10 +34,10 @@ static int TestMultithreadedWindows()
 	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
 	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
 
-	s->AddChildren(t);
-	s->AddChildren(t1);
-	s->AddChildren(t2);
-	s->AddChildren(t3);
+	s->AddPrimitive(t);
+	s->AddPrimitive(t1);
+	s->AddPrimitive(t2);
+	s->AddPrimitive(t3);
 
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
@@ -66,10 +66,10 @@ int main(int argc, char** argv)
 	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
 	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
 	
-	s->AddChildren(t);
-	s->AddChildren(t1);
-	s->AddChildren(t2);
-	s->AddChildren(t3);
+	s->AddPrimitive(t);
+	s->AddPrimitive(t1);
+	s->AddPrimitive(t2);
+	s->AddPrimitive(t3);
 	
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
