@@ -19,6 +19,7 @@ public:
 
 
 
+
 private:
 	ScrollBarButton _left_up;
 	ScrollBarButton _right_down;

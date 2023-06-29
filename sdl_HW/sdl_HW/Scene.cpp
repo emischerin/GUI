@@ -11,6 +11,16 @@ void Scene::Draw()
 		_primitives.at(i)->Draw();
 }
 
+bool Scene::NeedBottomScrollbar()
+{
+	return false;
+}
+
+bool Scene::NeedRightScrollbar()
+{
+	return false;
+}
+
 void Scene::AddPrimitive(Primitive* p)
 {
 	this->DefineOffsets();

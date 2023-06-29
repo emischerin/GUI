@@ -21,7 +21,7 @@ public:
 
 		_parent_control = parent;
 
-		parent->AddChildren(this);
+		parent->AddChild(this);
 	}
 
 	Control(Window* parent_window)

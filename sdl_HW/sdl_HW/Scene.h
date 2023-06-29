@@ -29,10 +29,12 @@ class Scene : public Control
 {
 public:
 	Scene(Window* parent_w);
-	void AddChild(Control* c) override;
+	
 	void AddPrimitive(Primitive* p) override;
 	void Draw() override;
 
+	bool NeedBottomScrollbar();
+	bool NeedRightScrollbar();
 
 	
 	
@@ -41,18 +43,6 @@ public:
 protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);
 	void RelocatePrimitiveVerticesY(Primitive* p);
-
-
-	std::priority_queue<Primitive*> _primitive_by_x;
-
-	std::priority_queue<Primitive*> _primitive_by_y;
-
-	std::priority_queue<Control*> _controls_by_x;
-
-	std::priority_queue<Control*> _controls_by_y;
-
-
-
 
 private:
 	
