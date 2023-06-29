@@ -165,6 +165,7 @@ public:
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
+
 	virtual ~Control() 
 	{
 		for (Primitive* p : _primitives)

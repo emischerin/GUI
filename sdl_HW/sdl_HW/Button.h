@@ -4,8 +4,10 @@
 
 #include "Control.h"
 
+/*Interface is in progress. Now it doesn't make sence to use abstract button*/
 class Button : public Control
 {
+
 };
 
 #endif

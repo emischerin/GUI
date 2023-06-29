@@ -212,6 +212,7 @@
     <ClCompile Include="my_graphic.cpp" />
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScrollBarButton.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowTracker.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="ResizeButton.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScrollBarButton.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowTracker.h" />
