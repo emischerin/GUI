@@ -72,12 +72,6 @@ int main(int argc, char** argv)
 	s->AddChildren(t2);
 	s->AddChildren(t3);
 	
-	
-
-	std::thread test_thread(&TestMultithreadedWindows);
-	test_thread.detach();
-	
-
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
 

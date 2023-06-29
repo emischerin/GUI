@@ -44,12 +44,7 @@ int MainWindow::InitGraphics()
 	int sdl_init = SDL_Init(SDL_INIT_VIDEO);
 
 	if (sdl_init < 0) return sdl_init;
-
-	
-
-	
-
-
+	 
 	if (_x == 0 || _y == 0) {
 		SDL_DisplayMode dm;
 		int display_mode = SDL_GetCurrentDisplayMode(0, &dm);

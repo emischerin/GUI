@@ -7,7 +7,7 @@
 #include "AppGlobals.h"
 #include "Window.h"
 
-
+class Primitive;
 
 class Control {
 public:
@@ -154,6 +154,13 @@ public:
 		_total_children_height += child->GetHeight();
 	}
 
+	virtual void AddPrimitive(Primitive* p)
+	{
+		if (!p) return;
+		
+		_primitives.push_back(p);
+	}
+
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
@@ -180,6 +187,8 @@ protected:
 
 	std::vector<Control*> _child_controls;
 	
+	std::vector<Primitive*> _primitives;
+
 
 };
 
