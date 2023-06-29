@@ -207,6 +207,7 @@
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="HideButton.cpp" />
     <ClCompile Include="InputCaret.cpp" />
+    <ClCompile Include="ISceneController.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="my_graphic.cpp" />
@@ -214,7 +215,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ScrollBarButton.cpp" />
     <ClCompile Include="ScrollBarCaret.cpp" />
-    <ClCompile Include="SrollBar.cpp" />
+    <ClCompile Include="ScrollBar.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowTracker.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="HideButton.h" />
     <ClInclude Include="InputCaret.h" />
+    <ClInclude Include="ISceneController.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Primitives.h" />
@@ -238,7 +240,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ScrollBarButton.h" />
     <ClInclude Include="ScrollBarCaret.h" />
-    <ClInclude Include="SrollBar.h" />
+    <ClInclude Include="ScrollBar.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowTracker.h" />

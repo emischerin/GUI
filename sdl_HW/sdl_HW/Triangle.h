@@ -39,6 +39,7 @@ public:
 
 	void Draw() override;
 	
+	void SetDirection(Triangle::TriangleDirection dir);
 
 
 

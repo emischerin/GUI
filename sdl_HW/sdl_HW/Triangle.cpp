@@ -112,3 +112,9 @@ void Triangle::InitVertexArray()
 {
 	_vertices = { &_a,&_b,&_c };
 }
+
+void Triangle::SetDirection(Triangle::TriangleDirection dir)
+{
+	this->_my_direction = dir;
+	this->InitVertices();
+}

@@ -22,7 +22,7 @@
 */
 
 
-/*The scene is actually endless, so scroling it requires*/
+
 class Scene : public Control
 {
 public:
