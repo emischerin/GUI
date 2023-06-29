@@ -6,6 +6,7 @@
 #include "Primitives.h"
 #include "ScrollBarButton.h"
 #include "ScrollBarCaret.h"
+#include "Scene.h"
 
 class ScrollBar : public Control
 {
@@ -16,10 +17,13 @@ public:
 		RIGHT
 	};
 
+
+
 private:
 	ScrollBarButton _left_up;
 	ScrollBarButton _right_down;
 	ScrollBarCaret _caret;
+	
 
 };
 #endif

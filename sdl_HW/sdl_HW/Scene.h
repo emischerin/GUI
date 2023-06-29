@@ -2,8 +2,10 @@
 #define SCENE_H
 
 #include <vector>
+#include <queue>
 #include "Control.h"
 #include "Primitives.h"
+
 #include "Window.h"
 
 /*
@@ -30,6 +32,8 @@ public:
 	void AddPrimitive(Primitive* p) override;
 	void Draw() override;
 
+
+	
 	
 
 
@@ -38,12 +42,18 @@ protected:
 	void RelocatePrimitiveVerticesY(Primitive* p);
 
 
+	std::priority_queue<Primitive*> _primitive_by_x;
+
+	std::priority_queue<Primitive*> _primitive_by_y;
+
+	std::priority_queue<Control*> _controls_by_x;
+
+	std::priority_queue<Control*> _controls_by_y;
+
+
 
 private:
 	
-
-
-
 	void DefineOffsets();
 
 	bool NeedXRelocation(Primitive* p);
