@@ -13,6 +13,17 @@ void Scene::Draw()
 
 bool Scene::NeedBottomScrollbar()
 {
+	auto _control_by_x = [](Control* c1, Control* c2)
+	{
+		return (c1->GetX() > c2->GetX());
+	};
+	
+	auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
+	{
+		return (p1->GetX() > p2->GetX());
+	};
+
+	
 	return false;
 }
 

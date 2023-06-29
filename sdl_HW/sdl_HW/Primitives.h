@@ -46,6 +46,15 @@ public:
 		return &_vertices;
 	}
 
+	int GetX() const
+	{
+		return _bounding_rect.x;
+	}
+	
+	int GetY() const
+	{
+		return _bounding_rect.y;
+	}
 
 protected:
 	

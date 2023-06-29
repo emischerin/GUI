@@ -44,6 +44,11 @@ protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);
 	void RelocatePrimitiveVerticesY(Primitive* p);
 
+	
+	
+	
+
+
 private:
 	
 	void DefineOffsets();
