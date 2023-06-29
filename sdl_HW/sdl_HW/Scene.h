@@ -40,7 +40,7 @@ protected:
 
 
 private:
-	std::vector<Primitive*> _primitives;
+	
 
 
 

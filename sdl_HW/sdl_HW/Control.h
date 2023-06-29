@@ -71,8 +71,6 @@ public:
 
 	virtual void SetPosition(int x, int y)
 	{
-	
-
 		_bounding_rect.x = x;
 		_bounding_rect.y = y;
 	}
@@ -120,7 +118,8 @@ public:
 	int GetX() const
 	{
 		return _bounding_rect.x;
-	}
+	} 
+
 	int GetY() const
 	{
 		return _bounding_rect.y;
