@@ -145,7 +145,7 @@ public:
 		return _parent_control;
 	}
 
-	virtual void AddChildren(Control* child)
+	virtual void AddChild(Control* child)
 	{
 		if (!child) return;
 		_child_controls.push_back(child);

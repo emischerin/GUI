@@ -29,6 +29,7 @@ class Scene : public Control
 {
 public:
 	Scene(Window* parent_w);
+	void AddChild(Control* c) override;
 	void AddPrimitive(Primitive* p) override;
 	void Draw() override;
 
@@ -49,6 +50,7 @@ protected:
 	std::priority_queue<Control*> _controls_by_x;
 
 	std::priority_queue<Control*> _controls_by_y;
+
 
 
 
