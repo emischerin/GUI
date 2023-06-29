@@ -20,6 +20,9 @@
 *  but mistaken vertices,that overlap window elements will be relocated to scene cs
 * 
 */
+
+
+/*The scene is actually endless, so scroling it requires*/
 class Scene : public Control
 {
 public:
@@ -34,6 +37,8 @@ protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);
 	void RelocatePrimitiveVerticesY(Primitive* p);
 
+
+
 private:
 	std::vector<Primitive*> _primitives;
 
@@ -45,8 +50,11 @@ private:
 	bool NeedYRelocation(Primitive* p);
 
 	/*offsets from window coordinates systems*/
+	/*Offsets in fact are x & y of the beginning of scene*/
 	int _offset_x = 0;
 	int _offset_y = 0;
+
+
 
 };
 
