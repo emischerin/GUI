@@ -77,6 +77,7 @@ protected:
 
 	std::vector<SDL_Vertex*> _vertices;
 	
+	Control* _parent_control = nullptr;
 
 
 	

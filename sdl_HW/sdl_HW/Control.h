@@ -9,12 +9,13 @@
 #include "Primitives.h"
 
 
+
 class Control
 {
+
 	friend class Primitive;
 	friend class Window;
-
-
+	
 public:
 	
 
