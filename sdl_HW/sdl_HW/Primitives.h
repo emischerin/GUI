@@ -60,6 +60,13 @@ public:
 
 protected:
 	
+	void SetRender(SDL_Renderer* render)
+	{
+		_render = render;
+	}
+
+	SDL_Renderer* _render = nullptr;
+
 	SDL_Rect _bounding_rect;
 	/*
 	* This is for solid one color figures

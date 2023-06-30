@@ -121,7 +121,6 @@ void Window::SetHeader(Header* head)
 {
 	if (!head) return;
 
-
 	if (_header) {
 		delete _header;
 		_controls.erase(_controls.begin() + _header_index);

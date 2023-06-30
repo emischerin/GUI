@@ -77,6 +77,8 @@ public:
 
 protected:
 
+	
+
 	virtual void InternalReactToEvents();
 
 	virtual void CaptureWindowState();

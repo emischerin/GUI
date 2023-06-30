@@ -102,17 +102,22 @@ public:
 	virtual void SetParentWindow(SDL_Window* w)
 	{
 		_parent_window = w;
+		
+		Window* my_win = AppGlobals::win_tracker->GetMyWindow(w);
+		this->SetParentWindow(my_win);
+		
 	}
 
 	virtual void SetParentWindow(Window* w)
 	{
 		_my_parent_window = w;
+		_render = w->GetWinRender();
 	}
 
 	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w)
 	{
-		_my_parent_window = my_w;
-		_parent_window = sdl_w;
+		this->SetParentWindow(my_w);
+		this->SetParentWindow(sdl_w);
 	}
 
 	virtual SDL_Window* GetParentWindow() const
@@ -163,7 +168,7 @@ public:
 	virtual void AddPrimitive(Primitive* p)
 	{
 		if (!p) return;
-		
+		p->SetRender(_render);
 		_primitives.push_back(p);
 	}
 
