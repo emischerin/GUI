@@ -19,6 +19,8 @@ class Header;
 
 class Window
 {
+	friend class Control;
+	friend class Window;
 public:
 	
 	enum WindowSizeState

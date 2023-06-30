@@ -7,6 +7,8 @@
 */
 class Primitive
 {
+	friend class Window;
+	friend class Control;
 public:
 	
 	Primitive(int x, int y, int w, int h)

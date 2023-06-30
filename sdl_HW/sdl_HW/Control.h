@@ -6,10 +6,15 @@
 #include <vector>
 #include "AppGlobals.h"
 #include "Window.h"
+#include "Primitives.h"
 
-class Primitive;
 
-class Control {
+class Control
+{
+	friend class Primitive;
+	friend class Window;
+
+
 public:
 	
 
@@ -138,6 +143,7 @@ public:
 	virtual void SetParentControl(Control* parent)
 	{
 		_parent_control = parent;
+		_render = parent->GetRender();
 	}
 
 	virtual Control* GetParentControl() const
@@ -148,6 +154,7 @@ public:
 	virtual void AddChild(Control* child)
 	{
 		if (!child) return;
+		child->SetRender(_render);
 		_child_controls.push_back(child);
 		_total_children_width += child->GetWidth();
 		_total_children_height += child->GetHeight();
@@ -178,6 +185,10 @@ public:
 
 protected:
 	
+	SDL_Renderer* GetRender() { return _render; }
+
+	void SetRender(SDL_Renderer* render) { _render = render; }
+
 	int _total_children_width = 0;
 
 	int _total_children_height = 0;
@@ -189,6 +200,8 @@ protected:
 	SDL_Color _mouse_over_color = { 0,0,0,1 };
 
 	SDL_Window* _parent_window = nullptr;
+
+	SDL_Renderer* _render = nullptr;
 
 	Window* _my_parent_window = nullptr;
 
