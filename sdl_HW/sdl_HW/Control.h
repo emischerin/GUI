@@ -181,7 +181,7 @@ public:
 	virtual void AdjustChildren() {}
 
 
-	virtual int LeastXControl()
+	virtual int MinXControl()
 	{
 		auto _control_by_x = [](Control* c1, Control* c2)
 		{
@@ -195,7 +195,7 @@ public:
 		return (*it)->GetX();
 	}
 
-	virtual int GreatestXControl()
+	virtual int MaxXControl()
 	{
 		
 		auto _control_by_x = [](Control* c1, Control* c2)
@@ -212,7 +212,7 @@ public:
 
 
 
-	virtual int LeastYControl()
+	virtual int MinYControl()
 	{
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
@@ -226,7 +226,7 @@ public:
 		return (*it)->GetY();
 	}
 
-	virtual int GreatestYControl()
+	virtual int MaxYControl()
 	{
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
@@ -240,7 +240,7 @@ public:
 		return (*it)->GetY();
 	}
 
-	virtual int LeastXPrimitive()
+	virtual int MinXPrimitive()
 	{
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
@@ -254,7 +254,7 @@ public:
 		return (*it)->GetX();
 	}
 
-	virtual int GreatestXPrimitive()
+	virtual int MaxXPrimitive()
 	{
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
@@ -270,7 +270,7 @@ public:
 
 	
 
-	virtual int LeastYPrimitive()
+	virtual int MinYPrimitive()
 	{
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{
@@ -284,7 +284,7 @@ public:
 		return (*it)->GetY();
 	}
 
-	virtual int GreatestYPrimitive()
+	virtual int MaxYPrimitive()
 	{
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{

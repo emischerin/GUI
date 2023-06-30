@@ -13,7 +13,15 @@ void Scene::Draw()
 
 bool Scene::NeedBottomScrollbar()
 {
-		
+	int max_control_x = MaxXControl();
+	int max_primitive_x = MaxXPrimitive();
+	int my_width = this->GetWidth();
+
+	if ((max_control_x > my_width) || (max_primitive_x > my_width))
+		return true;
+
+
+
 	return false;
 }
 
