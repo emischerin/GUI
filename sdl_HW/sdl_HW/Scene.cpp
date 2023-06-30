@@ -27,6 +27,13 @@ bool Scene::NeedBottomScrollbar()
 
 bool Scene::NeedRightScrollbar()
 {
+	int max_control_y = MaxYControl();
+	int max_primitive_y = MaxYPrimitive();
+	int my_width = this->GetHeight();
+
+	if ((max_control_y > my_width) || (max_primitive_y > my_width))
+		return true;
+
 	return false;
 }
 
