@@ -4,6 +4,8 @@
 
 #include <SDL.h>
 #include <vector>
+#include <numeric>
+#include <algorithm>
 #include "AppGlobals.h"
 #include "Window.h"
 #include "Primitives.h"
@@ -177,6 +179,124 @@ public:
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
+
+
+	virtual int LeastXControl()
+	{
+		auto _control_by_x = [](Control* c1, Control* c2)
+		{
+			return (c1->GetX() < c2->GetX());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_x);
+
+		return (*it)->GetX();
+	}
+
+	virtual int GreatestXControl()
+	{
+		
+		auto _control_by_x = [](Control* c1, Control* c2)
+		{
+			return (c1->GetX() > c2->GetX());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_x);
+
+		return (*it)->GetX();
+	}
+
+
+
+	virtual int LeastYControl()
+	{
+		auto _control_by_y = [](Control* c1, Control* c2)
+		{
+			return (c1->GetY() < c2->GetY());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int GreatestYControl()
+	{
+		auto _control_by_y = [](Control* c1, Control* c2)
+		{
+			return (c1->GetY() > c2->GetY());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int LeastXPrimitive()
+	{
+		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetX() < p2->GetX());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
+
+		return (*it)->GetX();
+	}
+
+	virtual int GreatestXPrimitive()
+	{
+		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetX() > p2->GetX());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
+
+		return (*it)->GetX();
+	}
+
+	
+
+	virtual int LeastYPrimitive()
+	{
+		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetY() < p2->GetY());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int GreatestYPrimitive()
+	{
+		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetY() > p2->GetY());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
+
+		return (*it)->GetY();
+	}
 
 	virtual ~Control() 
 	{
