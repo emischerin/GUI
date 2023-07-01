@@ -18,12 +18,12 @@ public:
 	};
 
 
-
+	~ScrollBar();
 
 private:
-	ScrollBarButton _left_up;
-	ScrollBarButton _right_down;
-	ScrollBarCaret _caret;
+	ScrollBarButton* _left_up = nullptr;
+	ScrollBarButton* _right_down = nullptr;
+	ScrollBarCaret* _caret = nullptr;
 	
 
 };
