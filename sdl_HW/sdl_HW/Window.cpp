@@ -11,12 +11,22 @@ Window::Window(int width, int height,const char* title)
 	
 }
 
+Window::Window(int x, int y, int width, int height, const char* title)
+{
+	_x = x;
+	_y = y;
+	_width = width;
+	_height = height;
+	_title = title;
+}
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;
 	
 	_controls.push_back(control);
 
+	control->SetParentWindow(this);
 
 }
 
@@ -111,8 +121,15 @@ void Window::SetHeader(Header* head)
 {
 	if (!head) return;
 
+	if (_header) {
+		delete _header;
+		_controls.erase(_controls.begin() + _header_index);
+				
+	}
+		
 	_header = head;
 	this->AddControl(head);
+	_header_index = _controls.size() - 1;
 
 	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
@@ -129,8 +146,31 @@ void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 
 void Window::AddMenu(Menu* menu)
 {
-	_menues.push_back(menu);
-	_controls.push_back(menu);
+	if (_menu) {
+		delete _menu;
+		_controls.erase(_controls.begin() + _menu_index);
+	}
+
+	_menu = menu;
+	this->AddControl(menu);
+	_menu_index = _controls.size() - 1;
+	
+}
+
+int Window::GetHeaderHeight() 
+{
+	if (this->HasHeader())
+		return _header->GetHeight();
+
+	return 0;
+}
+
+int Window::GetMenuWidth() 
+{
+	if (this->HasMenu())
+		return _menu->GetWidth();
+
+	return 0;
 }
 
 void Window::Resize(int width, int height)
@@ -219,7 +259,7 @@ bool Window::HasHeader() const
 
 bool Window::HasMenu() const
 {
-	return _menues.size() > 0;
+	return _menu != nullptr;
 }
 
 void Window::TryReallocateTexture()

@@ -22,7 +22,7 @@ public:
 	
 
 	MainWindow(int width, int height,const char* w_title);
-	
+	MainWindow(int x, int y, int width, int height, const char* w_title);
 	
 
 	int StartLoop(MainWindow::LoopType loop_type);
@@ -30,18 +30,13 @@ public:
 
 	void RequestQuit();
 	 
-
-
-
-
-	 
-
 private:
 	
-
 	int _init = 0; /*Result of initalizing video subsystem*/
 	
 	int InitGraphics();
+
+	/*TODO: it's not tested currently and have different bugs. */
 	int HardRealTimeMainLoop();
 	int SimpleAppMainLoop();
 

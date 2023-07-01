@@ -19,6 +19,8 @@ class Header;
 
 class Window
 {
+	friend class Control;
+	friend class Window;
 public:
 	
 	enum WindowSizeState
@@ -29,7 +31,7 @@ public:
 	};
 
 	Window(int width, int height,const char* title);
-	
+	Window(int x, int y, int width, int height, const char* title);
 
 
 	SDL_Renderer* GetWinRender();
@@ -56,22 +58,28 @@ public:
 
 	Header* GetHeader();
 
+
+	/*
+	*DO NOT add menu twice, as you will have nullptr in controls
+	* most likely, app will not fail, but it defenetely can
+	**/
 	void AddMenu(Menu* menu);
 
 	bool HasHeader() const;
 
 	bool HasMenu() const;
-
 	
-
+	int GetHeaderHeight();
+	int GetMenuWidth();
 	
 
 	~Window();
 
 protected:
 
-	virtual void InternalReactToEvents();
+	
 
+	virtual void InternalReactToEvents();
 
 	virtual void CaptureWindowState();
 
@@ -99,7 +107,7 @@ protected:
 
 	Header *_header = nullptr;
 
-	std::vector<Menu*> _menues;
+	Menu* _menu = nullptr;
 
 	int _width = 0;
 	int _height = 0;
@@ -115,6 +123,9 @@ protected:
 	uint32_t _flags = 0;
 
 	const char* _title = nullptr;
+
+	int _header_index = 0;
+	int _menu_index = 0;
 	
 };
 #endif // !WINDOW_H

@@ -7,6 +7,8 @@
 */
 class Primitive
 {
+	friend class Window;
+	friend class Control;
 public:
 	
 	Primitive(int x, int y, int w, int h)
@@ -36,16 +38,46 @@ public:
 	virtual void ReactToEvents() {};
 	virtual void Draw() = 0;
 
+	virtual std::vector<SDL_Vertex*> GetVertexArray() const
+	{
+		return _vertices;
+	}
 
+	std::vector<SDL_Vertex*>* GetVertexArrayPtr()
+	{
+		return &_vertices;
+	}
+
+	int GetX() const
+	{
+		return _bounding_rect.x;
+	}
+	
+	int GetY() const
+	{
+		return _bounding_rect.y;
+	}
 
 protected:
 	
+	void SetRender(SDL_Renderer* render)
+	{
+		_render = render;
+	}
+
+	SDL_Renderer* _render = nullptr;
+
 	SDL_Rect _bounding_rect;
 	/*
 	* This is for solid one color figures
 	*/
 	SDL_Color _color = { 0,0,0,1 };
+
+	SDL_Color _mouse_over_color = { 0,0,0,1 };
+
+	std::vector<SDL_Vertex*> _vertices;
 	
+	Control* _parent_control = nullptr;
 
 
 	

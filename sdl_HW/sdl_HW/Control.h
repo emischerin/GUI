@@ -4,24 +4,34 @@
 
 #include <SDL.h>
 #include <vector>
+#include <numeric>
+#include <algorithm>
 #include "AppGlobals.h"
 #include "Window.h"
+#include "Primitives.h"
 
 
 
-class Control {
+class Control
+{
+
+	friend class Primitive;
+	friend class Window;
+	
 public:
 	
 
 	Control() {};
+
 	Control(Control* parent)
 	{
 		if (!parent) return;
 
 		_parent_control = parent;
 
-		parent->AddChildren(this);
+		parent->AddChild(this);
 	}
+
 	Control(Window* parent_window)
 	{
 		if (!parent_window) return;
@@ -69,8 +79,6 @@ public:
 
 	virtual void SetPosition(int x, int y)
 	{
-	
-
 		_bounding_rect.x = x;
 		_bounding_rect.y = y;
 	}
@@ -97,11 +105,22 @@ public:
 	virtual void SetParentWindow(SDL_Window* w)
 	{
 		_parent_window = w;
+		
+		Window* my_win = AppGlobals::win_tracker->GetMyWindow(w);
+		this->SetParentWindow(my_win);
+		
 	}
 
 	virtual void SetParentWindow(Window* w)
 	{
 		_my_parent_window = w;
+		_render = w->GetWinRender();
+	}
+
+	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w)
+	{
+		this->SetParentWindow(my_w);
+		this->SetParentWindow(sdl_w);
 	}
 
 	virtual SDL_Window* GetParentWindow() const
@@ -112,7 +131,8 @@ public:
 	int GetX() const
 	{
 		return _bounding_rect.x;
-	}
+	} 
+
 	int GetY() const
 	{
 		return _bounding_rect.y;
@@ -131,6 +151,7 @@ public:
 	virtual void SetParentControl(Control* parent)
 	{
 		_parent_control = parent;
+		_render = parent->GetRender();
 	}
 
 	virtual Control* GetParentControl() const
@@ -138,21 +159,162 @@ public:
 		return _parent_control;
 	}
 
-	virtual void AddChildren(Control* child)
+	virtual void AddChild(Control* child)
 	{
 		if (!child) return;
+		child->SetRender(_render);
 		_child_controls.push_back(child);
 		_total_children_width += child->GetWidth();
 		_total_children_height += child->GetHeight();
+	}
+
+	virtual void AddPrimitive(Primitive* p)
+	{
+		if (!p) return;
+		p->SetRender(_render);
+		_primitives.push_back(p);
 	}
 
 	virtual void ReactToEvents() {}
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
-	virtual ~Control() = default;
+
+
+	virtual int MinXControl()
+	{
+		auto _control_by_x = [](Control* c1, Control* c2)
+		{
+			return (c1->GetX() < c2->GetX());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_x);
+
+		return (*it)->GetX();
+	}
+
+	virtual int MaxXControl()
+	{
+		
+		auto _control_by_x = [](Control* c1, Control* c2)
+		{
+			return (c1->GetX() > c2->GetX());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_x);
+
+		return (*it)->GetX();
+	}
+
+
+
+	virtual int MinYControl()
+	{
+		auto _control_by_y = [](Control* c1, Control* c2)
+		{
+			return (c1->GetY() < c2->GetY());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int MaxYControl()
+	{
+		auto _control_by_y = [](Control* c1, Control* c2)
+		{
+			return (c1->GetY() > c2->GetY());
+		};
+
+		auto it = _child_controls.begin();
+
+		std::nth_element(_child_controls.begin(), it, _child_controls.end(), _control_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int MinXPrimitive()
+	{
+		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetX() < p2->GetX());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
+
+		return (*it)->GetX();
+	}
+
+	virtual int MaxXPrimitive()
+	{
+		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetX() > p2->GetX());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
+
+		return (*it)->GetX();
+	}
+
+	
+
+	virtual int MinYPrimitive()
+	{
+		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetY() < p2->GetY());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual int MaxYPrimitive()
+	{
+		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
+		{
+			return (p1->GetY() > p2->GetY());
+		};
+
+		auto it = _primitives.begin();
+
+		std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
+
+		return (*it)->GetY();
+	}
+
+	virtual ~Control() 
+	{
+		for (Primitive* p : _primitives)
+			if (p) delete p;
+
+		for (Control* c : _child_controls)
+			if (c) delete c;
+
+	}
+
+
 protected:
 	
+	SDL_Renderer* GetRender() { return _render; }
+
+	void SetRender(SDL_Renderer* render) { _render = render; }
+
 	int _total_children_width = 0;
 
 	int _total_children_height = 0;
@@ -165,12 +327,16 @@ protected:
 
 	SDL_Window* _parent_window = nullptr;
 
+	SDL_Renderer* _render = nullptr;
+
 	Window* _my_parent_window = nullptr;
 
 	Control* _parent_control = nullptr;
 
 	std::vector<Control*> _child_controls;
 	
+	std::vector<Primitive*> _primitives;
+
 
 };
 

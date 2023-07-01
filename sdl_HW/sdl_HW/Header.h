@@ -7,11 +7,15 @@
 #include "CloseButton.h"
 #include "ResizeButton.h"
 #include "HideButton.h"
+#include "Window.h"
+
 
 class Header : public Control
 {
 public:
 	Header(int height,int buttons_width);
+
+	Header(int height, int buttons_width, Window* parent_window);
 
 	void ReactToEvents() override;
 
@@ -27,6 +31,7 @@ private:
 	int _height= 0;
 	int _sys_btns_width = 0;
 	
+	SDL_Rect _parent_window_geometry = { 0,0,0,0 };
 	
 	
 	
