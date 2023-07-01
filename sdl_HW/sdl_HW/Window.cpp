@@ -55,9 +55,9 @@ void Window::Draw()
 	else { _render_to_texture = false; }
 	
 
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
+	SDL_SetRenderDrawColor(_win_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
-	SDL_RenderClear(AppGlobals::main_render);
+	SDL_RenderClear(_win_render);
 
 
 
