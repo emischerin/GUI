@@ -175,7 +175,13 @@ public:
 		_primitives.push_back(p);
 	}
 
-	virtual void ReactToEvents() {}
+	virtual void ReactToEvents()
+	{
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* c = _child_controls[i];
+			if (c) c->ReactToEvents();
+		}
+	}
 	virtual void Draw() = 0;
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
