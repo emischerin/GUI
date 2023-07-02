@@ -1,4 +1,16 @@
 #include "ScrollBar.h"
+#include "ScrollBarButton.h"
+#include "ScrollBarCaret.h"
+#include "Scene.h"
+
+void ScrollBar::ReactToEvents()
+{
+
+}
+void ScrollBar::Draw()
+{
+
+}
 
 ScrollBar::~ScrollBar()
 {

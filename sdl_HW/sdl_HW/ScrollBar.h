@@ -4,9 +4,11 @@
 
 #include "Control.h"
 #include "Primitives.h"
-#include "ScrollBarButton.h"
-#include "ScrollBarCaret.h"
-#include "Scene.h"
+
+
+class ScrollBarButton;
+class ScrollBarCaret;
+class Scene;
 
 class ScrollBar : public Control
 {
@@ -16,6 +18,10 @@ public:
 		DOWN,
 		RIGHT
 	};
+
+
+	void ReactToEvents() override;
+	void Draw() override;
 
 
 	~ScrollBar();

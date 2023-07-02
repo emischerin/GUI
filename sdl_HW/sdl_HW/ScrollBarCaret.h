@@ -2,7 +2,7 @@
 #ifndef SCROLLBARCARET_H
 #define SCROLLBARCARET_H
 #include "Control.h"
-#include "ScrollBar"
+#include "ScrollBar.h"
 
 
 class ScrollBarCaret : public Control
