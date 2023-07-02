@@ -298,6 +298,17 @@ public:
 		return (*it)->GetY();
 	}
 
+	void ResizeWidth(int dx)
+	{
+		_bounding_rect.x += dx;
+	}
+
+	void ResizeHeight(int dy)
+	{
+		_bounding_rect.h += dy;
+	}
+
+
 	virtual ~Control() 
 	{
 		for (Primitive* p : _primitives)
