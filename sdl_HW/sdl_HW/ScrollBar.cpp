@@ -10,8 +10,11 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 	_caret = new ScrollBarCaret(this);
 
 	_left_up->SetColor(100, 255, 10, 0);
+	_left_up->SetMouseOverColor(99, 150, 87, 0);
+
 
 	_right_down->SetColor(100, 255, 10, 0);
+	_right_down->SetMouseOverColor(99, 150, 87, 0);
 
 
 

@@ -67,6 +67,14 @@ public:
 		_mouse_over_color.a = color->a;
 	}
 
+	virtual void SetMouseOverColor(int r, int g, int b, int a)
+	{
+		_mouse_over_color.r = r;
+		_mouse_over_color.g = g;
+		_mouse_over_color.b = b;
+		_mouse_over_color.a = a;
+	}
+
 	virtual SDL_Color* GetColor()
 	{
 		return &_color;
