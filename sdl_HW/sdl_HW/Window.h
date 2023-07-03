@@ -42,6 +42,8 @@ public:
 
 	virtual void Resize(int width,int height);
 
+	virtual void Update();
+
 	void Draw();
 
 	WindowSizeState GetSizeState() const;
@@ -83,6 +85,8 @@ protected:
 	
 
 	virtual void InternalReactToEvents();
+
+	virtual void InternalUpdate();
 
 	virtual void CaptureWindowState();
 

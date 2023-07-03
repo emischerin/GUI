@@ -5,16 +5,24 @@
 
 ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 {
-	_left_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
-	_right_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
-	_caret = new ScrollBarCaret(this);
+	ScrollBarButton* _up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
+	ScrollBarButton* _down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	ScrollBarCaret* _caret = new ScrollBarCaret(this);
 
-	_left_up->SetColor(100, 255, 10, 0);
-	_left_up->SetMouseOverColor(99, 150, 87, 0);
+	_up->SetColor(100, 255, 10, 0);
+	_up->SetMouseOverColor(99, 150, 87, 0);
 
 
-	_right_down->SetColor(100, 255, 10, 0);
-	_right_down->SetMouseOverColor(99, 150, 87, 0);
+	_down->SetColor(100, 255, 10, 0);
+	_down->SetMouseOverColor(99, 150, 87, 0);
+
+	
+
+	_down->SetPosition(this->GetX(), (this->GetY() + this->GetHeight()) - 20);
+
+	this->AddChild(_up);
+	this->AddChild(_down);
+	this->AddChild(_caret);
 
 
 
@@ -25,8 +33,8 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 void ScrollBar::SetWidthAndHeight(int width, int height)
 {
 	Control::SetWidthAndHeight(width, height);
-	_left_up->SetWidthAndHeight(width, width);
-	_right_down->SetWidthAndHeight(width, width);
+	
+	
 
 
 }
@@ -35,9 +43,7 @@ void ScrollBar::SetPosition(int x, int y)
 {
 	Control::SetPosition(x, y);
 
-	_left_up->SetPosition(x, y);
-
-	_right_down->SetPosition(this->GetX(), (this->GetY() + this->GetHeight()) - 20);
+	
 }
 
 void ScrollBar::ReactToEvents()
@@ -51,10 +57,5 @@ void ScrollBar::Draw()
 	
 	Control::Draw();
 
-	
-}
-
-ScrollBar::~ScrollBar()
-{
 	
 }

@@ -46,6 +46,7 @@ void Scene::DrawScrollBar()
 
 		_scroll_bar->Draw();
 	}
+	
 }
 
 bool Scene::NeedBottomScrollbar()

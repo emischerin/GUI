@@ -141,6 +141,9 @@ int MainWindow::SimpleAppMainLoop()
 				windows->at(i)->ReactToEvents();
 
 			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->Update();
+
+			for (int i = 0; i < windows->size(); ++i)
 				windows->at(i)->Draw();
 			
 	}

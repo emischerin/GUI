@@ -40,12 +40,10 @@ public:
 	void Draw() override;
 
 
-	~ScrollBar();
+	
 
-private:
-	ScrollBarButton* _left_up = nullptr;
-	ScrollBarButton* _right_down = nullptr;
-	ScrollBarCaret* _caret = nullptr;
+
+	
 	
 
 };

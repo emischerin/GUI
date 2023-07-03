@@ -198,6 +198,9 @@ public:
 			if (c) c->ReactToEvents();
 		}
 	}
+
+	virtual void Update() {}
+
 	virtual void Draw()
 	{
 
@@ -366,6 +369,7 @@ public:
 
 
 protected:
+
 	
 	SDL_Renderer* GetRender() { return _render; }
 
