@@ -129,6 +129,12 @@ void Triangle::InitVertices()
 
 }
 
+void Triangle::SetBoundingRect(SDL_Rect* bounding_rect)
+{
+	Primitive::SetBoundingRect(bounding_rect);
+	this->InitVertices();
+}
+
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
 {
 	v->position.x = x;

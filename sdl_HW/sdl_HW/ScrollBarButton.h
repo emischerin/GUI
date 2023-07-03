@@ -17,7 +17,7 @@ public:
 	void Draw() override;
 
 private:
-	Triangle _triangle = {&this->_bounding_rect};
+	Triangle* _triangle = nullptr;
 };
 #endif
 

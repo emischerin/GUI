@@ -41,11 +41,13 @@ public:
 	
 	void SetDirection(Triangle::TriangleDirection dir);
 
+	void SetBoundingRect(SDL_Rect* bounding_rect) override;
 
+	void InitVertices();
 
 protected:
 	
-	void InitVertices();
+	
 
 	void SetVertexPosition(SDL_Vertex* v, float x, float y);
 
