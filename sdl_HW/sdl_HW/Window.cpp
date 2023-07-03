@@ -66,11 +66,11 @@ void Window::Draw()
 		if(ctrl) ctrl->Draw();
 	}
 	
-	SDL_SetRenderTarget(AppGlobals::main_render, 0);
+	SDL_SetRenderTarget(_win_render, 0);
 
-	SDL_RenderCopy(AppGlobals::main_render, _texture, 0, 0);
+	SDL_RenderCopy(_win_render, _texture, 0, 0);
 
-	SDL_RenderPresent(AppGlobals::main_render);
+	SDL_RenderPresent(_win_render);
 
 	
 }
