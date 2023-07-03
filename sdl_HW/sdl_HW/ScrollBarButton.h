@@ -17,7 +17,7 @@ public:
 	void Draw() override;
 
 private:
-	Triangle _triangle = {_bounding_rect.x,_bounding_rect.y,_bounding_rect.w,_bounding_rect.h};
+	Triangle _triangle = {&this->_bounding_rect};
 };
 #endif
 

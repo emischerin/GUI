@@ -19,6 +19,8 @@ public:
 		_bounding_rect.h = h;
 	}
 
+
+
 	Primitive(SDL_Rect* bounding_rect)
 	{
 		_bounding_rect.x = bounding_rect->x;

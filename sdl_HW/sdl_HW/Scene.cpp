@@ -17,7 +17,16 @@ void Scene::Draw()
 
 void Scene::DrawScrollBar()
 {
+	if (NeedRightScrollbar()) {
+		int w_height = _my_parent_window->GetWinHeight();
+		int w_width = _my_parent_window->GetWinWidth();
 
+		_scroll_bar.SetWidthAndHeight(20,w_height - _offset_y);
+		_scroll_bar.SetPosition(this->GetX() + this->GetWidth() - _scroll_bar.GetWidth(),_scroll_bar.GetHeight() );
+
+		_scroll_bar.Draw();
+
+	}
 }
 
 bool Scene::NeedBottomScrollbar()
