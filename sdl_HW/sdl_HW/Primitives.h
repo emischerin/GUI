@@ -37,6 +37,44 @@ public:
 		_bounding_rect.h = bounding_rect.h;
 	}
 
+	virtual void SetColor(int r, int g, int b, int a)
+	{
+		_color.r = r;
+		_color.g = g;
+		_color.b = b;
+		_color.a = a;
+
+		this->AppllyColorToEachVertex();
+	}
+
+	virtual void SetColor(SDL_Color* color)
+	{
+		_color.r = color->r;
+		_color.g = color->g;
+		_color.b = color->b;
+		_color.a = color->a;
+
+		this->AppllyColorToEachVertex();
+	}
+
+	virtual void SetMouseOverColor(SDL_Color* color)
+	{
+		_mouse_over_color.r = color->r;
+		_mouse_over_color.g = color->g;
+		_mouse_over_color.b = color->b;
+		_mouse_over_color.a = color->a;
+	}
+
+	virtual SDL_Color* GetColor()
+	{
+		return &_color;
+	}
+
+	virtual SDL_Color* GetMouseOverColor()
+	{
+		return &_mouse_over_color;
+	}
+
 	virtual void ReactToEvents() {};
 	virtual void Draw() = 0;
 
@@ -62,6 +100,14 @@ public:
 
 protected:
 	
+	void AppllyColorToEachVertex()
+	{
+		if (_vertices.size() == 0) return;
+
+		for (SDL_Vertex* v : _vertices)
+			if (v) v->color = _color;
+	}
+
 	void SetRender(SDL_Renderer* render)
 	{
 		_render = render;
@@ -75,7 +121,7 @@ protected:
 	*/
 	SDL_Color _color = { 0,0,0,1 };
 
-	SDL_Color _mouse_over_color = { 0,0,0,1 };
+	SDL_Color _mouse_over_color = { 255,255,255,1 };
 
 	std::vector<SDL_Vertex*> _vertices;
 	

@@ -99,6 +99,11 @@ void Triangle::InitVertices()
 		return;
 	}
 
+	/*Initializing Vertex Color*/
+	_a.color = _color;
+	_b.color = _color;
+	_c.color = _color;
+
 
 }
 

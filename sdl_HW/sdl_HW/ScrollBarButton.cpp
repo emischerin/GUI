@@ -4,6 +4,7 @@
 ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, ScrollBar* parent): Control(parent)
 {
 	_triangle.SetDirection(dir);
+	_triangle.SetColor(255, 100, 50, 0);
 }
 
 void ScrollBarButton::ReactToEvents()
