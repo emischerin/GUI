@@ -182,7 +182,14 @@ public:
 			if (c) c->ReactToEvents();
 		}
 	}
-	virtual void Draw() = 0;
+	virtual void Draw()
+	{
+		for (Control* c : _child_controls)
+			if (c) c->Draw();
+		for (Primitive* p : _primitives)
+			if (p) p->Draw();
+	}
+
 	virtual void AdjustToParent(){}
 	virtual void AdjustChildren() {}
 

@@ -7,6 +7,7 @@
 
 class ScrollBarCaret : public Control
 {
+public:
 	ScrollBarCaret(ScrollBar* parent);
 
 	void ReactToEvents() override;

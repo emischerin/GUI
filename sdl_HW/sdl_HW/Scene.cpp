@@ -10,9 +10,9 @@ Scene::Scene(Window* parent_w) : Control(parent_w)
 void Scene::Draw()
 {
 	
-
-	for (int i = 0; i < _primitives.size(); ++i)
-		_primitives.at(i)->Draw();
+	Control::Draw();
+	
+		
 }
 
 void Scene::DrawScrollBar()
