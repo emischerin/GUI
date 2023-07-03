@@ -18,6 +18,11 @@ void ScrollBarButton::ReactToEvents()
 
 }
 
+void ScrollBarButton::Update()
+{
+
+}
+
 void ScrollBarButton::Draw()
 {
 	CollisionDetector cd;

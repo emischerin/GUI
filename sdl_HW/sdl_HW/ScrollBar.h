@@ -37,6 +37,7 @@ public:
 	void SetPosition(int x, int y) override;
 
 	void ReactToEvents() override;
+	void Update() override;
 	void Draw() override;
 
 

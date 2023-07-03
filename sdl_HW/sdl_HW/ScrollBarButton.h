@@ -14,6 +14,7 @@ public:
 	ScrollBarButton(Triangle::TriangleDirection dir,ScrollBar* parent);
 
 	void ReactToEvents() override;
+	void Update() override;
 	void Draw() override;
 
 private:

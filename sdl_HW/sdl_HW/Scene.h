@@ -33,6 +33,9 @@ public:
 
 	void AddControl(Control* parent);
 	void AddPrimitive(Primitive* p) override;
+
+	void Update() override;
+
 	void Draw() override;
 
 	bool NeedBottomScrollbar();
@@ -51,6 +54,10 @@ protected:
 	void SetScrollBarGeometry();
 	
 	void DrawScrollBar();
+
+
+	void CreateScrollBar();
+	void RemoveScrollBar();
 
 
 

@@ -50,6 +50,19 @@ void ScrollBar::ReactToEvents()
 {
 
 }
+
+void ScrollBar::Update()
+{
+	int w_height = _my_parent_window->GetWinHeight();
+	int w_width = _my_parent_window->GetWinWidth();
+	int _offst_x = w_width - _parent_control->GetX();
+	int _offset_y = w_height - _parent_control->GetY();
+	
+
+	this->SetWidthAndHeight(20, w_height - _offset_y);
+	this->SetPosition((this->GetX() + this->GetWidth()) - this->GetWidth(), _offset_y);
+}
+
 void ScrollBar::Draw()
 {
 	SDL_SetRenderDrawColor(_render, 0, 0, 0, 255);
