@@ -3,6 +3,11 @@
 #include "ScrollBarCaret.h"
 #include "Scene.h"
 
+ScrollBar::ScrollBar(Scene* scene) : Control(scene)
+{
+
+}
+
 void ScrollBar::ReactToEvents()
 {
 

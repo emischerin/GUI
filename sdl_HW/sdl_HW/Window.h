@@ -69,6 +69,9 @@ public:
 
 	bool HasMenu() const;
 	
+	int GetWinWidth() const;
+	int GetWinHeight() const;
+
 	int GetHeaderHeight();
 	int GetMenuWidth();
 	

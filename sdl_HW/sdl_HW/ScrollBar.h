@@ -13,12 +13,15 @@ class Scene;
 class ScrollBar : public Control
 {
 public:
+
+
 	enum ScrollbarPosition
 	{
 		DOWN,
 		RIGHT
 	};
 
+	ScrollBar(Scene* scene);
 
 	void ReactToEvents() override;
 	void Draw() override;

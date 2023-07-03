@@ -222,6 +222,16 @@ void Window::SetMySize()
 	
 }
 
+int Window::GetWinHeight() const
+{
+	return _height;
+}
+
+int Window::GetWinWidth() const
+{
+	return _width;
+}
+
 void Window::CaptureWindowState()
 {
 	SDL_GetWindowPosition(_win_ptr, &_saved_x, &_saved_y);
