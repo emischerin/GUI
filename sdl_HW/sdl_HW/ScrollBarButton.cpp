@@ -15,6 +15,8 @@ void ScrollBarButton::Draw()
 {
 	CollisionDetector cd;
 
+
+
 	if (cd.MouseInWindow(AppGlobals::main_window) && cd.MouseInControl(this)) {
 		SDL_SetRenderDrawColor(AppGlobals::main_render, _mouse_over_color.r, _mouse_over_color.g, _mouse_over_color.b, _mouse_over_color.a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);

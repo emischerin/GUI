@@ -6,6 +6,15 @@
 #include "Primitives.h"
 
 
+/*
+* 
+* In fact, scrollbar and scene are very hard task, right now we deside to only 
+* make a vertival scroll scene and vertical scrollbar 
+* 
+*/
+
+
+
 class ScrollBarButton;
 class ScrollBarCaret;
 class Scene;
@@ -15,13 +24,13 @@ class ScrollBar : public Control
 public:
 
 
-	enum ScrollbarPosition
+	enum ScrollBarPosition
 	{
 		DOWN,
 		RIGHT
 	};
 
-	ScrollBar(Scene* scene);
+	ScrollBar(Scene* scene,ScrollBarPosition position = RIGHT);
 
 	void ReactToEvents() override;
 	void Draw() override;

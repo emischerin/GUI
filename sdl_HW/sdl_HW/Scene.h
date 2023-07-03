@@ -5,7 +5,7 @@
 #include <queue>
 #include "Control.h"
 #include "Primitives.h"
-
+#include "Scrollbar.h"
 #include "Window.h"
 
 /*
@@ -30,6 +30,8 @@ class Scene : public Control
 public:
 	Scene(Window* parent_w);
 	
+
+	void AddControl(Control* parent);
 	void AddPrimitive(Primitive* p) override;
 	void Draw() override;
 
@@ -47,7 +49,7 @@ protected:
 	
 	
 	
-
+	void DrawScrollBar();
 
 private:
 	
@@ -61,6 +63,8 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
+	ScrollBar _scroll_bar = { this };
+	
 
 
 };

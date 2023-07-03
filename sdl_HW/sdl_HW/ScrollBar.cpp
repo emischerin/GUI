@@ -3,7 +3,7 @@
 #include "ScrollBarCaret.h"
 #include "Scene.h"
 
-ScrollBar::ScrollBar(Scene* scene) : Control(scene)
+ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 {
 
 }

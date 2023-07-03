@@ -3,12 +3,21 @@
 Scene::Scene(Window* parent_w) : Control(parent_w)
 {
 	this->DefineOffsets();
+
+
 }
 
 void Scene::Draw()
 {
+	
+
 	for (int i = 0; i < _primitives.size(); ++i)
 		_primitives.at(i)->Draw();
+}
+
+void Scene::DrawScrollBar()
+{
+
 }
 
 bool Scene::NeedBottomScrollbar()
@@ -37,6 +46,11 @@ bool Scene::NeedRightScrollbar()
 	return false;
 }
 
+void Scene::AddControl(Control* parent)
+{
+
+}
+
 void Scene::AddPrimitive(Primitive* p)
 {
 	this->DefineOffsets();
@@ -61,6 +75,8 @@ void Scene::DefineOffsets()
 		_offset_x = _my_parent_window->GetMenuWidth();
 	}
 	else { _offset_x = 0; }
+
+	
 }
 
 bool Scene::NeedXRelocation(Primitive* p)
@@ -102,3 +118,4 @@ void Scene::RelocatePrimitiveVerticesY(Primitive* p)
 	for (SDL_Vertex* vert : *v)
 		vert->position.y += _offset_y;
 }
+
