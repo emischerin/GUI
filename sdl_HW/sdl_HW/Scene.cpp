@@ -3,29 +3,48 @@
 Scene::Scene(Window* parent_w) : Control(parent_w)
 {
 	this->DefineOffsets();
-
-
+	
+	this->SetPosition(_offset_x, _offset_y);
+	this->SetWidthAndHeight(parent_w->GetWinWidth() - _offset_x, parent_w->GetWinHeight() - _offset_y);
+	
 }
 
 void Scene::Draw()
 {
+	this->DefineOffsets();
+	this->SetPosition(_offset_x, _offset_y);
+	this->SetWidthAndHeight(_my_parent_window->GetWinWidth() - _offset_x, _my_parent_window->GetWinHeight() - _offset_y);
 	
 	Control::Draw();
+	
+	DrawScrollBar();
 	
 		
 }
 
-void Scene::DrawScrollBar()
+void Scene::SetScrollBarGeometry()
 {
 	if (NeedRightScrollbar()) {
 		int w_height = _my_parent_window->GetWinHeight();
 		int w_width = _my_parent_window->GetWinWidth();
 
-		_scroll_bar.SetWidthAndHeight(20,w_height - _offset_y);
-		_scroll_bar.SetPosition(this->GetX() + this->GetWidth() - _scroll_bar.GetWidth(),_scroll_bar.GetHeight() );
+		_scroll_bar->SetWidthAndHeight(20, w_height - _offset_y);
+		_scroll_bar->SetPosition((this->GetX() + this->GetWidth()) - _scroll_bar->GetWidth(), _offset_y);
 
-		_scroll_bar.Draw();
 
+
+	}
+}
+
+void Scene::DrawScrollBar()
+{
+	if (NeedRightScrollbar()) {
+		if (!_scroll_bar)
+			_scroll_bar = new ScrollBar(this);
+
+		this->SetScrollBarGeometry();
+
+		_scroll_bar->Draw();
 	}
 }
 

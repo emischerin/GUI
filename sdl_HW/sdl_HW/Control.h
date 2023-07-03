@@ -184,6 +184,7 @@ public:
 	}
 	virtual void Draw()
 	{
+
 		for (Control* c : _child_controls)
 			if (c) c->Draw();
 		for (Primitive* p : _primitives)
@@ -196,6 +197,8 @@ public:
 
 	virtual int MinXControl()
 	{
+		if (_child_controls.size() == 0) return 0;
+
 		auto _control_by_x = [](Control* c1, Control* c2)
 		{
 			return (c1->GetX() < c2->GetX());
@@ -210,7 +213,8 @@ public:
 
 	virtual int MaxXControl()
 	{
-		
+		if (_child_controls.size() == 0) return 0;
+
 		auto _control_by_x = [](Control* c1, Control* c2)
 		{
 			return (c1->GetX() > c2->GetX());
@@ -227,6 +231,8 @@ public:
 
 	virtual int MinYControl()
 	{
+		if (_child_controls.size() == 0) return 0;
+
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
 			return (c1->GetY() < c2->GetY());
@@ -241,6 +247,8 @@ public:
 
 	virtual int MaxYControl()
 	{
+		if (_child_controls.size() == 0) return 0;
+
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
 			return (c1->GetY() > c2->GetY());
@@ -255,6 +263,8 @@ public:
 
 	virtual int MinXPrimitive()
 	{
+		if (_primitives.size() == 0) return 0;
+
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
 			return (p1->GetX() < p2->GetX());
@@ -269,6 +279,8 @@ public:
 
 	virtual int MaxXPrimitive()
 	{
+		if (_primitives.size() == 0) return 0;
+
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
 			return (p1->GetX() > p2->GetX());
@@ -285,6 +297,8 @@ public:
 
 	virtual int MinYPrimitive()
 	{
+		if (_primitives.size() == 0) return 0;
+
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{
 			return (p1->GetY() < p2->GetY());
@@ -299,6 +313,8 @@ public:
 
 	virtual int MaxYPrimitive()
 	{
+		if (_primitives.size() == 0) return 0;
+
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{
 			return (p1->GetY() > p2->GetY());

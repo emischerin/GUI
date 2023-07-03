@@ -10,6 +10,8 @@
 #include "Menu.h"
 #include "Scene.h"
 #include "Triangle.h"
+#include "ScrollBar.h"
+#include "ScrollBarButton.h"
 
 static int TestMultithreadedWindows()
 {
@@ -39,6 +41,9 @@ static int TestMultithreadedWindows()
 	s->AddPrimitive(t2);
 	s->AddPrimitive(t3);
 
+	
+	
+
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
 	
@@ -65,13 +70,15 @@ int main(int argc, char** argv)
 	Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
 	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
 	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
-	Triangle* t4 = new Triangle(1000, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
+	Triangle* t4 = new Triangle(150, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
 
 	s->AddPrimitive(t);
 	s->AddPrimitive(t1);
 	s->AddPrimitive(t2);
 	s->AddPrimitive(t3);
 	s->AddPrimitive(t4);
+
+
 
 	
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);

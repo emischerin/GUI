@@ -48,8 +48,11 @@ protected:
 
 	
 	
+	void SetScrollBarGeometry();
 	
 	void DrawScrollBar();
+
+
 
 private:
 	
@@ -63,7 +66,8 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
-	ScrollBar _scroll_bar = { this };
+	ScrollBar* _scroll_bar = nullptr;
+	
 	
 
 
