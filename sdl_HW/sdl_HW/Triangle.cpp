@@ -43,6 +43,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 
 	}
@@ -57,6 +62,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 
@@ -69,6 +79,11 @@ void Triangle::InitVertices()
 
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
 
 		return;
 	}
@@ -83,6 +98,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 	else /*If somebody manage to pass some value that out of enum scope*/
@@ -96,13 +116,15 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 
-	/*Initializing Vertex Color*/
-	_a.color = _color;
-	_b.color = _color;
-	_c.color = _color;
+	
 
 
 }

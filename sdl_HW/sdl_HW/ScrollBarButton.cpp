@@ -5,6 +5,7 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, ScrollBar* par
 {
 	_triangle.SetDirection(dir);
 	_triangle.SetColor(255, 100, 50, 0);
+	
 }
 
 void ScrollBarButton::ReactToEvents()
@@ -23,9 +24,9 @@ void ScrollBarButton::Draw()
 
 	}
 	else {
-		SDL_Color* parent_color = _parent_control->GetColor();
+		
 
-		SDL_SetRenderDrawColor(AppGlobals::main_render, parent_color->r, parent_color->g, parent_color->b, parent_color->a);
+		SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 		SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 		_triangle.Draw();
 

@@ -94,7 +94,7 @@ public:
 	}
 	
 	int GetY() const
-	{
+	{ 
 		return _bounding_rect.y;
 	}
 

@@ -9,7 +9,13 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 	_right_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
 
+	_left_up->SetColor(100, 255, 10, 0);
 
+	_right_down->SetColor(100, 255, 10, 0);
+
+
+
+	
 
 }
 
@@ -37,9 +43,9 @@ void ScrollBar::ReactToEvents()
 }
 void ScrollBar::Draw()
 {
-	SDL_SetRenderDrawColor(_render, 0, 0, 0, 0);
+	SDL_SetRenderDrawColor(_render, 0, 0, 0, 255);
 	SDL_RenderFillRect(_render, &_bounding_rect);
-
+	
 	Control::Draw();
 
 	
