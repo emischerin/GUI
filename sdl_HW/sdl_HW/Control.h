@@ -105,6 +105,14 @@ public:
 		_bounding_rect.h = h;
 	}
 
+	virtual void SetBoundingRect(SDL_Rect* bounding_rect)
+	{
+		_bounding_rect.x = bounding_rect->x;
+		_bounding_rect.y = bounding_rect->y;
+		_bounding_rect.w = bounding_rect->w;
+		_bounding_rect.h = bounding_rect->h;
+	}
+
 	virtual SDL_Rect* GetBoundingRect()
 	{
 		return &_bounding_rect;

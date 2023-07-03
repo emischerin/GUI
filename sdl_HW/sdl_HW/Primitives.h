@@ -37,6 +37,22 @@ public:
 		_bounding_rect.h = bounding_rect.h;
 	}
 
+	virtual void SetBoundingRect(int x, int y, int w, int h)
+	{
+		_bounding_rect.x = x;
+		_bounding_rect.y = y;
+		_bounding_rect.w = w;
+		_bounding_rect.h = h;
+	}
+
+	virtual void SetBoundingRect(SDL_Rect* bounding_rect)
+	{
+		_bounding_rect.x = bounding_rect->x;
+		_bounding_rect.y = bounding_rect->y;
+		_bounding_rect.w = bounding_rect->w;
+		_bounding_rect.h = bounding_rect->h;
+	}
+
 	virtual void SetColor(int r, int g, int b, int a)
 	{
 		_color.r = r;
@@ -63,6 +79,8 @@ public:
 		_mouse_over_color.g = color->g;
 		_mouse_over_color.b = color->b;
 		_mouse_over_color.a = color->a;
+
+
 	}
 
 	virtual SDL_Color* GetColor()
