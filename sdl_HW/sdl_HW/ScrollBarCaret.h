@@ -11,6 +11,7 @@ public:
 	ScrollBarCaret(ScrollBar* parent);
 
 	void ReactToEvents() override;
+	void Update() override;
 	void Draw() override;
 };
 #endif
