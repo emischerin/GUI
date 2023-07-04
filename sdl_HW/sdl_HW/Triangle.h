@@ -45,6 +45,8 @@ public:
 
 	void InitVertices();
 
+	TriangleDirection GetDirection() const;
+
 protected:
 	
 	

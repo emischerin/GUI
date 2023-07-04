@@ -151,3 +151,8 @@ void Triangle::SetDirection(Triangle::TriangleDirection dir)
 	this->_my_direction = dir;
 	this->InitVertices();
 }
+
+Triangle::TriangleDirection Triangle::GetDirection() const
+{
+	return _my_direction;
+}
