@@ -23,10 +23,10 @@ void Scene::Update()
 		_scroll_bar->Update();
 
 	}
-	//else {
-	//	RemoveScrollBar();
-	//	
-	//}
+	else {
+		RemoveScrollBar();
+		
+	}
 }
 
 void Scene::Draw()
