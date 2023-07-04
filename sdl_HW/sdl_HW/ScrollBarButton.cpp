@@ -31,21 +31,30 @@ void ScrollBarButton::Update()
 		int x = _parent_control->GetX();
 		int y = _parent_control->GetY();
 
-		this->SetBoundingRect(x, y, this->GetWidth(),this->GetHeight());
+		int width = this->GetWidth();
+		int height = this->GetHeight();
 
-		_triangle->SetBoundingRect(&_bounding_rect);
+		this->SetBoundingRect(x, y,width,height);
+
+		_triangle->SetBoundingRect(x+5,y+5, width/2,height/2);
+
+		
 
 
 		return;
 	}
 
 	if (d == Triangle::TriangleDirection::DOWN) {
+
 		int x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
 		int y = (_parent_control->GetY() + _parent_control->GetHeight()) - this->GetHeight();
+		int width = this->GetWidth();
+		int height = this->GetHeight();
 
-		this->SetBoundingRect(x, y, this->GetWidth(), this->GetHeight());
 
-		_triangle->SetBoundingRect(&_bounding_rect);
+		this->SetBoundingRect(x, y, width, height);
+
+		_triangle->SetBoundingRect(x + 5, y + 5, width / 2, height / 2);
 
 		return;
 	}

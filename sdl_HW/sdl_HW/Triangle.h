@@ -43,6 +43,8 @@ public:
 
 	void SetBoundingRect(SDL_Rect* bounding_rect) override;
 
+	void SetBoundingRect(int x,int y,int w,int) override;
+
 	void InitVertices();
 
 	Triangle::TriangleDirection GetDirection() const;
