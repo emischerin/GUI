@@ -3,6 +3,7 @@
 #define SCROLLBARCARET_H
 #include "Control.h"
 #include "ScrollBar.h"
+#include "CollisionDetector.h"
 
 
 class ScrollBarCaret : public Control
