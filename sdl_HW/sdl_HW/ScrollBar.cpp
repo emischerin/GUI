@@ -9,12 +9,13 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 	ScrollBarButton* _down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
 	ScrollBarCaret* _caret = new ScrollBarCaret(this);
 
-	_up->SetColor(100, 255, 10, 0);
-	_up->SetMouseOverColor(99, 150, 87, 0);
+	//_up->SetColor(62,19,66,1);
+	_up->SetColor(75, 36, 78, 1);
+	_up->SetMouseOverColor(139,56,148, 1);
 	_up->SetWidthAndHeight(20, 20);
 
-	_down->SetColor(100, 255, 10, 0);
-	_down->SetMouseOverColor(99, 150, 87, 0);
+	_down->SetColor(75,36,78,1);
+	_down->SetMouseOverColor(178, 102, 255, 0);
 	_down->SetWidthAndHeight(20, 20);
 	
 
