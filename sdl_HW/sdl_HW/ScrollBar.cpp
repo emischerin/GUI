@@ -11,14 +11,14 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 
 	_up->SetColor(100, 255, 10, 0);
 	_up->SetMouseOverColor(99, 150, 87, 0);
-
+	_up->SetWidthAndHeight(20, 20);
 
 	_down->SetColor(100, 255, 10, 0);
 	_down->SetMouseOverColor(99, 150, 87, 0);
-
+	_down->SetWidthAndHeight(20, 20);
 	
 
-	_down->SetPosition(this->GetX(), (this->GetY() + this->GetHeight()) - 20);
+	
 
 
 }
@@ -36,6 +36,8 @@ void ScrollBar::Update()
 
 	this->SetWidthAndHeight(this->GetWidth(), _this_height);
 	this->SetPosition(_this_x, _parent_control->GetY());
+
+	Control::Update();
 }
 
 void ScrollBar::Draw()

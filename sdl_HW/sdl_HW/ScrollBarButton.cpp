@@ -10,6 +10,9 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, ScrollBar* par
 	_triangle->InitVertices();
 
 
+	/*This needs only for base dtor correct working*/
+	this->AddPrimitive(_triangle);
+
 	
 }
 
@@ -24,8 +27,30 @@ void ScrollBarButton::Update()
 
 	Triangle::TriangleDirection d = _triangle->GetDirection();
 
+	if (d == Triangle::TriangleDirection::UP) {
+		int x = _parent_control->GetX();
+		int y = _parent_control->GetY();
 
-	if(_triangle->Ge)
+		this->SetBoundingRect(x, y, this->GetWidth(),this->GetHeight());
+
+		_triangle->SetBoundingRect(&_bounding_rect);
+
+
+		return;
+	}
+
+	if (d == Triangle::TriangleDirection::DOWN) {
+		int x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
+		int y = (_parent_control->GetY() + _parent_control->GetHeight()) - this->GetHeight();
+
+		this->SetBoundingRect(x, y, this->GetWidth(), this->GetHeight());
+
+		_triangle->SetBoundingRect(&_bounding_rect);
+
+		return;
+	}
+
+	
 }
 
 void ScrollBarButton::Draw()

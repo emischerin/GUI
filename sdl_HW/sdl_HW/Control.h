@@ -208,7 +208,12 @@ public:
 		}
 	}
 
-	virtual void Update() {}
+	virtual void Update() 
+	{
+		for (Control* c : _child_controls)
+			if (c) c->Update();
+							
+	}
 
 	virtual void Draw()
 	{
@@ -365,6 +370,7 @@ public:
 		_bounding_rect.h += dy;
 	}
 
+	
 
 	virtual ~Control() 
 	{
