@@ -91,13 +91,8 @@ void Scene::RemoveScrollBar()
 void Scene::CreateScrollBar()
 {
 	if (!_scroll_bar) {
-		int w_height = _my_parent_window->GetWinHeight();
-		int w_width = _my_parent_window->GetWinWidth();
-		
 		_scroll_bar = new ScrollBar(this);
-
-		_scroll_bar->SetWidthAndHeight(20, w_height - _offset_y);
-		_scroll_bar->SetPosition((this->GetX() + this->GetWidth()) - _scroll_bar->GetWidth(), _offset_y);
+		_scroll_bar->SetWidthAndHeight(20, this->GetHeight());
 	}
 }
 

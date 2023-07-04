@@ -20,30 +20,7 @@ ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 
 	_down->SetPosition(this->GetX(), (this->GetY() + this->GetHeight()) - 20);
 
-	this->AddChild(_up);
-	this->AddChild(_down);
-	this->AddChild(_caret);
 
-
-
-	
-
-}
-
-void ScrollBar::SetWidthAndHeight(int width, int height)
-{
-	Control::SetWidthAndHeight(width, height);
-	
-	
-
-
-}
-
-void ScrollBar::SetPosition(int x, int y)
-{
-	Control::SetPosition(x, y);
-
-	
 }
 
 void ScrollBar::ReactToEvents()
@@ -54,13 +31,11 @@ void ScrollBar::ReactToEvents()
 void ScrollBar::Update()
 {
 	int w_height = _my_parent_window->GetWinHeight();
-	int w_width = _my_parent_window->GetWinWidth();
-	int _offst_x = w_width - _parent_control->GetX();
-	int _offset_y = w_height - _parent_control->GetY();
-	
+	int _this_height = w_height - _parent_control->GetY();
+	int _this_x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
 
-	this->SetWidthAndHeight(20, w_height - _offset_y);
-	this->SetPosition((this->GetX() + this->GetWidth()) - this->GetWidth(), _offset_y);
+	this->SetWidthAndHeight(this->GetWidth(), _this_height);
+	this->SetPosition(_this_x, _parent_control->GetY());
 }
 
 void ScrollBar::Draw()
