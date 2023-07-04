@@ -30,6 +30,8 @@ public:
 		_parent_control = parent;
 
 		parent->AddChild(this);
+
+		this->_my_parent_window = _parent_control->GetMyParentWindow();
 	}
 
 	Control(Window* parent_window)
@@ -125,12 +127,14 @@ public:
 		Window* my_win = AppGlobals::win_tracker->GetMyWindow(w);
 		this->SetParentWindow(my_win);
 		
+		
 	}
 
 	virtual void SetParentWindow(Window* w)
 	{
 		_my_parent_window = w;
 		_render = w->GetWinRender();
+				
 	}
 
 	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w)
@@ -142,6 +146,11 @@ public:
 	virtual SDL_Window* GetParentWindow() const
 	{
 		return _parent_window;
+	}
+
+	virtual Window* GetMyParentWindow() const
+	{
+		return _my_parent_window;
 	}
 
 	int GetX() const
