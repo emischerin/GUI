@@ -42,7 +42,14 @@ public:
 
 
 	
+protected:
+	virtual void* ControllMessagingFunction(void* arg1) override;
 
+private:
+	ScrollBarButton* _up = nullptr;
+	ScrollBarButton* _down = nullptr;
+	ScrollBarCaret* _caret = nullptr;
+	
 
 	
 	

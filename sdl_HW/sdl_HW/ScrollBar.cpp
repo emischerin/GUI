@@ -5,9 +5,9 @@
 
 ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 {
-	ScrollBarButton* _up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
-	ScrollBarButton* _down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
-	ScrollBarCaret* _caret = new ScrollBarCaret(this);
+	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
+	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	_caret = new ScrollBarCaret(this);
 
 	//_up->SetColor(62,19,66,1);
 	_up->SetColor(75, 36, 78, 1);
@@ -49,4 +49,9 @@ void ScrollBar::Draw()
 	Control::Draw();
 
 	
+}
+
+ void* ScrollBar::ControllMessagingFunction(void* arg1)
+{
+	 return (void*)1;/**/
 }

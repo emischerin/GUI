@@ -390,6 +390,9 @@ protected:
 
 	void SetRender(SDL_Renderer* render) { _render = render; }
 
+	virtual void* ControllMessagingFunction(void* arg1) { return (void*)0; }
+	virtual void* ControllMessagingFunction(void* arg1, void* arg2) { return (void*)0; }
+
 	int _total_children_width = 0;
 
 	int _total_children_height = 0;
