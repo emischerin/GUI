@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include "Control.h"
 #include "Primitives.h"
 #include "Scrollbar.h"
@@ -48,6 +49,7 @@ public:
 
 	
 	int GetViewportPositionXInScene();
+
 	int GetViewportPositionYInScene();
 
 
@@ -74,6 +76,8 @@ private:
 	bool NeedXRelocation(Primitive* p);
 	bool NeedYRelocation(Primitive* p);
 
+	void CreateSceneTexture();
+
 	/*offsets from window coordinates systems*/
 	/*Offsets in fact are x & y of the beginning of scene*/
 	int _offset_x = 0;
@@ -83,6 +87,10 @@ private:
 	
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 
+	SDL_Texture* _scene_texture = nullptr;
+
+	
+	
 
 	
 

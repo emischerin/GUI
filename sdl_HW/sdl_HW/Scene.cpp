@@ -22,10 +22,11 @@ void Scene::Update()
 
 		_scroll_bar->Update();
 
+
+
 	}
 	else {
 		RemoveScrollBar();
-		
 	}
 
 	if (_scroll_bar) {
@@ -35,6 +36,9 @@ void Scene::Update()
 		this->_viewport_rect.w = this->GetWidth() - _scroll_bar->GetWidth();
 		this->_viewport_rect.h = this->GetHeight();
 	}
+
+	
+
 }
 
 void Scene::Draw()
@@ -181,10 +185,38 @@ void Scene::RelocatePrimitiveVerticesY(Primitive* p)
 
 int Scene::GetViewportPositionXInScene()
 {
-	return 666;
+	if (_scene_texture)
+	{
+		return 666;
+	}
+
+	
 }
 
 int Scene::GetViewportPositionYInScene()
 {
-	return 666;
+	if (_scene_texture)
+	{
+		return 666;
+	}
+}
+
+void Scene::CreateSceneTexture()
+{
+	if (_scene_texture)
+		SDL_DestroyTexture(_scene_texture);
+
+	if (this->NeedRightScrollbar()) {
+		int max_ctrl_y = this->MaxYControl();
+		int max_primitive_y = this->MaxYPrimitive();
+		int max = std::max(max_ctrl_y, max_primitive_y);
+
+		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, _viewport_rect.w, max + 10);
+	}
+	else
+	{
+		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, _viewport_rect.w, _viewport_rect.h);
+	}
+
+
 }
