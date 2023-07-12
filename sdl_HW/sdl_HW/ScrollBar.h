@@ -54,6 +54,8 @@ private:
 	ScrollBarButton* _up = nullptr;
 	ScrollBarButton* _down = nullptr;
 	ScrollBarCaret* _caret = nullptr;
+
+	SDL_Rect _viewport_rect = { 0,0,0,1 };
 	
 
 	
