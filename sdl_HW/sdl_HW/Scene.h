@@ -67,7 +67,7 @@ protected:
 	void CreateScrollBar();
 	void RemoveScrollBar();
 
-
+	bool SceneTextureNeedsReallocation();
 
 private:
 	
@@ -89,6 +89,7 @@ private:
 
 	SDL_Texture* _scene_texture = nullptr;
 
+	SDL_Rect _scene_texture_rect = { 0,0,0,1 };
 	
 	
 

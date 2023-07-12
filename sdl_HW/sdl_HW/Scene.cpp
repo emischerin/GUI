@@ -51,7 +51,8 @@ void Scene::Draw()
 	Control::Draw();
 	
 	DrawScrollBar();
-			
+
+	SDL_SetRenderTarget(_render,0);
 }
 
 
@@ -226,4 +227,9 @@ void Scene::CreateSceneTexture()
 	}
 
 
+}
+
+bool Scene::SceneTextureNeedsReallocation()
+{
+	if(this->MaxYPrimitive() > )
 }
