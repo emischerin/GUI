@@ -29,10 +29,7 @@ class Scene : public Control
 {
 public:
 
-	enum ControllMessagingCmd
-	{
-		GET_VIEWPORT_POSITION_IN_SCENE
-	};
+	
 
 	Scene(Window* parent_w);
 	
@@ -44,13 +41,13 @@ public:
 
 	void Draw() override;
 
-	void* ControllMessagingFunction(void* arg1) override;
+	
 
 	bool NeedBottomScrollbar();
 	bool NeedRightScrollbar();
 
 	
-	
+	int GetViewportPositionInScene();
 
 
 protected:
@@ -86,7 +83,7 @@ private:
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 
 
-	int GetViewportPositionInScene();
+	
 
 
 };
