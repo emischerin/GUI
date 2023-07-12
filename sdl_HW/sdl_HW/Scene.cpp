@@ -43,7 +43,11 @@ void Scene::Update()
 
 void Scene::Draw()
 {
-		
+	if (!_scene_texture) return;
+
+
+	SDL_SetRenderTarget(_render, _scene_texture);
+
 	Control::Draw();
 	
 	DrawScrollBar();
@@ -190,6 +194,7 @@ int Scene::GetViewportPositionXInScene()
 		return 666;
 	}
 
+	return -1;
 	
 }
 
@@ -197,8 +202,10 @@ int Scene::GetViewportPositionYInScene()
 {
 	if (_scene_texture)
 	{
-		return 666;
+		
 	}
+
+	return -1;
 }
 
 void Scene::CreateSceneTexture()
