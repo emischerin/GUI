@@ -14,5 +14,7 @@ public:
 	void ReactToEvents() override;
 	void Update() override;
 	void Draw() override;
+
+
 };
 #endif

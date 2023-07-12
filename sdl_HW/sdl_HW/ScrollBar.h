@@ -29,11 +29,7 @@ public:
 		DOWN,
 		RIGHT
 	};
-
-	enum ControllMessagingCmd
-	{
-
-	};
+		
 
 	ScrollBar(Scene* scene,ScrollBarPosition position = RIGHT);
 
@@ -55,7 +51,7 @@ private:
 	ScrollBarButton* _down = nullptr;
 	ScrollBarCaret* _caret = nullptr;
 
-	SDL_Rect _viewport_rect = { 0,0,0,1 };
+	
 	
 
 	

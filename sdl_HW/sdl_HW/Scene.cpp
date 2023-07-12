@@ -179,3 +179,24 @@ void Scene::RelocatePrimitiveVerticesY(Primitive* p)
 		vert->position.y += _offset_y;
 }
 
+void* Scene::ControllMessagingFunction(void* arg1)
+{
+	Scene::ControllMessagingCmd* cmd = (Scene::ControllMessagingCmd*)arg1;
+
+	switch (*cmd)
+	{
+	case Scene::ControllMessagingCmd::GET_VIEWPORT_POSITION_IN_SCENE:
+		return (void*)this->GetViewportPositionInScene();
+		break;
+
+		default:
+			break;
+	}
+
+	return 0;
+}
+
+int Scene::GetViewportPositionInScene()
+{
+	return 666;
+}
