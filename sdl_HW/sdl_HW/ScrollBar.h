@@ -30,6 +30,11 @@ public:
 		RIGHT
 	};
 
+	enum ControllMessagingCmd
+	{
+
+	};
+
 	ScrollBar(Scene* scene,ScrollBarPosition position = RIGHT);
 
 	
