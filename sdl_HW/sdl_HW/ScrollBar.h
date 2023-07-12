@@ -52,7 +52,7 @@ private:
 	ScrollBarCaret* _caret = nullptr;
 
 	
-	
+	Scene* _scene = nullptr;
 
 	
 	

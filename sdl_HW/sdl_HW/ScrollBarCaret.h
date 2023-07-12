@@ -15,6 +15,7 @@ public:
 	void Update() override;
 	void Draw() override;
 
-
+private:
+	ScrollBar* _scrollbar = nullptr;
 };
 #endif

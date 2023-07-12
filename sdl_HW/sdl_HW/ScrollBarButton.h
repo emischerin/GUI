@@ -19,6 +19,8 @@ public:
 
 private:
 	Triangle* _triangle = nullptr;
+
+	ScrollBar* _scroll_bar = nullptr;
 };
 #endif
 

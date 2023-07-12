@@ -5,6 +5,11 @@
 
 ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
 {
+
+	if (!scene) return;
+
+	_scene = scene;
+
 	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
 	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
