@@ -6,6 +6,8 @@ Scene::Scene(Window* parent_w) : Control(parent_w)
 	
 	this->SetPosition(_offset_x, _offset_y);
 	this->SetWidthAndHeight(parent_w->GetWinWidth() - _offset_x, parent_w->GetWinHeight() - _offset_y);
+
+	_viewport_rect = *this;
 	
 }
 
@@ -49,10 +51,13 @@ void Scene::Draw()
 	SDL_SetRenderTarget(_render, _scene_texture);
 
 	Control::Draw();
-	
+	SDL_SetRenderTarget(_render, 0);
+
+	SDL_RenderCopy(_render,_scene_texture, &_viewport_rect, &_viewport_in_scene);
+
 	DrawScrollBar();
 
-	SDL_SetRenderTarget(_render,0);
+	
 }
 
 
@@ -217,9 +222,13 @@ void Scene::CreateSceneTexture()
 	if (this->NeedRightScrollbar()) {
 		int max_ctrl_y = this->MaxYControl();
 		int max_primitive_y = this->MaxYPrimitive();
-		int max = std::max(max_ctrl_y, max_primitive_y);
+		int max_ctrl_x = this->MaxXControl();
+		int max_primitive_x = this->MaxXPrimitive();
 
-		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, _viewport_rect.w, max + 10);
+		int max_y = std::max(max_ctrl_y, max_primitive_y);
+		int max_x = std::max(max_ctrl_x, max_primitive_x);
+
+		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, max_x + 20, max_y + 20);
 	}
 	else
 	{
@@ -231,5 +240,12 @@ void Scene::CreateSceneTexture()
 
 bool Scene::SceneTextureNeedsReallocation()
 {
-	if(this->MaxYPrimitive() > )
+	if (this->MaxYPrimitive() > _scene_texture_rect.y)
+		return true;
+	if (this->MaxYControl() > _scene_texture_rect.y)
+		return true;
+	if (this->MaxXPrimitive() > _scene_texture_rect.x)
+		return true;
+	if (this->MaxYControl() > _scene_texture_rect.x)
+		return true;
 }

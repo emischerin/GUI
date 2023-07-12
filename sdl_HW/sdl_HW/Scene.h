@@ -91,6 +91,7 @@ private:
 
 	SDL_Rect _scene_texture_rect = { 0,0,0,1 };
 	
+	SDL_Rect _viewport_in_scene = { 0,0,0,1 };
 	
 
 	
