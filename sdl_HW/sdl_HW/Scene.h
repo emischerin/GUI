@@ -47,7 +47,8 @@ public:
 	bool NeedRightScrollbar();
 
 	
-	int GetViewportPositionInScene();
+	int GetViewportPositionXInScene();
+	int GetViewportPositionYInScene();
 
 
 protected:

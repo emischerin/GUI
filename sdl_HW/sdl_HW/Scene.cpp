@@ -179,7 +179,12 @@ void Scene::RelocatePrimitiveVerticesY(Primitive* p)
 		vert->position.y += _offset_y;
 }
 
-int Scene::GetViewportPositionInScene()
+int Scene::GetViewportPositionXInScene()
+{
+	return 666;
+}
+
+int Scene::GetViewportPositionYInScene()
 {
 	return 666;
 }
