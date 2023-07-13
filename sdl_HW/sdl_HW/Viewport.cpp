@@ -42,17 +42,9 @@ void Viewport::Update()
 
 void Viewport::Draw()
 {
-	if (!_scene_texture) return;
-
-
-	SDL_SetRenderTarget(_render, _scene_texture);
-
+	
 	Control::Draw();
-
-	SDL_SetRenderTarget(_render, this->GetMyParentWindow()->GetWindowTexture());
-
-	SDL_RenderCopy(_render, _scene_texture, &_viewport_rect, &_viewport_in_scene);
-
+	
 	DrawScrollBar();
 
 

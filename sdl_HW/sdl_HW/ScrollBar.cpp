@@ -1,14 +1,14 @@
 #include "ScrollBar.h"
 #include "ScrollBarButton.h"
 #include "ScrollBarCaret.h"
-#include "Scene.h"
+#include "Viewport.h"
 
-ScrollBar::ScrollBar(Scene* scene,ScrollBarPosition position) : Control(scene)
+ScrollBar::ScrollBar(Viewport* viewport,ScrollBarPosition position) : Control(viewport)
 {
 
-	if (!scene) return;
+	if (!viewport) return;
 
-	_scene = scene;
+	_viewport = viewport;
 
 	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
 	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
