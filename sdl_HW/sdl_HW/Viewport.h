@@ -47,7 +47,10 @@ private:
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;
 
-	ScrollBar* _scroll_bar = nullptr;
+	ScrollBar* _right_scroll_bar = nullptr;
+
+	/*DONT USE IT!*/
+	ScrollBar* _bottom_scroll_bar = nullptr;
 
 
 };
