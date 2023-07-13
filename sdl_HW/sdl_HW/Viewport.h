@@ -29,15 +29,27 @@ public:
 	bool NeedBottomScrollbar();
 	bool NeedRightScrollbar();
 
+	void DrawScrollBar();
+
 protected:
 	void SetViewportRect();
+	void DefineOffsets();
 private:
+
+	void CreateScrollBar();
+	void RemoveScrollBar();
+
+	int _offset_x = 0;
+	int _offset_y = 0;
+
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;
 
 	ScrollBar* _scroll_bar = nullptr;
+
+
 };
 #endif
 
