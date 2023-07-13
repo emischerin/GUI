@@ -36,6 +36,8 @@ private:
 
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;
+
+	ScrollBar* _scroll_bar = nullptr;
 };
 #endif
 
