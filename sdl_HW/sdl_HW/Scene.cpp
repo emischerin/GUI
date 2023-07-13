@@ -113,10 +113,10 @@ void Scene::RemoveScrollBar()
 
 void Scene::CreateScrollBar()
 {
-	if (!_scroll_bar) {
+	/*if (!_scroll_bar) {
 		_scroll_bar = new ScrollBar(this);
 		_scroll_bar->SetWidthAndHeight(20, this->GetHeight());
-	}
+	}*/
 }
 
 

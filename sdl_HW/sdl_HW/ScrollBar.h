@@ -17,7 +17,7 @@
 
 class ScrollBarButton;
 class ScrollBarCaret;
-class Scene;
+class Viewport;
 
 class ScrollBar : public Control
 {
@@ -31,7 +31,7 @@ public:
 	};
 		
 
-	ScrollBar(Scene* scene,ScrollBarPosition position = RIGHT);
+	ScrollBar(Viewport* viewport,ScrollBarPosition position = RIGHT);
 
 	
 
@@ -52,7 +52,7 @@ private:
 	ScrollBarCaret* _caret = nullptr;
 
 	
-	Scene* _scene = nullptr;
+	Viewport* _viewport = nullptr;
 
 	
 	
