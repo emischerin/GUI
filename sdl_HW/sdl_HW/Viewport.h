@@ -31,6 +31,9 @@ public:
 
 	void DrawScrollBar();
 
+	bool HasRightScrollBar() const;
+	bool HasBottomScrollBar() const;
+
 protected:
 	void SetViewportRect();
 	void DefineOffsets();

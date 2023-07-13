@@ -65,7 +65,9 @@ void Viewport::DrawScrollBar()
 
 void Viewport::SetViewportRect()
 {
-
+	this->_viewport_rect = _bounding_rect;
+	
+	
 }
 
 bool Viewport::NeedBottomScrollbar()
@@ -80,6 +82,16 @@ bool Viewport::NeedBottomScrollbar()
 
 
 	return false;
+}
+
+bool Viewport::HasRightScrollBar() const
+{
+	return _right_scroll_bar != nullptr;
+}
+
+bool Viewport::HasBottomScrollBar() const
+{
+	return _bottom_scroll_bar != nullptr;
 }
 
 bool Viewport::NeedRightScrollbar()
