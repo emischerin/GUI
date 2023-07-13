@@ -17,7 +17,7 @@ void Viewport::Update()
 	if (NeedRightScrollbar()) {
 
 		if (!_right_scroll_bar)
-			this->CreateScrollBar();
+			this->CreateRightScrollBar();
 
 		_right_scroll_bar->Update();
 
@@ -25,9 +25,22 @@ void Viewport::Update()
 
 	}
 	else {
-		RemoveScrollBar();
+		RemoveRightScrollBar();
 	}
 
+	if (NeedBottomScrollbar()) {
+
+		if (!_bottom_scroll_bar)
+			this->CreateBottomScrollBar();
+
+		_bottom_scroll_bar->Update();
+
+
+
+	}
+	else {
+		RemoveBottomScrollBar();
+	}
 	
 
 
@@ -107,22 +120,43 @@ bool Viewport::NeedRightScrollbar()
 
 	return false;
 }
-
-void Viewport::RemoveScrollBar()
-{
-	if (_right_scroll_bar) {
-		delete _right_scroll_bar;
-		_right_scroll_bar = nullptr;
-	}
-}
-
-void Viewport::CreateScrollBar()
+void Viewport::CreateRightScrollBar()
 {
 	if (!_right_scroll_bar) {
 		_right_scroll_bar = new ScrollBar(this);
 		_right_scroll_bar->SetWidthAndHeight(20, this->GetHeight());
+		this->_has_right_scrollbar = true;
 	}
 }
+
+void Viewport::RemoveRightScrollBar()
+{
+	if (_right_scroll_bar) {
+		delete _right_scroll_bar;
+		_right_scroll_bar = nullptr;
+		this->_has_right_scrollbar = false;
+	}
+}
+
+void Viewport::CreateBottomScrollBar()
+{
+	if (!_bottom_scroll_bar) {
+		_bottom_scroll_bar = new ScrollBar(this);
+		_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
+		this->_has_right_scrollbar = true;
+	}
+}
+
+void Viewport::RemoveBottomScrollBar()
+{
+	if (_bottom_scroll_bar) {
+		delete _bottom_scroll_bar;
+		_bottom_scroll_bar = nullptr;
+		this->_has_bottom_scrollbar = false;
+	}
+}
+
+
 
 
 

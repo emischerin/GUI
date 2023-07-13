@@ -39,8 +39,12 @@ protected:
 	void DefineOffsets();
 private:
 
-	void CreateScrollBar();
-	void RemoveScrollBar();
+	void CreateRightScrollBar();
+	void RemoveRightScrollBar();
+
+	void CreateBottomScrollBar();
+	void RemoveBottomScrollBar();
+
 
 	int _offset_x = 0;
 	int _offset_y = 0;
