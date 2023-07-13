@@ -52,13 +52,13 @@ void Viewport::Draw()
 	
 	Control::Draw();
 	
+	SDL_SetRenderDrawColor(_render, 233, 233, 233, 1);
+
+	SDL_RenderFillRect(_render, &_viewport_rect);
+
 	DrawScrollBar();
 
-
 }
-
-
-
 
 
 void Viewport::DrawScrollBar()
@@ -85,8 +85,11 @@ void Viewport::SetViewportRect()
 	
 }
 
+/*TODO UNCOMMENT THIS!*/
 bool Viewport::NeedBottomScrollbar()
 {
+	
+
 	int max_control_x = MaxXControl();
 	int max_primitive_x = MaxXPrimitive();
 	int my_width = this->GetWidth();
@@ -111,6 +114,7 @@ bool Viewport::HasBottomScrollBar() const
 
 bool Viewport::NeedRightScrollbar()
 {
+	
 	int max_control_y = MaxYControl();
 	int max_primitive_y = MaxYPrimitive();
 	int my_width = this->GetHeight();
@@ -155,9 +159,6 @@ void Viewport::RemoveBottomScrollBar()
 		this->_has_bottom_scrollbar = false;
 	}
 }
-
-
-
 
 
 void Viewport::AddControl(Control* parent)
