@@ -217,6 +217,7 @@
     <ClCompile Include="ScrollBarCaret.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Viewport.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowTracker.cpp" />
   </ItemGroup>
@@ -242,6 +243,7 @@
     <ClInclude Include="ScrollBarCaret.h" />
     <ClInclude Include="ScrollBar.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Viewport.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowTracker.h" />
   </ItemGroup>

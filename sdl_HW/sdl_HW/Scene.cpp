@@ -7,7 +7,7 @@ Scene::Scene(Window* parent_w) : Control(parent_w)
 	this->SetPosition(_offset_x, _offset_y);
 	this->SetWidthAndHeight(parent_w->GetWinWidth() - _offset_x, parent_w->GetWinHeight() - _offset_y);
 
-	_viewport_rect = *this;
+	
 	
 }
 
@@ -51,7 +51,8 @@ void Scene::Draw()
 	SDL_SetRenderTarget(_render, _scene_texture);
 
 	Control::Draw();
-	SDL_SetRenderTarget(_render, 0);
+	
+	SDL_SetRenderTarget(_render, this->GetMyParentWindow()->GetWindowTexture());
 
 	SDL_RenderCopy(_render,_scene_texture, &_viewport_rect, &_viewport_in_scene);
 

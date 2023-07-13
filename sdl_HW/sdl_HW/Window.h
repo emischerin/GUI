@@ -60,6 +60,7 @@ public:
 
 	Header* GetHeader();
 
+	SDL_Texture* GetWindowTexture() const;
 
 	/*
 	*DO NOT add menu twice, as you will have nullptr in controls

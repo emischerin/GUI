@@ -317,6 +317,11 @@ bool Window::TextureReallocationNeeded()
 	return false;
 }
 
+SDL_Texture* Window::GetWindowTexture() const
+{
+	return _texture;
+}
+
 Window::~Window()
 {
 	if (_texture)
