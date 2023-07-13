@@ -28,13 +28,7 @@ void Viewport::Update()
 		RemoveScrollBar();
 	}
 
-	if (_right_scroll_bar) {
-		this->_viewport_rect.x = this->GetX();
-		this->_viewport_rect.y = this->GetY();
-
-		this->_viewport_rect.w = this->GetWidth() - _right_scroll_bar->GetWidth();
-		this->_viewport_rect.h = this->GetHeight();
-	}
+	
 
 
 
@@ -66,6 +60,14 @@ void Viewport::DrawScrollBar()
 void Viewport::SetViewportRect()
 {
 	this->_viewport_rect = _bounding_rect;
+
+	if (_has_right_scrollbar) {
+		_viewport_rect.w -= _right_scroll_bar->GetWidth();
+	}
+
+	if (_has_bottom_scrollbar) {
+		_viewport_rect.h -= _right_scroll_bar->GetHeight();
+	}
 	
 	
 }
