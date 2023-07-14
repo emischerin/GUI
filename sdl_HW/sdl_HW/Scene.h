@@ -6,7 +6,7 @@
 #include <algorithm>
 #include "Control.h"
 #include "Primitives.h"
-#include "Scrollbar.h"
+#include "BaseScrollbar.h"
 #include "Window.h"
 
 /*
@@ -83,7 +83,7 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
-	ScrollBar* _scroll_bar = nullptr;
+	BaseScrollBar* _scroll_bar = nullptr;
 	
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 

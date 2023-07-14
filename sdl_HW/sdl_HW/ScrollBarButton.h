@@ -5,13 +5,13 @@
 #include "CollisionDetector.h"
 #include "Triangle.h"
 
-class ScrollBar;
+class BaseScrollBar;
 
 class ScrollBarButton: public Control
 {
 public:
 	
-	ScrollBarButton(Triangle::TriangleDirection dir,ScrollBar* parent);
+	ScrollBarButton(Triangle::TriangleDirection dir,BaseScrollBar* parent);
 
 	void ReactToEvents() override;
 	void Update() override;
@@ -20,7 +20,7 @@ public:
 private:
 	Triangle* _triangle = nullptr;
 
-	ScrollBar* _scroll_bar = nullptr;
+	BaseScrollBar* _scroll_bar = nullptr;
 };
 #endif
 

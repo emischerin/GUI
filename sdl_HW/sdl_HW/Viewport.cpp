@@ -30,7 +30,7 @@ void Viewport::Update()
 		RemoveRightScrollBar();
 	}
 
-	if (NeedBottomScrollbar()) {
+	/*if (NeedBottomScrollbar()) {
 
 		if (!_bottom_scroll_bar)
 			this->CreateBottomScrollBar();
@@ -42,7 +42,7 @@ void Viewport::Update()
 	}
 	else {
 		RemoveBottomScrollBar();
-	}
+	}*/
 	
 	this->SetViewportRect();
 
@@ -81,16 +81,16 @@ void Viewport::SetViewportRect()
 		_viewport_rect.w -= _right_scroll_bar->GetWidth();
 	}
 
-	if (this->HasBottomScrollBar()) {
+	/*if (this->HasBottomScrollBar()) {
 		_viewport_rect.h -= _bottom_scroll_bar->GetHeight();
-	}
+	}*/
 	
 	
 }
 
 bool Viewport::NeedRightScrollbar()
 {
-	return false;
+	return true;
 
 	int max_control_y = MaxYControl();
 	int max_primitive_y = MaxYPrimitive();
@@ -102,7 +102,7 @@ bool Viewport::NeedRightScrollbar()
 	return false;
 }
 
-/*TODO UNCOMMENT THIS!*/
+
 bool Viewport::NeedBottomScrollbar()
 {
 	return false;
@@ -126,14 +126,15 @@ bool Viewport::HasRightScrollBar() const
 
 bool Viewport::HasBottomScrollBar() const
 {
-	return _bottom_scroll_bar != nullptr;
+	return false;
+	//return _bottom_scroll_bar != nullptr;
 }
 
 
 void Viewport::CreateRightScrollBar()
 {
 	if (!_right_scroll_bar) {
-		_right_scroll_bar = new ScrollBar(this);
+		_right_scroll_bar = new RightScrollBar(this);
 		_right_scroll_bar->SetWidthAndHeight(20, this->GetHeight());
 		this->_has_right_scrollbar = true;
 		
@@ -154,22 +155,22 @@ void Viewport::RemoveRightScrollBar()
 
 void Viewport::CreateBottomScrollBar()
 {
-	if (!_bottom_scroll_bar) {
-		_bottom_scroll_bar = new ScrollBar(this);
-		_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
-		this->_has_right_scrollbar = true;
-		
-	}
+	//if (!_bottom_scroll_bar) {
+	//	_bottom_scroll_bar = new ScrollBar(this);
+	//	_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
+	//	this->_has_right_scrollbar = true;
+	//	
+	//}
 }
 
 void Viewport::RemoveBottomScrollBar()
 {
-	if (_bottom_scroll_bar) {
+	/*if (_bottom_scroll_bar) {
 		this->_viewport_rect.h += _bottom_scroll_bar->GetHeight();
 		delete _bottom_scroll_bar;
 		_bottom_scroll_bar = nullptr;
 		this->_has_bottom_scrollbar = false;
-	}
+	}*/
 }
 
 

@@ -22,7 +22,7 @@ void Scene::Update()
 		if (!_scroll_bar)
 			this->CreateScrollBar();
 
-		_scroll_bar->Update();
+		//_scroll_bar->Update();
 
 
 
@@ -35,7 +35,7 @@ void Scene::Update()
 		this->_viewport_rect.x = this->GetX();
 		this->_viewport_rect.y = this->GetY();
 
-		this->_viewport_rect.w = this->GetWidth() - _scroll_bar->GetWidth();
+		//this->_viewport_rect.w = this->GetWidth() - _scroll_bar->GetWidth();
 		this->_viewport_rect.h = this->GetHeight();
 	}
 
@@ -71,8 +71,8 @@ void Scene::SetScrollBarGeometry()
 void Scene::DrawScrollBar()
 {
 	
-	if (_scroll_bar) 
-		_scroll_bar->Draw();	
+	//if (_scroll_bar) 
+		//_scroll_bar->Draw();	
 	
 	
 }

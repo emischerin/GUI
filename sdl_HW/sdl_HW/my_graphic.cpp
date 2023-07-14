@@ -10,9 +10,8 @@
 #include "Menu.h"
 #include "Scene.h"
 #include "Triangle.h"
-#include "ScrollBar.h"
-#include "ScrollBarButton.h"
 #include "Viewport.h"
+
 static int TestMultithreadedWindows()
 {
 	MainWindow mw(1, 1, 800, 600, "HELLO NORMAL WINDOW!");

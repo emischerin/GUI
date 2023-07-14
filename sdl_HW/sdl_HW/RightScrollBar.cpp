@@ -3,7 +3,7 @@
 #include "ScrollBarCaret.h"
 #include "Viewport.h"
 
-RightScrollBar::RightScrollBar(Viewport* viewport) : Control(viewport)
+RightScrollBar::RightScrollBar(Viewport* viewport) : BaseScrollBar(viewport)
 {
 
 	if (!viewport) return;

@@ -19,7 +19,7 @@ class ScrollBarButton;
 class ScrollBarCaret;
 class Viewport;
 
-class RightScrollBar : public Control,public BaseScrollBar
+class RightScrollBar : public BaseScrollBar
 {
 public:
 	

@@ -2,20 +2,20 @@
 #ifndef SCROLLBARCARET_H
 #define SCROLLBARCARET_H
 #include "Control.h"
-#include "ScrollBar.h"
+#include "BaseScrollBar.h"
 #include "CollisionDetector.h"
 
 
 class ScrollBarCaret : public Control
 {
 public:
-	ScrollBarCaret(ScrollBar* parent);
+	ScrollBarCaret(BaseScrollBar* parent);
 
 	void ReactToEvents() override;
 	void Update() override;
 	void Draw() override;
 
 private:
-	ScrollBar* _scrollbar = nullptr;
+	BaseScrollBar* _scrollbar = nullptr;
 };
 #endif

@@ -1,7 +1,7 @@
 #include "ScrollBarCaret.h"
 #include "Scene.h"
 
-ScrollBarCaret::ScrollBarCaret(ScrollBar* parent) : Control(parent)
+ScrollBarCaret::ScrollBarCaret(BaseScrollBar* parent) : Control(parent)
 {
 	if (!parent) return;
 

@@ -7,7 +7,7 @@
 #include <algorithm>
 #include "Control.h"
 #include "Primitives.h"
-#include "Scrollbar.h"
+#include "RightScrollBar.h"
 #include "Control.h"
 #include "Window.h"
 
@@ -54,10 +54,10 @@ private:
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;
 
-	ScrollBar* _right_scroll_bar = nullptr;
+	RightScrollBar* _right_scroll_bar = nullptr;
 
 	/*DONT USE IT!*/
-	ScrollBar* _bottom_scroll_bar = nullptr;
+	//ScrollBar* _bottom_scroll_bar = nullptr;
 
 
 };
