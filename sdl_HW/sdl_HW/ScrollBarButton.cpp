@@ -1,7 +1,7 @@
 #include "ScrollBarButton.h"
-#include "ScrollBar.h"
+#include "BaseScrollBar.h"
 
-ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, ScrollBar* parent): Control(parent)
+ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar* parent): Control(parent)
 {
 	if (!parent) return;
 

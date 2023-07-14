@@ -1,10 +1,10 @@
 #pragma once
-#ifndef SCROLLBAR_H
-#define SCROLLBAR_H
+#ifndef RIGHTSCROLLBAR_H
+#define RIGHTSCROLLBAR_H
 
 #include "Control.h"
+#include "BaseScrollBar.h"
 #include "Primitives.h"
-
 
 /*
 * 
@@ -19,12 +19,12 @@ class ScrollBarButton;
 class ScrollBarCaret;
 class Viewport;
 
-class ScrollBar : public Control
+class RightScrollBar : public Control,public BaseScrollBar
 {
 public:
 	
 
-	ScrollBar(Viewport* viewport);
+	RightScrollBar(Viewport* viewport);
 
 	
 
@@ -33,11 +33,6 @@ public:
 	void ReactToEvents() override;
 	void Update() override;
 	void Draw() override;
-
-
-	
-protected:
-	virtual void* ControllMessagingFunction(void* arg1) override;
 
 private:
 	ScrollBarButton* _up = nullptr;

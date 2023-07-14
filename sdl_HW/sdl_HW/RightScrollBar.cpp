@@ -1,9 +1,9 @@
-#include "ScrollBar.h"
+#include "RightScrollBar.h"
 #include "ScrollBarButton.h"
 #include "ScrollBarCaret.h"
 #include "Viewport.h"
 
-ScrollBar::ScrollBar(Viewport* viewport) : Control(viewport)
+RightScrollBar::RightScrollBar(Viewport* viewport) : Control(viewport)
 {
 
 	if (!viewport) return;
@@ -29,12 +29,12 @@ ScrollBar::ScrollBar(Viewport* viewport) : Control(viewport)
 
 }
 
-void ScrollBar::ReactToEvents()
+void RightScrollBar::ReactToEvents()
 {
 
 }
 
-void ScrollBar::Update()
+void RightScrollBar::Update()
 {
 	int w_height = _my_parent_window->GetWinHeight();
 	int _this_height = w_height - _parent_control->GetY();
@@ -46,7 +46,7 @@ void ScrollBar::Update()
 	Control::Update();
 }
 
-void ScrollBar::Draw()
+void RightScrollBar::Draw()
 {
 	SDL_SetRenderDrawColor(_render, 15, 8, 18, 255);
 	SDL_RenderFillRect(_render, &_bounding_rect);
@@ -54,9 +54,4 @@ void ScrollBar::Draw()
 	Control::Draw();
 
 	
-}
-
- void* ScrollBar::ControllMessagingFunction(void* arg1)
-{
-	 return (void*)1;/**/
 }
