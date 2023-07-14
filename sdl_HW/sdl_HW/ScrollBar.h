@@ -22,16 +22,9 @@ class Viewport;
 class ScrollBar : public Control
 {
 public:
+	
 
-
-	enum ScrollBarPosition
-	{
-		DOWN,
-		RIGHT
-	};
-		
-
-	ScrollBar(Viewport* viewport,ScrollBarPosition position = RIGHT);
+	ScrollBar(Viewport* viewport);
 
 	
 
