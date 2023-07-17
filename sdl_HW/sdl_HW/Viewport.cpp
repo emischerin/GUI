@@ -213,6 +213,8 @@ void Viewport::DefineOffsets()
 void Viewport::SetScene(Scene* scene)
 {
 	if (scene) {
+		if (_scene) delete _scene;
+
 		_scene = scene;
 		_scene->SetViewport(this);
 	}
@@ -220,6 +222,13 @@ void Viewport::SetScene(Scene* scene)
 	
 }
 
+void Viewport::RemoveScene()
+{
+	if (!_scene) return;
+
+	delete _scene;
+	_scene = nullptr;
+}
 
 
 

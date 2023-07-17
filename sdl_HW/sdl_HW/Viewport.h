@@ -38,6 +38,8 @@ public:
 
 	void SetScene(Scene* scene);
 
+	void RemoveScene();
+
 protected:
 	void SetViewportRect();
 	void DefineOffsets();
