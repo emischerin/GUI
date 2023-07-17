@@ -230,7 +230,7 @@ public:
 
 	virtual int MinXControl()
 	{
-		if (_child_controls.size() == 0) return 0;
+		if (_child_controls.size() == 0) return -1;
 
 		auto _control_by_x = [](Control* c1, Control* c2)
 		{
@@ -246,7 +246,7 @@ public:
 
 	virtual int MaxXControl()
 	{
-		if (_child_controls.size() == 0) return 0;
+		if (_child_controls.size() == 0) return -1;
 
 		auto _control_by_x = [](Control* c1, Control* c2)
 		{
@@ -264,7 +264,7 @@ public:
 
 	virtual int MinYControl()
 	{
-		if (_child_controls.size() == 0) return 0;
+		if (_child_controls.size() == 0) return -1;
 
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
@@ -280,7 +280,7 @@ public:
 
 	virtual int MaxYControl()
 	{
-		if (_child_controls.size() == 0) return 0;
+		if (_child_controls.size() == 0) return -1;
 
 		auto _control_by_y = [](Control* c1, Control* c2)
 		{
@@ -296,7 +296,7 @@ public:
 
 	virtual int MinXPrimitive()
 	{
-		if (_primitives.size() == 0) return 0;
+		if (_primitives.size() == 0) return -1;
 
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
@@ -312,7 +312,7 @@ public:
 
 	virtual int MaxXPrimitive()
 	{
-		if (_primitives.size() == 0) return 0;
+		if (_primitives.size() == 0) return -1;
 
 		auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
 		{
@@ -330,7 +330,7 @@ public:
 
 	virtual int MinYPrimitive()
 	{
-		if (_primitives.size() == 0) return 0;
+		if (_primitives.size() == 0) return -1;
 
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{
@@ -346,7 +346,7 @@ public:
 
 	virtual int MaxYPrimitive()
 	{
-		if (_primitives.size() == 0) return 0;
+		if (_primitives.size() == 0) return -1;
 
 		auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
 		{

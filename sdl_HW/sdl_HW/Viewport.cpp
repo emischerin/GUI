@@ -97,7 +97,7 @@ bool Viewport::NeedRightScrollbar()
 	int max_control_y = _scene->MaxYControl();
 	int max_primitive_y = _scene->MaxYPrimitive();
 	int my_height = this->GetHeight();
-
+	
 	if ((max_control_y > my_height) || (max_primitive_y > my_height))
 		return true;
 
