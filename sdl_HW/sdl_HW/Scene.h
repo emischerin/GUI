@@ -43,39 +43,24 @@ public:
 	void Update() override;
 
 	void Draw() override;
-
-	
-
-	bool NeedBottomScrollbar();
-	bool NeedRightScrollbar();
-
-	
+		
 	int GetViewportPositionXInScene();
 
 	int GetViewportPositionYInScene();
 
 	void SetViewport(Viewport* viewport);
+	
 
 protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);
 	void RelocatePrimitiveVerticesY(Primitive* p);
-
 	
-	
-	void SetScrollBarGeometry();
-	
-	void DrawScrollBar();
-
-
-	void CreateScrollBar();
-	void RemoveScrollBar();
-
 	bool SceneTextureNeedsReallocation();
+
+	
 
 private:
 	
-	void DefineOffsets();
-
 	bool NeedXRelocation(Primitive* p);
 	bool NeedYRelocation(Primitive* p);
 
