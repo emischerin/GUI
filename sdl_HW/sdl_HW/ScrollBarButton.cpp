@@ -63,6 +63,36 @@ void ScrollBarButton::Update()
 		return;
 	}
 
+	if (d == Triangle::TriangleDirection::LEFT) {
+
+		int x = _parent_control->GetX();
+		int y = _parent_control->GetY();
+
+		int width = this->GetWidth();
+		int height = this->GetHeight();
+
+		this->SetBoundingRect(x, y, width, height);
+
+		_triangle->SetBoundingRect(x + 5, y + 5, width / 2, height / 2);
+
+		return;
+	}
+
+	if (d == Triangle::TriangleDirection::RIGHT) {
+
+		int x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
+		int y = (_parent_control->GetY() + _parent_control->GetHeight()) - this->GetHeight();
+		int width = this->GetWidth();
+		int height = this->GetHeight();
+
+
+		this->SetBoundingRect(x, y, width, height);
+
+		_triangle->SetBoundingRect(x + 5, y + 5, width / 2, height / 2);
+
+		return;
+	}
+
 	
 }
 

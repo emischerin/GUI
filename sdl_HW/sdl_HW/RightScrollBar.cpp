@@ -23,7 +23,7 @@ RightScrollBar::RightScrollBar(Viewport* viewport) : BaseScrollBar(viewport)
 	_down->SetMouseOverColor(191,125,255, 0);
 	_down->SetWidthAndHeight(20, 20);
 	
-
+	this->SetWidth(20);
 	
 
 
@@ -36,8 +36,8 @@ void RightScrollBar::ReactToEvents()
 
 void RightScrollBar::Update()
 {
-	int w_height = _my_parent_window->GetWinHeight();
-	int _this_height = w_height - _parent_control->GetY();
+	int p_height = _parent_control->GetHeight();
+	int _this_height = p_height;
 	int _this_x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
 
 	this->SetWidthAndHeight(this->GetWidth(), _this_height);

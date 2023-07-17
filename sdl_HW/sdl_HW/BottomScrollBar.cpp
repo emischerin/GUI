@@ -10,22 +10,20 @@ BottomScrollBar::BottomScrollBar(Viewport* viewport) : BaseScrollBar(viewport)
 
 	_viewport = viewport;
 
-	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
-	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	_left = new ScrollBarButton(Triangle::TriangleDirection::LEFT, this);
+	_right = new ScrollBarButton(Triangle::TriangleDirection::RIGHT, this);
 	_caret = new ScrollBarCaret(this);
 
 	//_up->SetColor(62,19,66,1);
-	_up->SetColor(75, 36, 78, 1);
-	_up->SetMouseOverColor(191, 125, 255, 1);
-	_up->SetWidthAndHeight(20, 20);
+	_left->SetColor(75, 36, 78, 1);
+	_left->SetMouseOverColor(191, 125, 255, 1);
+	_left->SetWidthAndHeight(20, 20);
 
-	_down->SetColor(75, 36, 78, 1);
-	_down->SetMouseOverColor(191, 125, 255, 0);
-	_down->SetWidthAndHeight(20, 20);
+	_right->SetColor(75, 36, 78, 1);
+	_right->SetMouseOverColor(191, 125, 255, 0);
+	_right->SetWidthAndHeight(20, 20);
 
-
-
-
+	this->SetHeight(20);
 
 }
 
@@ -36,12 +34,16 @@ void BottomScrollBar::ReactToEvents()
 
 void BottomScrollBar::Update()
 {
-	int w_height = _my_parent_window->GetWinHeight();
-	int _this_height = w_height - _parent_control->GetY();
-	int _this_x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
+	int p_height = _parent_control->GetHeight();
+	int _this_height = this->GetHeight();
+	int _this_x = _parent_control->GetX();
+	int _this_y = _parent_control->GetY() + _parent_control->GetHeight() - this->GetHeight();
+	
+	this->SetWidthAndHeight(_parent_control->GetWidth(), _this_height);
 
-	this->SetWidthAndHeight(this->GetWidth(), _this_height);
-	this->SetPosition(_this_x, _parent_control->GetY());
+	this->TrimMyWidthIfRightScrollBar();
+
+	this->SetPosition(_this_x, _this_y);
 
 	Control::Update();
 }
@@ -54,4 +56,13 @@ void BottomScrollBar::Draw()
 	Control::Draw();
 
 
+}
+
+void BottomScrollBar::TrimMyWidthIfRightScrollBar()
+{
+	ControlMsg msg = { Viewport::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH,0 };
+
+	_parent_control->ControlMessagingFunction(&msg);
+
+	this->ResizeWidth(-(int)msg._result);
 }

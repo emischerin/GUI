@@ -20,6 +20,12 @@ class Control
 	
 public:
 	
+	struct ControlMsg
+	{
+		int _command;
+		void* _result;
+	};
+
 
 	Control() {};
 
@@ -96,6 +102,16 @@ public:
 	virtual void SetWidthAndHeight(int w, int h)
 	{		
 		_bounding_rect.w = w;
+		_bounding_rect.h = h;
+	}
+
+	virtual void SetWidth(int w)
+	{
+		_bounding_rect.w = w;
+	}
+
+	virtual void SetHeight(int h)
+	{
 		_bounding_rect.h = h;
 	}
 
@@ -362,7 +378,7 @@ public:
 
 	void ResizeWidth(int dx)
 	{
-		_bounding_rect.x += dx;
+		_bounding_rect.w += dx;
 	}
 
 	void ResizeHeight(int dy)
@@ -382,6 +398,7 @@ public:
 
 	}
 
+	virtual void ControlMessagingFunction(ControlMsg* message) {}
 
 protected:
 
@@ -389,9 +406,8 @@ protected:
 	SDL_Renderer* GetRender() { return _render; }
 
 	void SetRender(SDL_Renderer* render) { _render = render; }
-
-	virtual void* ControllMessagingFunction(void* arg1) { return (void*)0; }
-	virtual void* ControllMessagingFunction(void* arg1, void* arg2) { return (void*)0; }
+	
+	
 
 	int _total_children_width = 0;
 

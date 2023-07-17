@@ -16,6 +16,13 @@
 class Viewport : public Control
 {
 public:
+
+	enum ControlMsgRequest
+	{
+		_RIGHT_SCROLLBAR_WIDTH = 1
+
+	};
+
 	Viewport(Window* parent_w);
 
 
@@ -43,6 +50,10 @@ public:
 protected:
 	void SetViewportRect();
 	void DefineOffsets();
+
+	void ControlMessagingFunction(ControlMsg* message) override;
+
+
 private:
 
 	void CreateRightScrollBar();

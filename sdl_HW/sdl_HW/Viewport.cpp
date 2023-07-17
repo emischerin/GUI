@@ -91,6 +91,8 @@ void Viewport::SetViewportRect()
 
 bool Viewport::NeedRightScrollbar()
 {
+	return true;
+
 	if (!_scene)
 		return false;
 
@@ -107,6 +109,8 @@ bool Viewport::NeedRightScrollbar()
 
 bool Viewport::NeedBottomScrollbar()
 {
+	return true;
+
 	if (!_scene)
 		return false;
 
@@ -136,7 +140,7 @@ void Viewport::CreateRightScrollBar()
 {
 	if (!_right_scroll_bar) {
 		_right_scroll_bar = new RightScrollBar(this);
-		_right_scroll_bar->SetWidthAndHeight(20, this->GetHeight());
+		
 		this->_has_right_scrollbar = true;
 		
 
@@ -158,13 +162,6 @@ void Viewport::CreateBottomScrollBar()
 {
 	if (!_bottom_scroll_bar) {
 		_bottom_scroll_bar = new BottomScrollBar(this);
-		_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
-
-		if (this->_has_right_scrollbar) {
-			int right_scrbar_width = _right_scroll_bar->GetWidth();
-			_bottom_scroll_bar->ResizeWidth(-right_scrbar_width);
-		}
-		
 		this->_has_right_scrollbar = true;
 		
 	}
@@ -230,6 +227,21 @@ void Viewport::RemoveScene()
 	_scene = nullptr;
 }
 
+void Viewport::ControlMessagingFunction(ControlMsg* message)
+{
+	if (!message) return;
+
+	Viewport::ControlMsgRequest request = (Viewport::ControlMsgRequest)message->_command;
+
+	switch (request)
+	{
+	case Viewport::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH:
+		message->_result = _right_scroll_bar ? (void*)_right_scroll_bar->GetWidth() : 0;
+		break;
+	default:
+		break;
+	}
+}
 
 
 //void Scene::CreateSceneTexture()

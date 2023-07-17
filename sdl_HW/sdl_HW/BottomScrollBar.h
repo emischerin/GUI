@@ -35,8 +35,11 @@ public:
 	void Draw() override;
 
 private:
-	ScrollBarButton* _up = nullptr;
-	ScrollBarButton* _down = nullptr;
+
+	void TrimMyWidthIfRightScrollBar();
+
+	ScrollBarButton* _left = nullptr;
+	ScrollBarButton* _right = nullptr;
 	ScrollBarCaret* _caret = nullptr;
 
 
