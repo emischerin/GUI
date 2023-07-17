@@ -36,7 +36,7 @@ public:
 	Scene(Window* parent_w);
 	
 
-	void AddControl(Control* parent);
+	void AddControl(Control* c);
 	void AddPrimitive(Primitive* p) override;
 
 	void Update() override;

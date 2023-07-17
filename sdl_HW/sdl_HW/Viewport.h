@@ -8,6 +8,7 @@
 #include "Control.h"
 #include "Primitives.h"
 #include "RightScrollBar.h"
+#include "BottomScrollBar.h"
 #include "Control.h"
 #include "Window.h"
 #include "Scene.h"
@@ -18,7 +19,7 @@ public:
 	Viewport(Window* parent_w);
 
 
-	void AddControl(Control* parent);
+	void AddControl(Control* c);
 	void AddPrimitive(Primitive* p) override;
 
 	void Update() override;
@@ -58,11 +59,7 @@ private:
 	bool _has_right_scrollbar = false;
 
 	RightScrollBar* _right_scroll_bar = nullptr;
-
-
-
-	/*DONT USE IT!*/
-	//ScrollBar* _bottom_scroll_bar = nullptr;
+	BottomScrollBar* _bottom_scroll_bar = nullptr;
 
 
 	Scene* _scene = nullptr;

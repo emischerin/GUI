@@ -201,6 +201,7 @@
     <ClCompile Include="AppGlobals.cpp" />
     <ClCompile Include="BaseScrollBar.cpp" />
     <ClCompile Include="BorderLine.cpp" />
+    <ClCompile Include="BottomScrollBar.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CloseButton.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="AppGlobals.h" />
     <ClInclude Include="BaseScrollBar.h" />
     <ClInclude Include="BorderLine.h" />
+    <ClInclude Include="BottomScrollBar.h" />
     <ClInclude Include="bsp_tree.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CloseButton.h" />

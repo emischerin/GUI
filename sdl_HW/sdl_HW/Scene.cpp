@@ -119,11 +119,12 @@ void Scene::CreateScrollBar()
 	}*/
 }
 
-
-
-void Scene::AddControl(Control* parent)
+void Scene::AddControl(Control* c)
 {
+	if (c)
+		this->AddChild(c);
 
+	
 }
 
 void Scene::AddPrimitive(Primitive* p)

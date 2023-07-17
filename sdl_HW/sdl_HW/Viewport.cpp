@@ -30,7 +30,7 @@ void Viewport::Update()
 		RemoveRightScrollBar();
 	}
 
-	/*if (NeedBottomScrollbar()) {
+	if (NeedBottomScrollbar()) {
 
 		if (!_bottom_scroll_bar)
 			this->CreateBottomScrollBar();
@@ -42,7 +42,7 @@ void Viewport::Update()
 	}
 	else {
 		RemoveBottomScrollBar();
-	}*/
+	}
 		
 	this->SetViewportRect();
 
@@ -50,9 +50,7 @@ void Viewport::Update()
 
 void Viewport::Draw()
 {
-	
-	
-	
+		
 	SDL_SetRenderDrawColor(_render, 7, 100, 7, 1);
 
 	SDL_RenderFillRect(_render, &_viewport_rect);
@@ -70,6 +68,9 @@ void Viewport::DrawScrollBar()
 	if (_right_scroll_bar)
 		_right_scroll_bar->Draw();
 
+	if (_bottom_scroll_bar)
+		_bottom_scroll_bar->Draw();
+
 
 }
 
@@ -81,9 +82,9 @@ void Viewport::SetViewportRect()
 		_viewport_rect.w -= _right_scroll_bar->GetWidth();
 	}
 
-	/*if (this->HasBottomScrollBar()) {
+	if (this->HasBottomScrollBar()) {
 		_viewport_rect.h -= _bottom_scroll_bar->GetHeight();
-	}*/
+	}
 	
 	
 }
@@ -105,7 +106,7 @@ bool Viewport::NeedRightScrollbar()
 
 bool Viewport::NeedBottomScrollbar()
 {
-	return false;
+	return true;
 
 	int max_control_x = MaxXControl();
 	int max_primitive_x = MaxXPrimitive();
@@ -126,8 +127,7 @@ bool Viewport::HasRightScrollBar() const
 
 bool Viewport::HasBottomScrollBar() const
 {
-	return false;
-	//return _bottom_scroll_bar != nullptr;
+	return _bottom_scroll_bar != nullptr;
 }
 
 
@@ -155,33 +155,43 @@ void Viewport::RemoveRightScrollBar()
 
 void Viewport::CreateBottomScrollBar()
 {
-	//if (!_bottom_scroll_bar) {
-	//	_bottom_scroll_bar = new ScrollBar(this);
-	//	_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
-	//	this->_has_right_scrollbar = true;
-	//	
-	//}
+	if (!_bottom_scroll_bar) {
+		_bottom_scroll_bar = new BottomScrollBar(this);
+		_bottom_scroll_bar->SetWidthAndHeight(20, this->GetWidth());
+
+		if (this->_has_right_scrollbar) {
+			int right_scrbar_width = _right_scroll_bar->GetWidth();
+			_bottom_scroll_bar->ResizeWidth(-right_scrbar_width);
+		}
+		
+		this->_has_right_scrollbar = true;
+		
+	}
 }
 
 void Viewport::RemoveBottomScrollBar()
 {
-	/*if (_bottom_scroll_bar) {
+	if (_bottom_scroll_bar) {
 		this->_viewport_rect.h += _bottom_scroll_bar->GetHeight();
 		delete _bottom_scroll_bar;
 		_bottom_scroll_bar = nullptr;
 		this->_has_bottom_scrollbar = false;
-	}*/
+	}
 }
 
 
-void Viewport::AddControl(Control* parent)
+void Viewport::AddControl(Control* c)
 {
-	
+	if (_scene) {
+		_scene->AddControl(c);
+	}
 }
 
 void Viewport::AddPrimitive(Primitive* p)
 {
-	
+	if (_scene) {
+		_scene->AddPrimitive(p);
+	}
 }
 
 void Viewport::DefineOffsets()
