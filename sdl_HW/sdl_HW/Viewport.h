@@ -10,6 +10,7 @@
 #include "RightScrollBar.h"
 #include "Control.h"
 #include "Window.h"
+#include "Scene.h"
 
 class Viewport : public Control
 {
@@ -34,6 +35,8 @@ public:
 	bool HasRightScrollBar() const;
 	bool HasBottomScrollBar() const;
 
+	void SetScene(Scene* scene);
+
 protected:
 	void SetViewportRect();
 	void DefineOffsets();
@@ -56,8 +59,13 @@ private:
 
 	RightScrollBar* _right_scroll_bar = nullptr;
 
+
+
 	/*DONT USE IT!*/
 	//ScrollBar* _bottom_scroll_bar = nullptr;
+
+
+	Scene* _scene = nullptr;
 
 
 };

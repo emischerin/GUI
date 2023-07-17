@@ -43,7 +43,7 @@ void Viewport::Update()
 	else {
 		RemoveBottomScrollBar();
 	}*/
-	
+		
 	this->SetViewportRect();
 
 }
@@ -199,6 +199,10 @@ void Viewport::DefineOffsets()
 
 }
 
+void Viewport::SetScene(Scene* scene)
+{
+	_scene = scene;
+}
 
 
 
