@@ -91,13 +91,14 @@ void Viewport::SetViewportRect()
 
 bool Viewport::NeedRightScrollbar()
 {
-	return true;
+	if (!_scene)
+		return false;
 
-	int max_control_y = MaxYControl();
-	int max_primitive_y = MaxYPrimitive();
-	int my_width = this->GetHeight();
+	int max_control_y = _scene->MaxYControl();
+	int max_primitive_y = _scene->MaxYPrimitive();
+	int my_height = this->GetHeight();
 
-	if ((max_control_y > my_width) || (max_primitive_y > my_width))
+	if ((max_control_y > my_height) || (max_primitive_y > my_height))
 		return true;
 
 	return false;
@@ -106,15 +107,15 @@ bool Viewport::NeedRightScrollbar()
 
 bool Viewport::NeedBottomScrollbar()
 {
-	return true;
+	if (!_scene)
+		return false;
 
-	int max_control_x = MaxXControl();
-	int max_primitive_x = MaxXPrimitive();
+	int max_control_x = _scene->MaxXControl();
+	int max_primitive_x = _scene->MaxXPrimitive();
 	int my_width = this->GetWidth();
 
 	if ((max_control_x > my_width) || (max_primitive_x > my_width))
 		return true;
-
 
 
 	return false;
