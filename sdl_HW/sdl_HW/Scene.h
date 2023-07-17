@@ -24,6 +24,7 @@
 * 
 */
 
+class Viewport;
 
 
 class Scene : public Control
@@ -52,6 +53,7 @@ public:
 
 	int GetViewportPositionYInScene();
 
+	void SetViewport(Viewport* viewport);
 
 protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);
@@ -93,7 +95,7 @@ private:
 	
 	SDL_Rect _viewport_in_scene = { 0,0,0,1 };
 	
-
+	Viewport* _viewport = nullptr;
 	
 
 

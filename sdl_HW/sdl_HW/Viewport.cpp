@@ -201,7 +201,12 @@ void Viewport::DefineOffsets()
 
 void Viewport::SetScene(Scene* scene)
 {
-	_scene = scene;
+	if (scene) {
+		_scene = scene;
+		_scene->SetViewport(this);
+	}
+
+	
 }
 
 

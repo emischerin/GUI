@@ -250,3 +250,9 @@ bool Scene::SceneTextureNeedsReallocation()
 	if (this->MaxYControl() > _scene_texture_rect.x)
 		return true;
 }
+
+void Scene::SetViewport(Viewport* viewport)
+{
+	if (viewport)
+		_viewport = viewport;
+}
