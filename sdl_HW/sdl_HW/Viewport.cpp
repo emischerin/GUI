@@ -22,9 +22,6 @@ void Viewport::Update()
 			this->CreateRightScrollBar();
 
 		_right_scroll_bar->Update();
-
-
-
 	}
 	else {
 		RemoveRightScrollBar();
@@ -43,7 +40,11 @@ void Viewport::Update()
 	else {
 		RemoveBottomScrollBar();
 	}
-		
+	
+	if (_right_scroll_bar && _bottom_scroll_bar) {
+		_right_scroll_bar->Update();
+	}
+
 	this->SetViewportRect();
 
 }
@@ -237,6 +238,9 @@ void Viewport::ControlMessagingFunction(ControlMsg* message)
 	{
 	case Viewport::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH:
 		message->_result = _right_scroll_bar ? (void*)_right_scroll_bar->GetWidth() : 0;
+		break;
+	case Viewport::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
+		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
 	default:
 		break;

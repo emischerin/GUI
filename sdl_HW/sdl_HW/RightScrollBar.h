@@ -34,6 +34,9 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	/*!!!!USE WITH CAUSITION!!!!*/
+	void TrimMyHeightIfBottomScrollbar();
+
 private:
 	ScrollBarButton* _up = nullptr;
 	ScrollBarButton* _down = nullptr;

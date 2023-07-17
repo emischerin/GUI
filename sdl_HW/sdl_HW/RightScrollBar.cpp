@@ -41,6 +41,9 @@ void RightScrollBar::Update()
 	int _this_x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
 
 	this->SetWidthAndHeight(this->GetWidth(), _this_height);
+
+	this->TrimMyHeightIfBottomScrollbar();
+
 	this->SetPosition(_this_x, _parent_control->GetY());
 
 	Control::Update();
@@ -53,5 +56,16 @@ void RightScrollBar::Draw()
 	
 	Control::Draw();
 
+	
+}
+
+void RightScrollBar::TrimMyHeightIfBottomScrollbar()
+{
+	
+	ControlMsg msg = { Viewport::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT,0 };
+
+	_parent_control->ControlMessagingFunction(&msg);
+
+	this->ResizeHeight(-(int)msg._result);
 	
 }

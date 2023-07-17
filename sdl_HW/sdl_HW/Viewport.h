@@ -19,7 +19,8 @@ public:
 
 	enum ControlMsgRequest
 	{
-		_RIGHT_SCROLLBAR_WIDTH = 1
+		_RIGHT_SCROLLBAR_WIDTH = 1,
+		_BOTTOM_SCROLLBAR_HEIGHT
 
 	};
 
