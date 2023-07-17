@@ -1,15 +1,17 @@
 #include "Scene.h"
 
-Scene::Scene(Window* parent_w) : Control(parent_w)
-{
-	this->DefineOffsets();
-	
-	this->SetPosition(_offset_x, _offset_y);
-	this->SetWidthAndHeight(parent_w->GetWinWidth() - _offset_x, parent_w->GetWinHeight() - _offset_y);
 
-	
-	
+
+Scene::Scene()
+{
+		
 }
+
+Scene::Scene(Viewport* v)
+{
+	this->SetViewport(v);
+}
+
 
 void Scene::Update()
 {

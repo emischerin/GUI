@@ -33,7 +33,8 @@ public:
 
 	
 
-	Scene(Window* parent_w);
+	Scene();
+	Scene(Viewport* v);
 	
 
 	void AddControl(Control* c);
