@@ -78,7 +78,6 @@ void Viewport::Draw()
 
 	}
 
-
 }
 
 
@@ -154,7 +153,6 @@ bool Viewport::HasBottomScrollBar() const
 {
 	return _bottom_scroll_bar != nullptr;
 }
-
 
 void Viewport::CreateRightScrollBar()
 {
