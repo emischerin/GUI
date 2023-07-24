@@ -230,7 +230,7 @@ void Viewport::SetScene(Scene* scene)
 		if (_scene) delete _scene;
 
 		_scene = scene;
-		_scene->SetViewport(this);
+		
 	}
 
 	

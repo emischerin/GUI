@@ -1,6 +1,7 @@
 #include "Scene.h"
+#include "Window.h"
 
-Scene::Scene(Viewport* v)
+Scene::Scene(Viewport* v) 
 {
 	this->SetViewport(v);
 }
@@ -138,7 +139,7 @@ void Scene::SetViewport(Viewport* viewport)
 
 void Scene::SaveCurrentRenderingState()
 {
-
+	
 }
 
 void Scene::RestoreSavedRenderingState()

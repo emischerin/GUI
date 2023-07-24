@@ -7,7 +7,7 @@
 #include "Control.h"
 #include "Primitives.h"
 #include "BaseScrollbar.h"
-#include "Window.h"
+
 
 /*
 * cs = coordinate system
@@ -24,11 +24,13 @@
 * 
 */
 
-class Viewport;
 
+class Viewport;
 
 class Scene : public Control
 {
+	friend class Window;
+
 public:
 
 	
