@@ -4,6 +4,8 @@
 Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
+
+
 }
 
 
@@ -139,10 +141,11 @@ void Scene::SetViewport(Viewport* viewport)
 
 void Scene::SaveCurrentRenderingState()
 {
-	
+	this->_saved_texture = _my_parent_window->GetRenderingTexture();
+
 }
 
 void Scene::RestoreSavedRenderingState()
 {
-
+	
 }

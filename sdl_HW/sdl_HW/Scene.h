@@ -29,7 +29,7 @@ class Viewport;
 
 class Scene : public Control
 {
-	friend class Window;
+	
 
 public:
 

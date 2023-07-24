@@ -144,6 +144,9 @@ int MainWindow::SimpleAppMainLoop()
 				windows->at(i)->Update();
 
 			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->PreDraw();
+
+			for (int i = 0; i < windows->size(); ++i)
 				windows->at(i)->Draw();
 			
 	}

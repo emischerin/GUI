@@ -21,6 +21,8 @@ class Window
 {
 	friend class Control;
 	friend class Window;
+	friend class Scene;
+
 public:
 	
 	enum WindowSizeState
@@ -43,6 +45,8 @@ public:
 	virtual void Resize(int width,int height);
 
 	virtual void Update();
+
+	virtual void PreDraw();
 
 	void Draw();
 

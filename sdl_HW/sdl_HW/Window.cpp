@@ -60,6 +60,14 @@ void Window::InternalUpdate()
 
 }
 
+void Window::PreDraw()
+{
+	for (int i = 0; i < _controls.size(); ++i) {
+		Control* ctrl = _controls[i];
+		if (ctrl) ctrl->PreDraw();
+	}
+}
+
 void Window::Draw()
 {
 	int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);

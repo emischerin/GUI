@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
 	Viewport* v = new Viewport(&mw);
 
-	//Scene* s = new Scene();
+	Scene* s = new Scene(v);
 
 	//
 	////Triangle* t = new Triangle(&p, 40, 50);

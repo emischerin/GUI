@@ -231,6 +231,12 @@ public:
 							
 	}
 
+
+	/*
+	* Now this needs for Scene, but probably will be needed in future somwhere else
+	*/
+	virtual void PreDraw(){}
+
 	virtual void Draw()
 	{
 
