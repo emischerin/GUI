@@ -141,11 +141,38 @@ void Scene::SetViewport(Viewport* viewport)
 
 void Scene::SaveCurrentRenderingState()
 {
-	this->_saved_texture = _my_parent_window->GetRenderingTexture();
+	if (!_scene_texture) return;
+	if (!_my_parent_window) return;
+	
+	this->_saved_texture = _my_parent_window->GetWindowTexture();
+	
+	SDL_Renderer* win_render = _my_parent_window->GetWinRender();
+
+	if (!win_render) return;
+
+	int set_rndr_target = SDL_SetRenderTarget(win_render,_scene_texture);
+
+	if (set_rndr_target != 0)
+		this->RestoreSavedRenderingState();
 
 }
 
 void Scene::RestoreSavedRenderingState()
 {
+	if (this->_saved_texture) {
+		if (this->_scene_texture) {
+			if (_my_parent_window) {
+				SDL_Renderer* win_render = _my_parent_window->GetWinRender();
+
+				int set_rndr_target = SDL_SetRenderTarget(win_render, _saved_texture);
+
+				if (set_rndr_target != 0) {
+					/*LOG IT LATER OR CRASH APP*/
+				}
+			}
+						
+		}
+		
+	}
 	
 }

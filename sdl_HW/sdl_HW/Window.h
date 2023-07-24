@@ -87,7 +87,7 @@ public:
 
 protected:
 
-	SDL_Texture* GetRenderingTexture();
+	
 
 	virtual void InternalReactToEvents();
 

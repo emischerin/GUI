@@ -335,8 +335,3 @@ Window::~Window()
 	if (_texture)
 		SDL_DestroyTexture(_texture);
 }
-
-SDL_Texture* Window::GetRenderingTexture()
-{
-	return _texture;
-}
