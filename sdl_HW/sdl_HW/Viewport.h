@@ -48,6 +48,8 @@ public:
 
 	void RemoveScene();
 
+	~Viewport() override;
+
 protected:
 	void SetViewportRect();
 	void DefineOffsets();

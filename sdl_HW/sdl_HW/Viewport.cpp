@@ -5,7 +5,6 @@ Viewport::Viewport(Window* parent_w) : Control(parent_w)
 	
 
 
-
 }
 
 void Viewport::Update()
@@ -264,6 +263,13 @@ void Viewport::ControlMessagingFunction(ControlMsg* message)
 	}
 }
 
+Viewport::~Viewport()
+{
+	Control::~Control();
+
+	if (this->_scene)
+		delete _scene;
+}
 
 //void Scene::CreateSceneTexture()
 //{
