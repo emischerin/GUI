@@ -33,7 +33,7 @@ public:
 
 	
 
-	Scene();
+	
 	Scene(Viewport* v);
 	
 
@@ -75,11 +75,13 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
-	BaseScrollBar* _scroll_bar = nullptr;
+	
 	
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 
 	SDL_Texture* _scene_texture = nullptr;
+
+	SDL_Texture* _saved_texture = nullptr;
 
 	SDL_Rect _scene_texture_rect = { 0,0,0,1 };
 	

@@ -1,12 +1,5 @@
 #include "Scene.h"
 
-
-
-Scene::Scene()
-{
-		
-}
-
 Scene::Scene(Viewport* v)
 {
 	this->SetViewport(v);
