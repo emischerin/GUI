@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Window.h"
 
-Scene::Scene(Viewport* v) 
+Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
 }
