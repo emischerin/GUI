@@ -142,3 +142,13 @@ void Scene::SetViewport(Viewport* viewport)
 	if (viewport)
 		_viewport = viewport;
 }
+
+void Scene::SaveCurrentRenderingState()
+{
+
+}
+
+void Scene::RestoreSavedRenderingState()
+{
+
+}

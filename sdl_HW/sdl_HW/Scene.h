@@ -49,6 +49,8 @@ public:
 	int GetViewportPositionYInScene();
 
 	void SetViewport(Viewport* viewport);
+
+
 	
 
 protected:
@@ -57,6 +59,8 @@ protected:
 	
 	bool SceneTextureNeedsReallocation();
 
+	void SaveCurrentRenderingState();
+	void RestoreSavedRenderingState();
 	
 
 private:
