@@ -94,6 +94,7 @@ public:
 	}
 
 	virtual void ReactToEvents() {};
+	virtual void PreDraw() {};
 	virtual void Draw() = 0;
 
 	virtual std::vector<SDL_Vertex*> GetVertexArray() const

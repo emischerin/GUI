@@ -15,6 +15,13 @@ void Scene::Update()
 
 }
 
+void Scene::PreDraw()
+{
+	this->CreateSceneTexture();
+	this->SaveCurrentRenderingState();
+	this->RestoreSavedRenderingState();
+}
+
 void Scene::Draw()
 {
 	
@@ -99,24 +106,11 @@ int Scene::GetViewportPositionYInScene()
 
 void Scene::CreateSceneTexture()
 {
-	/*if (_scene_texture)
+	if (_scene_texture)
 		SDL_DestroyTexture(_scene_texture);
-
-	if (this->NeedRightScrollbar()) {
-		int max_ctrl_y = this->MaxYControl();
-		int max_primitive_y = this->MaxYPrimitive();
-		int max_ctrl_x = this->MaxXControl();
-		int max_primitive_x = this->MaxXPrimitive();
-
-		int max_y = std::max(max_ctrl_y, max_primitive_y);
-		int max_x = std::max(max_ctrl_x, max_primitive_x);
-
-		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, max_x + 20, max_y + 20);
-	}
-	else
-	{
-		_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, _viewport_rect.w, _viewport_rect.h);
-	}*/
+	
+	_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 300, 300);
+	
 
 
 }
@@ -175,4 +169,12 @@ void Scene::RestoreSavedRenderingState()
 		
 	}
 	
+}
+
+Scene::~Scene()
+{
+	Control::~Control();
+
+	if(_scene_texture)
+		SDL_DestroyTexture(_scene_texture);
 }

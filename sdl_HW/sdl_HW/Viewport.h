@@ -31,7 +31,7 @@ public:
 	void AddPrimitive(Primitive* p) override;
 
 	void Update() override;
-
+	
 	void Draw() override;
 
 

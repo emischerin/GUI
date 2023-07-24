@@ -43,7 +43,7 @@ public:
 	void AddPrimitive(Primitive* p) override;
 
 	void Update() override;
-
+	void PreDraw() override;
 	void Draw() override;
 		
 	int GetViewportPositionXInScene();
@@ -53,7 +53,7 @@ public:
 	void SetViewport(Viewport* viewport);
 
 
-	
+	~Scene();
 
 protected:
 	void RelocatePrimitiveVerticesX(Primitive* p);

@@ -235,7 +235,19 @@ public:
 	/*
 	* Now this needs for Scene, but probably will be needed in future somwhere else
 	*/
-	virtual void PreDraw(){}
+	virtual void PreDraw()
+	{
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* ctrl = _child_controls[i];
+			if (ctrl) ctrl->PreDraw();
+		}
+
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->PreDraw();
+
+		}
+	}
 
 	virtual void Draw()
 	{
