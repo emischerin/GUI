@@ -48,6 +48,8 @@ public:
 
 	void RemoveScene();
 
+	SDL_Rect* GetViewportRect() const;
+
 	~Viewport() override;
 
 protected:
