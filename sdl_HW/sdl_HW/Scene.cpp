@@ -77,17 +77,17 @@ void Scene::ResizeTextureToControl(Control* c)
 		result_width = most_right + offset_x;
 	}
 	else {
-		result_width = 0;
+		result_width = _scene_texture_rect.w;
 	}
 
 	if (most_down >= _scene_texture_rect.h) {
 		result_height = most_down + offset_y;
 	} 
 	else{
-		result_height = 0;
+		result_height = _scene_texture_rect.h;
 	}
 
-	this->ResizeTexture(result_height,)
+	this->SetTextureSize(result_width,result_height);
 	
 	
 	
