@@ -68,8 +68,8 @@ protected:
 
 	void CreateDefaultScene();
 
-	bool ControlOutOfSceneTexture();
-	bool PrimitiveOutOfSceneTexture();
+	bool ControlOutOfSceneTexture(Control* c);
+	bool PrimitiveOutOfSceneTexture(Primitive* p);
 
 private:
 	

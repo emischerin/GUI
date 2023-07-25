@@ -46,12 +46,25 @@ void Scene::AddPrimitive(Primitive* p)
 	
 }
 
-bool Scene::ControlOutOfSceneTexture()
+bool Scene::ControlOutOfSceneTexture(Control* c)
 {
+	if (!c) return false;
+
+	int ctrl_x = c->GetX();
+	int ctrl_y = c->GetY();
+	int ctrl_most_right = ctrl_x + c->GetWidth();
+	int ctrl_most_down = ctrl_y + c->GetHeight();
+
+	if (ctrl_x > _viewport_rect.w) return true;
+	if (ctrl_y > _viewport_rect.h) return true;
+	if (ctrl_most_right > _viewport_rect.w) return true;
+	if (ctrl_most_down > _viewport_rect.h) return true;
+
 	return false;
+	
 }
 
-bool Scene::PrimitiveOutOfSceneTexture()
+bool Scene::PrimitiveOutOfSceneTexture(Primitive* p)
 {
 	return false;
 }
