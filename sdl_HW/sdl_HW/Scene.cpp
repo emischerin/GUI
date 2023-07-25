@@ -5,7 +5,7 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
 
-
+	
 }
 
 

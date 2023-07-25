@@ -95,15 +95,6 @@ void Viewport::DrawScrollBar()
 void Viewport::SetViewportRect()
 {
 	this->_viewport_rect = _bounding_rect;
-
-	if (this->HasRightScrollBar()) {
-		_viewport_rect.w -= _right_scroll_bar->GetWidth();
-	}
-
-	if (this->HasBottomScrollBar()) {
-		_viewport_rect.h -= _bottom_scroll_bar->GetHeight();
-	}
-	
 	
 }
 
