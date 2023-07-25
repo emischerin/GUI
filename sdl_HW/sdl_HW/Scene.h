@@ -71,6 +71,9 @@ protected:
 	bool ControlOutOfSceneTexture(Control* c);
 	bool PrimitiveOutOfSceneTexture(Primitive* p);
 
+	void ResizeTextureToControl(Control* c);
+	void ResizeTextureToPrimitive(Primitive* p);
+
 private:
 	
 	bool NeedXRelocation(Primitive* p);
