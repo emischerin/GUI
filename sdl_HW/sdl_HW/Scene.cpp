@@ -1,10 +1,12 @@
 #include "Scene.h"
+#include "Viewport.h"
 #include "Window.h"
 
 Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
 
+	this->CreateDefaultScene();
 	
 }
 
@@ -134,6 +136,18 @@ void Scene::SetViewport(Viewport* viewport)
 {
 	if (viewport)
 		_viewport = viewport;
+}
+
+void Scene::CreateDefaultScene()
+{
+	if (this->_viewport) {
+		SDL_Rect* viewport_rect = _viewport->GetViewportRect();
+
+		int v_w = viewport_rect->w;
+		int v_h = viewport_rect->h;
+		
+		this->CreateSceneTexture(v_w, v_h);
+	}
 }
 
 void Scene::SaveCurrentRenderingState()

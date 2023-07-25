@@ -66,6 +66,8 @@ protected:
 	
 	void ResizeTexture(int dw, int dh);
 
+	void CreateDefaultScene();
+
 private:
 	
 	bool NeedXRelocation(Primitive* p);
