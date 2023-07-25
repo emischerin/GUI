@@ -68,7 +68,13 @@ bool Scene::PrimitiveOutOfSceneTexture(Primitive* p)
 {
 	if (!p) return false;
 
+	int primitive_max_x = p->MaxXVertex();
+	int primitive_max_y = p->MaxYVertex();
 
+	if (primitive_max_x > _viewport_rect.w) return true;
+	if (primitive_max_y > _viewport_rect.h) return true;
+
+	return false;
 }
 
 bool Scene::NeedXRelocation(Primitive* p)
