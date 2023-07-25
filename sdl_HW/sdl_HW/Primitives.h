@@ -117,6 +117,22 @@ public:
 		return _bounding_rect.y;
 	}
 
+	virtual int MaxXVertex()
+	{
+		if (_vertices.size() == 0) return -1;
+
+		auto _vertex_by_x = [](SDL_Vertex* v1, SDL_Vertex* v2)
+		{
+			return (v1->position.x > v2->position.x);
+		};
+
+		auto it = _vertices.begin();
+
+		std::nth_element(_vertices.begin(), it, _vertices.end(), _vertex_by_x);
+
+		return (*it)->position.x;
+	}
+
 protected:
 	
 	void AppllyColorToEachVertex()

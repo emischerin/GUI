@@ -66,7 +66,9 @@ bool Scene::ControlOutOfSceneTexture(Control* c)
 
 bool Scene::PrimitiveOutOfSceneTexture(Primitive* p)
 {
-	return false;
+	if (!p) return false;
+
+
 }
 
 bool Scene::NeedXRelocation(Primitive* p)
