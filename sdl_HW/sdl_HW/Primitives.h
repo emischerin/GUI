@@ -133,6 +133,22 @@ public:
 		return (*it)->position.x;
 	}
 
+	virtual int MaxYVertex()
+	{
+		if (_vertices.size() == 0) return -1;
+
+		auto _vertex_by_y = [](SDL_Vertex* v1, SDL_Vertex* v2)
+		{
+			return (v1->position.y > v2->position.y);
+		};
+
+		auto it = _vertices.begin();
+
+		std::nth_element(_vertices.begin(), it, _vertices.end(), _vertex_by_y);
+
+		return (*it)->position.y;
+	}
+
 protected:
 	
 	void AppllyColorToEachVertex()
