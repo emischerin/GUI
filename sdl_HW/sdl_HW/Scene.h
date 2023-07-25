@@ -65,6 +65,7 @@ protected:
 	void RestoreSavedRenderingState();
 	
 	void ResizeTexture(int dw, int dh);
+	void SetTextureSize(int w, int h);
 
 	void CreateDefaultScene();
 

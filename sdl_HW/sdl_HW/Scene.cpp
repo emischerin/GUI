@@ -63,7 +63,35 @@ void Scene::AddPrimitive(Primitive* p)
 
 void Scene::ResizeTextureToControl(Control* c)
 {
+	if (!c) return;
+	
+	const int offset_x = 25;
+	const int offset_y = 25;
 
+	int result_width, result_height;
+
+	int most_right = c->GetX() + c->GetWidth();
+	int most_down = c->GetY() + c->GetHeight();
+
+	if (most_right >= _scene_texture_rect.w) {
+		result_width = most_right + offset_x;
+	}
+	else {
+		result_width = 0;
+	}
+
+	if (most_down >= _scene_texture_rect.h) {
+		result_height = most_down + offset_y;
+	} 
+	else{
+		result_height = 0;
+	}
+
+	this->ResizeTexture(result_height,)
+	
+	
+	
+		
 }
 
 void Scene::ResizeTextureToPrimitive(Primitive* p)
@@ -256,6 +284,18 @@ void Scene::ResizeTexture(int dw, int dh)
 
 	this->_scene_texture_rect.w = w;
 	this->_scene_texture_rect.h = h;
+}
+
+void Scene::SetTextureSize(int w, int h)
+{
+	if (_scene_texture)
+		SDL_DestroyTexture(_scene_texture);
+
+	_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+	
+	this->_scene_texture_rect.w = w;
+	this->_scene_texture_rect.h = h;
+
 }
 
 Scene::~Scene()
