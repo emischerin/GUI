@@ -96,7 +96,31 @@ void Scene::ResizeTextureToControl(Control* c)
 
 void Scene::ResizeTextureToPrimitive(Primitive* p)
 {
+	if (!p) return;
 
+	const int offset_x = 25;
+	const int offset_y = 25;
+
+	int result_width, result_height;
+
+	int most_right = p->MaxXVertex();
+	int most_down = p->MaxYVertex();
+
+	if (most_right >= _scene_texture_rect.w) {
+		result_width = most_right + offset_x;
+	}
+	else {
+		result_width = _scene_texture_rect.w;
+	}
+
+	if (most_down >= _scene_texture_rect.h) {
+		result_height = most_down + offset_y;
+	}
+	else {
+		result_height = _scene_texture_rect.h;
+	}
+
+	this->SetTextureSize(result_width, result_height);
 }
 
 bool Scene::ControlOutOfSceneTexture(Control* c)
