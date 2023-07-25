@@ -176,7 +176,17 @@ void Scene::RestoreSavedRenderingState()
 
 void Scene::ResizeTexture(int dw, int dh)
 {
+	if (_scene_texture)
+		SDL_DestroyTexture(_scene_texture);
 
+
+	int w = _scene_texture_rect.w + dw;
+	int h = _scene_texture_rect.h + dh;
+
+	_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+
+	this->_scene_texture_rect.w = w;
+	this->_scene_texture_rect.h = h;
 }
 
 Scene::~Scene()
