@@ -254,7 +254,7 @@ void Viewport::ControlMessagingFunction(ControlMsg* message)
 	}
 }
 
-SDL_Rect* Viewport::GetViewportRect() const
+SDL_Rect* Viewport::GetViewportRect() 
 {
 	return &_viewport_rect;
 }

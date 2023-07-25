@@ -46,6 +46,15 @@ void Scene::AddPrimitive(Primitive* p)
 	
 }
 
+bool Scene::ControlOutOfSceneTexture()
+{
+	return false;
+}
+
+bool Scene::PrimitiveOutOfSceneTexture()
+{
+	return false;
+}
 
 bool Scene::NeedXRelocation(Primitive* p)
 {

@@ -68,6 +68,9 @@ protected:
 
 	void CreateDefaultScene();
 
+	bool ControlOutOfSceneTexture();
+	bool PrimitiveOutOfSceneTexture();
+
 private:
 	
 	bool NeedXRelocation(Primitive* p);

@@ -48,7 +48,7 @@ public:
 
 	void RemoveScene();
 
-	SDL_Rect* GetViewportRect() const;
+	SDL_Rect* GetViewportRect();
 
 	~Viewport() override;
 
