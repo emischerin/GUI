@@ -17,7 +17,7 @@ void Scene::Update()
 
 void Scene::PreDraw()
 {
-	this->CreateSceneTexture();
+	this->CreateSceneTexture(300,300);
 	this->SaveCurrentRenderingState();
 	this->RestoreSavedRenderingState();
 }
@@ -31,8 +31,10 @@ void Scene::Draw()
 
 void Scene::AddControl(Control* c)
 {
-	if (c)
-		this->AddChild(c);
+	if (c) {
+
+	}
+		
 
 	
 }
@@ -104,14 +106,15 @@ int Scene::GetViewportPositionYInScene()
 	return -1;
 }
 
-void Scene::CreateSceneTexture()
+void Scene::CreateSceneTexture(int w,int h)
 {
 	if (_scene_texture)
 		SDL_DestroyTexture(_scene_texture);
 	
-	_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 300, 300);
-	
+	_scene_texture = SDL_CreateTexture(_render, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
 
+	this->_scene_texture_rect.w = w;
+	this->_scene_texture_rect.h = h;
 
 }
 
@@ -169,6 +172,11 @@ void Scene::RestoreSavedRenderingState()
 		
 	}
 	
+}
+
+void Scene::ResizeTexture(int dw, int dh)
+{
+
 }
 
 Scene::~Scene()

@@ -64,13 +64,14 @@ protected:
 	void SaveCurrentRenderingState();
 	void RestoreSavedRenderingState();
 	
+	void ResizeTexture(int dw, int dh);
 
 private:
 	
 	bool NeedXRelocation(Primitive* p);
 	bool NeedYRelocation(Primitive* p);
 
-	void CreateSceneTexture();
+	void CreateSceneTexture(int w,int h);
 
 	/*offsets from window coordinates systems*/
 	/*Offsets in fact are x & y of the beginning of scene*/
