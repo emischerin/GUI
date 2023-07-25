@@ -36,10 +36,11 @@ void Scene::AddControl(Control* c)
 	if (c) {
 
 		if (ControlOutOfSceneTexture(c)) {
-
+			this->ResizeTextureToControl(c);
+			Control::AddChild(c);
 		}
 		else {
-
+			Control::AddChild(c);
 		}
 	}
 		
@@ -49,7 +50,15 @@ void Scene::AddControl(Control* c)
 
 void Scene::AddPrimitive(Primitive* p)
 {
-	
+	if (p) {
+		if (PrimitiveOutOfSceneTexture(p)) {
+			this->ResizeTextureToPrimitive(p);
+			Control::AddPrimitive(p);
+		}
+		else {
+			Control::AddPrimitive(p);
+		}
+	}
 }
 
 void Scene::ResizeTextureToControl(Control* c)
