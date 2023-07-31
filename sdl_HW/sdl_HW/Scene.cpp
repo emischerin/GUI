@@ -37,18 +37,19 @@ void Scene::Draw()
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
 
-		void* raw_pixels;
+		Uint32* raw_pixels = 0;
+		
 		Uint32 format = 0;
 		int w = 0;
 		int h = 0;
 
 		SDL_QueryTexture(_my_parent_window->GetWindowTexture(), &format, 0, &w, &h);
 
+		int pitch = (8 * 4);
 		
-
-		//SDL_RenderReadPixels(_render, target, 0, raw_pixels);
+		SDL_RenderReadPixels(_render, target, format, (void*)raw_pixels,pitch);
 		this->RestoreSavedRenderingState();
-		//SDL_UpdateTexture....!!!!!!!!!!!!!
+		SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, (void*)raw_pixels, pitch);
 		
 
 		//SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect,viewport_rect );

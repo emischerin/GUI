@@ -99,6 +99,8 @@ protected:
 
 	void TryReallocateTexture();
 
+	int GetMyPitch();
+
 	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
 
 	SDL_Texture* _texture = nullptr;

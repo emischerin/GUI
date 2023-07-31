@@ -330,6 +330,11 @@ SDL_Texture* Window::GetWindowTexture() const
 	return _texture;
 }
 
+int Window::GetMyPitch()
+{
+	return 0;
+}
+
 Window::~Window()
 {
 	if (_texture)
