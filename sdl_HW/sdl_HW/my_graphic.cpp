@@ -67,17 +67,17 @@ int main(int argc, char** argv)
 	//
 	////Triangle* t = new Triangle(&p, 40, 50);
 
-	//Triangle* t = new Triangle(40,50,50,50,Triangle::TriangleDirection::UP);
-	//Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
-	//Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
-	//Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
-	//Triangle* t4 = new Triangle(150, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
+	Triangle* t = new Triangle(40,50,50,50,Triangle::TriangleDirection::UP);
+	Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
+	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
+	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
+	Triangle* t4 = new Triangle(150, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
 
-	//s->AddPrimitive(t);
-	//s->AddPrimitive(t1);
-	//s->AddPrimitive(t2);
-	//s->AddPrimitive(t3);
-	//s->AddPrimitive(t4);
+	s->AddPrimitive(t);
+	s->AddPrimitive(t1);
+	s->AddPrimitive(t2);
+	s->AddPrimitive(t3);
+	s->AddPrimitive(t4);
 
 
 

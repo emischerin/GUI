@@ -100,7 +100,7 @@ void Viewport::SetViewportRect()
 
 bool Viewport::NeedRightScrollbar()
 {
-	return true;
+	
 
 	if (!_scene)
 		return false;
@@ -118,7 +118,7 @@ bool Viewport::NeedRightScrollbar()
 
 bool Viewport::NeedBottomScrollbar()
 {
-	return true;
+	
 
 	if (!_scene)
 		return false;
