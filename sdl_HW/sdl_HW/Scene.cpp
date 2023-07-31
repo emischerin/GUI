@@ -5,7 +5,7 @@
 Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
-
+	v->SetScene(this);
 	this->CreateDefaultScene();
 	
 }
@@ -30,12 +30,14 @@ void Scene::Draw()
 	if (_viewport) {
 
 		SDL_Rect* target = _viewport->GetViewportRectInScene();
+		SDL_Rect* viewport_rect = _viewport->GetViewportRect();
+
 		this->SetThisAsCurrentRenderingTarget();
 		SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
 		this->RestoreSavedRenderingState();
-		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect, target);
+		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, viewport_rect, target);
 
 	}
 	

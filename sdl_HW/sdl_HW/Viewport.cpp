@@ -52,10 +52,11 @@ void Viewport::Update()
 void Viewport::Draw()
 {
 	
-	DrawScrollBar();
+	
 
 	Control::Draw();
 
+	DrawScrollBar();
 	/*Filling the hole between two scrollbars*/
 	if (_right_scroll_bar && _bottom_scroll_bar) {
 		
