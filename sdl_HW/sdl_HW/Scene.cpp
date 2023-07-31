@@ -37,7 +37,10 @@ void Scene::Draw()
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
 		this->RestoreSavedRenderingState();
-		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, viewport_rect, target);
+		
+		//SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect,viewport_rect );
+		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, viewport_rect, viewport_rect);
+		
 
 	}
 	
