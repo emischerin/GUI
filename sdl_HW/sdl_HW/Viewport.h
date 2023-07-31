@@ -50,6 +50,8 @@ public:
 
 	SDL_Rect* GetViewportRect();
 
+	SDL_Rect* GetViewportRectInScene();
+
 	~Viewport() override;
 
 protected:
@@ -71,7 +73,11 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
+	int _viewport_offset_x = 0;
+	int _viewport_offset_y = 0;
+
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
+	SDL_Rect _viewport_rect_in_scene = { 0,0,0,1 };
 
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;

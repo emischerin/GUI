@@ -259,6 +259,17 @@ SDL_Rect* Viewport::GetViewportRect()
 	return &_viewport_rect;
 }
 
+
+SDL_Rect* Viewport::GetViewportRectInScene()
+{
+	_viewport_rect_in_scene = _viewport_rect;
+	_viewport_rect_in_scene.x += _viewport_offset_x;
+	_viewport_rect_in_scene.y += _viewport_offset_y;
+
+	return &_viewport_rect_in_scene;
+}
+
+
 Viewport::~Viewport()
 {
 	Control::~Control();
@@ -266,6 +277,8 @@ Viewport::~Viewport()
 	if (this->_scene)
 		delete _scene;
 }
+
+
 
 //void Scene::CreateSceneTexture()
 //{
