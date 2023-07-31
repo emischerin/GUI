@@ -51,11 +51,7 @@ void Viewport::Update()
 
 void Viewport::Draw()
 {
-		
-	SDL_SetRenderDrawColor(_render, 7, 100, 7, 1);
-
-	SDL_RenderFillRect(_render, &_viewport_rect);
-
+	
 	DrawScrollBar();
 
 	Control::Draw();

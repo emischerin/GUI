@@ -28,8 +28,11 @@ void Scene::Draw()
 {
 	
 	if (_viewport) {
+
 		SDL_Rect* target = _viewport->GetViewportRectInScene();
 		this->SetThisAsCurrentRenderingTarget();
+		SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
+		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
 		this->RestoreSavedRenderingState();
 		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect, target);
