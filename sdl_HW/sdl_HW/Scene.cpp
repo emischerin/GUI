@@ -36,10 +36,23 @@ void Scene::Draw()
 		SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
-		this->RestoreSavedRenderingState();
+
+		void* raw_pixels;
+		Uint32 format = 0;
+		int w = 0;
+		int h = 0;
+
+		SDL_QueryTexture(_my_parent_window->GetWindowTexture(), &format, 0, &w, &h);
+
 		
+
+		//SDL_RenderReadPixels(_render, target, 0, raw_pixels);
+		this->RestoreSavedRenderingState();
+		//SDL_UpdateTexture....!!!!!!!!!!!!!
+		
+
 		//SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect,viewport_rect );
-		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, viewport_rect, viewport_rect);
+		//SDL_RenderCopy(_render, _scene_texture, viewport_rect, viewport_rect);
 		
 
 	}
