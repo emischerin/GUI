@@ -228,7 +228,7 @@ public:
 	{
 		for (Control* c : _child_controls)
 			if (c) c->Update();
-							
+									
 	}
 
 

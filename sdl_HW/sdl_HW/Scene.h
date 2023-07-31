@@ -61,7 +61,7 @@ protected:
 	
 	bool SceneTextureNeedsReallocation();
 
-	void SaveCurrentRenderingState();
+	void SetThisAsCurrentRenderingTarget();
 	void RestoreSavedRenderingState();
 	
 	void ResizeTexture(int dw, int dh);

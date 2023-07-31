@@ -13,21 +13,28 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 
 void Scene::Update()
 {
-		
+	
 
 }
 
 void Scene::PreDraw()
 {
-	this->CreateSceneTexture(300,300);
+	/*this->CreateSceneTexture(300,300);
 	this->SaveCurrentRenderingState();
-	this->RestoreSavedRenderingState();
+	this->RestoreSavedRenderingState();*/
 }
 
 void Scene::Draw()
 {
 	
+	if (_viewport) {
+		SDL_Rect* target = _viewport->GetViewportRect();
+		this->SetThisAsCurrentRenderingTarget();
+		Control::Draw();
+		this->RestoreSavedRenderingState();
+		SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect, target);
 
+	}
 	
 }
 
@@ -257,7 +264,8 @@ void Scene::CreateDefaultScene()
 	}
 }
 
-void Scene::SaveCurrentRenderingState()
+/*This function sets scene texture as current render target and saves window rendering params*/
+void Scene::SetThisAsCurrentRenderingTarget()
 {
 	if (!_scene_texture) return;
 	if (!_my_parent_window) return;
