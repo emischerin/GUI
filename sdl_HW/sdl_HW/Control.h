@@ -228,6 +228,8 @@ public:
 	{
 		for (Control* c : _child_controls)
 			if (c) c->Update();
+		for (Primitive* p : _primitives)
+			if (p) p->Update();
 									
 	}
 

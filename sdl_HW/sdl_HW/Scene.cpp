@@ -13,7 +13,7 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 
 void Scene::Update()
 {
-	
+	Control::Update();
 
 }
 
@@ -28,7 +28,7 @@ void Scene::Draw()
 {
 	
 	if (_viewport) {
-		SDL_Rect* target = _viewport->GetViewportRect();
+		SDL_Rect* target = _viewport->GetViewportRectInScene();
 		this->SetThisAsCurrentRenderingTarget();
 		Control::Draw();
 		this->RestoreSavedRenderingState();
