@@ -42,6 +42,7 @@ public:
 	void AddControl(Control* control);
 	
 	void AddPrimitive(Primitive* primitive);
+
 	virtual void ReactToEvents();
 
 	virtual void Resize(int width,int height);

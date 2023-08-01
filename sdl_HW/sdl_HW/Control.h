@@ -257,6 +257,7 @@ public:
 
 		for (Control* c : _child_controls)
 			if (c) c->Draw();
+
 		for (Primitive* p : _primitives)
 			if (p) p->Draw();
 	}

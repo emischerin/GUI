@@ -25,7 +25,7 @@ void Window::AddControl(Control* control)
 	if(!control) return;
 	
 	_controls.push_back(control);
-
+	control->SetRender(_win_render);
 	control->SetParentWindow(this);
 
 }
@@ -35,7 +35,7 @@ void Window::AddPrimitive(Primitive* primitive)
 	if (!primitive) return;
 
 	_primitives.push_back(primitive);
-
+	primitive->SetRender(_win_render);
 	primitive->SetParentWindow(this);
 }
 
@@ -45,7 +45,12 @@ void Window::ReactToEvents()
 
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
-		ctrl->ReactToEvents();
+		if(ctrl) ctrl->ReactToEvents();
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if(p) p->ReactToEvents();
 	}
 }
 

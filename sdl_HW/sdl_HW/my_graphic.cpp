@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
 	m->SetColor(62, 19, 66,20);
 	Triangle* t = new Triangle(45, 45, 100, 100, Triangle::TriangleDirection::UP);
-
+	mw.AddPrimitive(t);
 	
 	//Viewport* v = new Viewport(&mw);
 
