@@ -80,6 +80,11 @@ void Window::PreDraw()
 		Control* ctrl = _controls[i];
 		if (ctrl) ctrl->PreDraw();
 	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->PreDraw();
+	}
 }
 
 void Window::Draw()
@@ -103,6 +108,11 @@ void Window::Draw()
 		if(ctrl) ctrl->Draw();
 	}
 	
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->Draw();
+	}
+
 	SDL_SetRenderTarget(_win_render, 0);
 
 	SDL_RenderCopy(_win_render, _texture, 0, 0);
