@@ -47,7 +47,9 @@ void Scene::Draw()
 		
 		this->RestoreSavedRenderingState();
 		
-		SDL_RenderCopy(_render, _scene_texture, target,viewport_rect );
+		
+		
+		SDL_RenderCopy(_render, _scene_texture, 0,viewport_rect );
 		const char* err = SDL_GetError();
 		int debug = 10;
 		
