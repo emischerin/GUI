@@ -59,7 +59,7 @@ void Scene::Draw()
 void Scene::AddControl(Control* c)
 {
 	if (c) {
-
+		c->SetRender(_render);
 		if (ControlOutOfSceneTexture(c)) {
 			this->ResizeTextureToControl(c);
 			Control::AddChild(c);
@@ -76,6 +76,7 @@ void Scene::AddControl(Control* c)
 void Scene::AddPrimitive(Primitive* p)
 {
 	if (p) {
+		p->SetRender(_render);
 		if (PrimitiveOutOfSceneTexture(p)) {
 			this->ResizeTextureToPrimitive(p);
 			Control::AddPrimitive(p);

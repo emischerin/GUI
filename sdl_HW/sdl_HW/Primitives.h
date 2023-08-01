@@ -10,6 +10,7 @@ class Primitive
 {
 	friend class Window;
 	friend class Control;
+	friend class Scene;
 public:
 	
 	Primitive(int x, int y, int w, int h)

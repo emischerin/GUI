@@ -17,7 +17,7 @@ class Control
 
 	friend class Primitive;
 	friend class Window;
-	
+	friend class Scene;
 public:
 	
 	struct ControlMsg
