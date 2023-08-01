@@ -47,7 +47,7 @@ void Scene::Draw()
 		
 		this->RestoreSavedRenderingState();
 		
-		SDL_RenderCopy(_render, _scene_texture, 0,viewport_rect );
+		SDL_RenderCopy(_render, _scene_texture, target,viewport_rect );
 		const char* err = SDL_GetError();
 		int debug = 10;
 		
@@ -59,7 +59,11 @@ void Scene::Draw()
 void Scene::AddControl(Control* c)
 {
 	if (c) {
+
 		c->SetRender(_render);
+		c->SetParentWindow(_my_parent_window);
+		c->SetParentControl(this);
+
 		if (ControlOutOfSceneTexture(c)) {
 			this->ResizeTextureToControl(c);
 			Control::AddChild(c);
@@ -76,7 +80,11 @@ void Scene::AddControl(Control* c)
 void Scene::AddPrimitive(Primitive* p)
 {
 	if (p) {
+
 		p->SetRender(_render);
+		p->SetParentControl(this);
+		p->SetParentWindow(_my_parent_window);
+
 		if (PrimitiveOutOfSceneTexture(p)) {
 			this->ResizeTextureToPrimitive(p);
 			Control::AddPrimitive(p);

@@ -11,6 +11,7 @@ class Primitive
 	friend class Window;
 	friend class Control;
 	friend class Scene;
+
 public:
 	
 	Primitive(int x, int y, int w, int h)
@@ -167,6 +168,16 @@ protected:
 		_render = render;
 	}
 
+	void SetParentWindow(Window* w)
+	{
+		_parent_window = w;
+	}
+
+	void SetParentControl(Control* c)
+	{
+		_parent_control = c;
+	}
+
 	SDL_Renderer* _render = nullptr;
 
 	SDL_Rect _bounding_rect;
@@ -180,6 +191,8 @@ protected:
 	std::vector<SDL_Vertex*> _vertices;
 	
 	Control* _parent_control = nullptr;
+
+	Window* _parent_window = nullptr;
 
 
 	
