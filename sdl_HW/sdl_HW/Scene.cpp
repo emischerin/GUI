@@ -37,23 +37,23 @@ void Scene::Draw()
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
 
-		Uint32* raw_pixels = 0;
+		
 		
 		Uint32 format = 0;
 		int w = 0;
 		int h = 0;
+		int pitch = 4 * _scene_texture_rect.w;
+		void* raw_pixels = malloc(4 * (_scene_texture_rect.w * _scene_texture_rect.h));
 
-		SDL_QueryTexture(_my_parent_window->GetWindowTexture(), &format, 0, &w, &h);
-
-		int pitch = (8 * 4);
-		
-		SDL_RenderReadPixels(_render, target, format, (void*)raw_pixels,pitch);
+		//SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, raw_pixels, pitch);
+		/*SDL_RenderReadPixels(_render, 0, SDL_PIXELFORMAT_RGBA8888, raw_pixels, pitch);
+		const char* err = SDL_GetError();*/
 		this->RestoreSavedRenderingState();
-		SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, (void*)raw_pixels, pitch);
+		
 		
 
-		//SDL_RenderCopy(_my_parent_window->GetWinRender(), _scene_texture, &_scene_texture_rect,viewport_rect );
-		//SDL_RenderCopy(_render, _scene_texture, viewport_rect, viewport_rect);
+		SDL_RenderCopy(_render, _scene_texture, target,viewport_rect );
+		
 		
 
 	}
@@ -173,12 +173,14 @@ bool Scene::ControlOutOfSceneTexture(Control* c)
 bool Scene::PrimitiveOutOfSceneTexture(Primitive* p)
 {
 	if (!p) return false;
+	if (!_viewport) return false;
 
 	int primitive_max_x = p->MaxXVertex();
 	int primitive_max_y = p->MaxYVertex();
+	SDL_Rect* viewport_rect = _viewport->GetViewportRect();
 
-	if (primitive_max_x > _viewport_rect.w) return true;
-	if (primitive_max_y > _viewport_rect.h) return true;
+	if (primitive_max_x > viewport_rect->w) return true;
+	if (primitive_max_y > viewport_rect->h) return true;
 
 	return false;
 }

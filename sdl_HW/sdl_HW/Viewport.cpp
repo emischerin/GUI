@@ -3,7 +3,7 @@
 Viewport::Viewport(Window* parent_w) : Control(parent_w)
 {
 	
-
+	this->Update();
 
 }
 
