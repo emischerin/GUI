@@ -30,6 +30,15 @@ void Window::AddControl(Control* control)
 
 }
 
+void Window::AddPrimitive(Primitive* primitive)
+{
+	if (!primitive) return;
+
+	_primitives.push_back(primitive);
+
+	primitive->SetParentWindow(this);
+}
+
 void Window::ReactToEvents()
 {
 	this->InternalReactToEvents();
@@ -51,7 +60,12 @@ void Window::Update()
 
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
-		ctrl->Update();
+		if(ctrl) ctrl->Update();
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if(p) p->Update();
 	}
 }
 

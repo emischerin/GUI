@@ -22,6 +22,7 @@ class Window
 	friend class Control;
 	friend class Window;
 	friend class Scene;
+	friend class Primitive;
 
 public:
 	
@@ -40,6 +41,7 @@ public:
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
 	
+	void AddPrimitive(Primitive* primitive);
 	virtual void ReactToEvents();
 
 	virtual void Resize(int width,int height);
@@ -118,6 +120,8 @@ protected:
 	SDL_Color _background_color;
 
 	std::vector<Control*> _controls;
+
+	std::vector<Primitive*> _primitives;
 
 	Header *_header = nullptr;
 

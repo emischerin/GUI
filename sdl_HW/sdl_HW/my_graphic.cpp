@@ -59,16 +59,18 @@ int main(int argc, char** argv)
 	Menu* m = new Menu(&mw);
 
 	m->SetColor(62, 19, 66,20);
+	Triangle* t = new Triangle(45, 45, 100, 100, Triangle::TriangleDirection::UP);
 
-	Viewport* v = new Viewport(&mw);
+	
+	//Viewport* v = new Viewport(&mw);
 
-	Scene* s = new Scene(v);
+	//Scene* s = new Scene(v);
 
-	//
-	////Triangle* t = new Triangle(&p, 40, 50);
+	////
+	//////Triangle* t = new Triangle(&p, 40, 50);
 
-	Triangle* t = new Triangle(0,0,30,30,Triangle::TriangleDirection::UP);
-	s->AddPrimitive(t);
+	//Triangle* t = new Triangle(45,45,100,100,Triangle::TriangleDirection::UP);
+	//s->AddPrimitive(t);
 
 	/*Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
 	s->AddPrimitive(t1);

@@ -40,10 +40,10 @@ void Scene::Draw()
 		//SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, raw_pixels, pitch);
 		/*SDL_RenderReadPixels(_render, 0, SDL_PIXELFORMAT_RGBA8888, raw_pixels, pitch);
 		const char* err = SDL_GetError();*/
-		SDL_SetRenderDrawColor(_render,0, 0, 0, 1);
-		SDL_Rect r = { 0,0,30,30 };
+		/*SDL_SetRenderDrawColor(_render,0, 0, 0, 1);
+		SDL_Rect r = { 0,0,30,30 };*/
 
-		SDL_RenderFillRect(_render, &r);
+		//SDL_RenderFillRect(_render, &r);
 		
 		this->RestoreSavedRenderingState();
 		
