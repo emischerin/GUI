@@ -259,9 +259,13 @@ SDL_Rect* Viewport::GetViewportRect()
 
 SDL_Rect* Viewport::GetViewportRectInScene()
 {
-	_viewport_rect_in_scene = _viewport_rect;
+	_viewport_rect_in_scene.x = 0;
+	_viewport_rect_in_scene.y = 0;
 	_viewport_rect_in_scene.x += _viewport_offset_x;
 	_viewport_rect_in_scene.y += _viewport_offset_y;
+
+	_viewport_rect_in_scene.w = _viewport_rect.w;
+	_viewport_rect_in_scene.h = _viewport_rect.h;
 
 	return &_viewport_rect_in_scene;
 }

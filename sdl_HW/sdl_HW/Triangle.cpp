@@ -27,7 +27,7 @@ Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bo
 void Triangle::Draw() 
 {
 	
-	SDL_RenderGeometry(AppGlobals::main_render, 0, *_vertices.data(), _vertices.size(), 0, 0);
+	SDL_RenderGeometry(_render, 0, *_vertices.data(), _vertices.size(), 0, 0);
 	
 }
 

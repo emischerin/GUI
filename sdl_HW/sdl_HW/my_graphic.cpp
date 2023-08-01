@@ -67,7 +67,7 @@ int main(int argc, char** argv)
 	//
 	////Triangle* t = new Triangle(&p, 40, 50);
 
-	Triangle* t = new Triangle(40,50,50,50,Triangle::TriangleDirection::UP);
+	Triangle* t = new Triangle(0,0,30,30,Triangle::TriangleDirection::UP);
 	s->AddPrimitive(t);
 
 	/*Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);

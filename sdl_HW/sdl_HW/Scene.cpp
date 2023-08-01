@@ -36,24 +36,20 @@ void Scene::Draw()
 		SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
 		SDL_RenderFillRect(_render, &_scene_texture_rect);
 		Control::Draw();
-
 		
-		
-		Uint32 format = 0;
-		int w = 0;
-		int h = 0;
-		int pitch = 4 * _scene_texture_rect.w;
-		void* raw_pixels = malloc(4 * (_scene_texture_rect.w * _scene_texture_rect.h));
-
 		//SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, raw_pixels, pitch);
 		/*SDL_RenderReadPixels(_render, 0, SDL_PIXELFORMAT_RGBA8888, raw_pixels, pitch);
 		const char* err = SDL_GetError();*/
+		SDL_SetRenderDrawColor(_render,0, 0, 0, 1);
+		SDL_Rect r = { 0,0,30,30 };
+
+		SDL_RenderFillRect(_render, &r);
+		
 		this->RestoreSavedRenderingState();
 		
-		
-
-		SDL_RenderCopy(_render, _scene_texture, target,viewport_rect );
-		
+		SDL_RenderCopy(_render, _scene_texture, 0,viewport_rect );
+		const char* err = SDL_GetError();
+		int debug = 10;
 		
 
 	}
