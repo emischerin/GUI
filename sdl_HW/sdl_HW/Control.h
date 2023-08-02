@@ -223,6 +223,11 @@ public:
 			Control* c = _child_controls[i];
 			if (c) c->ReactToEvents();
 		}
+
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->ReactToEvents();
+		}
 	}
 
 	virtual void Update() 

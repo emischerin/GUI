@@ -22,10 +22,7 @@ Menu::Menu(Window* parent_window, MenuPosType pos_type) : Control(parent_window)
 void Menu::ReactToEvents() 
 {
 	
-	for (int i = 0; i < _child_controls.size(); ++i) {
-		Control* child = _child_controls[i];
-		if (child) child->ReactToEvents();
-	}
+	Control::ReactToEvents();
 
 }
 
