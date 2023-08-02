@@ -103,6 +103,7 @@ private:
 	
 	Viewport* _viewport = nullptr;
 	
+	SDL_Color _background_color = { 255,255,255,1 };
 
 
 };
