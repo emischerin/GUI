@@ -82,6 +82,8 @@ private:
 
 	void CreateSceneTexture(int w,int h);
 
+	void UpdateMyBoundingRect();
+
 	/*offsets from window coordinates systems*/
 	/*Offsets in fact are x & y of the beginning of scene*/
 	int _offset_x = 0;

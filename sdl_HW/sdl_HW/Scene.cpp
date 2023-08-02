@@ -20,6 +20,8 @@ void Scene::Update()
 {
 	Control::Update();
 
+	this->UpdateMyBoundingRect();
+
 }
 
 void Scene::PreDraw()
@@ -33,24 +35,9 @@ void Scene::Draw()
 {
 	
 
-	if (_my_parent_window->HasHeader()) {
-		_offset_y = _my_parent_window->GetHeaderHeight();
-	}
-	else { _offset_y = 0; }
-
-	if (_my_parent_window->HasMenu()) {
-		_offset_x = _my_parent_window->GetMenuWidth();
-	}
-	else { _offset_x = 0; }
 	
-
-	SDL_Rect w_rect;
-	
-	_my_parent_window->GetWindowSizeAsRect(&w_rect);
-		
-	SDL_Rect r = { _offset_x,_offset_y,w_rect.w - _offset_x,w_rect.h - _offset_y };
 	SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
-	SDL_RenderFillRect(_render,&r );
+	SDL_RenderFillRect(_render,&_bounding_rect );
 	
 	Control::Draw();
 	
@@ -358,6 +345,31 @@ void Scene::SetTextureSize(int w, int h)
 	this->_scene_texture_rect.w = w;
 	this->_scene_texture_rect.h = h;
 
+}
+
+void Scene::UpdateMyBoundingRect()
+{
+	if (_my_parent_window->HasHeader()) {
+		_offset_y = _my_parent_window->GetHeaderHeight();
+	}
+	else { _offset_y = 0; }
+
+	if (_my_parent_window->HasMenu()) {
+		_offset_x = _my_parent_window->GetMenuWidth();
+	}
+	else { _offset_x = 0; }
+
+
+	SDL_Rect w_rect;
+
+	_my_parent_window->GetWindowSizeAsRect(&w_rect);
+
+	_bounding_rect.x = _offset_x;
+	_bounding_rect.y = _offset_y;
+	_bounding_rect.w = w_rect.w - _offset_x;
+	_bounding_rect.h = w_rect.h - _offset_y;
+
+	
 }
 
 Scene::~Scene()
