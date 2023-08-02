@@ -2,11 +2,16 @@
 #include "Viewport.h"
 #include "Window.h"
 
+Scene::Scene(Window* w) : Control(w)
+{
+
+}
+
 Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
 	v->SetScene(this);
-	this->CreateDefaultScene();
+	//this->CreateDefaultScene();
 	
 }
 
@@ -19,42 +24,36 @@ void Scene::Update()
 
 void Scene::PreDraw()
 {
-	/*this->CreateSceneTexture(300,300);
-	this->SaveCurrentRenderingState();
-	this->RestoreSavedRenderingState();*/
+	/*SDL_Rect* r = _viewport->GetViewportRect();
+	this->CreateSceneTexture(r->h,r->w);*/
+	
 }
 
 void Scene::Draw()
 {
 	
-	if (_viewport) {
 
-		SDL_Rect* target = _viewport->GetViewportRectInScene();
-		SDL_Rect* viewport_rect = _viewport->GetViewportRect();
-
-		this->SetThisAsCurrentRenderingTarget();
-		SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
-		SDL_RenderFillRect(_render, &_scene_texture_rect);
-		Control::Draw();
-		
-		//SDL_UpdateTexture(_my_parent_window->GetWindowTexture(), target, raw_pixels, pitch);
-		/*SDL_RenderReadPixels(_render, 0, SDL_PIXELFORMAT_RGBA8888, raw_pixels, pitch);
-		const char* err = SDL_GetError();*/
-		/*SDL_SetRenderDrawColor(_render,0, 0, 0, 1);
-		SDL_Rect r = { 0,0,30,30 };*/
-
-		//SDL_RenderFillRect(_render, &r);
-		
-		this->RestoreSavedRenderingState();
-		
-		
-		
-		SDL_RenderCopy(_render, _scene_texture, 0,viewport_rect );
-		const char* err = SDL_GetError();
-		int debug = 10;
-		
-
+	if (_my_parent_window->HasHeader()) {
+		_offset_y = _my_parent_window->GetHeaderHeight();
 	}
+	else { _offset_y = 0; }
+
+	if (_my_parent_window->HasMenu()) {
+		_offset_x = _my_parent_window->GetMenuWidth();
+	}
+	else { _offset_x = 0; }
+	
+
+	SDL_Rect w_rect;
+	
+	_my_parent_window->GetWindowSizeAsRect(&w_rect);
+		
+	SDL_Rect r = { _offset_x,_offset_y,w_rect.w - _offset_x,w_rect.h - _offset_y };
+	SDL_SetRenderDrawColor(_render, 255, 255, 255, 1);
+	SDL_RenderFillRect(_render,&r );
+	
+	Control::Draw();
+	
 	
 }
 
@@ -67,7 +66,7 @@ void Scene::AddControl(Control* c)
 		c->SetParentControl(this);
 
 		if (ControlOutOfSceneTexture(c)) {
-			this->ResizeTextureToControl(c);
+			//this->ResizeTextureToControl(c);
 			Control::AddChild(c);
 		}
 		else {
@@ -88,7 +87,7 @@ void Scene::AddPrimitive(Primitive* p)
 		p->SetParentWindow(_my_parent_window);
 
 		if (PrimitiveOutOfSceneTexture(p)) {
-			this->ResizeTextureToPrimitive(p);
+			//this->ResizeTextureToPrimitive(p);
 			Control::AddPrimitive(p);
 		}
 		else {
@@ -123,7 +122,7 @@ void Scene::ResizeTextureToControl(Control* c)
 		result_height = _scene_texture_rect.h;
 	}
 
-	this->SetTextureSize(result_width,result_height);
+	//this->SetTextureSize(result_width,result_height);
 	
 	
 	
@@ -156,7 +155,7 @@ void Scene::ResizeTextureToPrimitive(Primitive* p)
 		result_height = _scene_texture_rect.h;
 	}
 
-	this->SetTextureSize(result_width, result_height);
+	//this->SetTextureSize(result_width, result_height);
 }
 
 bool Scene::ControlOutOfSceneTexture(Control* c)
@@ -291,7 +290,7 @@ void Scene::CreateDefaultScene()
 		int v_w = viewport_rect->w;
 		int v_h = viewport_rect->h;
 		
-		this->CreateSceneTexture(v_w, v_h);
+		//this->CreateSceneTexture(v_w, v_h);
 	}
 }
 

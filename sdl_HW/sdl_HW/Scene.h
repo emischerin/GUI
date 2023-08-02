@@ -35,7 +35,7 @@ public:
 
 	
 
-	
+	Scene(Window* w);
 	Scene(Viewport* v);
 	
 

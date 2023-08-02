@@ -94,7 +94,7 @@ void Window::PreDraw()
 
 void Window::Draw()
 {
-	int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);
+	int set_rndr_target = SDL_SetRenderTarget(_win_render, 0);
 
 	if (set_rndr_target == 0) { /*No errors, we can render to texture safely*/
 		_render_to_texture = true;
@@ -118,9 +118,9 @@ void Window::Draw()
 		if (p) p->Draw();
 	}
 
-	SDL_SetRenderTarget(_win_render, 0);
+	//SDL_SetRenderTarget(_win_render, 0);
 
-	SDL_RenderCopy(_win_render, _texture, 0, 0);
+	//SDL_RenderCopy(_win_render, _texture, 0, 0);
 
 	SDL_RenderPresent(_win_render);
 

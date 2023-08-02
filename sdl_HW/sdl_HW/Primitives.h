@@ -97,7 +97,7 @@ public:
 	}
 
 	virtual void ReactToEvents() {};
-	virtual void Update() {  };
+	virtual void Update() {};
 	virtual void PreDraw() {};
 	virtual void Draw() = 0;
 

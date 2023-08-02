@@ -9,7 +9,7 @@ Viewport::Viewport(Window* parent_w) : Control(parent_w)
 
 void Viewport::Update()
 {
-	this->DefineOffsets();
+	/*this->DefineOffsets();
 	this->SetPosition(_offset_x, _offset_y);
 	this->SetWidthAndHeight(_my_parent_window->GetWinWidth() - _offset_x, _my_parent_window->GetWinHeight() - _offset_y);
 
@@ -45,7 +45,7 @@ void Viewport::Update()
 
 	}
 
-	this->SetViewportRect();
+	this->SetViewportRect();*/
 
 }
 
@@ -53,12 +53,14 @@ void Viewport::Draw()
 {
 	
 	
+	
+	if (_scene) {
+		_scene->Draw();
+	}
 
-	Control::Draw();
-
-	DrawScrollBar();
+	//DrawScrollBar();
 	/*Filling the hole between two scrollbars*/
-	if (_right_scroll_bar && _bottom_scroll_bar) {
+	/*if (_right_scroll_bar && _bottom_scroll_bar) {
 		
 		SDL_Color* c = _right_scroll_bar->GetColor();
 
@@ -72,7 +74,7 @@ void Viewport::Draw()
 
 		SDL_RenderFillRect(_render, &r);
 
-	}
+	}*/
 
 }
 
@@ -218,6 +220,9 @@ void Viewport::SetScene(Scene* scene)
 		if (_scene) delete _scene;
 
 		_scene = scene;
+
+		
+		
 		
 	}
 

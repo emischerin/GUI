@@ -60,15 +60,33 @@ int main(int argc, char** argv)
 
 	m->SetColor(62, 19, 66,20);
 	
+
+	Scene* s = new Scene(&mw);
+
+
+	Triangle* t = new Triangle(65, 65, 30, 30, Triangle::TriangleDirection::UP);
+	
+
+	Triangle* t1 = new Triangle(150, 550, 65, 65, Triangle::TriangleDirection::UP);
+	
+	s->AddPrimitive(t);
+	s->AddPrimitive(t1);
+
+
 	/*Viewport* v = new Viewport(&mw);
 
-	Scene* s = new Scene(v);*/
-
-	////
-	//////Triangle* t = new Triangle(&p, 40, 50);
+	
+	
+	
 
 	Triangle* t = new Triangle(65,65,30,30,Triangle::TriangleDirection::UP);
-	mw.AddPrimitive(t);
+	s->AddPrimitive(t);*/
+
+	
+
+	
+	
+	
 	//s->AddPrimitive(t);
 
 	/*Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
