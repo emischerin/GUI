@@ -11,7 +11,7 @@
 #include "BottomScrollBar.h"
 #include "Control.h"
 #include "Window.h"
-#include "Scene.h"
+
 
 class Viewport : public Control
 {
@@ -27,8 +27,7 @@ public:
 	Viewport(Window* parent_w);
 
 
-	void AddControl(Control* c);
-	void AddPrimitive(Primitive* p) override;
+
 
 	void Update() override;
 	
@@ -41,10 +40,9 @@ public:
 
 	void DrawScrollBar();
 
-	bool HasRightScrollBar() const;
-	bool HasBottomScrollBar() const;
 
-	void SetScene(Scene* scene);
+
+	
 
 	void RemoveScene();
 
@@ -55,7 +53,7 @@ public:
 	~Viewport() override;
 
 protected:
-	void SetViewportRect();
+	
 	void DefineOffsets();
 
 	void ControlMessagingFunction(ControlMsg* message) override;
@@ -63,11 +61,7 @@ protected:
 
 private:
 
-	void CreateRightScrollBar();
-	void RemoveRightScrollBar();
-
-	void CreateBottomScrollBar();
-	void RemoveBottomScrollBar();
+	
 
 
 	int _offset_x = 0;
@@ -86,7 +80,7 @@ private:
 	BottomScrollBar* _bottom_scroll_bar = nullptr;
 
 
-	Scene* _scene = nullptr;
+	
 
 
 };

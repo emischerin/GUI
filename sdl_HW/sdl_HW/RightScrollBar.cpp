@@ -3,12 +3,10 @@
 #include "ScrollBarCaret.h"
 #include "Viewport.h"
 
-RightScrollBar::RightScrollBar(Viewport* viewport) : BaseScrollBar(viewport)
+RightScrollBar::RightScrollBar(Control* parent) : BaseScrollBar(parent)
 {
 
-	if (!viewport) return;
-
-	_viewport = viewport;
+	
 
 	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
 	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);

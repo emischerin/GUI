@@ -64,10 +64,10 @@ int main(int argc, char** argv)
 	Scene* s = new Scene(&mw);
 
 
-	Triangle* t = new Triangle(65, 65, 30, 30, Triangle::TriangleDirection::UP);
+	Triangle* t = new Triangle(0, 0, 50, 50, Triangle::TriangleDirection::UP);
 	
 
-	Triangle* t1 = new Triangle(150, 550, 65, 65, Triangle::TriangleDirection::UP);
+	Triangle* t1 = new Triangle(0, 550, 65, 65, Triangle::TriangleDirection::UP);
 	
 	s->AddPrimitive(t);
 	s->AddPrimitive(t1);

@@ -9,43 +9,43 @@ Viewport::Viewport(Window* parent_w) : Control(parent_w)
 
 void Viewport::Update()
 {
-	/*this->DefineOffsets();
-	this->SetPosition(_offset_x, _offset_y);
-	this->SetWidthAndHeight(_my_parent_window->GetWinWidth() - _offset_x, _my_parent_window->GetWinHeight() - _offset_y);
+	//this->DefineOffsets();
+	//this->SetPosition(_offset_x, _offset_y);
+	//this->SetWidthAndHeight(_my_parent_window->GetWinWidth() - _offset_x, _my_parent_window->GetWinHeight() - _offset_y);
 
-	
+	//
 
-	if (NeedRightScrollbar()) {
+	//if (NeedRightScrollbar()) {
 
-		if (!_right_scroll_bar)
-			this->CreateRightScrollBar();
+	//	if (!_right_scroll_bar)
+	//		this->CreateRightScrollBar();
 
-		_right_scroll_bar->Update();
-	}
-	else {
-		RemoveRightScrollBar();
-	}
+	//	_right_scroll_bar->Update();
+	//}
+	//else {
+	//	RemoveRightScrollBar();
+	//}
 
-	if (NeedBottomScrollbar()) {
+	//if (NeedBottomScrollbar()) {
 
-		if (!_bottom_scroll_bar)
-			this->CreateBottomScrollBar();
+	//	if (!_bottom_scroll_bar)
+	//		this->CreateBottomScrollBar();
 
-		_bottom_scroll_bar->Update();
+	//	_bottom_scroll_bar->Update();
 
 
 
-	}
-	else {
-		RemoveBottomScrollBar();
-	}
-	
-	if (_right_scroll_bar && _bottom_scroll_bar) {
-		_right_scroll_bar->Update();
+	//}
+	//else {
+	//	RemoveBottomScrollBar();
+	//}
+	//
+	//if (_right_scroll_bar && _bottom_scroll_bar) {
+	//	_right_scroll_bar->Update();
 
-	}
+	//}
 
-	this->SetViewportRect();*/
+	//this->SetViewportRect();
 
 }
 
@@ -53,12 +53,8 @@ void Viewport::Draw()
 {
 	
 	
-	
-	if (_scene) {
-		_scene->Draw();
-	}
 
-	//DrawScrollBar();
+			//DrawScrollBar();
 	/*Filling the hole between two scrollbars*/
 	/*if (_right_scroll_bar && _bottom_scroll_bar) {
 		
@@ -91,113 +87,6 @@ void Viewport::DrawScrollBar()
 
 }
 
-void Viewport::SetViewportRect()
-{
-	this->_viewport_rect = _bounding_rect;
-	
-}
-
-bool Viewport::NeedRightScrollbar()
-{
-	
-
-	if (!_scene)
-		return false;
-
-	int max_control_y = _scene->MaxYControl();
-	int max_primitive_y = _scene->MaxYPrimitive();
-	int my_height = this->GetHeight();
-	
-	if ((max_control_y > my_height) || (max_primitive_y > my_height))
-		return true;
-
-	return false;
-}
-
-
-bool Viewport::NeedBottomScrollbar()
-{
-	
-
-	if (!_scene)
-		return false;
-
-	int max_control_x = _scene->MaxXControl();
-	int max_primitive_x = _scene->MaxXPrimitive();
-	int my_width = this->GetWidth();
-
-	if ((max_control_x > my_width) || (max_primitive_x > my_width))
-		return true;
-
-
-	return false;
-}
-
-bool Viewport::HasRightScrollBar() const
-{
-	return _right_scroll_bar != nullptr;
-}
-
-bool Viewport::HasBottomScrollBar() const
-{
-	return _bottom_scroll_bar != nullptr;
-}
-
-void Viewport::CreateRightScrollBar()
-{
-	if (!_right_scroll_bar) {
-		_right_scroll_bar = new RightScrollBar(this);
-		
-		this->_has_right_scrollbar = true;
-		
-
-	}
-}
-
-void Viewport::RemoveRightScrollBar()
-{
-	if (_right_scroll_bar) {
-		this->_viewport_rect.w += _right_scroll_bar->GetWidth();
-		delete _right_scroll_bar;
-		_right_scroll_bar = nullptr;
-		this->_has_right_scrollbar = false;
-		
-	}
-}
-
-void Viewport::CreateBottomScrollBar()
-{
-	if (!_bottom_scroll_bar) {
-		_bottom_scroll_bar = new BottomScrollBar(this);
-		this->_has_right_scrollbar = true;
-		
-	}
-}
-
-void Viewport::RemoveBottomScrollBar()
-{
-	if (_bottom_scroll_bar) {
-		this->_viewport_rect.h += _bottom_scroll_bar->GetHeight();
-		delete _bottom_scroll_bar;
-		_bottom_scroll_bar = nullptr;
-		this->_has_bottom_scrollbar = false;
-	}
-}
-
-
-void Viewport::AddControl(Control* c)
-{
-	if (_scene) {
-		_scene->AddControl(c);
-	}
-}
-
-void Viewport::AddPrimitive(Primitive* p)
-{
-	if (_scene) {
-		_scene->AddPrimitive(p);
-	}
-}
 
 void Viewport::DefineOffsets()
 {
@@ -214,28 +103,8 @@ void Viewport::DefineOffsets()
 
 }
 
-void Viewport::SetScene(Scene* scene)
-{
-	if (scene) {
-		if (_scene) delete _scene;
 
-		_scene = scene;
 
-		
-		
-		
-	}
-
-	
-}
-
-void Viewport::RemoveScene()
-{
-	if (!_scene) return;
-
-	delete _scene;
-	_scene = nullptr;
-}
 
 void Viewport::ControlMessagingFunction(ControlMsg* message)
 {
@@ -280,8 +149,8 @@ Viewport::~Viewport()
 {
 	Control::~Control();
 
-	if (this->_scene)
-		delete _scene;
+	//if (this->_scene)
+	//	delete _scene;
 }
 
 

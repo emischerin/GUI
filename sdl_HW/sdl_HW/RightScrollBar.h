@@ -17,14 +17,14 @@
 
 class ScrollBarButton;
 class ScrollBarCaret;
-class Viewport;
+
 
 class RightScrollBar : public BaseScrollBar
 {
 public:
 	
 
-	RightScrollBar(Viewport* viewport);
+	RightScrollBar(Control* parent);
 
 	
 
@@ -43,7 +43,7 @@ private:
 	ScrollBarCaret* _caret = nullptr;
 
 	
-	Viewport* _viewport = nullptr;
+	
 
 	
 	

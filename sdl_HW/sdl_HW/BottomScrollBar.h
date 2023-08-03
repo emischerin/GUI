@@ -17,14 +17,14 @@
 
 class ScrollBarButton;
 class ScrollBarCaret;
-class Viewport;
+
 
 class BottomScrollBar : public BaseScrollBar
 {
 public:
 
 
-	BottomScrollBar(Viewport* viewport);
+	BottomScrollBar(Control* parent);
 
 
 
@@ -43,7 +43,7 @@ private:
 	ScrollBarCaret* _caret = nullptr;
 
 
-	Viewport* _viewport = nullptr;
+	
 
 
 

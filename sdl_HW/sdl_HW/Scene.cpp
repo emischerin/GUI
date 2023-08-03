@@ -10,7 +10,7 @@ Scene::Scene(Window* w) : Control(w)
 Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
-	v->SetScene(this);
+	
 	//this->CreateDefaultScene();
 	
 }
@@ -34,12 +34,13 @@ void Scene::PreDraw()
 void Scene::Draw()
 {
 	
-
+	SDL_RenderSetViewport(_render, &_bounding_rect);
 	
 	SDL_SetRenderDrawColor(_render, _background_color.r,_background_color.g,_background_color.b,_background_color.a);
 	SDL_RenderFillRect(_render,&_bounding_rect );
 	
 	Control::Draw();
+	SDL_RenderSetViewport(_render, 0);
 	
 	
 }
@@ -201,6 +202,91 @@ bool Scene::NeedYRelocation(Primitive* p)
 
 	return false;
 }
+
+bool Viewport::NeedRightScrollbar()
+{
+
+
+	
+
+	int max_control_y = this->MaxYControl();
+	int max_primitive_y = this->MaxYPrimitive();
+	int my_height = this->GetHeight();
+
+	if ((max_control_y > my_height) || (max_primitive_y > my_height))
+		return true;
+
+	return false;
+}
+
+
+bool Scene::NeedBottomScrollbar()
+{
+
+
+
+	int max_control_x = this->MaxXControl();
+	int max_primitive_x = this->MaxXPrimitive();
+	int my_width = this->GetWidth();
+
+	if ((max_control_x > my_width) || (max_primitive_x > my_width))
+		return true;
+
+
+	return false;
+}
+
+bool Scene::HasRightScrollBar() const
+{
+	return _right_scroll_bar != nullptr;
+}
+
+bool Scene::HasBottomScrollBar() const
+{
+	return _bottom_scroll_bar != nullptr;
+}
+
+void Scene::CreateRightScrollBar()
+{
+	if (!_right_scroll_bar) {
+		_right_scroll_bar = new RightScrollBar(this);
+
+		this->_has_right_scrollbar = true;
+
+
+	}
+}
+
+void Scene::RemoveRightScrollBar()
+{
+	if (_right_scroll_bar) {
+		this->_viewport_rect.w += _right_scroll_bar->GetWidth();
+		delete _right_scroll_bar;
+		_right_scroll_bar = nullptr;
+		this->_has_right_scrollbar = false;
+
+	}
+}
+
+void Scene::CreateBottomScrollBar()
+{
+	if (!_bottom_scroll_bar) {
+		_bottom_scroll_bar = new BottomScrollBar(this);
+		this->_has_right_scrollbar = true;
+
+	}
+}
+
+void Scene::RemoveBottomScrollBar()
+{
+	if (_bottom_scroll_bar) {
+		this->_viewport_rect.h += _bottom_scroll_bar->GetHeight();
+		delete _bottom_scroll_bar;
+		_bottom_scroll_bar = nullptr;
+		this->_has_bottom_scrollbar = false;
+	}
+}
+
 
 void Scene::RelocatePrimitiveVerticesX(Primitive* p)
 {

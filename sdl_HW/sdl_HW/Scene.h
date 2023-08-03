@@ -7,6 +7,8 @@
 #include "Control.h"
 #include "Primitives.h"
 #include "BaseScrollbar.h"
+#include "RightScrollBar.h"
+#include "BottomScrollBar.h"
 
 
 /*
@@ -33,7 +35,12 @@ class Scene : public Control
 
 public:
 
-	
+	enum ControlMsgRequest
+	{
+		_RIGHT_SCROLLBAR_WIDTH = 1,
+		_BOTTOM_SCROLLBAR_HEIGHT
+
+	};
 
 	Scene(Window* w);
 	Scene(Viewport* v);
@@ -52,6 +59,13 @@ public:
 
 	void SetViewport(Viewport* viewport);
 
+	bool NeedBottomScrollbar();
+	bool NeedRightScrollbar();
+
+	void DrawScrollBar();
+
+	bool HasRightScrollBar() const;
+	bool HasBottomScrollBar() const;
 
 	~Scene();
 
@@ -74,6 +88,18 @@ protected:
 
 	void ResizeTextureToControl(Control* c);
 	void ResizeTextureToPrimitive(Primitive* p);
+
+	void CreateRightScrollBar();
+	void RemoveRightScrollBar();
+
+	void CreateBottomScrollBar();
+	void RemoveBottomScrollBar();
+
+	RightScrollBar* _right_scroll_bar = nullptr;
+	BottomScrollBar* _bottom_scroll_bar = nullptr;
+
+	bool _has_bottom_scrollbar = false;
+	bool _has_right_scrollbar = false;
 
 private:
 	
