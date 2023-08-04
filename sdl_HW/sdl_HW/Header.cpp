@@ -125,3 +125,9 @@ void Header::DrawHideButton()
 		_hide_button.Draw();
 	}
 }
+
+int Header::GetLayer()
+{
+	const int layer = 1;
+	return layer;
+}

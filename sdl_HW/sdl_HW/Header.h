@@ -21,7 +21,7 @@ public:
 
 	void Draw() override;
 
-	
+	int GetLayer() override;
 	
 private:
 	CloseButton _close_button;

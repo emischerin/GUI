@@ -413,6 +413,11 @@ public:
 		_bounding_rect.h += dy;
 	}
 
+	virtual int GetLayer()
+	{
+		const int layer = -5;
+		return layer;
+	}
 	
 
 	virtual ~Control() 

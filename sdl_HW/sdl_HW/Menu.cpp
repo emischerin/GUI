@@ -79,6 +79,12 @@ void Menu::DrawLeftMenu()
 	SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
 }
 
+int Menu::GetLayer()
+{
+	const int layer = 1;
+	return layer;
+}
+
 void Menu::DrawRightMenu()
 {
 

@@ -28,6 +28,10 @@ void Window::AddControl(Control* control)
 	control->SetRender(_win_render);
 	control->SetParentWindow(this);
 
+
+	int layer = control->GetLayer();
+	_controls_by_layer[layer].push_back(control);
+
 }
 
 void Window::AddPrimitive(Primitive* primitive)
@@ -37,6 +41,10 @@ void Window::AddPrimitive(Primitive* primitive)
 	_primitives.push_back(primitive);
 	primitive->SetRender(_win_render);
 	primitive->SetParentWindow(this);
+
+	int layer = primitive->GetLayer();
+
+	_primitives_by_layer[layer].push_back(primitive);
 }
 
 void Window::ReactToEvents()

@@ -3,6 +3,7 @@
 #define WINDOW_H
 
 #include <vector>
+#include <map>
 #include <SDL.h>
 
 #include "AppGlobals.h"
@@ -122,7 +123,11 @@ protected:
 
 	std::vector<Control*> _controls;
 
+	std::map<int,std::vector<Control*>> _controls_by_layer;
+
 	std::vector<Primitive*> _primitives;
+
+	std::map<int,std::vector<Primitive*>> _primitives_by_layer;
 
 	Header *_header = nullptr;
 

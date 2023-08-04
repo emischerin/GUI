@@ -153,6 +153,12 @@ public:
 		return (*it)->position.y;
 	}
 
+	virtual int GetLayer()
+	{
+		const int layer = -5;
+		return layer;
+	}
+
 protected:
 	
 	void AppllyColorToEachVertex()
