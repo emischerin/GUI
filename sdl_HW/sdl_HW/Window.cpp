@@ -115,8 +115,13 @@ void Window::Draw()
 	SDL_RenderClear(_win_render);
 
 
+	for (auto it = _controls_by_layer.begin(); it != _controls_by_layer.end(); ++it) {
+		std::vector<Control*> _current_layer = it->second;
+		this->DrawControlsByLayer(&_current_layer);
 
-	for (int i = 0; i < _controls.size(); ++i) {
+	}
+
+	/*for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
 		if(ctrl) ctrl->Draw();
 	}
@@ -124,7 +129,7 @@ void Window::Draw()
 	for (int i = 0; i < _primitives.size(); ++i) {
 		Primitive* p = _primitives[i];
 		if (p) p->Draw();
-	}
+	}*/
 
 	//SDL_SetRenderTarget(_win_render, 0);
 
@@ -133,6 +138,17 @@ void Window::Draw()
 	SDL_RenderPresent(_win_render);
 
 	
+}
+
+void Window::DrawControlsByLayer(std::vector<Control*>* v)
+{
+	if (!v) return;
+	if (v->size() <= 0) return;
+
+	for (int i = 0; i < v->size(); ++i) {
+		Control* ctrl = v->at(i);
+		if (ctrl) ctrl->Draw();
+	}
 }
 
 Window::WindowSizeState Window::GetSizeState() const

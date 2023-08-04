@@ -91,7 +91,7 @@ public:
 
 protected:
 
-	
+	virtual void DrawControlsByLayer(std::vector<Control*>* v);
 
 	virtual void InternalReactToEvents();
 
