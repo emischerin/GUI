@@ -62,7 +62,7 @@ public:
 	bool NeedBottomScrollbar();
 	bool NeedRightScrollbar();
 
-	void DrawScrollBar();
+	
 
 	bool HasRightScrollBar() const;
 	bool HasBottomScrollBar() const;
@@ -94,6 +94,8 @@ protected:
 
 	void CreateBottomScrollBar();
 	void RemoveBottomScrollBar();
+
+	void DrawScrollBar();
 
 	RightScrollBar* _right_scroll_bar = nullptr;
 	BottomScrollBar* _bottom_scroll_bar = nullptr;

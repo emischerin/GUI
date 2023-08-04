@@ -64,3 +64,4 @@ void BottomScrollBar::TrimMyWidthIfRightScrollBar()
 
 	this->ResizeWidth(-(int)msg._result);
 }
+

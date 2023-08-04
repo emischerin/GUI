@@ -11,7 +11,7 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 {
 	this->SetViewport(v);
 	
-	//this->CreateDefaultScene();
+	
 	
 }
 
@@ -26,8 +26,7 @@ void Scene::Update()
 
 void Scene::PreDraw()
 {
-	/*SDL_Rect* r = _viewport->GetViewportRect();
-	this->CreateSceneTexture(r->h,r->w);*/
+	
 	
 }
 
@@ -40,6 +39,8 @@ void Scene::Draw()
 	SDL_RenderFillRect(_render,&_bounding_rect );
 	
 	Control::Draw();
+
+	this->DrawScrollBar();
 	
 	
 	
@@ -313,6 +314,31 @@ int Scene::GetViewportPositionXInScene()
 
 	return -1;
 	
+}
+
+void Scene::DrawScrollBar()
+{
+	if (_right_scroll_bar)
+		_right_scroll_bar->Draw();
+
+	if (_bottom_scroll_bar)
+		_bottom_scroll_bar->Draw();
+
+	if (_right_scroll_bar && _bottom_scroll_bar) {
+
+		SDL_Color* c = _right_scroll_bar->GetColor();
+
+		SDL_Rect r;
+		r.x = _right_scroll_bar->GetX();
+		r.y = _right_scroll_bar->GetY() + _right_scroll_bar->GetHeight();
+		r.w = _right_scroll_bar->GetWidth();
+		r.h = this->GetHeight() - _right_scroll_bar->GetHeight();
+
+		SDL_SetRenderDrawColor(_render, c->r, c->g, c->b, c->a);
+
+		SDL_RenderFillRect(_render, &r);
+
+	}
 }
 
 int Scene::GetViewportPositionYInScene()
