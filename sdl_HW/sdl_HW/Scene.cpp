@@ -484,10 +484,31 @@ void Scene::UpdateMyBoundingRect()
 	
 }
 
+void Scene::ScrollUp(int step)
+{
+
+}
+
+void Scene::ScrollDown(int step)
+{
+
+}
+
+void Scene::ScrollLeft(int step)
+{
+
+}
+
+void Scene::ScrollRight(int step)
+{
+
+}
+
+
+
 Scene::~Scene()
 {
 	Control::~Control();
 
-	if(_scene_texture)
-		SDL_DestroyTexture(_scene_texture);
+	
 }

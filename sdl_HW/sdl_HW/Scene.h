@@ -67,6 +67,11 @@ public:
 	bool HasRightScrollBar() const;
 	bool HasBottomScrollBar() const;
 
+	void ScrollUp(int step);
+	void ScrollDown(int step);
+	void ScrollLeft(int step);
+	void ScrollRight(int step);
+
 	~Scene();
 
 protected:
