@@ -161,22 +161,43 @@ public:
 
 	virtual void MoveUp(int step)
 	{
+		if (_vertices.size() <= 0) return;
 
+		for (int i = 0; i < _vertices.size(); ++i) {
+			SDL_Vertex* v = _vertices[i];
+			if (v) v->position.y += step;
+		}
 	}
 
 	virtual void MoveDown(int step)
 	{
+		if (_vertices.size() <= 0) return;
 
+		for (int i = 0; i < _vertices.size(); ++i) {
+			SDL_Vertex* v = _vertices[i];
+			if (v) v->position.y -= step;
+		}
 	}
 
 	virtual void MoveLeft(int step)
 	{
+		if (_vertices.size() <= 0) return;
 
+		for (int i = 0; i < _vertices.size(); ++i) {
+			SDL_Vertex* v = _vertices[i];
+			if (v) v->position.x -= step;
+		}
 	}
 
 	virtual void MoveRight(int step)
 	{
+		if (_vertices.size() <= 0) return;
+				
 
+		for (int i = 0; i < _vertices.size(); ++i) {
+			SDL_Vertex* v = _vertices[i];
+			if (v) v->position.x += step;
+		}
 	}
 
 protected:
