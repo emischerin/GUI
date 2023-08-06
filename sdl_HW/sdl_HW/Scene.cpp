@@ -497,23 +497,73 @@ void Scene::ScrollUp(int step)
 	
 
 	if (max_y_ctrl >= _scroll_up_lim && max_y_primitive >= _scroll_up_lim) {
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* c = _child_controls[i];
+			if (c) c->MoveUp(step);
+		}
 
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveUp(step);
+		}
 	}
 }
 
 void Scene::ScrollDown(int step)
 {
+	int min_y_ctrl = this->MinYControl();
+	int min_y_primitive = this->MinYPrimitive();
 
-}
 
-void Scene::ScrollLeft(int step)
-{
+	if (min_y_ctrl <= _scroll_down_lim && min_y_primitive <= _scroll_down_lim) {
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* c = _child_controls[i];
+			if (c) c->MoveDown(step);
+		}
 
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveDown(step);
+		}
+	}
 }
 
 void Scene::ScrollRight(int step)
 {
+	int min_x_ctrl = this->MinXControl();
+	int min_x_primitive = this->MinXPrimitive();
 
+
+	if (min_x_ctrl <= _scroll_right_lim && min_x_primitive <= _scroll_right_lim) {
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* c = _child_controls[i];
+			if (c) c->MoveRight(step);
+		}
+
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveRight(step);
+		}
+	}
+}
+
+void Scene::ScrollLeft(int step)
+{
+	int max_x_ctrl = this->MaxXControl();
+	int max_x_primitive = this->MaxXPrimitive();
+
+
+	if (max_x_ctrl >= _scroll_left_lim && max_x_primitive >= _scroll_left_lim) {
+		for (int i = 0; i < _child_controls.size(); ++i) {
+			Control* c = _child_controls[i];
+			if (c) c->MoveLeft(step);
+		}
+
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveLeft(step);
+		}
+	}
 }
 
 
