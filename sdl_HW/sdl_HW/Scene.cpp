@@ -496,7 +496,9 @@ void Scene::ScrollUp(int step)
 	int max_y_primitive = this->MaxYPrimitive();
 	
 
-	if(max_y_ctrl >  )
+	if (max_y_ctrl >= _scroll_up_lim && max_y_primitive >= _scroll_up_lim) {
+
+	}
 }
 
 void Scene::ScrollDown(int step)

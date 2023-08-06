@@ -419,6 +419,25 @@ public:
 		return layer;
 	}
 	
+	virtual void MoveUp(int step)
+	{
+
+	}
+
+	virtual void MoveDown(int step)
+	{
+
+	}
+
+	virtual void MoveLeft(int step)
+	{
+
+	}
+
+	virtual void MoveRight(int step)
+	{
+
+	}
 
 	virtual ~Control() 
 	{
