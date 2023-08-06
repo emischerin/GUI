@@ -22,10 +22,26 @@ void Scene::Update()
 
 	this->UpdateMyBoundingRect();
 
-	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 30;
-	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 30;
-	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 30;
-	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 30;
+	if (NeedRightScrollbar()) {
+		this->CreateRightScrollBar();
+	}
+	else
+	{
+		RemoveRightScrollBar();
+	}
+
+	if (NeedBottomScrollbar()) {
+		this->CreateBottomScrollBar();
+	}
+	else
+	{
+		RemoveBottomScrollBar();
+	}
+
+	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 40;
+	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
+	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
+	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
 
 
 }
@@ -210,7 +226,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 	return false;
 }
 
-bool Viewport::NeedRightScrollbar()
+bool Scene::NeedRightScrollbar()
 {
 
 
@@ -267,7 +283,6 @@ void Scene::CreateRightScrollBar()
 void Scene::RemoveRightScrollBar()
 {
 	if (_right_scroll_bar) {
-		this->_viewport_rect.w += _right_scroll_bar->GetWidth();
 		delete _right_scroll_bar;
 		_right_scroll_bar = nullptr;
 		this->_has_right_scrollbar = false;
@@ -287,7 +302,6 @@ void Scene::CreateBottomScrollBar()
 void Scene::RemoveBottomScrollBar()
 {
 	if (_bottom_scroll_bar) {
-		this->_viewport_rect.h += _bottom_scroll_bar->GetHeight();
 		delete _bottom_scroll_bar;
 		_bottom_scroll_bar = nullptr;
 		this->_has_bottom_scrollbar = false;
