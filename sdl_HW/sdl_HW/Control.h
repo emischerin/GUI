@@ -421,7 +421,7 @@ public:
 	
 	virtual void MoveUp(int step)
 	{
-
+		this->_bounding_rect.y += step;
 	}
 
 	virtual void MoveDown(int step)
