@@ -422,6 +422,11 @@ public:
 	virtual void MoveUp(int step)
 	{
 		this->_bounding_rect.y += step;
+
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveUp(step);
+		}
 	}
 
 	virtual void MoveDown(int step)
