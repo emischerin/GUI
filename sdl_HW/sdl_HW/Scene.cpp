@@ -22,6 +22,12 @@ void Scene::Update()
 
 	this->UpdateMyBoundingRect();
 
+	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 30;
+	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 30;
+	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 30;
+	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 30;
+
+
 }
 
 void Scene::PreDraw()
@@ -486,7 +492,11 @@ void Scene::UpdateMyBoundingRect()
 
 void Scene::ScrollUp(int step)
 {
+	int max_y_ctrl = this->MaxYControl();
+	int max_y_primitive = this->MaxYPrimitive();
+	
 
+	if(max_y_ctrl >  )
 }
 
 void Scene::ScrollDown(int step)

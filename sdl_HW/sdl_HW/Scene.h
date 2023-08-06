@@ -108,10 +108,11 @@ protected:
 	bool _has_bottom_scrollbar = false;
 	bool _has_right_scrollbar = false;
 
-	const int _scroll_up_lim;
-	const int _scroll_down_lim;
-	const int _scroll_left_lim;
-	const int _scroll_roght_lim;
+	int _scroll_up_lim = 30;
+	int _scroll_down_lim = 30;
+	int _scroll_left_lim = 30;
+	int _scroll_right_lim = 30;
+	
 
 private:
 	
