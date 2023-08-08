@@ -38,6 +38,8 @@ void Scene::Update()
 		RemoveBottomScrollBar();
 	}
 
+	this->UpdateScrollBar();
+
 	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 40;
 	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
@@ -50,6 +52,15 @@ void Scene::PreDraw()
 {
 	
 	
+}
+
+void Scene::UpdateScrollBar()
+{
+	if (_right_scroll_bar)
+		_right_scroll_bar->Update();
+
+	if (_bottom_scroll_bar)
+		_bottom_scroll_bar->Update();
 }
 
 void Scene::Draw()
@@ -502,6 +513,25 @@ void Scene::UpdateMyBoundingRect()
 	_bounding_rect.h = w_rect.h - _offset_y;
 
 	
+}
+
+void Scene::ControlMessagingFunction(ControlMsg* message)
+{
+	if (!message) return;
+
+	Viewport::ControlMsgRequest request = (Viewport::ControlMsgRequest)message->_command;
+
+	switch (request)
+	{
+	case Viewport::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH:
+		message->_result = _right_scroll_bar ? (void*)_right_scroll_bar->GetWidth() : 0;
+		break;
+	case Viewport::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
+		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
+		break;
+	default:
+		break;
+	}
 }
 
 void Scene::ScrollUp(int step)

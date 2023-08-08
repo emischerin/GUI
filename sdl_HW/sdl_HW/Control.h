@@ -421,7 +421,7 @@ public:
 	
 	virtual void MoveUp(int step)
 	{
-		this->_bounding_rect.y += step;
+		this->_bounding_rect.y -= step;
 
 		for (int i = 0; i < _primitives.size(); ++i) {
 			Primitive* p = _primitives[i];
@@ -431,17 +431,32 @@ public:
 
 	virtual void MoveDown(int step)
 	{
+		this->_bounding_rect.y += step;
 
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveDown(step);
+		}
 	}
 
 	virtual void MoveLeft(int step)
 	{
+		this->_bounding_rect.x -= step;
 
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveLeft(step);
+		}
 	}
 
 	virtual void MoveRight(int step)
 	{
+		this->_bounding_rect.x += step;
 
+		for (int i = 0; i < _primitives.size(); ++i) {
+			Primitive* p = _primitives[i];
+			if (p) p->MoveRight(step);
+		}
 	}
 
 	virtual ~Control() 

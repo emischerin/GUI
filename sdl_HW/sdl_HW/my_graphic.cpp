@@ -69,8 +69,15 @@ int main(int argc, char** argv)
 
 	Triangle* t1 = new Triangle(0, 550, 65, 65, Triangle::TriangleDirection::UP);
 	
+	Triangle* t2 = new Triangle(100, 900, 65, 65, Triangle::TriangleDirection::UP);
+
+
+
 	s->AddPrimitive(t);
 	s->AddPrimitive(t1);
+	s->AddPrimitive(t2);
+
+
 
 
 	/*Viewport* v = new Viewport(&mw);

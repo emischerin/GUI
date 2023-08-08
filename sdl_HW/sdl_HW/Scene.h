@@ -72,6 +72,8 @@ public:
 	void ScrollLeft(int step);
 	void ScrollRight(int step);
 
+	void ControlMessagingFunction(ControlMsg* message) override;
+
 	~Scene();
 
 protected:
@@ -99,7 +101,7 @@ protected:
 
 	void CreateBottomScrollBar();
 	void RemoveBottomScrollBar();
-
+	void UpdateScrollBar();
 	void DrawScrollBar();
 
 	RightScrollBar* _right_scroll_bar = nullptr;
