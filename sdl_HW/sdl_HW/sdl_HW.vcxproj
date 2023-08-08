@@ -213,6 +213,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="my_graphic.cpp" />
+    <ClCompile Include="Primitives.cpp" />
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ScrollBarButton.cpp" />

@@ -2,60 +2,42 @@
 #ifndef PRIMITIVES_H
 #define PRIMITIVES_H
 #include <algorithm>
+#include <vector>
 #include <SDL.h>
-#include "Control.h"
+
 /* TODO: 1) implement vertice color setter
 *	     2) Move vertices from Triangle here		
 */
+
+
+
+
 class Primitive
 {
 	friend class Window;
-	
 	friend class Scene;
+	friend class Control;
 
 public:
 	
-	Primitive(int x, int y, int w, int h)
-	{
-		_bounding_rect.x = x;
-		_bounding_rect.y = y;
-		_bounding_rect.w = w;
-		_bounding_rect.h = h;
-	}
+	Primitive(Control* parent);
+
+	Primitive(int x, int y, int w, int h);
+	
 
 
 
-	Primitive(SDL_Rect* bounding_rect)
-	{
-		_bounding_rect.x = bounding_rect->x;
-		_bounding_rect.y = bounding_rect->y;
-		_bounding_rect.w = bounding_rect->w;
-		_bounding_rect.h = bounding_rect->h;
-	}
+	Primitive(SDL_Rect* bounding_rect);
+	
 
-	Primitive(SDL_Rect bounding_rect)
-	{
-		_bounding_rect.x = bounding_rect.x;
-		_bounding_rect.y = bounding_rect.y;
-		_bounding_rect.w = bounding_rect.w;
-		_bounding_rect.h = bounding_rect.h;
-	}
+	Primitive(SDL_Rect bounding_rect);
+	
 
-	virtual void SetBoundingRect(int x, int y, int w, int h)
-	{
-		_bounding_rect.x = x;
-		_bounding_rect.y = y;
-		_bounding_rect.w = w;
-		_bounding_rect.h = h;
-	}
+	virtual void SetBoundingRect(int x, int y, int w, int h);
+	
 
-	virtual void SetBoundingRect(SDL_Rect* bounding_rect)
-	{
-		_bounding_rect.x = bounding_rect->x;
-		_bounding_rect.y = bounding_rect->y;
-		_bounding_rect.w = bounding_rect->w;
-		_bounding_rect.h = bounding_rect->h;
-	}
+	virtual void SetBoundingRect(SDL_Rect* bounding_rect);
+	
 
 	virtual void SetColor(int r, int g, int b, int a)
 	{
@@ -67,40 +49,22 @@ public:
 		this->AppllyColorToEachVertex();
 	}
 
-	virtual void SetColor(SDL_Color* color)
-	{
-		_color.r = color->r;
-		_color.g = color->g;
-		_color.b = color->b;
-		_color.a = color->a;
+	virtual void SetColor(SDL_Color* color);
+	
 
-		this->AppllyColorToEachVertex();
-	}
-
-	virtual void SetMouseOverColor(SDL_Color* color)
-	{
-		_mouse_over_color.r = color->r;
-		_mouse_over_color.g = color->g;
-		_mouse_over_color.b = color->b;
-		_mouse_over_color.a = color->a;
+	virtual void SetMouseOverColor(SDL_Color* color);
 
 
-	}
+	virtual SDL_Color* GetColor();
 
-	virtual SDL_Color* GetColor()
-	{
-		return &_color;
-	}
 
-	virtual SDL_Color* GetMouseOverColor()
-	{
-		return &_mouse_over_color;
-	}
+	virtual SDL_Color* GetMouseOverColor();
+	
 
-	virtual void ReactToEvents() {};
-	virtual void Update() {};
-	virtual void PreDraw() {};
-	virtual void Draw() = 0;
+	virtual void ReactToEvents();
+	virtual void Update();
+	virtual void PreDraw();
+	virtual void Draw();
 
 	virtual std::vector<SDL_Vertex*> GetVertexArray() const
 	{
@@ -112,120 +76,46 @@ public:
 		return &_vertices;
 	}
 
-	int GetX() const
-	{
-		return _bounding_rect.x;
-	}
+	int GetX() const;
+
+
+	int GetY() const;
 	
-	int GetY() const
-	{ 
-		return _bounding_rect.y;
-	}
 
-	virtual int MaxXVertex()
-	{
-		if (_vertices.size() == 0) return -1;
+	virtual int MaxXVertex();
+	
 
-		auto _vertex_by_x = [](SDL_Vertex* v1, SDL_Vertex* v2)
-		{
-			return (v1->position.x > v2->position.x);
-		};
+	virtual int MaxYVertex();
+	
 
-		auto it = _vertices.begin();
+	virtual int GetLayer();
+	
 
-		std::nth_element(_vertices.begin(), it, _vertices.end(), _vertex_by_x);
+	virtual void MoveUp(int step);
+	
 
-		return (*it)->position.x;
-	}
+	virtual void MoveDown(int step);
 
-	virtual int MaxYVertex()
-	{
-		if (_vertices.size() == 0) return -1;
 
-		auto _vertex_by_y = [](SDL_Vertex* v1, SDL_Vertex* v2)
-		{
-			return (v1->position.y > v2->position.y);
-		};
+	virtual void MoveLeft(int step);
+	
 
-		auto it = _vertices.begin();
+	virtual void MoveRight(int step);
 
-		std::nth_element(_vertices.begin(), it, _vertices.end(), _vertex_by_y);
-
-		return (*it)->position.y;
-	}
-
-	virtual int GetLayer()
-	{
-		const int layer = -5;
-		return layer;
-	}
-
-	virtual void MoveUp(int step)
-	{
-		if (_vertices.size() <= 0) return;
-
-		for (int i = 0; i < _vertices.size(); ++i) {
-			SDL_Vertex* v = _vertices[i];
-			if (v) v->position.y += step;
-		}
-	}
-
-	virtual void MoveDown(int step)
-	{
-		if (_vertices.size() <= 0) return;
-
-		for (int i = 0; i < _vertices.size(); ++i) {
-			SDL_Vertex* v = _vertices[i];
-			if (v) v->position.y -= step;
-		}
-	}
-
-	virtual void MoveLeft(int step)
-	{
-		if (_vertices.size() <= 0) return;
-
-		for (int i = 0; i < _vertices.size(); ++i) {
-			SDL_Vertex* v = _vertices[i];
-			if (v) v->position.x -= step;
-		}
-	}
-
-	virtual void MoveRight(int step)
-	{
-		if (_vertices.size() <= 0) return;
-				
-
-		for (int i = 0; i < _vertices.size(); ++i) {
-			SDL_Vertex* v = _vertices[i];
-			if (v) v->position.x += step;
-		}
-	}
 
 protected:
 	
-	void AppllyColorToEachVertex()
-	{
-		if (_vertices.size() == 0) return;
+	void AppllyColorToEachVertex();
 
-		for (SDL_Vertex* v : _vertices)
-			if (v) v->color = _color;
-	}
 
-	void SetRender(SDL_Renderer* render)
-	{
-		_render = render;
-	}
+	void SetRender(SDL_Renderer* render);
+	
 
-	void SetParentWindow(Window* w)
-	{
-		_parent_window = w;
-	}
+	void SetParentWindow(Window* w);
 
-	void SetParentControl(Control* c)
-	{
-		_parent_control = c;
-		_render = c->GetRender();
-	}
+
+	void SetParentControl(Control* c);
+
 
 	SDL_Renderer* _render = nullptr;
 
