@@ -66,15 +66,7 @@ void Primitive::SetColor(int r, int g, int b, int a)
 	this->AppllyColorToEachVertex();
 }
 
-void Primitive::SetColor(int r, int g, int b, int a)
-{
-	_color.r = r;
-	_color.g = g;
-	_color.b = b;
-	_color.a = a;
 
-	this->AppllyColorToEachVertex();
-}
 
 
 void Primitive::SetMouseOverColor(SDL_Color* color)

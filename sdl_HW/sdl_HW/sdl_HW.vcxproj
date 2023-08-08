@@ -205,6 +205,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CloseButton.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="Control.cpp" />
     <ClCompile Include="FatRect.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="HideButton.cpp" />

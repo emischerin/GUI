@@ -39,15 +39,8 @@ public:
 	virtual void SetBoundingRect(SDL_Rect* bounding_rect);
 	
 
-	virtual void SetColor(int r, int g, int b, int a)
-	{
-		_color.r = r;
-		_color.g = g;
-		_color.b = b;
-		_color.a = a;
+	virtual void SetColor(int r, int g, int b, int a);
 
-		this->AppllyColorToEachVertex();
-	}
 
 	virtual void SetColor(SDL_Color* color);
 	
@@ -66,16 +59,11 @@ public:
 	virtual void PreDraw();
 	virtual void Draw();
 
-	virtual std::vector<SDL_Vertex*> GetVertexArray() const
-	{
-		return _vertices;
-	}
+	virtual std::vector<SDL_Vertex*> GetVertexArray() const;
+	
 
-	std::vector<SDL_Vertex*>* GetVertexArrayPtr()
-	{
-		return &_vertices;
-	}
-
+	std::vector<SDL_Vertex*>* GetVertexArrayPtr();
+	
 	int GetX() const;
 
 
