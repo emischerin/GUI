@@ -471,6 +471,36 @@ public:
 
 	virtual void ControlMessagingFunction(ControlMsg* message) {}
 
+	virtual void RemoveChild(Control* c)
+	{
+		if (_child_controls.size() < 1) return;
+
+		for (auto it = _child_controls.begin(); it != _child_controls.end(); ++it) {
+			if (c == *it) {
+				_child_controls.erase(it);
+				delete c;
+				c = 0;
+				break;
+			}
+
+		}
+	}
+	
+	virtual void RemoveChild(Primitive* p)
+	{
+		if (_primitives.size() < 1) return;
+
+		for (auto it = _primitives.begin(); it != _primitives.end(); ++it) {
+			if (p == *it) {
+				_primitives.erase(it);
+				delete p;
+				p = 0;
+				break;
+			}
+
+		}
+	}
+
 protected:
 
 	

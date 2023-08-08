@@ -294,7 +294,8 @@ void Scene::CreateRightScrollBar()
 void Scene::RemoveRightScrollBar()
 {
 	if (_right_scroll_bar) {
-		delete _right_scroll_bar;
+		
+		this->RemoveChild(_right_scroll_bar);
 		_right_scroll_bar = nullptr;
 		this->_has_right_scrollbar = false;
 
@@ -313,7 +314,8 @@ void Scene::CreateBottomScrollBar()
 void Scene::RemoveBottomScrollBar()
 {
 	if (_bottom_scroll_bar) {
-		delete _bottom_scroll_bar;
+		
+		this->RemoveChild(_bottom_scroll_bar);
 		_bottom_scroll_bar = nullptr;
 		this->_has_bottom_scrollbar = false;
 	}
@@ -519,14 +521,14 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 {
 	if (!message) return;
 
-	Viewport::ControlMsgRequest request = (Viewport::ControlMsgRequest)message->_command;
+	Scene::ControlMsgRequest request = (Scene::ControlMsgRequest)message->_command;
 
 	switch (request)
 	{
-	case Viewport::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH:
+	case Scene::ControlMsgRequest::_RIGHT_SCROLLBAR_WIDTH:
 		message->_result = _right_scroll_bar ? (void*)_right_scroll_bar->GetWidth() : 0;
 		break;
-	case Viewport::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
+	case Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
 	default:
