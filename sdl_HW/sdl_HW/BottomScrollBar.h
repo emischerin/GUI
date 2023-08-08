@@ -23,7 +23,7 @@ class BottomScrollBar : public BaseScrollBar
 {
 public:
 
-
+	BottomScrollBar();
 	BottomScrollBar(Control* parent);
 
 

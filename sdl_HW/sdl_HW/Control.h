@@ -194,7 +194,9 @@ public:
 	{
 		_parent_control = parent;
 		_render = parent->GetRender();
+				
 	}
+		
 
 	virtual Control* GetParentControl() const
 	{

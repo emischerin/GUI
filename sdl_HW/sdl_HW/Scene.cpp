@@ -18,7 +18,7 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 
 void Scene::Update()
 {
-	Control::Update();
+	
 
 	this->UpdateMyBoundingRect();
 
@@ -38,12 +38,17 @@ void Scene::Update()
 		RemoveBottomScrollBar();
 	}
 
-	this->UpdateScrollBar();
+	
 
 	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 40;
 	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
 	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
+
+	Control::Update();
+
+	this->UpdateScrollBar();
+
 
 
 }
@@ -283,8 +288,8 @@ bool Scene::HasBottomScrollBar() const
 void Scene::CreateRightScrollBar()
 {
 	if (!_right_scroll_bar) {
-		_right_scroll_bar = new RightScrollBar(this);
-
+		_right_scroll_bar = new RightScrollBar();
+		_right_scroll_bar->SetParentControl(this);
 		this->_has_right_scrollbar = true;
 
 
@@ -295,7 +300,7 @@ void Scene::RemoveRightScrollBar()
 {
 	if (_right_scroll_bar) {
 		
-		this->RemoveChild(_right_scroll_bar);
+		delete _right_scroll_bar;
 		_right_scroll_bar = nullptr;
 		this->_has_right_scrollbar = false;
 
@@ -305,7 +310,8 @@ void Scene::RemoveRightScrollBar()
 void Scene::CreateBottomScrollBar()
 {
 	if (!_bottom_scroll_bar) {
-		_bottom_scroll_bar = new BottomScrollBar(this);
+		_bottom_scroll_bar = new BottomScrollBar();
+		_bottom_scroll_bar->SetParentControl(this);
 		this->_has_right_scrollbar = true;
 
 	}
@@ -315,7 +321,7 @@ void Scene::RemoveBottomScrollBar()
 {
 	if (_bottom_scroll_bar) {
 		
-		this->RemoveChild(_bottom_scroll_bar);
+		delete _bottom_scroll_bar;
 		_bottom_scroll_bar = nullptr;
 		this->_has_bottom_scrollbar = false;
 	}

@@ -3,13 +3,14 @@
 #define PRIMITIVES_H
 #include <algorithm>
 #include <SDL.h>
+#include "Control.h"
 /* TODO: 1) implement vertice color setter
 *	     2) Move vertices from Triangle here		
 */
 class Primitive
 {
 	friend class Window;
-	friend class Control;
+	
 	friend class Scene;
 
 public:
@@ -223,6 +224,7 @@ protected:
 	void SetParentControl(Control* c)
 	{
 		_parent_control = c;
+		_render = c->GetRender();
 	}
 
 	SDL_Renderer* _render = nullptr;

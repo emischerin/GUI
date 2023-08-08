@@ -23,7 +23,7 @@ class RightScrollBar : public BaseScrollBar
 {
 public:
 	
-
+	RightScrollBar();
 	RightScrollBar(Control* parent);
 
 	

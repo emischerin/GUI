@@ -1,7 +1,25 @@
 #include "RightScrollBar.h"
 #include "ScrollBarButton.h"
 #include "ScrollBarCaret.h"
-#include "Viewport.h"
+#include "Scene.h"
+
+RightScrollBar::RightScrollBar()
+{
+	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
+	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	_caret = new ScrollBarCaret(this);
+
+	//_up->SetColor(62,19,66,1);
+	_up->SetColor(75, 36, 78, 1);
+	_up->SetMouseOverColor(191, 125, 255, 1);
+	_up->SetWidthAndHeight(20, 20);
+
+	_down->SetColor(75, 36, 78, 1);
+	_down->SetMouseOverColor(191, 125, 255, 0);
+	_down->SetWidthAndHeight(20, 20);
+
+	this->SetWidth(20);
+}
 
 RightScrollBar::RightScrollBar(Control* parent) : BaseScrollBar(parent)
 {
@@ -60,7 +78,7 @@ void RightScrollBar::Draw()
 void RightScrollBar::TrimMyHeightIfBottomScrollbar()
 {
 	
-	ControlMsg msg = { Viewport::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT,0 };
+	ControlMsg msg = { Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT,0 };
 
 	_parent_control->ControlMessagingFunction(&msg);
 

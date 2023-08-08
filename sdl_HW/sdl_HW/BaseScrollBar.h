@@ -7,6 +7,7 @@ class BaseScrollBar : public Control
 {
 public:
 	
+	BaseScrollBar();
 	BaseScrollBar(Control* parent);
 };
 #endif
