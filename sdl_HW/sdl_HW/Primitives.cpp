@@ -67,6 +67,15 @@ void Primitive::SetColor(int r, int g, int b, int a)
 }
 
 
+void Primitive::SetColor(SDL_Color* color)
+{
+	_color.r = color->r;
+	_color.g = color->g;
+	_color.b = color->b;
+	_color.a = color->a;
+
+	this->AppllyColorToEachVertex();
+}
 
 
 void Primitive::SetMouseOverColor(SDL_Color* color)
@@ -126,13 +135,6 @@ int Primitive::GetY() const
 	return _bounding_rect.y;
 }
 
-void Primitive::SetBoundingRect(SDL_Rect* bounding_rect)
-{
-	_bounding_rect.x = bounding_rect->x;
-	_bounding_rect.y = bounding_rect->y;
-	_bounding_rect.w = bounding_rect->w;
-	_bounding_rect.h = bounding_rect->h;
-}
 
  int Primitive::MaxXVertex()
 {
@@ -226,6 +228,8 @@ void Primitive::SetBoundingRect(SDL_Rect* bounding_rect)
 	 _render = render;
  }
 
+
+
  void Primitive::SetParentWindow(Window* w)
  {
 	 _parent_window = w;
@@ -237,9 +241,6 @@ void Primitive::SetBoundingRect(SDL_Rect* bounding_rect)
 	 _render = c->GetRender();
  }
 
-void Primitive::SetRender(SDL_Renderer* render)
-{
-		_render = render;
-}
+
 
 	

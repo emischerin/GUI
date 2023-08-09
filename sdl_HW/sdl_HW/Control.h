@@ -195,6 +195,7 @@ public:
 	
 	virtual void RemoveChild(Primitive* p);
 	
+	
 
 protected:
 
@@ -203,7 +204,7 @@ protected:
 
 	void SetRender(SDL_Renderer* render);
 	
-	
+	void SetRenderToChildren(SDL_Renderer* render);
 
 	int _total_children_width = 0;
 

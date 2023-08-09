@@ -173,6 +173,7 @@ int Control::GetY() const
  {
 	 _parent_control = parent;
 	 _render = parent->GetRender();
+	 this->SetRenderToChildren(_render);
 
  }
 
@@ -479,4 +480,21 @@ int Control::GetY() const
 
   SDL_Renderer* Control::GetRender() { return _render; }
 
-  void Control::SetRender(SDL_Renderer* render) { _render = render; }
+  void Control::SetRender(SDL_Renderer* render)
+  {
+	  _render = render;
+	  this->SetRenderToChildren(render);
+  }
+
+  void Control::SetRenderToChildren(SDL_Renderer* render)
+  {
+	  for (int i = 0; i < _child_controls.size(); ++i) {
+		  Control* c = _child_controls[i];
+		  if (c) c->SetRender(render);
+	  }
+
+	  for (int i = 0; i < _primitives.size(); ++i) {
+		  Primitive* p = _primitives[i];
+		  if (p) p->SetRender(render);
+	  }
+  }

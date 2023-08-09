@@ -11,6 +11,8 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar*
 	_triangle->SetDirection(dir);
 	_triangle->SetColor(255, 100, 50, 1);
 	_triangle->SetBoundingRect(&_bounding_rect);
+	_triangle->SetRender(_render);
+	_triangle->SetParentControl(this);
 	_triangle->InitVertices();
 
 

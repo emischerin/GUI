@@ -90,19 +90,23 @@ public:
 
 	virtual void MoveRight(int step);
 
+	void SetRender(SDL_Renderer* render);
+
+	void SetParentControl(Control* c);
 
 protected:
 	
 	void AppllyColorToEachVertex();
 
 
-	void SetRender(SDL_Renderer* render);
+	
 	
 
 	void SetParentWindow(Window* w);
 
 
-	void SetParentControl(Control* c);
+	
+	
 
 
 	SDL_Renderer* _render = nullptr;
