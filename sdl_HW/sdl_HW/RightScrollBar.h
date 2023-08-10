@@ -23,6 +23,12 @@ class RightScrollBar : public BaseScrollBar
 {
 public:
 	
+	enum ControlMsgRequest
+	{		
+		_SCROLL_UP = 1
+
+	};
+
 	RightScrollBar();
 	RightScrollBar(Control* parent);
 
