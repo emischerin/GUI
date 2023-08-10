@@ -22,10 +22,7 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar*
 	
 }
 
-void ScrollBarButton::ReactToEvents()
-{
 
-}
 
 void ScrollBarButton::Update()
 {

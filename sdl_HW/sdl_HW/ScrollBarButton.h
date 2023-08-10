@@ -8,12 +8,12 @@
 class BaseScrollBar;
 
 class ScrollBarButton: public Control
-{
+{	
 public:
 	
 	ScrollBarButton(Triangle::TriangleDirection dir,BaseScrollBar* parent);
 
-	void ReactToEvents() override;
+	
 	void Update() override;
 	void Draw() override;
 

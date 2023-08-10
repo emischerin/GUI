@@ -218,6 +218,7 @@
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ScrollBarButton.cpp" />
+    <ClCompile Include="ScrollBarButtonUp.cpp" />
     <ClCompile Include="ScrollBarCaret.cpp" />
     <ClCompile Include="RightScrollBar.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -246,6 +247,7 @@
     <ClInclude Include="ResizeButton.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ScrollBarButton.h" />
+    <ClInclude Include="ScrollBarButtonUp.h" />
     <ClInclude Include="ScrollBarCaret.h" />
     <ClInclude Include="RightScrollBar.h" />
     <ClInclude Include="Triangle.h" />

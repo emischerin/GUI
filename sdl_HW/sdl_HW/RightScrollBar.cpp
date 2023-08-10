@@ -1,11 +1,12 @@
 #include "RightScrollBar.h"
 #include "ScrollBarButton.h"
+#include "ScrollBarButtonUp.h"
 #include "ScrollBarCaret.h"
 #include "Scene.h"
 
 RightScrollBar::RightScrollBar()
 {
-	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
+	_up = new ScrollBarButtonUp(Triangle::TriangleDirection::UP, this);
 	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
 
