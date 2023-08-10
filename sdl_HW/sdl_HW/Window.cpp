@@ -388,6 +388,16 @@ int Window::GetMyPitch()
 	return 0;
 }
 
+uint32_t Window::GetCurrentEventType() const
+{
+	return _event_type;
+}
+
+SDL_Event* Window::GetCurrentEventPtr()
+{
+	return &_current_event;
+}
+
 Window::~Window()
 {
 	if (_texture)

@@ -3,6 +3,7 @@
 #define SCROLLBARBUTTONUP_H
 #include "ScrollBarButton.h"
 #include "Triangle.h"
+#include "CollisionDetector.h"
 
 class BaseScrollBar;
 

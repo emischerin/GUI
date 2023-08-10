@@ -8,5 +8,9 @@ ScrollBarButtonUp::ScrollBarButtonUp(Triangle::TriangleDirection dir, BaseScroll
 
 void ScrollBarButtonUp::ReactToEvents()
 {
+	CollisionDetector cd;
 
+	if (cd.MouseInControl(this)) {
+
+	}
 }

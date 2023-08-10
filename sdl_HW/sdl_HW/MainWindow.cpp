@@ -133,7 +133,11 @@ int MainWindow::SimpleAppMainLoop()
 
 			if (AppGlobals::quit_requested) return 1;
 
-			if (wait_result) AppGlobals::event = &e;
+			if (wait_result) {
+				AppGlobals::event = &e;
+				_event_type = event_t;
+				_current_event = e;
+			}
 			
 			std::vector<Window*>* windows = AppGlobals::win_tracker->GetAllWindows();
 

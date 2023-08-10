@@ -537,6 +537,9 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 	case Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
+	case Scene::ControlMsgRequest::_SCROLL_UP:
+		this->ScrollUp(2);
+		break;
 	default:
 		break;
 	}

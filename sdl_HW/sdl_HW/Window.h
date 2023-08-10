@@ -86,6 +86,8 @@ public:
 	int GetHeaderHeight();
 	int GetMenuWidth();
 	
+	virtual uint32_t GetCurrentEventType() const;
+	virtual SDL_Event* GetCurrentEventPtr() const;
 
 	~Window();
 
@@ -151,5 +153,7 @@ protected:
 	int _header_index = 0;
 	int _menu_index = 0;
 	
+	uint32_t _event_type = 0;
+	SDL_Event _current_event;
 };
 #endif // !WINDOW_H
