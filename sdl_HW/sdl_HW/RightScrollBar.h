@@ -25,7 +25,8 @@ public:
 	
 	enum ControlMsgRequest
 	{		
-		_SCROLL_UP = 1
+		_SCROLL_UP = 1,
+		_SCROLL_DOWN
 
 	};
 
@@ -43,6 +44,7 @@ public:
 	/*!!!!USE WITH CAUSITION!!!!*/
 	void TrimMyHeightIfBottomScrollbar();
 
+	virtual void ControlMessagingFunction(ControlMsg* message);
 private:
 	ScrollBarButton* _up = nullptr;
 	ScrollBarButton* _down = nullptr;

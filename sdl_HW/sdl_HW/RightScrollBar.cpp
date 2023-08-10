@@ -86,3 +86,17 @@ void RightScrollBar::TrimMyHeightIfBottomScrollbar()
 	this->ResizeHeight(-(int)msg._result);
 	
 }
+
+void RightScrollBar::ControlMessagingFunction(ControlMsg* message)
+{
+	if (!message) return;
+
+	switch (message->_command)
+	{
+	case _SCROLL_UP:
+		Scene* scene = static_cast<Scene*>(GetParentControl());
+		scene->ControlMessagingFunction(message);
+	default:
+		break;
+	}
+}
