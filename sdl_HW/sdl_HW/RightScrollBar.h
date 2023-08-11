@@ -4,6 +4,7 @@
 
 #include "Control.h"
 #include "BaseScrollBar.h"
+#include "RightScrollBar.h"
 #include "Primitives.h"
 
 /*
@@ -23,12 +24,6 @@ class RightScrollBar : public BaseScrollBar
 {
 public:
 	
-	enum ControlMsgRequest
-	{		
-		_SCROLL_UP = 1,
-		_SCROLL_DOWN
-
-	};
 
 	RightScrollBar();
 	RightScrollBar(Control* parent);

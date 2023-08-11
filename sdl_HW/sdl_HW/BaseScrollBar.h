@@ -7,10 +7,7 @@ class BaseScrollBar : public Control
 {
 public:
 
-	enum ControlMsgRequest
-	{
-		_SCROLL_UP = 1
-	};
+	
 	
 	BaseScrollBar();
 	BaseScrollBar(Control* parent);

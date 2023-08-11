@@ -27,7 +27,7 @@ RightScrollBar::RightScrollBar(Control* parent) : BaseScrollBar(parent)
 
 	
 
-	_up = new ScrollBarButton(Triangle::TriangleDirection::UP, this);
+	_up = new ScrollBarButtonUp(Triangle::TriangleDirection::UP, this);
 	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
 
@@ -48,7 +48,8 @@ RightScrollBar::RightScrollBar(Control* parent) : BaseScrollBar(parent)
 
 void RightScrollBar::ReactToEvents()
 {
-
+	_up->ReactToEvents();
+	_down->ReactToEvents();
 }
 
 void RightScrollBar::Update()
@@ -93,10 +94,10 @@ void RightScrollBar::ControlMessagingFunction(ControlMsg* message)
 
 	switch (message->_command)
 	{
-	case _SCROLL_UP:
+	case Scene::_SCROLL_UP:
 		Scene* scene = static_cast<Scene*>(GetParentControl());
 		scene->ControlMessagingFunction(message);
-	default:
 		break;
+		
 	}
 }

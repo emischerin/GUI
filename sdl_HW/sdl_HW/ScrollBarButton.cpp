@@ -6,7 +6,7 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar*
 	if (!parent) return;
 
 	_scroll_bar = parent;
-
+	this->SetParentControl(parent);
 	_triangle = new Triangle(&_bounding_rect, dir);
 	_triangle->SetDirection(dir);
 	_triangle->SetColor(255, 100, 50, 1);

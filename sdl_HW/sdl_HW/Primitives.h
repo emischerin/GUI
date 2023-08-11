@@ -123,7 +123,7 @@ protected:
 	
 	Control* _parent_control = nullptr;
 
-	Window* _parent_window = nullptr;
+	Window* _my_parent_window = nullptr;
 
 
 	

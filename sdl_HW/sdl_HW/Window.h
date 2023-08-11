@@ -87,7 +87,7 @@ public:
 	int GetMenuWidth();
 	
 	virtual uint32_t GetCurrentEventType() const;
-	virtual SDL_Event* GetCurrentEventPtr() const;
+	virtual SDL_Event* GetCurrentEventPtr();
 
 	~Window();
 

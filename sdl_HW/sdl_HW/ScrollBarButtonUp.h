@@ -4,6 +4,7 @@
 #include "ScrollBarButton.h"
 #include "Triangle.h"
 #include "CollisionDetector.h"
+#include "RightScrollBar.h"
 
 class BaseScrollBar;
 

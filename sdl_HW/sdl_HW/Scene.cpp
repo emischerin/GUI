@@ -15,6 +15,16 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 	
 }
 
+void Scene::ReactToEvents()
+{
+	if (_right_scroll_bar)
+		_right_scroll_bar->ReactToEvents();
+	if (_bottom_scroll_bar)
+		_bottom_scroll_bar->ReactToEvents();
+
+	Control::ReactToEvents();
+
+}
 
 void Scene::Update()
 {

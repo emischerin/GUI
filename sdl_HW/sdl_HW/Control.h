@@ -25,6 +25,7 @@ public:
 	{
 		int _command;
 		void* _result;
+
 	};
 
 
@@ -205,6 +206,8 @@ protected:
 	void SetRender(SDL_Renderer* render);
 	
 	void SetRenderToChildren(SDL_Renderer* render);
+
+	void SetParentWindowToChildren(Window* w);
 
 	int _total_children_width = 0;
 

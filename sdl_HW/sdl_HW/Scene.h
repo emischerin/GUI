@@ -50,6 +50,7 @@ public:
 	void AddControl(Control* c);
 	void AddPrimitive(Primitive* p) override;
 
+	void ReactToEvents() override;
 	void Update() override;
 	void PreDraw() override;
 	void Draw() override;

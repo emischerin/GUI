@@ -232,7 +232,7 @@ int Primitive::GetY() const
 
  void Primitive::SetParentWindow(Window* w)
  {
-	 _parent_window = w;
+	 _my_parent_window = w;
  }
 
  void Primitive::SetParentControl(Control* c)

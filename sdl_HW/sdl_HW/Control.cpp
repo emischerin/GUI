@@ -172,8 +172,11 @@ int Control::GetY() const
  void Control::SetParentControl(Control* parent)
  {
 	 _parent_control = parent;
+	 _my_parent_window = parent->GetMyParentWindow();
 	 _render = parent->GetRender();
 	 this->SetRenderToChildren(_render);
+	 this->SetParentWindowToChildren(_my_parent_window);
+	 
 
  }
 
@@ -496,5 +499,18 @@ int Control::GetY() const
 	  for (int i = 0; i < _primitives.size(); ++i) {
 		  Primitive* p = _primitives[i];
 		  if (p) p->SetRender(render);
+	  }
+  }
+
+  void Control::SetParentWindowToChildren(Window* w)
+  {
+	  for (int i = 0; i < _child_controls.size(); ++i) {
+		  Control* c = _child_controls[i];
+		  if (c) c->_my_parent_window = _my_parent_window;
+	  }
+
+	  for (int i = 0; i < _primitives.size(); ++i) {
+		  Primitive* p = _primitives[i];
+		  if (p) p->_my_parent_window = _my_parent_window;
 	  }
   }
