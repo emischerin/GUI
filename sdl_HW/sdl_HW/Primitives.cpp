@@ -174,7 +174,7 @@ int Primitive::GetY() const
 
 	 for (int i = 0; i < _vertices.size(); ++i) {
 		 SDL_Vertex* v = _vertices[i];
-		 if (v) v->position.y += step;
+		 if (v) v->position.y -= step;
 	 }
  }
 
@@ -184,7 +184,7 @@ int Primitive::GetY() const
 
 	 for (int i = 0; i < _vertices.size(); ++i) {
 		 SDL_Vertex* v = _vertices[i];
-		 if (v) v->position.y -= step;
+		 if (v) v->position.y += step;
 	 }
  }
 

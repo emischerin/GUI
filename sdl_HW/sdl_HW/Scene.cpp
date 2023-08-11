@@ -255,7 +255,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 
-
+	return true;
 	
 
 	int max_control_y = this->MaxYControl();
@@ -548,7 +548,7 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_UP:
-		this->ScrollUp(2);
+		this->ScrollUp(5);
 		break;
 	default:
 		break;
@@ -561,7 +561,7 @@ void Scene::ScrollUp(int step)
 	int max_y_primitive = this->MaxYPrimitive();
 	
 
-	if (max_y_ctrl >= _scroll_up_lim && max_y_primitive >= _scroll_up_lim) {
+	
 		for (int i = 0; i < _child_controls.size(); ++i) {
 			Control* c = _child_controls[i];
 			if (c) c->MoveUp(step);
@@ -571,7 +571,7 @@ void Scene::ScrollUp(int step)
 			Primitive* p = _primitives[i];
 			if (p) p->MoveUp(step);
 		}
-	}
+	
 }
 
 void Scene::ScrollDown(int step)
