@@ -21,10 +21,6 @@ public:
 	static WindowTracker* win_tracker;
 	static SDL_Event* event;
 	
-	
-	
-
-
 	static bool app_is_inFullscreen;
 	
 	static bool quit_requested;

@@ -6,6 +6,8 @@ Header::Header(int height,int buttons_width)
 
 	_height = height;
 	
+	_bounding_rect.h = _height;
+
 	_close_button.SetWidthAndHeight(height,buttons_width);
 	_resize_button.SetWidthAndHeight(height, buttons_width);
 	_hide_button.SetWidthAndHeight(height, buttons_width);
@@ -17,11 +19,38 @@ Header::Header(int height,int buttons_width)
 
 	_sys_btns_width = buttons_width;
 
-	SDL_GetWindowPosition(AppGlobals::main_window, &_bounding_rect.x, &_bounding_rect.y);
-	SDL_GetWindowSize(AppGlobals::main_window, &_bounding_rect.w, &_bounding_rect.h);
+	SDL_GetWindowPosition(AppGlobals::main_window, &_parent_window_geometry.x, &_parent_window_geometry.y);
+	SDL_GetWindowSize(AppGlobals::main_window, &_parent_window_geometry.w, &_parent_window_geometry.h);
 
 }
 
+Header::Header(int height, int buttons_width,Window* parent_window)
+{
+	if (!parent_window) return;
+
+
+
+	_height = height;
+
+	_bounding_rect.h = _height;
+
+	_close_button.SetWidthAndHeight(height, buttons_width);
+	_resize_button.SetWidthAndHeight(height, buttons_width);
+	_hide_button.SetWidthAndHeight(height, buttons_width);
+
+	_close_button.SetParentControl(this);
+	_resize_button.SetParentControl(this);
+	_hide_button.SetParentControl(this);
+
+
+	_sys_btns_width = buttons_width;
+
+	SDL_GetWindowPosition(AppGlobals::main_window, &_parent_window_geometry.x, &_parent_window_geometry.y);
+	SDL_GetWindowSize(AppGlobals::main_window, &_parent_window_geometry.w, &_parent_window_geometry.h);
+
+	parent_window->SetHeader(this);
+
+}
 
 void Header::ReactToEvents()
 {
@@ -97,4 +126,10 @@ void Header::DrawHideButton()
 		_hide_button.SetPosition(hide_button_offset, 0);
 		_hide_button.Draw();
 	}
+}
+
+int Header::GetLayer()
+{
+	const int layer = 1;
+	return layer;
 }

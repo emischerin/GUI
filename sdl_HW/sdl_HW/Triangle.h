@@ -39,12 +39,19 @@ public:
 
 	void Draw() override;
 	
+	void SetDirection(Triangle::TriangleDirection dir);
 
+	void SetBoundingRect(SDL_Rect* bounding_rect) override;
 
+	void SetBoundingRect(int x,int y,int w,int) override;
+
+	void InitVertices();
+
+	Triangle::TriangleDirection GetDirection() const;
 
 protected:
 	
-	void InitVertices();
+	
 
 	void SetVertexPosition(SDL_Vertex* v, float x, float y);
 
@@ -53,8 +60,12 @@ protected:
 	SDL_Vertex _b;
 	SDL_Vertex _c;
 	float _height = 0;
-	std::vector<SDL_Vertex*> _points = {&_a,&_b,&_c};
+	
 	TriangleDirection _my_direction;
+
+private:
+
+	void InitVertexArray();
 
 
 

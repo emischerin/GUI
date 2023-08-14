@@ -55,5 +55,4 @@ bool CollisionDetector::MouseInControl(Control* control)
 	return PointInControl(control, mouse_x, mouse_y);
 
 
-
 }

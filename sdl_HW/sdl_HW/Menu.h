@@ -27,6 +27,8 @@ public:
 
 	void AdjustToParent() override;
 
+	int GetLayer() override;
+
 private:
 
 	MenuPosType _pos_type;

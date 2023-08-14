@@ -3,6 +3,7 @@
 #define WINDOW_H
 
 #include <vector>
+#include <map>
 #include <SDL.h>
 
 #include "AppGlobals.h"
@@ -19,6 +20,11 @@ class Header;
 
 class Window
 {
+	friend class Control;
+	friend class Window;
+	friend class Scene;
+	friend class Primitive;
+
 public:
 	
 	enum WindowSizeState
@@ -29,16 +35,22 @@ public:
 	};
 
 	Window(int width, int height,const char* title);
-	
+	Window(int x, int y, int width, int height, const char* title);
 
 
 	SDL_Renderer* GetWinRender();
 	SDL_Window* GetWinPtr();
 	void AddControl(Control* control);
 	
+	void AddPrimitive(Primitive* primitive);
+
 	virtual void ReactToEvents();
 
 	virtual void Resize(int width,int height);
+
+	virtual void Update();
+
+	virtual void PreDraw();
 
 	void Draw();
 
@@ -56,31 +68,56 @@ public:
 
 	Header* GetHeader();
 
+	SDL_Texture* GetWindowTexture() const;
+
+	/*
+	*DO NOT add menu twice, as you will have nullptr in controls
+	* most likely, app will not fail, but it defenetely can
+	**/
 	void AddMenu(Menu* menu);
 
 	bool HasHeader() const;
 
 	bool HasMenu() const;
 	
+<<<<<<< HEAD
 	/*
 	*
 	* Experimental mechanism of creating window. TODO: Integrate this into architecture
 	*/
 	Window* CreateWindow(int x, int y, int width, int height, const char* title);
+=======
+	int GetWinWidth() const;
+	int GetWinHeight() const;
+
+	int GetHeaderHeight();
+	int GetMenuWidth();
+	
+	virtual uint32_t GetCurrentEventType() const;
+	virtual SDL_Event* GetCurrentEventPtr();
+>>>>>>> right_scrllbar
 
 	~Window();
 
 protected:
 
+<<<<<<< HEAD
 	
+=======
+	virtual void DrawControlsByLayer(std::vector<Control*>* v);
+>>>>>>> right_scrllbar
 
 	virtual void InternalReactToEvents();
+
+	virtual void InternalUpdate();
 
 	virtual void CaptureWindowState();
 
 	bool TextureReallocationNeeded();
 
 	void TryReallocateTexture();
+
+	int GetMyPitch();
 
 	static SDL_HitTestResult SDLCALL MoveWindowCallback(SDL_Window* win, const SDL_Point* area, void* data);
 
@@ -100,9 +137,15 @@ protected:
 
 	std::vector<Control*> _controls;
 
+	std::map<int,std::vector<Control*>> _controls_by_layer;
+
+	std::vector<Primitive*> _primitives;
+
+	std::map<int,std::vector<Primitive*>> _primitives_by_layer;
+
 	Header *_header = nullptr;
 
-	std::vector<Menu*> _menues;
+	Menu* _menu = nullptr;
 
 	int _width = 0;
 	int _height = 0;
@@ -118,6 +161,11 @@ protected:
 	uint32_t _flags = 0;
 
 	const char* _title = nullptr;
+
+	int _header_index = 0;
+	int _menu_index = 0;
 	
+	uint32_t _event_type = 0;
+	SDL_Event _current_event;
 };
 #endif // !WINDOW_H

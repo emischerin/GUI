@@ -199,26 +199,41 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AppGlobals.cpp" />
+    <ClCompile Include="BaseScrollBar.cpp" />
     <ClCompile Include="BorderLine.cpp" />
+    <ClCompile Include="BottomScrollBar.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CloseButton.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="Control.cpp" />
     <ClCompile Include="FatRect.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="HideButton.cpp" />
     <ClCompile Include="InputCaret.cpp" />
+    <ClCompile Include="ISceneController.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="my_graphic.cpp" />
+    <ClCompile Include="Primitives.cpp" />
     <ClCompile Include="ResizeButton.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScrollBarButton.cpp" />
+    <ClCompile Include="ScrollBarButtonDown.cpp" />
+    <ClCompile Include="ScrollBarButtonUp.cpp" />
+    <ClCompile Include="ScrollBarCaret.cpp" />
+    <ClCompile Include="RightScrollBar.cpp" />
     <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Viewport.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppGlobals.h" />
+    <ClInclude Include="BaseScrollBar.h" />
     <ClInclude Include="BorderLine.h" />
+    <ClInclude Include="BottomScrollBar.h" />
     <ClInclude Include="bsp_tree.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CloseButton.h" />
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Control.h" />
@@ -226,12 +241,19 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="HideButton.h" />
     <ClInclude Include="InputCaret.h" />
+    <ClInclude Include="ISceneController.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Primitives.h" />
     <ClInclude Include="ResizeButton.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScrollBarButton.h" />
+    <ClInclude Include="ScrollBarButtonDown.h" />
+    <ClInclude Include="ScrollBarButtonUp.h" />
+    <ClInclude Include="ScrollBarCaret.h" />
+    <ClInclude Include="RightScrollBar.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Viewport.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowTracker.h" />
   </ItemGroup>

@@ -15,15 +15,40 @@ Window::Window(int width, int height,const char* title)
 	
 }
 
+Window::Window(int x, int y, int width, int height, const char* title)
+{
+	_x = x;
+	_y = y;
+	_width = width;
+	_height = height;
+	_title = title;
+}
+
 void Window::AddControl(Control* control)
 {
 	if(!control) return;
 	
 	_controls.push_back(control);
-
+	control->SetRender(_win_render);
 	control->SetParentWindow(this);
 
 
+	int layer = control->GetLayer();
+	_controls_by_layer[layer].push_back(control);
+
+}
+
+void Window::AddPrimitive(Primitive* primitive)
+{
+	if (!primitive) return;
+
+	_primitives.push_back(primitive);
+	primitive->SetRender(_win_render);
+	primitive->SetParentWindow(this);
+
+	int layer = primitive->GetLayer();
+
+	_primitives_by_layer[layer].push_back(primitive);
 }
 
 void Window::ReactToEvents()
@@ -32,7 +57,12 @@ void Window::ReactToEvents()
 
 	for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
-		ctrl->ReactToEvents();
+		if(ctrl) ctrl->ReactToEvents();
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if(p) p->ReactToEvents();
 	}
 }
 
@@ -41,9 +71,42 @@ void Window::InternalReactToEvents()
 
 }
 
+void Window::Update()
+{
+	this->InternalReactToEvents();
+
+	for (int i = 0; i < _controls.size(); ++i) {
+		Control* ctrl = _controls[i];
+		if(ctrl) ctrl->Update();
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if(p) p->Update();
+	}
+}
+
+void Window::InternalUpdate()
+{
+
+}
+
+void Window::PreDraw()
+{
+	for (int i = 0; i < _controls.size(); ++i) {
+		Control* ctrl = _controls[i];
+		if (ctrl) ctrl->PreDraw();
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->PreDraw();
+	}
+}
+
 void Window::Draw()
 {
-	int set_rndr_target = SDL_SetRenderTarget(_win_render, _texture);
+	int set_rndr_target = SDL_SetRenderTarget(_win_render, 0);
 
 	if (set_rndr_target == 0) { /*No errors, we can render to texture safely*/
 		_render_to_texture = true;
@@ -51,26 +114,37 @@ void Window::Draw()
 	else { _render_to_texture = false; }
 	
 
-	SDL_SetRenderDrawColor(AppGlobals::main_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
+	SDL_SetRenderDrawColor(_win_render, _background_color.r, _background_color.g, _background_color.b, _background_color.a);
 
-	SDL_RenderClear(AppGlobals::main_render);
+	SDL_RenderClear(_win_render);
 
 
+	for (auto it = _controls_by_layer.begin(); it != _controls_by_layer.end(); ++it) {
+		std::vector<Control*> _current_layer = it->second;
+		this->DrawControlsByLayer(&_current_layer);
 
-	for (int i = 0; i < _controls.size(); ++i) {
+	}
+
+	/*for (int i = 0; i < _controls.size(); ++i) {
 		Control* ctrl = _controls[i];
 		if(ctrl) ctrl->Draw();
 	}
 	
-	SDL_SetRenderTarget(AppGlobals::main_render, 0);
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->Draw();
+	}*/
 
-	SDL_RenderCopy(AppGlobals::main_render, _texture, 0, 0);
+	//SDL_SetRenderTarget(_win_render, 0);
 
-	SDL_RenderPresent(AppGlobals::main_render);
+	//SDL_RenderCopy(_win_render, _texture, 0, 0);
+
+	SDL_RenderPresent(_win_render);
 
 	
 }
 
+<<<<<<< HEAD
 Window* Window::CreateWindow(int x, int y, int width, int height, const char* title)
 {
 	_win_ptr = SDL_CreateWindow(_title, x, y,
@@ -84,6 +158,17 @@ Window* Window::CreateWindow(int x, int y, int width, int height, const char* ti
 
 	return this;
 
+=======
+void Window::DrawControlsByLayer(std::vector<Control*>* v)
+{
+	if (!v) return;
+	if (v->size() <= 0) return;
+
+	for (int i = 0; i < v->size(); ++i) {
+		Control* ctrl = v->at(i);
+		if (ctrl) ctrl->Draw();
+	}
+>>>>>>> right_scrllbar
 }
 
 Window::WindowSizeState Window::GetSizeState() const
@@ -132,8 +217,15 @@ void Window::SetHeader(Header* head)
 {
 	if (!head) return;
 
+	if (_header) {
+		delete _header;
+		_controls.erase(_controls.begin() + _header_index);
+				
+	}
+		
 	_header = head;
 	this->AddControl(head);
+	_header_index = _controls.size() - 1;
 
 	SDL_SetWindowHitTest(_win_ptr, Window::MoveWindowCallback, 0);
 }
@@ -150,8 +242,31 @@ void Window::GetWindowSizeAsRect(SDL_Rect* rect) const
 
 void Window::AddMenu(Menu* menu)
 {
-	_menues.push_back(menu);
+	if (_menu) {
+		delete _menu;
+		_controls.erase(_controls.begin() + _menu_index);
+	}
+
+	_menu = menu;
 	this->AddControl(menu);
+	_menu_index = _controls.size() - 1;
+	
+}
+
+int Window::GetHeaderHeight() 
+{
+	if (this->HasHeader())
+		return _header->GetHeight();
+
+	return 0;
+}
+
+int Window::GetMenuWidth() 
+{
+	if (this->HasMenu())
+		return _menu->GetWidth();
+
+	return 0;
 }
 
 
@@ -205,6 +320,16 @@ void Window::SetMySize()
 	
 }
 
+int Window::GetWinHeight() const
+{
+	return _height;
+}
+
+int Window::GetWinWidth() const
+{
+	return _width;
+}
+
 void Window::CaptureWindowState()
 {
 	SDL_GetWindowPosition(_win_ptr, &_saved_x, &_saved_y);
@@ -242,7 +367,7 @@ bool Window::HasHeader() const
 
 bool Window::HasMenu() const
 {
-	return _menues.size() > 0;
+	return _menu != nullptr;
 }
 
 void Window::TryReallocateTexture()
@@ -273,6 +398,26 @@ bool Window::TextureReallocationNeeded()
 	}
 
 	return false;
+}
+
+SDL_Texture* Window::GetWindowTexture() const
+{
+	return _texture;
+}
+
+int Window::GetMyPitch()
+{
+	return 0;
+}
+
+uint32_t Window::GetCurrentEventType() const
+{
+	return _event_type;
+}
+
+SDL_Event* Window::GetCurrentEventPtr()
+{
+	return &_current_event;
 }
 
 Window::~Window()

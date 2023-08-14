@@ -22,10 +22,7 @@ Menu::Menu(Window* parent_window, MenuPosType pos_type) : Control(parent_window)
 void Menu::ReactToEvents() 
 {
 	
-	for (int i = 0; i < _child_controls.size(); ++i) {
-		Control* child = _child_controls[i];
-		if (child) child->ReactToEvents();
-	}
+	Control::ReactToEvents();
 
 }
 
@@ -80,6 +77,12 @@ void Menu::DrawLeftMenu()
 	SDL_SetRenderDrawColor(AppGlobals::main_render, _color.r, _color.g, _color.b, _color.a);
 
 	SDL_RenderFillRect(AppGlobals::main_render, &_bounding_rect);
+}
+
+int Menu::GetLayer()
+{
+	const int layer = 1;
+	return layer;
 }
 
 void Menu::DrawRightMenu()

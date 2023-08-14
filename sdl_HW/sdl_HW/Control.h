@@ -4,161 +4,211 @@
 
 #include <SDL.h>
 #include <vector>
+#include <numeric>
+#include <algorithm>
 #include "AppGlobals.h"
 #include "Window.h"
+#include "Primitives.h"
 
 
 
-class Control {
+class Control
+{
+
+	friend class Primitive;
+	friend class Window;
+	friend class Scene;
+
 public:
 	
-
-	Control() {};
-	Control(Control* parent)
+	struct ControlMsg
 	{
-		if (!parent) return;
+		int _command;
+		void* _result;
 
-		_parent_control = parent;
+	};
 
-		parent->AddChildren(this);
-	}
-	Control(Window* parent_window)
-	{
-		if (!parent_window) return;
 
-		_my_parent_window = parent_window;
-		_parent_window = parent_window->GetWinPtr();
+	Control();
 
-		_my_parent_window->AddControl(this);
-
-	}
-
-	virtual void SetColor(int r, int g, int b, int a)
-	{
-		_color.r = r;
-		_color.g = g;
-		_color.b = b;
-		_color.a = a;
-	}
-
-	virtual void SetColor(SDL_Color* color)
-	{
-		_color.r = color->r;
-		_color.g = color->g;
-		_color.b = color->b;
-		_color.a = color->a;
-	}
-
-	virtual void SetMouseOverColor(SDL_Color* color)
-	{
-		_mouse_over_color.r = color->r;
-		_mouse_over_color.g = color->g;
-		_mouse_over_color.b = color->b;
-		_mouse_over_color.a = color->a;
-	}
-
-	virtual SDL_Color* GetColor()
-	{
-		return &_color;
-	}
-
-	virtual SDL_Color* GetMouseOverColor() 
-	{
-		return &_mouse_over_color;
-	}
-
-	virtual void SetPosition(int x, int y)
-	{
+	Control(Control* parent);
 	
 
-		_bounding_rect.x = x;
-		_bounding_rect.y = y;
-	}
+	Control(Window* parent_window);
+	
 
-	virtual void SetWidthAndHeight(int w, int h)
-	{		
-		_bounding_rect.w = w;
-		_bounding_rect.h = h;
-	}
+	virtual void SetColor(int r, int g, int b, int a);
+	
 
-	virtual void SetBoundingRect(int x, int y, int w, int h)
-	{
-		_bounding_rect.x = x;
-		_bounding_rect.y = y;
-		_bounding_rect.w = w;
-		_bounding_rect.h = h;
-	}
+	virtual void SetColor(SDL_Color* color);
+	
 
-	virtual SDL_Rect* GetBoundingRect()
-	{
-		return &_bounding_rect;
-	}
+	virtual void SetMouseOverColor(SDL_Color* color);
+	
 
-	virtual void SetParentWindow(SDL_Window* w)
-	{
-		_parent_window = w;
-	}
+	virtual void SetMouseOverColor(int r, int g, int b, int a);
+	
 
-	virtual void SetParentWindow(Window* w)
-	{
-		_my_parent_window = w;
-	}
+	virtual SDL_Color* GetColor();
+	
 
-	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w)
-	{
-		_my_parent_window = my_w;
-		_parent_window = sdl_w;
-	}
+	virtual SDL_Color* GetMouseOverColor();
 
-	virtual SDL_Window* GetParentWindow() const
-	{
-		return _parent_window;
-	}
 
-	int GetX() const
-	{
-		return _bounding_rect.x;
-	}
-	int GetY() const
-	{
-		return _bounding_rect.y;
-	}
+	virtual void SetPosition(int x, int y);
+	
 
-	virtual int GetWidth() const
-	{
-		return _bounding_rect.w;
-	}
+	virtual void SetWidthAndHeight(int w, int h);
+	
 
-	virtual int GetHeight() const
-	{
-		return _bounding_rect.h;
-	}
+	virtual void SetWidth(int w);
+	
 
-	virtual void SetParentControl(Control* parent)
-	{
-		_parent_control = parent;
-	}
+	virtual void SetHeight(int h);
 
-	virtual Control* GetParentControl() const
-	{
-		return _parent_control;
-	}
 
-	virtual void AddChildren(Control* child)
-	{
-		if (!child) return;
-		_child_controls.push_back(child);
-		_total_children_width += child->GetWidth();
-		_total_children_height += child->GetHeight();
-	}
+	virtual void SetBoundingRect(int x, int y, int w, int h);
+	
 
-	virtual void ReactToEvents() {}
-	virtual void Draw() = 0;
-	virtual void AdjustToParent(){}
-	virtual void AdjustChildren() {}
-	virtual ~Control() = default;
+	virtual void SetBoundingRect(SDL_Rect* bounding_rect);
+
+
+	virtual SDL_Rect* GetBoundingRect();
+	
+
+	virtual void SetParentWindow(SDL_Window* w);
+	
+
+	virtual void SetParentWindow(Window* w);
+
+
+	virtual void SetParentWindow(Window* my_w, SDL_Window* sdl_w);
+	
+
+	virtual SDL_Window* GetParentWindow() const;
+
+
+	virtual Window* GetMyParentWindow() const;
+	
+
+	int GetX() const;
+	
+
+	int GetY() const;
+	
+
+	virtual int GetWidth() const;
+	
+
+	virtual int GetHeight() const;
+	
+
+	virtual void SetParentControl(Control* parent);
+	
+		
+
+	virtual Control* GetParentControl() const;
+	
+
+	virtual void AddChild(Control* child);
+	
+
+	virtual void AddPrimitive(Primitive* p);
+	
+
+	virtual void ReactToEvents();
+	
+
+	virtual void Update();
+	
+
+
+	/*
+	* Now this needs for Scene, but probably will be needed in future somwhere else
+	*/
+	virtual void PreDraw();
+	
+	
+
+	virtual void Draw();
+	
+
+	virtual void AdjustToParent();
+	virtual void AdjustChildren();
+
+
+	virtual int MinXControl();
+	
+
+	virtual int MaxXControl();
+	
+
+
+
+	virtual int MinYControl();
+	
+
+	virtual int MaxYControl();
+	
+
+	virtual int MinXPrimitive();
+	
+
+	virtual int MaxXPrimitive();
+	
+
+	
+
+	virtual int MinYPrimitive();
+	
+
+	virtual int MaxYPrimitive();
+	
+
+	void ResizeWidth(int dx);
+	
+
+	void ResizeHeight(int dy);
+	
+
+	virtual int GetLayer();
+	
+	
+	virtual void MoveUp(int step);
+	
+
+	virtual void MoveDown(int step);
+	
+
+	virtual void MoveLeft(int step);
+	
+
+	virtual void MoveRight(int step);
+	
+
+	virtual ~Control();
+	
+
+	virtual void ControlMessagingFunction(ControlMsg* message);
+
+	virtual void RemoveChild(Control* c);
+	
+	
+	virtual void RemoveChild(Primitive* p);
+	
+	
+
 protected:
+
 	
+	SDL_Renderer* GetRender();
+
+	void SetRender(SDL_Renderer* render);
+	
+	void SetRenderToChildren(SDL_Renderer* render);
+
+	void SetParentWindowToChildren(Window* w);
+
 	int _total_children_width = 0;
 
 	int _total_children_height = 0;
@@ -171,12 +221,16 @@ protected:
 
 	SDL_Window* _parent_window = nullptr;
 
+	SDL_Renderer* _render = nullptr;
+
 	Window* _my_parent_window = nullptr;
 
 	Control* _parent_control = nullptr;
 
 	std::vector<Control*> _child_controls;
 	
+	std::vector<Primitive*> _primitives;
+
 
 };
 

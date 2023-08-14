@@ -3,6 +3,7 @@
 Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitive(x,y,w,h)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -10,6 +11,7 @@ Triangle::Triangle(int x, int y, int w, int h, TriangleDirection dir) : Primitiv
 Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -17,6 +19,7 @@ Triangle::Triangle(SDL_Rect* bounding_rect, TriangleDirection dir) :Primitive(bo
 Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bounding_rect)
 {
 	this->_my_direction = dir;
+	this->InitVertexArray();
 	this->InitVertices();
 }
 
@@ -24,7 +27,7 @@ Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bo
 void Triangle::Draw() 
 {
 	
-	SDL_RenderGeometry(AppGlobals::main_render, 0, *_points.data(), _points.size(), 0, 0);
+	SDL_RenderGeometry(_render, 0, *_vertices.data(), _vertices.size(), 0, 0);
 	
 }
 
@@ -40,6 +43,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 
 	}
@@ -54,6 +62,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 
@@ -66,6 +79,11 @@ void Triangle::InitVertices()
 
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
+
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
 
 		return;
 	}
@@ -80,6 +98,11 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 	else /*If somebody manage to pass some value that out of enum scope*/
@@ -93,14 +116,49 @@ void Triangle::InitVertices()
 		_c.position.x = _bounding_rect.x + _bounding_rect.w;
 		_c.position.y = _bounding_rect.y + _bounding_rect.h;
 
+		/*Initializing Vertex Color*/
+		_a.color = _color;
+		_b.color = _color;
+		_c.color = _color;
+
 		return;
 	}
 
+	
 
+
+}
+
+void Triangle::SetBoundingRect(SDL_Rect* bounding_rect)
+{
+	Primitive::SetBoundingRect(bounding_rect);
+	this->InitVertices();
+}
+
+void Triangle::SetBoundingRect(int x, int y, int w, int h)
+{
+	Primitive::SetBoundingRect(x, y, w, h);
+	this->InitVertices();
 }
 
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
 {
 	v->position.x = x;
 	v->position.y = y;
+}
+
+void Triangle::InitVertexArray()
+{
+	_vertices = { &_a,&_b,&_c };
+}
+
+void Triangle::SetDirection(Triangle::TriangleDirection dir)
+{
+	this->_my_direction = dir;
+	this->InitVertices();
+}
+
+Triangle::TriangleDirection Triangle::GetDirection() const
+{
+	return _my_direction;
 }
