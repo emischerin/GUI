@@ -5,6 +5,7 @@
 #include "Triangle.h"
 #include "CollisionDetector.h"
 #include "RightScrollBar.h"
+#include "Scene.h"
 
 class BaseScrollBar;
 

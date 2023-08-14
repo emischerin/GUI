@@ -550,6 +550,8 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 	case Scene::ControlMsgRequest::_SCROLL_UP:
 		this->ScrollUp(5);
 		break;
+	case Scene::ControlMsgRequest::_SCROLL_DOWN:
+		this->ScrollDown(5);
 	default:
 		break;
 	}
@@ -580,17 +582,17 @@ void Scene::ScrollDown(int step)
 	int min_y_primitive = this->MinYPrimitive();
 
 
-	if (min_y_ctrl <= _scroll_down_lim && min_y_primitive <= _scroll_down_lim) {
-		for (int i = 0; i < _child_controls.size(); ++i) {
-			Control* c = _child_controls[i];
-			if (c) c->MoveDown(step);
-		}
-
-		for (int i = 0; i < _primitives.size(); ++i) {
-			Primitive* p = _primitives[i];
-			if (p) p->MoveDown(step);
-		}
+	
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* c = _child_controls[i];
+		if (c) c->MoveDown(step);
 	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->MoveDown(step);
+	}
+	
 }
 
 void Scene::ScrollRight(int step)

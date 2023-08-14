@@ -1,13 +1,14 @@
 #include "RightScrollBar.h"
 #include "ScrollBarButton.h"
 #include "ScrollBarButtonUp.h"
+#include "ScrollBarButtonDown.h"
 #include "ScrollBarCaret.h"
 #include "Scene.h"
 
 RightScrollBar::RightScrollBar()
 {
 	_up = new ScrollBarButtonUp(Triangle::TriangleDirection::UP, this);
-	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	_down = new ScrollBarButtonDown(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
 
 	//_up->SetColor(62,19,66,1);
@@ -28,7 +29,7 @@ RightScrollBar::RightScrollBar(Control* parent) : BaseScrollBar(parent)
 	
 
 	_up = new ScrollBarButtonUp(Triangle::TriangleDirection::UP, this);
-	_down = new ScrollBarButton(Triangle::TriangleDirection::DOWN, this);
+	_down = new ScrollBarButtonDown(Triangle::TriangleDirection::DOWN, this);
 	_caret = new ScrollBarCaret(this);
 
 	//_up->SetColor(62,19,66,1);
@@ -92,10 +93,15 @@ void RightScrollBar::ControlMessagingFunction(ControlMsg* message)
 {
 	if (!message) return;
 
+	Scene* scene = static_cast<Scene*>(GetParentControl());
+
 	switch (message->_command)
 	{
 	case Scene::_SCROLL_UP:
-		Scene* scene = static_cast<Scene*>(GetParentControl());
+		
+		scene->ControlMessagingFunction(message);
+		break;
+	case Scene::_SCROLL_DOWN:
 		scene->ControlMessagingFunction(message);
 		break;
 		
