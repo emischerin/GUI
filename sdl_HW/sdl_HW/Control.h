@@ -165,6 +165,11 @@ public:
 	virtual int MaxYPrimitive();
 	
 
+	/*RETURNS MIN Y CONTROL OR PRIMITIVE*/
+	virtual int MinYObject();
+	/*RETURNS MAX Y CONTROL OR PRIMITIVE*/
+	virtual int MaxYObject();
+
 	void ResizeWidth(int dx);
 	
 

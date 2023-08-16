@@ -50,7 +50,7 @@ void Scene::Update()
 
 	
 
-	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 40;
+	this->_scroll_up_lim = 40;
 	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
 	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
@@ -559,10 +559,13 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 
 void Scene::ScrollUp(int step)
 {
-	int max_y_ctrl = this->MaxYControl();
-	int max_y_primitive = this->MaxYPrimitive();
-	
+	int min_y_ctrl = this->MinYControl();
+	int min_y_primitive = this->MinYPrimitive();
 
+	if()
+	
+	
+		
 	
 		for (int i = 0; i < _child_controls.size(); ++i) {
 			Control* c = _child_controls[i];

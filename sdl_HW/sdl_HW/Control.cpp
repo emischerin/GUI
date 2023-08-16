@@ -287,7 +287,7 @@ int Control::GetY() const
 
  int Control::MinYControl()
  {
-	 if (_child_controls.size() == 0) return -1;
+	 if (_child_controls.size() == 0) return INT_MIN;
 
 	 auto _control_by_y = [](Control* c1, Control* c2)
 	 {
@@ -303,7 +303,7 @@ int Control::GetY() const
 
  int Control::MaxYControl()
  {
-	 if (_child_controls.size() == 0) return -1;
+	 if (_child_controls.size() == 0) return INT_MIN;
 
 	 auto _control_by_y = [](Control* c1, Control* c2)
 	 {
@@ -382,6 +382,16 @@ int Control::GetY() const
 
 	 return (*it)->GetY();
  }
+
+  int Control::MinYObject()
+  {
+
+  }
+
+  int Control::MaxYObject()
+  {
+
+  }
 
   void Control::ResizeWidth(int dx)
   {
