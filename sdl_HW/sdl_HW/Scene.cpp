@@ -50,8 +50,8 @@ void Scene::Update()
 
 	
 
-	this->_scroll_up_lim = 40;
-	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
+	this->_scroll_up_lim = this->GetY() + 10;
+	this->_scroll_down_lim = (this->GetY() + this->GetHeight()) - 10;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
 	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
 
@@ -561,21 +561,17 @@ void Scene::ScrollUp(int step)
 {
 	int min_y_ctrl = this->MinYControl();
 	int min_y_primitive = this->MinYPrimitive();
+			
+	
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* c = _child_controls[i];
+		if (c) c->MoveUp(step);
+	}
 
-	if()
-	
-	
-		
-	
-		for (int i = 0; i < _child_controls.size(); ++i) {
-			Control* c = _child_controls[i];
-			if (c) c->MoveUp(step);
-		}
-
-		for (int i = 0; i < _primitives.size(); ++i) {
-			Primitive* p = _primitives[i];
-			if (p) p->MoveUp(step);
-		}
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->MoveUp(step);
+	}
 	
 }
 
