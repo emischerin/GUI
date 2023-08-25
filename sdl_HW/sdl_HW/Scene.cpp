@@ -31,27 +31,9 @@ void Scene::Update()
 	
 
 	this->UpdateMyBoundingRect();
-
-	if (NeedRightScrollbar()) {
-		this->CreateRightScrollBar();
-	}
-	else
-	{
-		RemoveRightScrollBar();
-	}
-
-	if (NeedBottomScrollbar()) {
-		this->CreateBottomScrollBar();
-	}
-	else
-	{
-		RemoveBottomScrollBar();
-	}
-
 	
-
-	this->_scroll_up_lim = this->GetY() + 10;
-	this->_scroll_down_lim = (this->GetY() + this->GetHeight()) - 10;
+	this->_scroll_up_lim = (this->GetY() + this->GetHeight()) - 10;
+	this->_scroll_down_lim = this->GetY() + 10;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
 	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
 
@@ -255,7 +237,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 
-	return true;
+	
 	
 
 	int max_control_y = this->MaxYControl();
@@ -559,10 +541,8 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 
 void Scene::ScrollUp(int step)
 {
-	int min_y_ctrl = this->MinYControl();
-	int min_y_primitive = this->MinYPrimitive();
-			
-	
+	int max_y_obj = MaxYObject();
+		
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];
 		if (c) c->MoveUp(step);
@@ -577,11 +557,8 @@ void Scene::ScrollUp(int step)
 
 void Scene::ScrollDown(int step)
 {
-	int min_y_ctrl = this->MinYControl();
-	int min_y_primitive = this->MinYPrimitive();
-
-
-	
+	int min_y_obj = MinYObject();
+		
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];
 		if (c) c->MoveDown(step);
@@ -632,7 +609,25 @@ void Scene::ScrollLeft(int step)
 	}
 }
 
+void Scene::ScrollBarDeduction()
+{
+	if (NeedRightScrollbar()) {
+		this->CreateRightScrollBar();
+	}
+	else
+	{
+		RemoveRightScrollBar();
+	}
 
+	if (NeedBottomScrollbar()) {
+		this->CreateBottomScrollBar();
+	}
+	else
+	{
+		RemoveBottomScrollBar();
+	}
+
+}
 
 Scene::~Scene()
 {

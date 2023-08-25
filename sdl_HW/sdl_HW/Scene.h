@@ -107,6 +107,8 @@ protected:
 	void UpdateScrollBar();
 	void DrawScrollBar();
 
+	void ScrollBarDeduction();
+
 	RightScrollBar* _right_scroll_bar = nullptr;
 	BottomScrollBar* _bottom_scroll_bar = nullptr;
 
