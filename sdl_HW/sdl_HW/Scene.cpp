@@ -91,6 +91,8 @@ void Scene::AddControl(Control* c)
 		else {
 			Control::AddChild(c);
 		}
+
+		this->ScrollBarDeduction();
 	}
 		
 
@@ -112,6 +114,8 @@ void Scene::AddPrimitive(Primitive* p)
 		else {
 			Control::AddPrimitive(p);
 		}
+
+		this->ScrollBarDeduction();
 	}
 }
 
