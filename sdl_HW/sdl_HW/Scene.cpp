@@ -632,6 +632,6 @@ void Scene::ScrollBarDeduction()
 Scene::~Scene()
 {
 	Control::~Control();
-
+	ScrollBarDeduction();
 	
 }
