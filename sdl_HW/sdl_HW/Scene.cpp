@@ -24,6 +24,32 @@ void Scene::ReactToEvents()
 
 	Control::ReactToEvents();
 
+	ScrollDeduction();
+
+
+}
+
+void Scene::ScrollDeduction()
+{
+	
+	
+	SDL_Event* t = _my_parent_window->GetCurrentEventPtr();
+
+	if (t->type == SDL_MOUSEWHEEL) {
+		int wheel_y = t->wheel.y;
+
+		
+
+		wheel_y *= 2;
+
+
+		if (wheel_y > 0 ) {
+			this->ScrollUp(wheel_y);
+		}
+		else if(wheel_y < 0) {
+			this->ScrollDown(wheel_y);
+		}
+	}
 }
 
 void Scene::Update()
