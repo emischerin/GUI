@@ -24,6 +24,42 @@ void Scene::ReactToEvents()
 
 	Control::ReactToEvents();
 
+	ScrollDeduction();
+
+
+}
+
+void Scene::ScrollDeduction()
+{
+	
+	
+	SDL_Event* t = _my_parent_window->GetCurrentEventPtr();
+
+	if (t->type == SDL_MOUSEWHEEL) {
+		int wheel_y = t->wheel.y;
+
+		std::string wheel_y_prefix = "wheel_y:";
+		
+		std::string wheel_y_num = std::to_string(wheel_y).c_str();
+
+		std::string result = wheel_y_prefix + wheel_y_num;
+
+		
+
+
+		SDL_Log(result.c_str());
+		
+
+		wheel_y *= 2;
+
+
+		if (wheel_y > 0 ) {
+			this->ScrollUp(wheel_y);
+		}
+		else if(wheel_y < 0) {
+			this->ScrollDown(wheel_y);
+		}
+	}
 }
 
 void Scene::Update()
@@ -31,27 +67,9 @@ void Scene::Update()
 	
 
 	this->UpdateMyBoundingRect();
-
-	if (NeedRightScrollbar()) {
-		this->CreateRightScrollBar();
-	}
-	else
-	{
-		RemoveRightScrollBar();
-	}
-
-	if (NeedBottomScrollbar()) {
-		this->CreateBottomScrollBar();
-	}
-	else
-	{
-		RemoveBottomScrollBar();
-	}
-
 	
-
-	this->_scroll_up_lim = _my_parent_window->GetWinHeight() - 40;
-	this->_scroll_down_lim = _my_parent_window->GetHeaderHeight() + 40;
+	this->_scroll_up_lim = (this->GetY() + this->GetHeight()) - 10;
+	this->_scroll_down_lim = this->GetY() + 10;
 	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
 	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
 
@@ -109,6 +127,8 @@ void Scene::AddControl(Control* c)
 		else {
 			Control::AddChild(c);
 		}
+
+		this->ScrollBarDeduction();
 	}
 		
 
@@ -130,6 +150,8 @@ void Scene::AddPrimitive(Primitive* p)
 		else {
 			Control::AddPrimitive(p);
 		}
+
+		this->ScrollBarDeduction();
 	}
 }
 
@@ -255,7 +277,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 
-	return true;
+	
 	
 
 	int max_control_y = this->MaxYControl();
@@ -548,10 +570,10 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_UP:
-		this->ScrollUp(5);
+		this->ScrollDown(5);
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_DOWN:
-		this->ScrollDown(5);
+		this->ScrollUp(5);
 	default:
 		break;
 	}
@@ -559,30 +581,24 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 
 void Scene::ScrollUp(int step)
 {
-	int max_y_ctrl = this->MaxYControl();
-	int max_y_primitive = this->MaxYPrimitive();
-	
+	int max_y_obj = MaxYObject();
+		
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* c = _child_controls[i];
+		if (c) c->MoveUp(step);
+	}
 
-	
-		for (int i = 0; i < _child_controls.size(); ++i) {
-			Control* c = _child_controls[i];
-			if (c) c->MoveUp(step);
-		}
-
-		for (int i = 0; i < _primitives.size(); ++i) {
-			Primitive* p = _primitives[i];
-			if (p) p->MoveUp(step);
-		}
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->MoveUp(step);
+	}
 	
 }
 
 void Scene::ScrollDown(int step)
 {
-	int min_y_ctrl = this->MinYControl();
-	int min_y_primitive = this->MinYPrimitive();
-
-
-	
+	int min_y_obj = MinYObject();
+		
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];
 		if (c) c->MoveDown(step);
@@ -633,11 +649,29 @@ void Scene::ScrollLeft(int step)
 	}
 }
 
+void Scene::ScrollBarDeduction()
+{
+	if (NeedRightScrollbar()) {
+		this->CreateRightScrollBar();
+	}
+	else
+	{
+		RemoveRightScrollBar();
+	}
 
+	if (NeedBottomScrollbar()) {
+		this->CreateBottomScrollBar();
+	}
+	else
+	{
+		RemoveBottomScrollBar();
+	}
+
+}
 
 Scene::~Scene()
 {
 	Control::~Control();
-
+	ScrollBarDeduction();
 	
 }

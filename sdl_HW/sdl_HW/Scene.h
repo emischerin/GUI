@@ -4,6 +4,7 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
+#include <string>
 #include "Control.h"
 #include "Primitives.h"
 #include "BaseScrollbar.h"
@@ -107,6 +108,8 @@ protected:
 	void UpdateScrollBar();
 	void DrawScrollBar();
 
+	void ScrollBarDeduction();
+	void ScrollDeduction();
 	RightScrollBar* _right_scroll_bar = nullptr;
 	BottomScrollBar* _bottom_scroll_bar = nullptr;
 

@@ -287,7 +287,7 @@ int Control::GetY() const
 
  int Control::MinYControl()
  {
-	 if (_child_controls.size() == 0) return -1;
+	 if (_child_controls.size() == 0) return INT_MIN;
 
 	 auto _control_by_y = [](Control* c1, Control* c2)
 	 {
@@ -303,7 +303,7 @@ int Control::GetY() const
 
  int Control::MaxYControl()
  {
-	 if (_child_controls.size() == 0) return -1;
+	 if (_child_controls.size() == 0) return INT_MIN;
 
 	 auto _control_by_y = [](Control* c1, Control* c2)
 	 {
@@ -382,6 +382,44 @@ int Control::GetY() const
 
 	 return (*it)->GetY();
  }
+
+  int Control::MinYObject()
+  {
+	  int min_y_control = MinYControl();
+	  int min_y_primitive = MinYPrimitive();
+
+	  if ((min_y_control == INT_MIN) && (min_y_primitive == INT_MIN)) {
+		  return INT_MIN;
+	  }
+	  else {
+		  if (min_y_control == INT_MIN || min_y_primitive == INT_MIN) {
+			  return std::max(min_y_control, min_y_primitive);
+		  }
+
+		  return std::min(min_y_control, min_y_primitive);
+	  }
+
+	  return INT_MIN;
+  }
+
+  int Control::MaxYObject()
+  {
+	  int max_y_control = MaxYControl();
+	  int max_y_primitive = MaxYPrimitive();
+
+	  if ((max_y_control == INT_MIN) && (max_y_primitive == INT_MIN)) {
+		  return INT_MIN;
+	  }
+	  else {
+		  if (max_y_control == INT_MIN || max_y_primitive == INT_MIN) {
+			  return std::max(max_y_control, max_y_primitive);
+		  }
+
+		  return std::max(max_y_control, max_y_primitive);
+	  }
+
+	  return INT_MIN;
+  }
 
   void Control::ResizeWidth(int dx)
   {
