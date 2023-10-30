@@ -4,6 +4,7 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
+#include <string>
 #include "Control.h"
 #include "Primitives.h"
 #include "BaseScrollbar.h"

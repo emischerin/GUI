@@ -38,6 +38,16 @@ void Scene::ScrollDeduction()
 	if (t->type == SDL_MOUSEWHEEL) {
 		int wheel_y = t->wheel.y;
 
+		std::string wheel_y_prefix = "wheel_y:";
+		
+		std::string wheel_y_num = std::to_string(wheel_y).c_str();
+
+		std::string result = wheel_y_prefix + wheel_y_num;
+
+		
+
+
+		SDL_Log(result.c_str());
 		
 
 		wheel_y *= 2;
