@@ -144,7 +144,7 @@ void Window::Draw()
 	
 }
 
-<<<<<<< HEAD
+
 Window* Window::CreateWindow(int x, int y, int width, int height, const char* title)
 {
 	_win_ptr = SDL_CreateWindow(_title, x, y,
@@ -157,8 +157,8 @@ Window* Window::CreateWindow(int x, int y, int width, int height, const char* ti
 	AppGlobals::win_tracker->TrackWindow(_win_ptr, this, _win_render);
 
 	return this;
+}
 
-=======
 void Window::DrawControlsByLayer(std::vector<Control*>* v)
 {
 	if (!v) return;
@@ -168,7 +168,7 @@ void Window::DrawControlsByLayer(std::vector<Control*>* v)
 		Control* ctrl = v->at(i);
 		if (ctrl) ctrl->Draw();
 	}
->>>>>>> right_scrllbar
+
 }
 
 Window::WindowSizeState Window::GetSizeState() const

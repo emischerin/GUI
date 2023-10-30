@@ -80,13 +80,13 @@ public:
 
 	bool HasMenu() const;
 	
-<<<<<<< HEAD
+
 	/*
 	*
 	* Experimental mechanism of creating window. TODO: Integrate this into architecture
 	*/
 	Window* CreateWindow(int x, int y, int width, int height, const char* title);
-=======
+
 	int GetWinWidth() const;
 	int GetWinHeight() const;
 
@@ -95,17 +95,17 @@ public:
 	
 	virtual uint32_t GetCurrentEventType() const;
 	virtual SDL_Event* GetCurrentEventPtr();
->>>>>>> right_scrllbar
+
 
 	~Window();
 
 protected:
 
-<<<<<<< HEAD
+
 	
-=======
+
 	virtual void DrawControlsByLayer(std::vector<Control*>* v);
->>>>>>> right_scrllbar
+
 
 	virtual void InternalReactToEvents();
 

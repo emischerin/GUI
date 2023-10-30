@@ -109,37 +109,7 @@ int main(int argc, char** argv)
 	Triangle* t4 = new Triangle(150, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
 	s->AddPrimitive(t4);*/
 	
-<<<<<<< HEAD
 		
-
-	s->AddChildren(t);
-	s->AddChildren(t1);
-	s->AddChildren(t2);
-	s->AddChildren(t3);
-
-
-	mw.AddControl(s);
-
-	Window* w = new Window(800, 600,"TEST_W");
-
-	w->CreateWindow(2, 2, 800, 600, "TEST_W");
-
-	Header* h1 = new Header(35, 35);
-	h1->SetColor(62, 19, 66, 1);
-
-	w->SetHeader(h);
-
-
-=======
->>>>>>> right_scrllbar
-	
-	
-	
-	
-
-
-
-	
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
 
 

@@ -29,7 +29,7 @@ public:
 	
 
 	void RequestQuit();
-<<<<<<< HEAD
+
 	
 
 	
@@ -38,9 +38,9 @@ public:
 
 	 
 
-=======
+
 	 
->>>>>>> right_scrllbar
+
 private:
 	
 	int _init = 0; /*Result of initalizing video subsystem*/

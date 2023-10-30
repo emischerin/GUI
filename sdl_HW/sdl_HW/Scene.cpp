@@ -36,11 +36,13 @@ void Scene::ScrollDeduction()
 	SDL_Event* t = _my_parent_window->GetCurrentEventPtr();
 
 	if (t->type == SDL_MOUSEWHEEL) {
-		int wheel_y = t->wheel.y;
-
+		//int wheel_y = t->wheel.y;
+		float wheel_y = t->wheel.preciseY;
+		int wheel_dir = t->wheel.direction;
+		
 		std::string wheel_y_prefix = "wheel_y:";
 		
-		std::string wheel_y_num = std::to_string(wheel_y).c_str();
+		std::string wheel_y_num = std::to_string(wheel_y);
 
 		std::string result = wheel_y_prefix + wheel_y_num;
 
@@ -48,16 +50,25 @@ void Scene::ScrollDeduction()
 
 
 		SDL_Log(result.c_str());
+
+		std::string wheel_y_dir_pref = "wheel_y_dir:";
+
+		std::string wheel_y_dir_num = std::to_string(wheel_dir);
+
+		std::string result_dir = wheel_y_dir_pref + wheel_y_dir_num;
+
+		SDL_Log(result_dir.c_str());
+
 		
 
-		wheel_y *= 2;
+		wheel_y = wheel_y * 5;
 
 
 		if (wheel_y > 0 ) {
-			this->ScrollUp(wheel_y);
+			this->ScrollUp(3);
 		}
 		else if(wheel_y < 0) {
-			this->ScrollDown(wheel_y);
+			this->ScrollDown(3);
 		}
 	}
 }
@@ -570,10 +581,10 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_UP:
-		this->ScrollDown(5);
+		this->ScrollDown(10);
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_DOWN:
-		this->ScrollUp(5);
+		this->ScrollUp(10);
 	default:
 		break;
 	}
