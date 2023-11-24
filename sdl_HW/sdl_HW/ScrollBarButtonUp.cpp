@@ -17,7 +17,7 @@ void ScrollBarButtonUp::ReactToEvents()
 		if (event_t == SDL_MOUSEBUTTONDOWN) {
 			Uint8 mouse_btn_code = _my_parent_window->GetCurrentEventPtr()->button.button;
 			if (mouse_btn_code == 1) { /*Left mouse button*/
-				ControlMsg m = { Scene::_SCROLL_UP,0 };
+				ControlMsg m = { Scene::_SCROLL_DOWN,0 };
 				RightScrollBar* parent = (RightScrollBar*)GetParentControl();
 				parent->ControlMessagingFunction(&m);
 			}
