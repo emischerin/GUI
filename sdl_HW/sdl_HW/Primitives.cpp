@@ -174,6 +174,8 @@ int Primitive::GetY() const
  {
 	 if (_vertices.size() <= 0) return;
 
+	 this->_bounding_rect.y -= step;
+
 	 for (int i = 0; i < _vertices.size(); ++i) {
 		 SDL_Vertex* v = _vertices[i];
 		 if (v) v->position.y -= step;
