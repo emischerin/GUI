@@ -596,7 +596,7 @@ void Scene::ScrollUp(int step)
 	
 	if (max_y_obj == INT_MIN) return;
 
-	if (max_y_obj < 100) return;
+	if (max_y_obj < 50) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
@@ -614,7 +614,13 @@ void Scene::ScrollUp(int step)
 void Scene::ScrollDown(int step)
 {
 	int min_y_obj = MinYObject();
-		
+	int max_obj_height = this->GetHeight() - 50;
+
+	if (min_y_obj == INT_MIN) return;
+
+	if (min_y_obj > max_obj_height) return;
+
+
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];
 		if (c) c->MoveDown(step);
