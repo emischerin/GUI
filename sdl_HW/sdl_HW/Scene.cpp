@@ -593,7 +593,12 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 void Scene::ScrollUp(int step)
 {
 	int max_y_obj = MaxYObject();
-		
+	
+	if (max_y_obj == INT_MIN) return;
+
+	if (max_y_obj < 100) return;
+
+
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];
 		if (c) c->MoveUp(step);

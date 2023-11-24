@@ -168,6 +168,8 @@ int Primitive::GetY() const
 	 return (*it)->position.y;
  }
 
+
+ //TODO: Add BoundingRectUpdate for Primitives
  void Primitive::MoveUp(int step)
  {
 	 if (_vertices.size() <= 0) return;
