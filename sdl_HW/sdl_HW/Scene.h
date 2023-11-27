@@ -41,7 +41,9 @@ public:
 		_RIGHT_SCROLLBAR_WIDTH = 1,
 		_BOTTOM_SCROLLBAR_HEIGHT,
 		_SCROLL_UP,
-		_SCROLL_DOWN
+		_SCROLL_DOWN,
+		_SCENE_HEIGHT,
+		_SCENE_WIDTH
 
 	};
 
@@ -61,10 +63,14 @@ public:
 
 	int GetViewportPositionYInScene();
 
+	int GetSceneHeight();
+	int GetSceneWidth();
+
 	void SetViewport(Viewport* viewport);
 
 	bool NeedBottomScrollbar();
 	bool NeedRightScrollbar();
+
 
 	
 

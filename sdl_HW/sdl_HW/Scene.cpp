@@ -585,6 +585,12 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_DOWN:
 		this->ScrollDown(10);
+	case Scene::ControlMsgRequest::_SCENE_HEIGHT:
+		message->_result = (void*)this->GetSceneHeight();
+		break;
+	case Scene::ControlMsgRequest::_SCENE_WIDTH:
+		message->_result = (void*)this->GetSceneWidth();
+		break;
 	default:
 		break;
 	}
@@ -633,6 +639,7 @@ void Scene::ScrollDown(int step)
 	
 }
 
+//TODO: Make it like ScrollDown
 void Scene::ScrollRight(int step)
 {
 	int min_x_ctrl = this->MinXControl();
@@ -652,6 +659,7 @@ void Scene::ScrollRight(int step)
 	}
 }
 
+//TODO: Make it like ScrollDown
 void Scene::ScrollLeft(int step)
 {
 	int max_x_ctrl = this->MaxXControl();
@@ -669,6 +677,39 @@ void Scene::ScrollLeft(int step)
 			if (p) p->MoveLeft(step);
 		}
 	}
+}
+
+int Scene::GetSceneHeight()
+{
+	int min_y = this->MinYObject();
+	int max_y = this->MaxYObject();
+
+	if ((min_y != INT_MIN) && (max_y != INT_MIN)) {
+		if (min_y == max_y) 
+			return max_y;
+		else return max_y - min_y;
+	}
+	else if ((min_y == INT_MIN) && (max_y == INT_MIN)) {
+		return 0;
+	}
+	else if ((min_y == INT_MIN) && (max_y != INT_MIN)) {
+		return max_y;
+	}
+	else if ((min_y != INT_MIN) && (max_y == INT_MIN)) {
+		return min_y;
+	}
+	
+	return 0;
+	
+	
+
+}
+
+//TODO: Implement
+int Scene::GetSceneWidth()
+{
+	
+	return 0;
 }
 
 void Scene::ScrollBarDeduction()
