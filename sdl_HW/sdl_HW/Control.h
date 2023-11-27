@@ -170,6 +170,10 @@ public:
 	/*RETURNS MAX Y CONTROL OR PRIMITIVE*/
 	virtual int MaxYObject();
 
+	virtual int MaxXObject();
+
+	virtual int MinXObject();
+
 	void ResizeWidth(int dx);
 	
 

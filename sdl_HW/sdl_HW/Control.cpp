@@ -421,6 +421,16 @@ int Control::GetY() const
 	  return INT_MIN;
   }
 
+  int Control::MaxXObject()
+  {
+
+  }
+
+  int Control::MinXObject()
+  {
+
+  }
+
   void Control::ResizeWidth(int dx)
   {
 	  _bounding_rect.w += dx;
