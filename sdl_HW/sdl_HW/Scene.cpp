@@ -65,10 +65,10 @@ void Scene::ScrollDeduction()
 
 
 		if (wheel_y > 0 ) {
-			this->ScrollUp(3);
+			this->ScrollDown(5);
 		}
 		else if(wheel_y < 0) {
-			this->ScrollDown(3);
+			this->ScrollUp(5);
 		}
 	}
 }
@@ -598,11 +598,14 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 
 void Scene::ScrollUp(int step)
 {
-	int min_y_obj = MinYObject();
+	int max_y_obj = MaxYObject();
 	
-	if (min_y_obj == INT_MIN) return;
+	int obj_max_y = (this->GetY() + this->GetHeight()) - 150;
 
-	if (min_y_obj < 50) return;
+
+	if (max_y_obj == INT_MIN) return;
+
+	if (max_y_obj < obj_max_y) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
@@ -619,12 +622,12 @@ void Scene::ScrollUp(int step)
 
 void Scene::ScrollDown(int step)
 {
-	int max_y_obj = MaxYObject();
-	int max_obj_y = this->GetHeight() - 50;
+	int min_y_obj = MinYObject();
+	int max_obj_y = this->GetY() + 50;
 
-	if (max_y_obj == INT_MIN) return;
+	if (min_y_obj == INT_MIN) return;
 
-	if (max_y_obj > max_obj_y) return;
+	if (min_y_obj > max_obj_y) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
