@@ -620,11 +620,11 @@ void Scene::ScrollUp(int step)
 void Scene::ScrollDown(int step)
 {
 	int max_y_obj = MaxYObject();
-	int max_obj_height = this->GetHeight() - 50;
+	int max_obj_y = this->GetHeight() - 50;
 
 	if (max_y_obj == INT_MIN) return;
 
-	if (max_y_obj > max_obj_height) return;
+	if (max_y_obj > max_obj_y) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
@@ -639,43 +639,46 @@ void Scene::ScrollDown(int step)
 	
 }
 
-//TODO: Make it like ScrollDown
+
 void Scene::ScrollRight(int step)
 {
-	int min_x_ctrl = this->MinXControl();
-	int min_x_primitive = this->MinXPrimitive();
+	int min_x_obj = this->MinXObject();
+	int min_obj_x = this->GetX() + 50;
 
+	if (min_x_obj == INT_MIN) return;
 
-	if (min_x_ctrl <= _scroll_right_lim && min_x_primitive <= _scroll_right_lim) {
-		for (int i = 0; i < _child_controls.size(); ++i) {
-			Control* c = _child_controls[i];
-			if (c) c->MoveRight(step);
-		}
-
-		for (int i = 0; i < _primitives.size(); ++i) {
-			Primitive* p = _primitives[i];
-			if (p) p->MoveRight(step);
-		}
+	if (min_x_obj > min_obj_x) return;
+	
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* c = _child_controls[i];
+		if (c) c->MoveRight(step);
 	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->MoveRight(step);
+	}
+	
 }
 
-//TODO: Make it like ScrollDown
+
 void Scene::ScrollLeft(int step)
 {
-	int max_x_ctrl = this->MaxXControl();
-	int max_x_primitive = this->MaxXPrimitive();
+	int max_x_obj = this->MaxXObject();
+	int max_obj_x = (this->GetX() + this->GetWidth()) - 50;
 
+	if (max_x_obj == INT_MIN) return;
 
-	if (max_x_ctrl >= _scroll_left_lim && max_x_primitive >= _scroll_left_lim) {
-		for (int i = 0; i < _child_controls.size(); ++i) {
-			Control* c = _child_controls[i];
-			if (c) c->MoveLeft(step);
-		}
+	if (max_x_obj > max_obj_x) return;
 
-		for (int i = 0; i < _primitives.size(); ++i) {
-			Primitive* p = _primitives[i];
-			if (p) p->MoveLeft(step);
-		}
+	for (int i = 0; i < _child_controls.size(); ++i) {
+		Control* c = _child_controls[i];
+		if (c) c->MoveLeft(step);
+	}
+
+	for (int i = 0; i < _primitives.size(); ++i) {
+		Primitive* p = _primitives[i];
+		if (p) p->MoveLeft(step);
 	}
 }
 
@@ -705,10 +708,27 @@ int Scene::GetSceneHeight()
 
 }
 
-//TODO: Implement
 int Scene::GetSceneWidth()
 {
 	
+	int min_x = this->MinXObject();
+	int max_x = this->MaxXObject();
+
+	if ((min_x != INT_MIN) && (max_x != INT_MIN)) {
+		if (min_x == max_x)
+			return max_x;
+		else return max_x - min_x;
+	}
+	else if ((min_x == INT_MIN) && (max_x == INT_MIN)) {
+		return 0;
+	}
+	else if ((min_x == INT_MIN) && (max_x != INT_MIN)) {
+		return max_x;
+	}
+	else if ((min_x != INT_MIN) && (max_x == INT_MIN)) {
+		return min_x;
+	}
+
 	return 0;
 }
 
