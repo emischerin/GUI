@@ -592,11 +592,11 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 
 void Scene::ScrollUp(int step)
 {
-	int max_y_obj = MaxYObject();
+	int min_y_obj = MinYObject();
 	
-	if (max_y_obj == INT_MIN) return;
+	if (min_y_obj == INT_MIN) return;
 
-	if (max_y_obj < 50) return;
+	if (min_y_obj < 50) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
@@ -613,12 +613,12 @@ void Scene::ScrollUp(int step)
 
 void Scene::ScrollDown(int step)
 {
-	int min_y_obj = MinYObject();
+	int max_y_obj = MaxYObject();
 	int max_obj_height = this->GetHeight() - 50;
 
-	if (min_y_obj == INT_MIN) return;
+	if (max_y_obj == INT_MIN) return;
 
-	if (min_y_obj > max_obj_height) return;
+	if (max_y_obj > max_obj_height) return;
 
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
