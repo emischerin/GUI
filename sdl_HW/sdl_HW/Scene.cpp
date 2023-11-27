@@ -287,10 +287,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 
 bool Scene::NeedRightScrollbar()
 {
-
 	
-	
-
 	int max_control_y = this->MaxYControl();
 	int max_primitive_y = this->MaxYPrimitive();
 	int my_height = this->GetHeight();
