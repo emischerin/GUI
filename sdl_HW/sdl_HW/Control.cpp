@@ -423,12 +423,40 @@ int Control::GetY() const
 
   int Control::MaxXObject()
   {
+	  int max_x_control = MaxXControl();
+	  int max_x_primitive = MaxXPrimitive();
 
+	  if ((max_x_control == INT_MIN) && (max_x_primitive == INT_MIN)) {
+		  return INT_MIN;
+	  }
+	  else {
+		  if (max_x_control == INT_MIN || max_x_primitive == INT_MIN) {
+			  return std::max(max_x_control, max_x_primitive);
+		  }
+
+		  return std::max(max_x_control, max_x_primitive);
+	  }
+
+	  return INT_MIN;
   }
 
   int Control::MinXObject()
   {
+	  int min_x_control = MaxXControl();
+	  int min_x_primitive = MaxXPrimitive();
 
+	  if ((min_x_control == INT_MIN) && (min_x_primitive == INT_MIN)) {
+		  return INT_MIN;
+	  }
+	  else {
+		  if (min_x_control == INT_MIN || min_x_primitive == INT_MIN) {
+			  return std::max(min_x_control, min_x_primitive);
+		  }
+
+		  return std::max(min_x_control, min_x_primitive);
+	  }
+
+	  return INT_MIN;
   }
 
   void Control::ResizeWidth(int dx)
