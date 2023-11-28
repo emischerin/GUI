@@ -11,9 +11,9 @@ public:
 	bool PointInRect(SDL_Rect* rect, int x, int y);
 	bool MouseInControl(Control* control);
 
-	bool PointXInRect(SDL_Rect* rect, int x, int y);
+	bool PointXInRect(SDL_Rect* rect, int x);
 
-	bool PointYInRect(SDL_Rect* rect, int x, int y);
+	bool PointYInRect(SDL_Rect* rect,int y);
 
 
 

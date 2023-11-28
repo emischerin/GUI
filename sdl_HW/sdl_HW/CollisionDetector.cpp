@@ -57,14 +57,26 @@ bool CollisionDetector::MouseInControl(Control* control)
 
 }
 
-bool CollisionDetector::PointXInRect(SDL_Rect* rect, int x, int y)
+bool CollisionDetector::PointXInRect(SDL_Rect* rect, int x)
 {
+	int rect_x1 = rect->x;
+	int rect_x2 = rect->x + rect->w;
 
+	if ((x >= rect_x1) && (x <= rect_x2))
+		return true;
+
+	return false;
 }
 
-bool CollisionDetector::PointYInRect(SDL_Rect* rect, int x, int y)
+bool CollisionDetector::PointYInRect(SDL_Rect* rect, int y)
 {
+	int rect_y1 = rect->y;
+	int rect_y2 = rect->y + rect->h;
 
+	if ((y >= rect_y1) && (y <= rect_y2))
+		return true;
+
+	return false;
 }
 
 
