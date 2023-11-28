@@ -18,13 +18,13 @@ public:
 
 
 
-	bool AllControlsXInRect(std::vector<Control*> v, SDL_Rect* rect);
+	bool AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
-	bool AllControlsYInRect(std::vector<Control*> v, SDL_Rect* rect);
+	bool AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
 
-	bool AllControlsXInControl(std::vector<Control*> v, Control* c);
+	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 
-	bool AllControlsYInControl(std::vector<Control*> v, Control* c);
+	bool AllControlsYInControl(std::vector<Control*>& v, Control* c);
 };
 
