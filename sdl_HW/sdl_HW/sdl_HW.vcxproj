@@ -207,6 +207,7 @@
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="FatRect.cpp" />
+    <ClCompile Include="GeoConverter.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="HideButton.cpp" />
     <ClCompile Include="InputCaret.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="FatRect.h" />
+    <ClInclude Include="GeoConverter.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="HideButton.h" />
     <ClInclude Include="InputCaret.h" />

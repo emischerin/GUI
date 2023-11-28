@@ -145,7 +145,7 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 
 bool CollisionDetector::RectInRect(SDL_Rect* outer, SDL_Rect* inner)
 {
-
+	
 }
 
 bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
