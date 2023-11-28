@@ -56,3 +56,37 @@ bool CollisionDetector::MouseInControl(Control* control)
 
 
 }
+
+bool CollisionDetector::PointXInRect(SDL_Rect* rect, int x, int y)
+{
+
+}
+
+bool CollisionDetector::PointYInRect(SDL_Rect* rect, int x, int y)
+{
+
+}
+
+
+
+
+bool CollisionDetector::AllControlsXInRect(std::vector<Control*> v, SDL_Rect* rect)
+{
+
+}
+
+bool CollisionDetector::AllControlsYInRect(std::vector<Control*> v, SDL_Rect* rect)
+{
+
+}
+
+
+bool CollisionDetector::AllControlsXInControl(std::vector<Control*> v, Control* c)
+{
+
+}
+
+bool CollisionDetector::AllControlsYInControl(std::vector<Control*> v, Control* c)
+{
+
+}
