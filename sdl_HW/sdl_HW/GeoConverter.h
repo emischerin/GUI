@@ -5,11 +5,14 @@
 
 #include <vector>
 #include <SDL.h>
+#include "Control.h"
+
 
 class GeoConverter
 {
 public:
 
 	std::vector<SDL_Point> GetAllRectPoints(SDL_Rect* rect);
+	std::vector<SDL_Point> GetAllBoundingRectPoints()
 };
 #endif // !GEOCONVERTER_H
