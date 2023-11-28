@@ -126,6 +126,9 @@ bool CollisionDetector::AllControlsXInControl(std::vector<Control*>& v, Control*
 	if (!c) return false;
 	if (v.size() == 0) return false;
 
+	SDL_Rect* ctrl_rect = c->GetBoundingRect();
+
+	return AllControlsXInRect(v, ctrl_rect);
 
 
 }
@@ -134,4 +137,8 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 {
 	if (!c) return false;
 	if (v.size() == 0) return false;
+
+	SDL_Rect* ctrl_rect = c->GetBoundingRect();
+
+	return AllControlsYInRect(v, ctrl_rect);
 }
