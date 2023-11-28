@@ -26,5 +26,11 @@ public:
 	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 
 	bool AllControlsYInControl(std::vector<Control*>& v, Control* c);
+
+	bool RectInRect(SDL_Rect* outer, SDL_Rect* inner);
+
+	bool ControlInControl(Control* outer, Control* inner);
+
+	
 };
 

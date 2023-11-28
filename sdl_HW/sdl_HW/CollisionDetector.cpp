@@ -142,3 +142,13 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 
 	return AllControlsYInRect(v, ctrl_rect);
 }
+
+bool CollisionDetector::RectInRect(SDL_Rect* outer, SDL_Rect* inner)
+{
+
+}
+
+bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
+{
+
+}
