@@ -13,6 +13,6 @@ class GeoConverter
 public:
 
 	std::vector<SDL_Point> GetAllRectPoints(SDL_Rect* rect);
-	std::vector<SDL_Point> GetAllBoundingRectPoints()
+	std::vector<SDL_Point> GetAllBoundingRectPoints(Control* control);
 };
 #endif // !GEOCONVERTER_H
