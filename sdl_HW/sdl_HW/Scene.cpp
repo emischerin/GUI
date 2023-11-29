@@ -166,6 +166,15 @@ void Scene::AddPrimitive(Primitive* p)
 	}
 }
 
+void Scene::AddObject(Control* c)
+{
+	this->AddControl(c);
+}
+void Scene::AddObject(Primitive* p)
+{
+	this->AddPrimitive(p);
+}
+
 void Scene::ResizeTextureToControl(Control* c)
 {
 	if (!c) return;
