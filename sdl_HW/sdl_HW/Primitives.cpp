@@ -56,6 +56,11 @@ void Primitive::SetBoundingRect(SDL_Rect* bounding_rect)
 	_bounding_rect.h = bounding_rect->h;
 }
 
+SDL_Rect* Primitive::GetBoundingRect()
+{
+	return &_bounding_rect;
+}
+
 void Primitive::SetColor(int r, int g, int b, int a)
 {
 	_color.r = r;

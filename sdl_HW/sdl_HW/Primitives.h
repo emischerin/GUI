@@ -38,6 +38,8 @@ public:
 
 	virtual void SetBoundingRect(SDL_Rect* bounding_rect);
 	
+	virtual SDL_Rect* GetBoundingRect();
+
 
 	virtual void SetColor(int r, int g, int b, int a);
 
