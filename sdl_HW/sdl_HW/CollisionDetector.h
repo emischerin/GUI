@@ -7,6 +7,7 @@ class CollisionDetector
 {
 public:
 	bool PointInControl(Control* control,int x,int y);
+	bool PointInControl(Control* control, SDL_Point* p);
 	bool MouseInWindow(SDL_Window* window);
 	bool PointInRect(SDL_Rect* rect, int x, int y);
 	bool MouseInControl(Control* control);
@@ -31,6 +32,7 @@ public:
 
 	bool ControlInControl(Control* outer, Control* inner);
 
+	
 	
 };
 

@@ -14,6 +14,11 @@ bool CollisionDetector::PointInControl(Control* control, int x, int y)
 		
 }
 
+bool CollisionDetector::PointInControl(Control* control, SDL_Point* p)
+{
+
+}
+
 bool CollisionDetector::MouseInWindow(SDL_Window* window)
 {
 	if (!window) return false;
@@ -132,6 +137,7 @@ bool CollisionDetector::AllControlsXInControl(std::vector<Control*>& v, Control*
 
 
 }
+
 
 bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control* c)
 {
