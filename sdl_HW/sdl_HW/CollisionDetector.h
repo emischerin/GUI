@@ -35,7 +35,7 @@ public:
 
 	bool ControlInControl(Control* outer, Control* inner);
 
-	bool AllPointsInControl(Control* outer, Control* inner);
+	bool AllControlPointsInControl(Control* outer, Control* inner);
 
 	bool AllPrimitivePointsInControl(Control* outer, Primitive* inner);
 	

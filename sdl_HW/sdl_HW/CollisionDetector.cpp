@@ -168,7 +168,7 @@ bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
 
 }
 
-bool CollisionDetector::AllPointsInControl(Control* outer, Control* inner)
+bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner)
 {
 
 }
