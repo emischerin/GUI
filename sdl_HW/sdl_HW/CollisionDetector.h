@@ -24,12 +24,14 @@ public:
 
 	bool AllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer);
 
+	bool NotAllControlsGroupInControl(std::vector<Control*>& inner, Control* outer);
+
+	bool NotAllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer);
+
 	bool AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
 	bool AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect);
-
 	
-
 	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 
 	bool AllControlsYInControl(std::vector<Control*>& v, Control* c);

@@ -297,9 +297,12 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 	
-	return false;
+	CollisionDetector cd;
 
-	
+	bool not_all_controls_in = cd.NotAllControlsGroupInControl(_child_controls, this);
+	bool not_all_primitives_in = cd.NotAllPrimitiveGroupInControl(_primitives, this);
+
+	return (not_all_controls_in || not_all_primitives_in);
 	
 }
 

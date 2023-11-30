@@ -38,6 +38,31 @@ bool CollisionDetector::AllPrimitiveGroupInControl(std::vector<Primitive*>& inne
 	return true;
 }
 
+bool CollisionDetector::NotAllControlsGroupInControl(std::vector<Control*>& inner, Control* outer)
+{
+	if (!outer) return false;
+
+	for (auto ctrl : inner) {
+
+		if (!AllControlPointsInControl(outer, ctrl))
+			return true;
+	}
+
+	return false;
+}
+
+bool CollisionDetector::NotAllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer)
+{
+	if (!outer) return false;
+
+	for (auto primitive : inner) {
+		if (!AllPrimitivePointsInControl(outer, primitive))
+			return true;
+	}
+
+	return false;
+}
+
 bool CollisionDetector::PointInControl(Control* control, SDL_Point* p)
 {
 	if (!control) return false;
@@ -184,7 +209,7 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 
 bool CollisionDetector::RectInRect(SDL_Rect* outer, SDL_Rect* inner)
 {
-	
+	return false;
 }
 
 bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
