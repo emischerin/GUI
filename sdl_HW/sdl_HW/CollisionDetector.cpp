@@ -16,6 +16,15 @@ bool CollisionDetector::PointInControl(Control* control, int x, int y)
 
 bool CollisionDetector::PointInControl(Control* control, SDL_Point* p)
 {
+	if (!control) return false;
+	if (!p) return false;
+
+
+	SDL_Rect* bounding_rect = control->GetBoundingRect();
+
+	if (!bounding_rect) return false;
+
+	return PointInRect(bounding_rect, p->x, p->y);
 
 }
 
