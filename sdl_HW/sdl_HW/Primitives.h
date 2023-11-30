@@ -96,6 +96,8 @@ public:
 
 	void SetParentControl(Control* c);
 
+	std::vector<SDL_Point> GetAllBoundingRectPoints();
+
 protected:
 	
 	void AppllyColorToEachVertex();
