@@ -1,4 +1,6 @@
 #include "GeoConverter.h"
+#include "Control.h"
+#include "Primitives.h"
 
 std::vector<SDL_Point> GeoConverter::GetAllRectPoints(SDL_Rect* rect)
 {

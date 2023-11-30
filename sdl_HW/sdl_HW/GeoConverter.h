@@ -5,8 +5,9 @@
 
 #include <vector>
 #include <SDL.h>
-#include "Control.h"
-#include "Primitives.h"
+
+class Control;
+class Primitive;
 
 class GeoConverter
 {
