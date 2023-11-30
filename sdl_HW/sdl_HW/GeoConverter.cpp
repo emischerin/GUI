@@ -28,10 +28,33 @@ std::vector<SDL_Point> GeoConverter::GetAllRectPoints(SDL_Rect* rect)
 	result.push_back(p3);
 	result.push_back(p4);
 
+	return result;
+
 
 }
 
 std::vector<SDL_Point> GeoConverter::GetAllBoundingRectPoints(Control* control)
 {
+	std::vector<SDL_Point> result;
 
+	if(control){
+		SDL_Rect* control_rect = control->GetBoundingRect();
+
+		result = this->GetAllRectPoints(control_rect);
+	}
+
+	return result;
+}
+
+std::vector<SDL_Point> GeoConverter::GetAllBoundingRectPoints(Primitive* p)
+{
+	std::vector<SDL_Point> result;
+
+	if (p) {
+		SDL_Rect* primitive_rect = p->GetBoundingRect();
+
+		result = this->GetAllRectPoints(primitive_rect);
+	}
+
+	return result;
 }
