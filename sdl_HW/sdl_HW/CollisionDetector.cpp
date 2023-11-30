@@ -173,7 +173,7 @@ bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner
 	if (!outer) return false;
 	if (!inner) return false;
 
-	GeoConverter geo_converter;
+	
 
 	return true;
 }

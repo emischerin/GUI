@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "Control.h"
 #include "Primitives.h"
-#include "GeoConverter.h"
+
 
 class CollisionDetector
 {
