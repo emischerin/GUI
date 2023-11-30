@@ -79,11 +79,6 @@ void Scene::Update()
 
 	this->UpdateMyBoundingRect();
 	
-	this->_scroll_up_lim = (this->GetY() + this->GetHeight()) - 10;
-	this->_scroll_down_lim = this->GetY() + 10;
-	this->_scroll_left_lim = _my_parent_window->GetWinWidth() - 40;
-	this->_scroll_right_lim = _my_parent_window->GetMenuWidth() + 40;
-
 	Control::Update();
 
 	this->UpdateScrollBar();
