@@ -165,7 +165,7 @@ bool CollisionDetector::RectInRect(SDL_Rect* outer, SDL_Rect* inner)
 
 bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
 {
-
+	return AllControlPointsInControl(outer, inner);
 }
 
 bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner)
@@ -173,12 +173,31 @@ bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner
 	if (!outer) return false;
 	if (!inner) return false;
 
-	
+	std::vector<SDL_Point> inner_points = inner->GetAllBoundingRectPoints();
+
+	for (int i = 0; i < inner_points.size(); ++i) {
+		if (!PointInControl(outer, &inner_points[i])) {
+			return false;
+		}
+	}
 
 	return true;
+
+	
 }
 
 bool CollisionDetector::AllPrimitivePointsInControl(Control* outer, Primitive* inner)
 {
+	if (!outer) return false;
+	if (!inner) return false;
+
+	std::vector<SDL_Point> inner_points = inner->GetAllBoundingRectPoints();
+
+	for (int i = 0; i < inner_points.size(); ++i) {
+		if (!PointInControl(outer, &inner_points[i])) {
+			return false;
+		}
+	}
+
 	return true;
 }
