@@ -205,6 +205,7 @@ public:
 	
 	virtual void RemoveChild(Primitive* p);
 	
+	std::vector<SDL_Point> GetAllBoundingRectPoints();
 	
 
 protected:

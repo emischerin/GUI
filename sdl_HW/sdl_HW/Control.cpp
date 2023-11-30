@@ -590,3 +590,31 @@ int Control::GetY() const
 		  if (p) p->_my_parent_window = _my_parent_window;
 	  }
   }
+
+  std::vector<SDL_Point> Control::GetAllBoundingRectPoints()
+  {
+	  std::vector<SDL_Point> result;
+	  
+	  SDL_Point p1;
+	  p1.x = _bounding_rect.x;
+	  p1.y = _bounding_rect.y;
+
+	  SDL_Point p2;
+	  p2.x = _bounding_rect.x + _bounding_rect.w;
+	  p2.y = _bounding_rect.y;
+
+	  SDL_Point p3;
+	  p3.x = _bounding_rect.x;
+	  p3.y = _bounding_rect.y + _bounding_rect.h;
+
+	  SDL_Point p4;
+	  p4.x = _bounding_rect.x + _bounding_rect.w;
+	  p4.y = _bounding_rect.y + _bounding_rect.h;
+
+	  result.push_back(p1);
+	  result.push_back(p2);
+	  result.push_back(p3);
+	  result.push_back(p4);
+
+	  return result;
+  }
