@@ -14,6 +14,30 @@ bool CollisionDetector::PointInControl(Control* control, int x, int y)
 		
 }
 
+bool CollisionDetector::AllControlsGroupInControl(std::vector<Control*>& inner, Control* outer)
+{
+	if (!outer) return false;
+
+	for (auto ctrl : inner) {
+		if (!AllControlPointsInControl(outer,ctrl))
+			return false;
+	}
+
+	return true;
+}
+
+bool CollisionDetector::AllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer)
+{
+	if (!outer) return false;
+
+	for (auto primitive : inner) {
+		if (!AllPrimitivePointsInControl(outer,primitive))
+			return false;
+	}
+
+	return true;
+}
+
 bool CollisionDetector::PointInControl(Control* control, SDL_Point* p)
 {
 	if (!control) return false;

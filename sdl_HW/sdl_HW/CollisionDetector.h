@@ -20,12 +20,15 @@ public:
 	bool PointYInRect(SDL_Rect* rect,int y);
 
 
+	bool AllControlsGroupInControl(std::vector<Control*>& inner, Control* outer);
 
+	bool AllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer);
 
 	bool AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
 	bool AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
+	
 
 	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 

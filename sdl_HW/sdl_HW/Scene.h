@@ -10,7 +10,7 @@
 #include "BaseScrollbar.h"
 #include "RightScrollBar.h"
 #include "BottomScrollBar.h"
-
+#include "CollisionDetector.h"
 
 /*
 * cs = coordinate system
