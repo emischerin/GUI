@@ -101,11 +101,8 @@ void Scene::PreDraw()
 
 void Scene::UpdateScrollBar()
 {
-	if (_right_scroll_bar)
-		_right_scroll_bar->Update();
-
-	if (_bottom_scroll_bar)
-		_bottom_scroll_bar->Update();
+	_right_scroll_bar->Update();
+	_bottom_scroll_bar->Update();
 }
 
 void Scene::Draw()
@@ -402,13 +399,16 @@ int Scene::GetViewportPositionXInScene()
 
 void Scene::DrawScrollBar()
 {
-	if (_right_scroll_bar)
+	bool need_right = NeedRightScrollbar();
+	bool need_bottom = NeedBottomScrollbar();
+
+	if (need_right)
 		_right_scroll_bar->Draw();
 
-	if (_bottom_scroll_bar)
+	if (need_bottom)
 		_bottom_scroll_bar->Draw();
 
-	if (_right_scroll_bar && _bottom_scroll_bar) {
+	if (need_right && need_bottom) {
 
 		SDL_Color* c = _right_scroll_bar->GetColor();
 
