@@ -19,6 +19,7 @@ bool CollisionDetector::AllControlsGroupInControl(std::vector<Control*>& inner, 
 	if (!outer) return false;
 
 	for (auto ctrl : inner) {
+		
 		if (!AllControlPointsInControl(outer,ctrl))
 			return false;
 	}

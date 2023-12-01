@@ -294,10 +294,16 @@ bool Scene::NeedRightScrollbar()
 	
 	CollisionDetector cd;
 
-	bool not_all_controls_in = cd.NotAllControlsGroupInControl(_child_controls, this);
-	bool not_all_primitives_in = cd.NotAllPrimitiveGroupInControl(_primitives, this);
+	bool controls_y_in = cd.AllControlsGroupInControl(_child_controls, this);
+	bool primitives_y_in = cd.AllPrimitiveGroupInControl(_primitives, this);
 
-	return (not_all_controls_in || not_all_primitives_in);
+	
+	if (controls_y_in && primitives_y_in) {
+		return false;
+	}
+	else {
+		return true;
+	}
 	
 }
 
