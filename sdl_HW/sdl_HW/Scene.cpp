@@ -292,39 +292,28 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 	
-	CollisionDetector cd;
+	int scene_height = this->GetSceneHeight();
+	int this_height = this->_bounding_rect.h;
 
-	bool controls_y_in = cd.AllControlsYInControl(_child_controls, this);
-	bool primitives_y_in = cd.AllPrimitivesYInControl(_primitives, this);
-
-	
-	if (controls_y_in && primitives_y_in) {
-		return false;
-	}
-	else {
+	if (scene_height > this_height) {
 		return true;
 	}
+	else return false;
+
+	
 	
 }
 
 
 bool Scene::NeedBottomScrollbar()
 {
+	int scene_width = this->GetSceneWidth();
+	int this_width = this->_bounding_rect.w;
 
-
-	CollisionDetector cd;
-
-	bool controls_x_in = cd.AllControlsXInControl(_child_controls, this);
-	bool primitives_x_in = cd.AllPrimitivesXInControl(_primitives, this);
-
-
-	if (controls_x_in && primitives_x_in) {
-		return false;
-	}
-	else {
+	if (scene_width > this_width) {
 		return true;
 	}
-	
+	else return false;
 }
 
 bool Scene::HasRightScrollBar() const

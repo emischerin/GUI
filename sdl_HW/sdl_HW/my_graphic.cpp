@@ -73,7 +73,8 @@ int main(int argc, char** argv)
 	Triangle* t2 = new Triangle(500, 900, 55, 55, Triangle::TriangleDirection::LEFT);
 	s->AddPrimitive(t2);
 
-
+	/*Triangle* t3 = new Triangle(1000, 300, 55, 55, Triangle::TriangleDirection::DOWN);
+	s->AddPrimitive(t3);*/
 	/*Triangle* t = new Triangle(50, 2, 55, 55, Triangle::TriangleDirection::UP);
 	
 
