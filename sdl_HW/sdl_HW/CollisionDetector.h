@@ -31,10 +31,18 @@ public:
 	bool AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
 	bool AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect);
+
+	bool AllPrimitivesXInRect(std::vector<Primitive*>& v, SDL_Rect* rect);
+
+	bool AllPrimitivesYInRect(std::vector<Primitive*>& v, SDL_Rect* rect);
 	
 	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 
 	bool AllControlsYInControl(std::vector<Control*>& v, Control* c);
+
+	bool AllPrimitivesXInControl(std::vector<Primitive*>& v, Control* c);
+
+	bool AllPrimitivesYInControl(std::vector<Primitive*>& v, Control* c);
 
 	bool RectInRect(SDL_Rect* outer, SDL_Rect* inner);
 
