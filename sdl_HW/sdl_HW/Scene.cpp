@@ -294,8 +294,8 @@ bool Scene::NeedRightScrollbar()
 	
 	CollisionDetector cd;
 
-	bool controls_y_in = cd.AllControlsGroupInControl(_child_controls, this);
-	bool primitives_y_in = cd.AllPrimitiveGroupInControl(_primitives, this);
+	bool controls_y_in = cd.AllControlsYInControl(_child_controls, this);
+	bool primitives_y_in = cd.AllPrimitivesYInControl(_primitives, this);
 
 	
 	if (controls_y_in && primitives_y_in) {
@@ -312,16 +312,19 @@ bool Scene::NeedBottomScrollbar()
 {
 
 
+	CollisionDetector cd;
 
-	/*int max_control_x = this->MaxXControl();
-	int max_primitive_x = this->MaxXPrimitive();
-	int my_width = this->GetWidth();
-
-	if ((max_control_x > my_width) || (max_primitive_x > my_width))
-		return true;*/
+	bool controls_x_in = cd.AllControlsXInControl(_child_controls, this);
+	bool primitives_x_in = cd.AllPrimitivesXInControl(_primitives, this);
 
 
-	return false;
+	if (controls_x_in && primitives_x_in) {
+		return false;
+	}
+	else {
+		return true;
+	}
+	
 }
 
 bool Scene::HasRightScrollBar() const
