@@ -761,6 +761,7 @@ void Scene::ScrollBarDeduction()
 Scene::~Scene()
 {
 	Control::~Control();
-	ScrollBarDeduction();
+	delete _right_scroll_bar;
+	delete _bottom_scroll_bar;
 	
 }
