@@ -132,6 +132,9 @@ protected:
 	int _scroll_left_lim = 30;
 	int _scroll_right_lim = 30;
 	
+	bool AllObjectsYVisible();
+	bool AllObjectXVisible();
+
 
 private:
 	

@@ -275,13 +275,14 @@ bool Scene::NeedYRelocation(Primitive* p)
 bool Scene::NeedRightScrollbar()
 {
 	
-	int scene_height = this->GetSceneHeight();
+	return AllObjectsYVisible();
+	/*int scene_height = this->GetSceneHeight();
 	int this_height = this->_bounding_rect.h;
 
 	if (scene_height > this_height) {
 		return true;
 	}
-	else return false;
+	else return false;*/
 
 	
 	
@@ -290,13 +291,15 @@ bool Scene::NeedRightScrollbar()
 
 bool Scene::NeedBottomScrollbar()
 {
-	int scene_width = this->GetSceneWidth();
+	/*int scene_width = this->GetSceneWidth();
 	int this_width = this->_bounding_rect.w;
 
 	if (scene_width > this_width) {
 		return true;
 	}
-	else return false;
+	else return false;*/
+
+	return AllObjectXVisible();
 }
 
 bool Scene::HasRightScrollBar() const
@@ -739,6 +742,28 @@ void Scene::ScrollBarDeduction()
 		RemoveBottomScrollBar();
 	}
 
+}
+
+bool Scene::AllObjectsYVisible()
+{
+	CollisionDetector cd;
+
+	if (cd.AllControlsYInControl(_child_controls, this) && 
+		cd.AllPrimitivesYInControl(_primitives,this)) {
+			return false;
+		}
+	else {
+		return true;
+	}
+		
+		
+	
+		
+}
+
+bool Scene::AllObjectXVisible()
+{
+	return true;
 }
 
 Scene::~Scene()
