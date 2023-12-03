@@ -39,6 +39,7 @@ public:
 	enum ControlMsgRequest
 	{
 		_RIGHT_SCROLLBAR_WIDTH = 1,
+		_BOTTOM_SCROLLBAR_DEDUCTION,
 		_BOTTOM_SCROLLBAR_HEIGHT,
 		_SCROLL_UP,
 		_SCROLL_DOWN,
@@ -146,7 +147,8 @@ private:
 	int _offset_x = 0;
 	int _offset_y = 0;
 
-	
+	bool _need_right_scrollbar = false;
+	bool _need_bottom_scrollbar = false;
 	
 	SDL_Rect _viewport_rect = { 0,0,0,1 };
 

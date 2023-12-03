@@ -101,6 +101,10 @@ void Scene::PreDraw()
 
 void Scene::UpdateScrollBar()
 {
+
+	_need_right_scrollbar = NeedRightScrollbar();
+	_need_bottom_scrollbar = NeedBottomScrollbar();
+		
 	_right_scroll_bar->Update();
 	_bottom_scroll_bar->Update();
 }
@@ -399,16 +403,15 @@ int Scene::GetViewportPositionXInScene()
 
 void Scene::DrawScrollBar()
 {
-	bool need_right = NeedRightScrollbar();
-	bool need_bottom = NeedBottomScrollbar();
+	
 
-	if (need_right)
+	if (_need_right_scrollbar)
 		_right_scroll_bar->Draw();
 
-	if (need_bottom)
+	if (_need_bottom_scrollbar)
 		_bottom_scroll_bar->Draw();
 
-	if (need_right && need_bottom) {
+	if (_need_right_scrollbar && _need_bottom_scrollbar) {
 
 		SDL_Color* c = _right_scroll_bar->GetColor();
 
@@ -581,6 +584,10 @@ void Scene::ControlMessagingFunction(ControlMsg* message)
 		break;
 	case Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT:
 		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
+		break;
+	case Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_DEDUCTION:
+		message->_result = _bottom_scroll_bar ? (void*)_bottom_scroll_bar->GetHeight() : 0;
+		message->_result2 = (void*)_need_bottom_scrollbar;
 		break;
 	case Scene::ControlMsgRequest::_SCROLL_UP:
 		this->ScrollUp(10);

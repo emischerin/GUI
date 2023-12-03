@@ -25,6 +25,7 @@ public:
 	{
 		int _command;
 		void* _result;
+		void* _result2; //just in case you need additional result args
 
 	};
 

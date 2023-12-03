@@ -81,11 +81,14 @@ void RightScrollBar::Draw()
 void RightScrollBar::TrimMyHeightIfBottomScrollbar()
 {
 	
-	ControlMsg msg = { Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_HEIGHT,0 };
+	ControlMsg msg = { Scene::ControlMsgRequest::_BOTTOM_SCROLLBAR_DEDUCTION,0 };
 
 	_parent_control->ControlMessagingFunction(&msg);
 
-	this->ResizeHeight(-(int)msg._result);
+	bool bottom_scrollbar_will_be_drawn = (bool)msg._result2;
+
+	if(bottom_scrollbar_will_be_drawn)
+		this->ResizeHeight(-(int)msg._result);
 	
 }
 
