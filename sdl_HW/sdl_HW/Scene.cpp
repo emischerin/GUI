@@ -44,32 +44,8 @@ void Scene::ScrollDeduction()
 	if (t->type == SDL_MOUSEWHEEL) {
 		//int wheel_y = t->wheel.y;
 		float wheel_y = t->wheel.preciseY;
-		int wheel_dir = t->wheel.direction;
 		
-		std::string wheel_y_prefix = "wheel_y:";
 		
-		std::string wheel_y_num = std::to_string(wheel_y);
-
-		std::string result = wheel_y_prefix + wheel_y_num;
-
-		
-
-
-		SDL_Log(result.c_str());
-
-		std::string wheel_y_dir_pref = "wheel_y_dir:";
-
-		std::string wheel_y_dir_num = std::to_string(wheel_dir);
-
-		std::string result_dir = wheel_y_dir_pref + wheel_y_dir_num;
-
-		SDL_Log(result_dir.c_str());
-
-		
-
-		wheel_y = wheel_y * 5;
-
-
 		if (wheel_y > 0 ) {
 			this->ScrollDown(5);
 		}
