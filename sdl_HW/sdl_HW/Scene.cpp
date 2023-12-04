@@ -23,6 +23,9 @@ Scene::Scene(Viewport* v) : Control((Control*)v)
 
 void Scene::ReactToEvents()
 {
+	CollisionDetector cd;
+
+	if (!cd.MouseInControl(this)) return;
 	
 	_right_scroll_bar->ReactToEvents();
 	
