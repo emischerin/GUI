@@ -274,21 +274,33 @@ bool Scene::NeedYRelocation(Primitive* p)
 
 bool Scene::NeedRightScrollbar()
 {
-	return true;
+	CollisionDetector cd;
+
+	if (!cd.AllControlsYInControl(_child_controls, this)) {
+		return true;
+	}
+
+	if (!cd.AllPrimitivesYInControl(_primitives, this)) {
+		return true;
+	}
+
+	return false;
 }
 
 
 bool Scene::NeedBottomScrollbar()
 {
-	/*int scene_width = this->GetSceneWidth();
-	int this_width = this->_bounding_rect.w;
+	CollisionDetector cd;
 
-	if (scene_width > this_width) {
+	if (!cd.AllControlsXInControl(_child_controls, this)) {
 		return true;
 	}
-	else return false;*/
 
-	return AllObjectXVisible();
+	if (!cd.AllPrimitivesXInControl(_primitives, this)) {
+		return true;
+	}
+
+	return false;
 }
 
 bool Scene::HasRightScrollBar() const
