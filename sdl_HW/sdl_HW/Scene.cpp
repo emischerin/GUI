@@ -274,18 +274,7 @@ bool Scene::NeedYRelocation(Primitive* p)
 
 bool Scene::NeedRightScrollbar()
 {
-	
-	return AllObjectsYVisible();
-	/*int scene_height = this->GetSceneHeight();
-	int this_height = this->_bounding_rect.h;
-
-	if (scene_height > this_height) {
-		return true;
-	}
-	else return false;*/
-
-	
-	
+	return true;
 }
 
 

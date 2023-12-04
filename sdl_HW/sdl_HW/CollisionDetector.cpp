@@ -2,7 +2,7 @@
 
 bool CollisionDetector::PointInControl(Control* control, int x, int y)
 {
-	if (!control) return false;
+	
 
 	SDL_Rect* bounding_rect = control->GetBoundingRect();
 
@@ -16,7 +16,7 @@ bool CollisionDetector::PointInControl(Control* control, int x, int y)
 
 bool CollisionDetector::AllControlsGroupInControl(std::vector<Control*>& inner, Control* outer)
 {
-	if (!outer) return false;
+	
 
 	for (auto ctrl : inner) {
 		
@@ -29,7 +29,7 @@ bool CollisionDetector::AllControlsGroupInControl(std::vector<Control*>& inner, 
 
 bool CollisionDetector::AllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer)
 {
-	if (!outer) return false;
+	
 
 	for (auto primitive : inner) {
 		if (!AllPrimitivePointsInControl(outer,primitive))
@@ -41,7 +41,7 @@ bool CollisionDetector::AllPrimitiveGroupInControl(std::vector<Primitive*>& inne
 
 bool CollisionDetector::NotAllControlsGroupInControl(std::vector<Control*>& inner, Control* outer)
 {
-	if (!outer) return false;
+	
 
 	for (auto ctrl : inner) {
 
@@ -54,7 +54,7 @@ bool CollisionDetector::NotAllControlsGroupInControl(std::vector<Control*>& inne
 
 bool CollisionDetector::NotAllPrimitiveGroupInControl(std::vector<Primitive*>& inner, Control* outer)
 {
-	if (!outer) return false;
+	
 
 	for (auto primitive : inner) {
 		if (!AllPrimitivePointsInControl(outer, primitive))
@@ -66,8 +66,7 @@ bool CollisionDetector::NotAllPrimitiveGroupInControl(std::vector<Primitive*>& i
 
 bool CollisionDetector::PointInControl(Control* control, SDL_Point* p)
 {
-	if (!control) return false;
-	if (!p) return false;
+	
 
 
 	SDL_Rect* bounding_rect = control->GetBoundingRect();
@@ -98,7 +97,7 @@ bool CollisionDetector::MouseInWindow(SDL_Window* window)
 
 bool CollisionDetector::PointInRect(SDL_Rect* rect, int x, int y)
 {
-	if (!rect) return false;
+	
 
 	int upper_x = rect->x + rect->w;
 	int upper_y = rect->y + rect->h;
@@ -111,7 +110,7 @@ bool CollisionDetector::PointInRect(SDL_Rect* rect, int x, int y)
 
 bool CollisionDetector::MouseInControl(Control* control)
 {
-	if (!control) return false;
+	
 
 	int mouse_x, mouse_y;
 	SDL_GetMouseState(&mouse_x, &mouse_y);
@@ -123,7 +122,7 @@ bool CollisionDetector::MouseInControl(Control* control)
 
 bool CollisionDetector::PointXInRect(SDL_Rect* rect, int x)
 {
-	if (!rect) return false;
+	
 
 	int rect_x1 = rect->x;
 	int rect_x2 = rect->x + rect->w;
@@ -136,7 +135,7 @@ bool CollisionDetector::PointXInRect(SDL_Rect* rect, int x)
 
 bool CollisionDetector::PointYInRect(SDL_Rect* rect, int y)
 {
-	if (!rect) return false;
+	
 
 	int rect_y1 = rect->y;
 	int rect_y2 = rect->y + rect->h;
@@ -152,8 +151,7 @@ bool CollisionDetector::PointYInRect(SDL_Rect* rect, int y)
 
 bool CollisionDetector::AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* rect)
 {
-	if (!rect) return false;
-	if (v.size() == 0) return false;
+	
 
 	for (int i = 0; i < v.size(); ++i) {
 		if (v[i]) {
@@ -169,8 +167,7 @@ bool CollisionDetector::AllControlsXInRect(std::vector<Control*>& v, SDL_Rect* r
 
 bool CollisionDetector::AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect)
 {
-	if (!rect) return false;
-	if (v.size() == 0) return false;
+	
 
 	for (int i = 0; i < v.size(); ++i) {
 		if (v[i]) {
@@ -186,8 +183,7 @@ bool CollisionDetector::AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* r
 
 bool CollisionDetector::AllPrimitivesXInRect(std::vector<Primitive*>& v, SDL_Rect* rect)
 {
-	if (!rect) return false;
-	if (v.size() == 0) return false;
+	
 
 	for (int i = 0; i < v.size(); ++i) {
 		if (v[i]) {
@@ -203,8 +199,7 @@ bool CollisionDetector::AllPrimitivesXInRect(std::vector<Primitive*>& v, SDL_Rec
 
 bool CollisionDetector::AllPrimitivesYInRect(std::vector<Primitive*>& v, SDL_Rect* rect)
 {
-	if (!rect) return false;
-	if (v.size() == 0) return false;
+	
 
 	for (int i = 0; i < v.size(); ++i) {
 		if (v[i]) {
@@ -220,8 +215,7 @@ bool CollisionDetector::AllPrimitivesYInRect(std::vector<Primitive*>& v, SDL_Rec
 
 bool CollisionDetector::AllControlsXInControl(std::vector<Control*>& v, Control* c)
 {
-	if (!c) return false;
-	if (v.size() == 0) return false;
+	
 
 	SDL_Rect* ctrl_rect = c->GetBoundingRect();
 
@@ -233,9 +227,7 @@ bool CollisionDetector::AllControlsXInControl(std::vector<Control*>& v, Control*
 
 bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control* c)
 {
-	if (!c) return false;
-	if (v.size() == 0) return false;
-
+	
 	SDL_Rect* ctrl_rect = c->GetBoundingRect();
 
 	return AllControlsYInRect(v, ctrl_rect);
@@ -243,8 +235,7 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 
 bool CollisionDetector::AllPrimitivesXInControl(std::vector<Primitive*>& v, Control* c)
 {
-	if (!c) return false;
-	if (v.size() == 0) return false;
+	
 
 	SDL_Rect* ctrl_rect = c->GetBoundingRect();
 
@@ -253,8 +244,7 @@ bool CollisionDetector::AllPrimitivesXInControl(std::vector<Primitive*>& v, Cont
 
 bool CollisionDetector::AllPrimitivesYInControl(std::vector<Primitive*>& v, Control* c)
 {
-	if (!c) return false;
-	if (v.size() == 0) return false;
+	
 
 	SDL_Rect* ctrl_rect = c->GetBoundingRect();
 
@@ -273,9 +263,7 @@ bool CollisionDetector::ControlInControl(Control* outer, Control* inner)
 
 bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner)
 {
-	if (!outer) return false;
-	if (!inner) return false;
-
+	
 	std::vector<SDL_Point> inner_points = inner->GetAllBoundingRectPoints();
 
 	for (int i = 0; i < inner_points.size(); ++i) {
@@ -291,8 +279,7 @@ bool CollisionDetector::AllControlPointsInControl(Control* outer, Control* inner
 
 bool CollisionDetector::AllPrimitivePointsInControl(Control* outer, Primitive* inner)
 {
-	if (!outer) return false;
-	if (!inner) return false;
+	
 
 	std::vector<SDL_Point> inner_points = inner->GetAllBoundingRectPoints();
 
