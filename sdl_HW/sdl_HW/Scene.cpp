@@ -111,16 +111,10 @@ void Scene::AddControl(Control* c)
 		c->SetRender(_render);
 		c->SetParentWindow(_my_parent_window);
 		c->SetParentControl(this);
+		Control::AddChild(c);
+		
 
-		if (ControlOutOfSceneTexture(c)) {
-			//this->ResizeTextureToControl(c);
-			Control::AddChild(c);
-		}
-		else {
-			Control::AddChild(c);
-		}
-
-		this->ScrollBarDeduction();
+		
 	}
 		
 
@@ -134,16 +128,10 @@ void Scene::AddPrimitive(Primitive* p)
 		p->SetRender(_render);
 		p->SetParentControl(this);
 		p->SetParentWindow(_my_parent_window);
+		Control::AddPrimitive(p);
+		
 
-		if (PrimitiveOutOfSceneTexture(p)) {
-			//this->ResizeTextureToPrimitive(p);
-			Control::AddPrimitive(p);
-		}
-		else {
-			Control::AddPrimitive(p);
-		}
-
-		this->ScrollBarDeduction();
+		
 	}
 }
 
@@ -729,22 +717,7 @@ int Scene::GetSceneWidth()
 
 void Scene::ScrollBarDeduction()
 {
-	if (NeedRightScrollbar()) {
-		this->CreateRightScrollBar();
-
-	}
-	else
-	{
-		RemoveRightScrollBar();
-	}
-
-	if (NeedBottomScrollbar()) {
-		this->CreateBottomScrollBar();
-	}
-	else
-	{
-		RemoveBottomScrollBar();
-	}
+	
 
 }
 
