@@ -112,9 +112,7 @@ void Scene::AddControl(Control* c)
 		c->SetParentWindow(_my_parent_window);
 		c->SetParentControl(this);
 		Control::AddChild(c);
-		
-
-		
+				
 	}
 		
 
@@ -129,9 +127,7 @@ void Scene::AddPrimitive(Primitive* p)
 		p->SetParentControl(this);
 		p->SetParentWindow(_my_parent_window);
 		Control::AddPrimitive(p);
-		
-
-		
+				
 	}
 }
 
