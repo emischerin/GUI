@@ -99,9 +99,11 @@ void Scene::Draw()
 	
 	Control::Draw();
 
-	SDL_RenderSetViewport(_render, &current_viewport);
+	
 
 	this->DrawScrollBar();
+
+	SDL_RenderSetViewport(_render, &current_viewport);
 	
 	
 	
