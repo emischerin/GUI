@@ -91,15 +91,14 @@ void Scene::UpdateScrollBar()
 void Scene::Draw()
 {
 	SDL_Rect current_viewport;
-	SDL_RenderGetViewport(_render, &current_viewport);
-	SDL_RenderSetViewport(_render, &_bounding_rect);
+	
 	
 	SDL_SetRenderDrawColor(_render, _background_color.r,_background_color.g,_background_color.b,_background_color.a);
 	SDL_RenderFillRect(_render,&_bounding_rect );
 	
 	Control::Draw();
 
-	SDL_RenderSetViewport(_render, &current_viewport);
+	
 
 	this->DrawScrollBar();
 	
