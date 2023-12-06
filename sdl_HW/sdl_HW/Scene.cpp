@@ -90,8 +90,14 @@ void Scene::UpdateScrollBar()
 
 void Scene::Draw()
 {
-	SDL_Rect current_viewport;
+	SDL_Rect current_clip_rect;
+	bool clip_set = SDL_RenderIsClipEnabled(_render);
+
+	if (clip_set) 
+		SDL_RenderGetClipRect(_render, &current_clip_rect);
 	
+		
+	SDL_RenderSetClipRect(_render, &_bounding_rect);
 
 	
 	SDL_SetRenderDrawColor(_render, _background_color.r,_background_color.g,_background_color.b,_background_color.a);
@@ -103,6 +109,13 @@ void Scene::Draw()
 
 	this->DrawScrollBar();
 
+	if (clip_set) {
+		SDL_RenderSetClipRect(_render, &current_clip_rect);
+	}
+	else {
+		SDL_RenderSetClipRect(_render, 0);
+	}
+	
 	
 	
 	
