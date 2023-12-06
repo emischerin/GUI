@@ -57,13 +57,13 @@ void RightScrollBar::Update()
 {
 	int p_height = _parent_control->GetHeight();
 	int _this_height = p_height;
-	int _this_x = _parent_control->GetWidth() - this->GetWidth();
+	int _this_x = (_parent_control->GetX() + _parent_control->GetWidth()) - this->GetWidth();
 
 	this->SetWidthAndHeight(this->GetWidth(), _this_height);
 
 	this->TrimMyHeightIfBottomScrollbar();
 
-	this->SetPosition(_this_x, 0);
+	this->SetPosition(_this_x, _parent_control->GetY());
 
 	Control::Update();
 }
