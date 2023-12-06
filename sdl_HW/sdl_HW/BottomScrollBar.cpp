@@ -53,13 +53,13 @@ void BottomScrollBar::Update()
 	int p_height = _parent_control->GetHeight();
 	int _this_height = this->GetHeight();
 	int _this_x = _parent_control->GetX();
-	int _this_y = _parent_control->GetHeight() - this->GetHeight();
+	int _this_y = (_parent_control->GetY() + _parent_control->GetHeight()) - this->GetHeight();
 	
 	this->SetWidthAndHeight(_parent_control->GetWidth(), _this_height);
 
 	this->TrimMyWidthIfRightScrollBar();
 
-	this->SetPosition(0, _this_y);
+	this->SetPosition(_this_x, _this_y);
 
 	Control::Update();
 }
