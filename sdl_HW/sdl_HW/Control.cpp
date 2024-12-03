@@ -195,12 +195,6 @@ int Control::GetY() const
 	 _total_children_height += child->GetHeight();
  }
 
- void Control::AddPrimitive(Primitive* p)
- {
-	 if (!p) return;
-	 p->SetRender(_render);
-	 _primitives.push_back(p);
- }
 
  void Control::ReactToEvents()
  {
@@ -209,18 +203,14 @@ int Control::GetY() const
 		 if (c) c->ReactToEvents();
 	 }
 
-	 for (int i = 0; i < _primitives.size(); ++i) {
-		 Primitive* p = _primitives[i];
-		 if (p) p->ReactToEvents();
-	 }
+	 
  }
 
  void Control::Update()
  {
 	 for (Control* c : _child_controls)
 		 if (c) c->Update();
-	 for (Primitive* p : _primitives)
-		 if (p) p->Update();
+	 
 
  }
 
@@ -231,11 +221,7 @@ int Control::GetY() const
 		 if (ctrl) ctrl->PreDraw();
 	 }
 
-	 for (int i = 0; i < _primitives.size(); ++i) {
-		 Primitive* p = _primitives[i];
-		 if (p) p->PreDraw();
-
-	 }
+	 
  }
 
  void Control::Draw()
@@ -244,8 +230,7 @@ int Control::GetY() const
 	 for (Control* c : _child_controls)
 		 if (c) c->Draw();
 
-	 for (Primitive* p : _primitives)
-		 if (p) p->Draw();
+	
  }
 
  void Control::AdjustToParent() {}
@@ -316,147 +301,29 @@ int Control::GetY() const
 
 	 return (*it)->GetY();
  }
-
- int Control::MinXPrimitive()
- {
-	 if (_primitives.size() == 0) return -1;
-
-	 auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
-	 {
-		 return (p1->GetX() < p2->GetX());
-	 };
-
-	 auto it = _primitives.begin();
-
-	 std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
-
-	 return (*it)->GetX();
- }
-
-  int Control::MaxXPrimitive()
- {
-	 if (_primitives.size() == 0) return -1;
-
-	 auto _primitive_by_x = [](Primitive* p1, Primitive* p2)
-	 {
-		 return (p1->GetX() > p2->GetX());
-	 };
-
-	 auto it = _primitives.begin();
-
-	 std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_x);
-
-	 return (*it)->GetX();
- }
-
-
-
- int Control::MinYPrimitive()
- {
-	 if (_primitives.size() == 0) return -1;
-
-	 auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
-	 {
-		 return (p1->GetY() < p2->GetY());
-	 };
-
-	 auto it = _primitives.begin();
-
-	 std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
-
-	 return (*it)->GetY();
- }
-
-  int Control::MaxYPrimitive()
- {
-	 if (_primitives.size() == 0) return -1;
-
-	 auto _primitive_by_y = [](Primitive* p1, Primitive* p2)
-	 {
-		 return (p1->GetY() > p2->GetY());
-	 };
-
-	 auto it = _primitives.begin();
-
-	 std::nth_element(_primitives.begin(), it, _primitives.end(), _primitive_by_y);
-
-	 return (*it)->GetY();
- }
-
+ 
   int Control::MinYObject()
   {
-	  int min_y_control = MinYControl();
-	  int min_y_primitive = MinYPrimitive();
-
-	  if ((min_y_control == INT_MIN) && (min_y_primitive == INT_MIN)) {
-		  return INT_MIN;
-	  }
-	  else {
-		  if (min_y_control == INT_MIN || min_y_primitive == INT_MIN) {
-			  return std::max(min_y_control, min_y_primitive);
-		  }
-
-		  return std::min(min_y_control, min_y_primitive);
-	  }
-
-	  return INT_MIN;
+	 return MinYControl();
+	  
   }
 
   int Control::MaxYObject()
   {
-	  int max_y_control = MaxYControl();
-	  int max_y_primitive = MaxYPrimitive();
-
-	  if ((max_y_control == INT_MIN) && (max_y_primitive == INT_MIN)) {
-		  return INT_MIN;
-	  }
-	  else {
-		  if (max_y_control == INT_MIN || max_y_primitive == INT_MIN) {
-			  return std::max(max_y_control, max_y_primitive);
-		  }
-
-		  return std::max(max_y_control, max_y_primitive);
-	  }
-
-	  return INT_MIN;
+	  return MaxYControl();
+	  
   }
 
   int Control::MaxXObject()
   {
-	  int max_x_control = MaxXControl();
-	  int max_x_primitive = MaxXPrimitive();
-
-	  if ((max_x_control == INT_MIN) && (max_x_primitive == INT_MIN)) {
-		  return INT_MIN;
-	  }
-	  else {
-		  if (max_x_control == INT_MIN || max_x_primitive == INT_MIN) {
-			  return std::max(max_x_control, max_x_primitive);
-		  }
-
-		  return std::max(max_x_control, max_x_primitive);
-	  }
-
-	  return INT_MIN;
+	  return MaxXControl();
+	    
   }
 
   int Control::MinXObject()
   {
-	  int min_x_control = MaxXControl();
-	  int min_x_primitive = MaxXPrimitive();
-
-	  if ((min_x_control == INT_MIN) && (min_x_primitive == INT_MIN)) {
-		  return INT_MIN;
-	  }
-	  else {
-		  if (min_x_control == INT_MIN || min_x_primitive == INT_MIN) {
-			  return std::max(min_x_control, min_x_primitive);
-		  }
-
-		  return std::max(min_x_control, min_x_primitive);
-	  }
-
-	  return INT_MIN;
+	  return MaxXControl();
+	  
   }
 
   void Control::ResizeWidth(int dx)
@@ -479,47 +346,17 @@ int Control::GetY() const
   {
 	  this->_bounding_rect.y -= step;
 
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->MoveUp(step);
-	  }
+	  
   }
 
-  void Control::MoveDown(int step)
-  {
-	  this->_bounding_rect.y += step;
+ 
 
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->MoveDown(step);
-	  }
-  }
 
-  void Control::MoveLeft(int step)
-  {
-	  this->_bounding_rect.x -= step;
-
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->MoveLeft(step);
-	  }
-  }
-
-  void Control::MoveRight(int step)
-  {
-	  this->_bounding_rect.x += step;
-
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->MoveRight(step);
-	  }
-  }
+  
 
   Control::~Control()
   {
-	  for (Primitive* p : _primitives)
-		  if (p) delete p;
-
+	  
 	  for (Control* c : _child_controls)
 		  if (c) delete c;
 
@@ -542,20 +379,7 @@ int Control::GetY() const
 	  }
   }
 
-  void Control::RemoveChild(Primitive* p)
-  {
-	  if (_primitives.size() < 1) return;
-
-	  for (auto it = _primitives.begin(); it != _primitives.end(); ++it) {
-		  if (p == *it) {
-			  _primitives.erase(it);
-			  delete p;
-			  p = 0;
-			  break;
-		  }
-
-	  }
-  }
+  
 
   SDL_Renderer* Control::GetRender() { return _render; }
 
@@ -572,10 +396,7 @@ int Control::GetY() const
 		  if (c) c->SetRender(render);
 	  }
 
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->SetRender(render);
-	  }
+	  
   }
 
   void Control::SetParentWindowToChildren(Window* w)
@@ -584,11 +405,7 @@ int Control::GetY() const
 		  Control* c = _child_controls[i];
 		  if (c) c->_my_parent_window = _my_parent_window;
 	  }
-
-	  for (int i = 0; i < _primitives.size(); ++i) {
-		  Primitive* p = _primitives[i];
-		  if (p) p->_my_parent_window = _my_parent_window;
-	  }
+	  	
   }
 
   std::vector<SDL_Point> Control::GetAllBoundingRectPoints()

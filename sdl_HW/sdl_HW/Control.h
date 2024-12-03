@@ -15,7 +15,7 @@
 class Control
 {
 
-	friend class Primitive;
+	
 	friend class Window;
 	friend class Scene;
 
@@ -114,7 +114,7 @@ public:
 	virtual void AddChild(Control* child);
 	
 
-	virtual void AddPrimitive(Primitive* p);
+	
 	
 
 	virtual void ReactToEvents();
@@ -151,19 +151,7 @@ public:
 
 	virtual int MaxYControl();
 	
-
-	virtual int MinXPrimitive();
 	
-
-	virtual int MaxXPrimitive();
-	
-
-	
-
-	virtual int MinYPrimitive();
-	
-
-	virtual int MaxYPrimitive();
 	
 
 	/*RETURNS MIN Y CONTROL OR PRIMITIVE*/
@@ -202,14 +190,11 @@ public:
 	virtual void ControlMessagingFunction(ControlMsg* message);
 
 	virtual void RemoveChild(Control* c);
-	
-	
-	virtual void RemoveChild(Primitive* p);
-	
+		
 	std::vector<SDL_Point> GetAllBoundingRectPoints();
 	
 
-protected:
+
 
 	
 	SDL_Renderer* GetRender();
@@ -240,7 +225,7 @@ protected:
 
 	std::vector<Control*> _child_controls;
 	
-	std::vector<Primitive*> _primitives;
+	
 
 
 };

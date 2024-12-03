@@ -38,18 +38,7 @@ void Window::AddControl(Control* control)
 
 }
 
-void Window::AddPrimitive(Primitive* primitive)
-{
-	if (!primitive) return;
 
-	_primitives.push_back(primitive);
-	primitive->SetRender(_win_render);
-	primitive->SetParentWindow(this);
-
-	int layer = primitive->GetLayer();
-
-	_primitives_by_layer[layer].push_back(primitive);
-}
 
 void Window::ReactToEvents()
 {

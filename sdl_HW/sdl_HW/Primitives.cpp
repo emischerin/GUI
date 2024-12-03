@@ -1,5 +1,5 @@
 #include "Primitives.h"
-#include "Control.h"
+
 
 Primitive::Primitive(Control* parent)
 {

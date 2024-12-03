@@ -85,8 +85,8 @@
     <CopyLocalDebugSymbols>false</CopyLocalDebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\libcpp\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\libcpp\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\libcpp\SDL2-2.30.9\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\libcpp\SDL2-2.30.9\lib\x64;$(LibraryPath)</LibraryPath>
     <CopyLocalProjectReference>false</CopyLocalProjectReference>
     <CopyLocalDeploymentContent>true</CopyLocalDeploymentContent>
     <CopyLocalDebugSymbols>false</CopyLocalDebugSymbols>

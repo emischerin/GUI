@@ -138,17 +138,7 @@ void Scene::AddControl(Control* c)
 	
 }
 
-void Scene::AddPrimitive(Primitive* p)
-{
-	if (p) {
 
-		p->SetRender(_render);
-		p->SetParentControl(this);
-		p->SetParentWindow(_my_parent_window);
-		Control::AddPrimitive(p);
-				
-	}
-}
 
 void Scene::AddObject(Control* c)
 {
@@ -285,10 +275,7 @@ bool Scene::NeedRightScrollbar()
 	if (!cd.AllControlsYInControl(_child_controls, this)) {
 		return true;
 	}
-
-	if (!cd.AllPrimitivesYInControl(_primitives, this)) {
-		return true;
-	}
+		
 
 	return false;
 }
@@ -301,10 +288,7 @@ bool Scene::NeedBottomScrollbar()
 	if (!cd.AllControlsXInControl(_child_controls, this)) {
 		return true;
 	}
-
-	if (!cd.AllPrimitivesXInControl(_primitives, this)) {
-		return true;
-	}
+		
 
 	return false;
 }
@@ -438,14 +422,14 @@ void Scene::CreateSceneTexture(int w,int h)
 
 bool Scene::SceneTextureNeedsReallocation()
 {
-	if (this->MaxYPrimitive() > _scene_texture_rect.y)
-		return true;
+	
 	if (this->MaxYControl() > _scene_texture_rect.y)
 		return true;
-	if (this->MaxXPrimitive() > _scene_texture_rect.x)
-		return true;
+	
 	if (this->MaxYControl() > _scene_texture_rect.x)
 		return true;
+
+	return false;
 }
 
 void Scene::SetViewport(Viewport* viewport)
@@ -608,10 +592,7 @@ void Scene::ScrollUp(int step)
 		if (c) c->MoveUp(step);
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if (p) p->MoveUp(step);
-	}
+	
 	
 }
 
@@ -630,10 +611,7 @@ void Scene::ScrollDown(int step)
 		if (c) c->MoveDown(step);
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if (p) p->MoveDown(step);
-	}
+	
 	
 }
 
@@ -652,10 +630,7 @@ void Scene::ScrollRight(int step)
 		if (c) c->MoveRight(step);
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if (p) p->MoveRight(step);
-	}
+	
 	
 }
 
@@ -674,10 +649,7 @@ void Scene::ScrollLeft(int step)
 		if (c) c->MoveLeft(step);
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if (p) p->MoveLeft(step);
-	}
+	
 }
 
 int Scene::GetSceneHeight()
@@ -740,8 +712,7 @@ bool Scene::AllObjectsYVisible()
 {
 	CollisionDetector cd;
 
-	if (cd.AllControlsYInControl(_child_controls, this) && 
-		cd.AllPrimitivesYInControl(_primitives,this)) {
+	if (cd.AllControlsYInControl(_child_controls, this)) {
 			return false;
 		}
 	else {
