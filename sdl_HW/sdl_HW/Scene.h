@@ -53,10 +53,10 @@ public:
 	
 
 	void AddControl(Control* c);
-	void AddPrimitive(Primitive* p) override;
+	
 
 	void AddObject(Control* c);
-	void AddObject(Primitive* p);
+	
 
 
 	void ReactToEvents() override;
@@ -106,10 +106,10 @@ protected:
 	void CreateDefaultScene();
 
 	bool ControlOutOfSceneTexture(Control* c);
-	bool PrimitiveOutOfSceneTexture(Primitive* p);
+	
 
 	void ResizeTextureToControl(Control* c);
-	void ResizeTextureToPrimitive(Primitive* p);
+	
 
 	void CreateRightScrollBar();
 	void RemoveRightScrollBar();

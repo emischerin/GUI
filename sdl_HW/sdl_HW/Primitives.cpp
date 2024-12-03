@@ -1,17 +1,6 @@
 #include "Primitives.h"
 
 
-Primitive::Primitive(Control* parent)
-{
-	if (!parent) return;
-
-	this->_parent_control = parent;
-
-	this->_render = parent->GetRender();
-
-	this->SetBoundingRect(parent->GetBoundingRect());
-}
-
 Primitive::Primitive(int x, int y, int w, int h)
 {
 	_bounding_rect.x = x;
@@ -38,87 +27,6 @@ Primitive::Primitive(SDL_Rect bounding_rect)
 	_bounding_rect.h = bounding_rect.h;
 }
 
-
-
-void Primitive::SetBoundingRect(int x, int y, int w, int h)
-{
-	_bounding_rect.x = x;
-	_bounding_rect.y = y;
-	_bounding_rect.w = w;
-	_bounding_rect.h = h;
-}
-
-void Primitive::SetBoundingRect(SDL_Rect* bounding_rect)
-{
-	_bounding_rect.x = bounding_rect->x;
-	_bounding_rect.y = bounding_rect->y;
-	_bounding_rect.w = bounding_rect->w;
-	_bounding_rect.h = bounding_rect->h;
-}
-
-SDL_Rect* Primitive::GetBoundingRect()
-{
-	return &_bounding_rect;
-}
-
-void Primitive::SetColor(int r, int g, int b, int a)
-{
-	_color.r = r;
-	_color.g = g;
-	_color.b = b;
-	_color.a = a;
-
-	this->AppllyColorToEachVertex();
-}
-
-
-void Primitive::SetColor(SDL_Color* color)
-{
-	_color.r = color->r;
-	_color.g = color->g;
-	_color.b = color->b;
-	_color.a = color->a;
-
-	this->AppllyColorToEachVertex();
-}
-
-
-void Primitive::SetMouseOverColor(SDL_Color* color)
-{
-	_mouse_over_color.r = color->r;
-	_mouse_over_color.g = color->g;
-	_mouse_over_color.b = color->b;
-	_mouse_over_color.a = color->a;
-
-
-}
-
-SDL_Color* Primitive::GetColor()
-{
-	return &_color;
-}
-
- SDL_Color* Primitive::GetMouseOverColor()
-{
-	return &_mouse_over_color;
-}
-
- void Primitive::ReactToEvents()
- {
-
- }
- void Primitive::Update()
- {
-
- }
- void Primitive::PreDraw()
- {
-
- }
- void Primitive::Draw()
- {
-
- }
 
 std::vector<SDL_Vertex*> Primitive::GetVertexArray() const
 {
@@ -243,17 +151,6 @@ int Primitive::GetY() const
  }
 
 
-
- void Primitive::SetParentWindow(Window* w)
- {
-	 _my_parent_window = w;
- }
-
- void Primitive::SetParentControl(Control* c)
- {
-	 _parent_control = c;
-	 _render = c->GetRender();
- }
 
  std::vector<SDL_Point> Primitive::GetAllBoundingRectPoints()
  {

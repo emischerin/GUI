@@ -17,7 +17,7 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar*
 
 
 	/*This needs only for base dtor correct working*/
-	this->AddPrimitive(_triangle);
+	
 
 	
 }

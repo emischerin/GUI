@@ -18,7 +18,7 @@ class Primitive : public Control
 
 public:
 	
-	Primitive(Control* parent);
+	
 
 	Primitive(int x, int y, int w, int h);
 	
@@ -66,7 +66,7 @@ public:
 
 	void SetRender(SDL_Renderer* render);
 
-	void SetParentControl(Control* c);
+	
 
 	std::vector<SDL_Point> GetAllBoundingRectPoints();
 
@@ -77,13 +77,11 @@ public:
 	
 	
 
-	void SetParentWindow(Window* w);
-
 	std::vector<SDL_Vertex*> _vertices;
 	
 	
 
-	Window* _my_parent_window = nullptr;
+	
 
 
 	

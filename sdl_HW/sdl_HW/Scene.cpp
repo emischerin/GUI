@@ -144,10 +144,7 @@ void Scene::AddObject(Control* c)
 {
 	this->AddControl(c);
 }
-void Scene::AddObject(Primitive* p)
-{
-	this->AddPrimitive(p);
-}
+
 
 void Scene::ResizeTextureToControl(Control* c)
 {
@@ -182,34 +179,7 @@ void Scene::ResizeTextureToControl(Control* c)
 		
 }
 
-void Scene::ResizeTextureToPrimitive(Primitive* p)
-{
-	if (!p) return;
 
-	const int offset_x = 25;
-	const int offset_y = 25;
-
-	int result_width, result_height;
-
-	int most_right = p->MaxXVertex();
-	int most_down = p->MaxYVertex();
-
-	if (most_right >= _scene_texture_rect.w) {
-		result_width = most_right + offset_x;
-	}
-	else {
-		result_width = _scene_texture_rect.w;
-	}
-
-	if (most_down >= _scene_texture_rect.h) {
-		result_height = most_down + offset_y;
-	}
-	else {
-		result_height = _scene_texture_rect.h;
-	}
-
-	//this->SetTextureSize(result_width, result_height);
-}
 
 bool Scene::ControlOutOfSceneTexture(Control* c)
 {
@@ -229,20 +199,7 @@ bool Scene::ControlOutOfSceneTexture(Control* c)
 	
 }
 
-bool Scene::PrimitiveOutOfSceneTexture(Primitive* p)
-{
-	if (!p) return false;
-	if (!_viewport) return false;
 
-	int primitive_max_x = p->MaxXVertex();
-	int primitive_max_y = p->MaxYVertex();
-	SDL_Rect* viewport_rect = _viewport->GetViewportRect();
-
-	if (primitive_max_x > viewport_rect->w) return true;
-	if (primitive_max_y > viewport_rect->h) return true;
-
-	return false;
-}
 
 bool Scene::NeedXRelocation(Primitive* p)
 {

@@ -37,13 +37,11 @@ public:
 	
 	
 
-	void Draw() override;
+	
 	
 	void SetDirection(Triangle::TriangleDirection dir);
 
-	void SetBoundingRect(SDL_Rect* bounding_rect) override;
-
-	void SetBoundingRect(int x,int y,int w,int) override;
+	
 
 	void InitVertices();
 

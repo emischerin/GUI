@@ -32,9 +32,7 @@ public:
 
 	bool AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* rect);
 
-	bool AllPrimitivesXInRect(std::vector<Primitive*>& v, SDL_Rect* rect);
-
-	bool AllPrimitivesYInRect(std::vector<Primitive*>& v, SDL_Rect* rect);
+	
 	
 	bool AllControlsXInControl(std::vector<Control*>& v, Control* c);
 

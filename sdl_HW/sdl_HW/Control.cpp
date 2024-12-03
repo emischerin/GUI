@@ -349,8 +349,20 @@ int Control::GetY() const
 	  
   }
 
+  void Control::MoveDown(int step)
+  {
+	  this->_bounding_rect.y += step;
+  }
  
+  void Control::MoveLeft(int step)
+  {
+	  this->_bounding_rect.x -= step;
+  }
 
+  void Control::MoveRight(int step)
+  {
+	  this->_bounding_rect.x += step;
+  }
 
   
 

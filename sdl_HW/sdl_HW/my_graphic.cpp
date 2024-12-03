@@ -64,17 +64,17 @@ int main(int argc, char** argv)
 	Scene* s = new Scene(&mw);
 
 	Triangle* t = new Triangle(150, 300, 55, 55, Triangle::TriangleDirection::UP);
-	s->AddObject(t);
+	s->AddControl(t);
 
 	Triangle* t1 = new Triangle(400, 500, 55, 55, Triangle::TriangleDirection::LEFT);
-	s->AddObject(t1);
+	s->AddControl(t1);
 
 
 	Triangle* t2 = new Triangle(500, 900, 55, 55, Triangle::TriangleDirection::LEFT);
-	s->AddObject(t2);
+	s->AddControl(t2);
 
 	Triangle* t3 = new Triangle(1000, 300, 55, 55, Triangle::TriangleDirection::DOWN);
-	s->AddObject(t3);
+	s->AddControl(t3);
 	/*Triangle* t = new Triangle(50, 2, 55, 55, Triangle::TriangleDirection::UP);
 	
 

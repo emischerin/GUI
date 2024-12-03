@@ -181,37 +181,7 @@ bool CollisionDetector::AllControlsYInRect(std::vector<Control*>& v, SDL_Rect* r
 	return true;
 }
 
-bool CollisionDetector::AllPrimitivesXInRect(std::vector<Primitive*>& v, SDL_Rect* rect)
-{
-	
 
-	for (int i = 0; i < v.size(); ++i) {
-		if (v[i]) {
-			SDL_Rect* primitive_rect = v[i]->GetBoundingRect();
-
-			if (!PointXInRect(rect, primitive_rect->x))
-				return false;
-		}
-	}
-
-	return true;
-}
-
-bool CollisionDetector::AllPrimitivesYInRect(std::vector<Primitive*>& v, SDL_Rect* rect)
-{
-	
-
-	for (int i = 0; i < v.size(); ++i) {
-		if (v[i]) {
-			SDL_Rect* primitive_rect = v[i]->GetBoundingRect();
-
-			if (!PointYInRect(rect, primitive_rect->y))
-				return false;
-		}
-	}
-
-	return true;
-}
 
 bool CollisionDetector::AllControlsXInControl(std::vector<Control*>& v, Control* c)
 {
@@ -233,23 +203,7 @@ bool CollisionDetector::AllControlsYInControl(std::vector<Control*>& v, Control*
 	return AllControlsYInRect(v, ctrl_rect);
 }
 
-bool CollisionDetector::AllPrimitivesXInControl(std::vector<Primitive*>& v, Control* c)
-{
-	
 
-	SDL_Rect* ctrl_rect = c->GetBoundingRect();
-
-	return AllPrimitivesXInRect(v, ctrl_rect);
-}
-
-bool CollisionDetector::AllPrimitivesYInControl(std::vector<Primitive*>& v, Control* c)
-{
-	
-
-	SDL_Rect* ctrl_rect = c->GetBoundingRect();
-
-	return AllPrimitivesYInRect(v, ctrl_rect);
-}
 
 bool CollisionDetector::RectInRect(SDL_Rect* outer, SDL_Rect* inner)
 {

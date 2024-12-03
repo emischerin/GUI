@@ -23,14 +23,6 @@ Triangle::Triangle(SDL_Rect bounding_rect, TriangleDirection dir) : Primitive(bo
 	this->InitVertices();
 }
 
-
-void Triangle::Draw() 
-{
-	
-	SDL_RenderGeometry(_render, 0, *_vertices.data(), _vertices.size(), 0, 0);
-	
-}
-
 void Triangle::InitVertices()
 {
 	if (_my_direction == UP) {
@@ -129,17 +121,7 @@ void Triangle::InitVertices()
 
 }
 
-void Triangle::SetBoundingRect(SDL_Rect* bounding_rect)
-{
-	Primitive::SetBoundingRect(bounding_rect);
-	this->InitVertices();
-}
 
-void Triangle::SetBoundingRect(int x, int y, int w, int h)
-{
-	Primitive::SetBoundingRect(x, y, w, h);
-	this->InitVertices();
-}
 
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
 {

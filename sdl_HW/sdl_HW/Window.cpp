@@ -49,10 +49,7 @@ void Window::ReactToEvents()
 		if(ctrl) ctrl->ReactToEvents();
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if(p) p->ReactToEvents();
-	}
+	
 }
 
 void Window::InternalReactToEvents()
@@ -69,10 +66,7 @@ void Window::Update()
 		if(ctrl) ctrl->Update();
 	}
 
-	for (int i = 0; i < _primitives.size(); ++i) {
-		Primitive* p = _primitives[i];
-		if(p) p->Update();
-	}
+	
 }
 
 void Window::InternalUpdate()
