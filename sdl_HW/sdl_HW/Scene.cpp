@@ -4,11 +4,11 @@
 
 Scene::Scene(Window* w) : Control(w)
 {
-	_right_scroll_bar = new RightScrollBar();
-	_right_scroll_bar->SetParentControl(this);
+	_right_scroll_bar = new RightScrollBar(this);
+	
 
-	_bottom_scroll_bar = new BottomScrollBar();
-	_bottom_scroll_bar->SetParentControl(this);
+	_bottom_scroll_bar = new BottomScrollBar(this);
+	
 
 
 }

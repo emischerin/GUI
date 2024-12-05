@@ -65,6 +65,7 @@ void RightScrollBar::Update()
 
 	this->SetPosition(_this_x, _parent_control->GetY());
 
+	Control::Update();
 	
 }
 
@@ -73,9 +74,8 @@ void RightScrollBar::Draw()
 	SDL_SetRenderDrawColor(_render, 15, 8, 18, 255);
 	SDL_RenderFillRect(_render, &_bounding_rect);
 	
-	
-
-	
+	Control::DrawChildren();
+		
 }
 
 void RightScrollBar::TrimMyHeightIfBottomScrollbar()

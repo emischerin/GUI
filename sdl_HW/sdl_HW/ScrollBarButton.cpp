@@ -26,7 +26,7 @@ ScrollBarButton::ScrollBarButton(Triangle::TriangleDirection dir, BaseScrollBar*
 
 void ScrollBarButton::Update()
 {
-	_triangle->InitVertices();
+	
 
 	Triangle::TriangleDirection d = _triangle->GetDirection();
 
@@ -112,7 +112,7 @@ void ScrollBarButton::Draw()
 	else {
 		
 		SDL_SetRenderDrawColor(_render, _color.r, _color.g, _color.b, _color.a);
-		SDL_RenderFillRect(_render, &_bounding_rect);
+ 		SDL_RenderFillRect(_render, &_bounding_rect);
 		_triangle->SetColor(228, 209, 230, 1);
 		_triangle->Draw();
 

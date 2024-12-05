@@ -121,10 +121,41 @@ void Triangle::InitVertices()
 
 }
 
+void Triangle::SetBoundingRect(int x, int y, int w, int h) 
+{
+	Control::SetBoundingRect(x,y,w,h);
+
+	this->InitVertices();
+
+}
+
+void Triangle::SetBoundingRect(SDL_Rect* bounding_rect)
+{
+	Control::SetBoundingRect(bounding_rect);
+
+	this->InitVertices();
+}
+
+void Triangle::Update()
+{
+	this->InitVertices();
+}
 
 void Triangle::Draw()
 {
-	SDL_RenderGeometry(_render, 0, *(_vertices.data()), _vertices.size(), 0, 0);
+	this->InitVertices();
+
+	int result = SDL_RenderGeometry(_render, 0, *(_vertices.data()), _vertices.size(), 0, 0);
+	
+	if (result)
+	{
+		const char* err = SDL_GetError();
+
+		SDL_Log(err);
+	}
+	
+
+	
 }
 
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)

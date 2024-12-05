@@ -26,6 +26,8 @@ Control::Control(Window* parent_window)
 
 	_my_parent_window->AddControl(this);
 
+	_render = parent_window->GetWinRender();
+
 }
 
 

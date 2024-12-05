@@ -38,6 +38,7 @@ public:
 	
 	void Draw() override;
 	
+	void Update() override;
 	
 	void SetDirection(Triangle::TriangleDirection dir);
 
@@ -46,6 +47,10 @@ public:
 	void InitVertices();
 
 	Triangle::TriangleDirection GetDirection() const;
+
+	void SetBoundingRect(int x, int y, int w, int h) override;
+
+	void SetBoundingRect(SDL_Rect* bounding_rect) override;
 
 protected:
 	

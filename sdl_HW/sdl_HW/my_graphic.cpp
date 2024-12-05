@@ -66,6 +66,21 @@ int main(int argc, char** argv)
 	Triangle* t = new Triangle(150, 300, 55, 55, Triangle::TriangleDirection::UP);
 	s->AddControl(t);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	Triangle* t1 = new Triangle(400, 500, 55, 55, Triangle::TriangleDirection::LEFT);
 	s->AddControl(t1);
 
