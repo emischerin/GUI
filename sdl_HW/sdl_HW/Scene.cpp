@@ -64,8 +64,6 @@ void Scene::Update()
 
 	this->UpdateMyBoundingRect();
 	
-	Control::Update();
-
 	this->UpdateScrollBar();
 
 
@@ -103,9 +101,7 @@ void Scene::Draw()
 	SDL_SetRenderDrawColor(_render, _background_color.r,_background_color.g,_background_color.b,_background_color.a);
 	SDL_RenderFillRect(_render,&_bounding_rect );
 	
-	Control::Draw();
-
-	
+	Control::DrawChildren();
 
 	this->DrawScrollBar();
 
@@ -688,7 +684,7 @@ bool Scene::AllObjectXVisible()
 
 Scene::~Scene()
 {
-	Control::~Control();
+	
 	delete _right_scroll_bar;
 	delete _bottom_scroll_bar;
 	

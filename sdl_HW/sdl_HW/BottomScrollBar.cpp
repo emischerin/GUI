@@ -69,7 +69,7 @@ void BottomScrollBar::Draw()
 	SDL_SetRenderDrawColor(_render, 15, 8, 18, 255);
 	SDL_RenderFillRect(_render, &_bounding_rect);
 
-	Control::Draw();
+	
 
 
 }

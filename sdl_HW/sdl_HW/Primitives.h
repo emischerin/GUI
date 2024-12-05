@@ -1,9 +1,7 @@
 #pragma once
 #ifndef PRIMITIVES_H
 #define PRIMITIVES_H
-#include <algorithm>
-#include <vector>
-#include <SDL.h>
+
 #include "Control.h"
 /* TODO: 1) implement vertice color setter
 *	     2) Move vertices from Triangle here		

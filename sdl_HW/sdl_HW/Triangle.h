@@ -2,10 +2,10 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-#include <vector>
-#include <SDL.h>
+
+
 #include "Primitives.h"
-#include "AppGlobals.h"
+
 
 /* TODO: move vertices logic to primitive (base class) as, in fact, every primitive has vertices */
 
@@ -36,7 +36,7 @@ public:
 	
 	
 	
-
+	void Draw() override;
 	
 	
 	void SetDirection(Triangle::TriangleDirection dir);

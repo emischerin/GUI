@@ -131,8 +131,9 @@ public:
 	
 	
 
-	virtual void Draw();
+	virtual void Draw() = 0;
 	
+	void DrawChildren();
 
 	virtual void AdjustToParent();
 	virtual void AdjustChildren();

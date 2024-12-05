@@ -122,6 +122,10 @@ void Triangle::InitVertices()
 }
 
 
+void Triangle::Draw()
+{
+	SDL_RenderGeometry(_render, 0, *(_vertices.data()), _vertices.size(), 0, 0);
+}
 
 void Triangle::SetVertexPosition(SDL_Vertex* v, float x, float y)
 {

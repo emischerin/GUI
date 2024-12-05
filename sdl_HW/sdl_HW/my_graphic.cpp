@@ -75,46 +75,7 @@ int main(int argc, char** argv)
 
 	Triangle* t3 = new Triangle(1000, 300, 55, 55, Triangle::TriangleDirection::DOWN);
 	s->AddControl(t3);
-	/*Triangle* t = new Triangle(50, 2, 55, 55, Triangle::TriangleDirection::UP);
 	
-
-	Triangle* t1 = new Triangle(0, 550, 65, 65, Triangle::TriangleDirection::UP);
-	
-	Triangle* t2 = new Triangle(100, 900, 65, 65, Triangle::TriangleDirection::UP);
-
-
-
-	s->AddPrimitive(t);
-	s->AddPrimitive(t1);
-	s->AddPrimitive(t2);*/
-
-
-
-
-	/*Viewport* v = new Viewport(&mw);
-
-	
-	
-	
-
-	Triangle* t = new Triangle(65,65,30,30,Triangle::TriangleDirection::UP);
-	s->AddPrimitive(t);*/
-
-	
-
-	
-	
-	
-	//s->AddPrimitive(t);
-
-	/*Triangle* t1 = new Triangle(100, 100, 50, 50, Triangle::TriangleDirection::DOWN);
-	s->AddPrimitive(t1);
-	Triangle* t2 = new Triangle(200, 200, 50, 50, Triangle::TriangleDirection::LEFT);
-	s->AddPrimitive(t2);
-	Triangle* t3 = new Triangle(300, 300, 50, 50, Triangle::TriangleDirection::RIGHT);
-	s->AddPrimitive(t3);
-	Triangle* t4 = new Triangle(150, 1000, 50, 50, Triangle::TriangleDirection::DOWN);
-	s->AddPrimitive(t4);*/
 	
 		
 	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);

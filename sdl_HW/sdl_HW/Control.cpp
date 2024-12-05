@@ -224,14 +224,14 @@ int Control::GetY() const
 	 
  }
 
- void Control::Draw()
+ void Control::DrawChildren()
  {
-
-	 for (Control* c : _child_controls)
-		 if (c) c->Draw();
-
-	
+	 for (int i = 0; i < _child_controls.size(); ++i) {
+		 Control* ctrl = _child_controls[i];
+		 if (ctrl) ctrl->Draw();
+	 }
  }
+ 
 
  void Control::AdjustToParent() {}
  void Control::AdjustChildren() {}
