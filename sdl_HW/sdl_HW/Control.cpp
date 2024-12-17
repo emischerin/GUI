@@ -393,7 +393,17 @@ int Control::GetY() const
 	  }
   }
 
-  
+  void Control::UntrackControl(Control* c)
+  {
+	  for (auto it = _child_controls.begin(); it != _child_controls.end(); ++it) {
+		  if ((*it) == c) {
+			  _child_controls.erase(it);
+			  return;
+		  }
+			  
+	  }
+
+  }
 
   SDL_Renderer* Control::GetRender() { return _render; }
 

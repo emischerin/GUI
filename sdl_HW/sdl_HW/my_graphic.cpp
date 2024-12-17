@@ -66,21 +66,6 @@ int main(int argc, char** argv)
 	Triangle* t = new Triangle(150, 300, 55, 55, Triangle::TriangleDirection::UP);
 	s->AddControl(t);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	Triangle* t1 = new Triangle(400, 500, 55, 55, Triangle::TriangleDirection::LEFT);
 	s->AddControl(t1);
 
@@ -93,7 +78,7 @@ int main(int argc, char** argv)
 	
 	
 		
-	return mw.StartLoop(MainWindow::LoopType::SIMPLE_APP);
+	return mw.StartLoop(MainWindow::LoopType::HARD_REAL_TIME);
 
 
 

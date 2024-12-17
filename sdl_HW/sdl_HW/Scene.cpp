@@ -5,10 +5,11 @@
 Scene::Scene(Window* w) : Control(w)
 {
 	_right_scroll_bar = new RightScrollBar(this);
-	
-
 	_bottom_scroll_bar = new BottomScrollBar(this);
 	
+	this->UntrackControl(_right_scroll_bar);
+	this->UntrackControl(_bottom_scroll_bar);
+
 
 
 }
@@ -533,12 +534,10 @@ void Scene::ScrollUp(int step)
 	int max_y_obj = MaxYObject();
 	
 	int obj_max_y = (this->GetY() + this->GetHeight()) - 150;
-
-
+	
 	if (max_y_obj == INT_MIN) return;
 
-	if (max_y_obj < obj_max_y) return;
-
+	if (max_y_obj <= obj_max_y) return;
 
 	for (int i = 0; i < _child_controls.size(); ++i) {
 		Control* c = _child_controls[i];

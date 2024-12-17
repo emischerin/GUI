@@ -152,7 +152,7 @@ public:
 
 	virtual int MaxYControl();
 	
-	
+	virtual void UntrackControl(Control* c);
 	
 
 	/*RETURNS MIN Y CONTROL OR PRIMITIVE*/

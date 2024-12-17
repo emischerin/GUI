@@ -107,12 +107,31 @@ int MainWindow::HardRealTimeMainLoop()
 		while (SDL_PollEvent(&e)) {
 			uint32_t event_t = e.type;
 
-			if (event_t == SDL_QUIT) return 1;
-			
-			AppGlobals::event = &e;
+			if (event_t == SDL_QUIT) {
+				SDL_Quit();
+				return 1;
+			}
 
-			this->ReactToEvents();
-			this->Draw();
+			if (AppGlobals::quit_requested) return 1;
+
+			AppGlobals::event = &e;
+			_event_type = event_t;
+			_current_event = e;
+			
+
+			std::vector<Window*>* windows = AppGlobals::win_tracker->GetAllWindows();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->ReactToEvents();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->Update();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->PreDraw();
+
+			for (int i = 0; i < windows->size(); ++i)
+				windows->at(i)->Draw();
 			
 		}
 				

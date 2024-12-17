@@ -52,12 +52,14 @@ void CloseButton::ReactToEvents()
 		if (event_t == SDL_MOUSEBUTTONDOWN) {
 			Uint8 mouse_btn_code = AppGlobals::event->button.button;
 			if (mouse_btn_code == 1) { /*Left mouse button*/
-				SDL_Quit();
+			
 				AppGlobals::quit_requested = true;
 				
 
 			}
 		}
+
+
 		
 	}
 	
